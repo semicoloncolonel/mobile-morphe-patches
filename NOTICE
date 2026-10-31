@@ -4,8 +4,9 @@ Credits:
 
 - morphe-androidtv-patches (ajstrick81/morphe-androidtv-patches), GPL-3.0
   Author: ajstrick81 (github.com/ajstrick81)
-  The patches in this project are ports of ajstrick81's Android TV patches to
-  the phone versions of the same apps. The hook design, the Fox IMA
+  Some of the patches in this project are ports of ajstrick81's Android TV
+  patches to the phone versions of the same apps. For those, the hook
+  design, the Fox IMA
   fingerprints, the Rainmaker error-result technique, the analytics
   blocklist (TrackerBlocker), the Pluto TV ad-period detection, resume
   mapping and live ad-break mask, the Paramount+ shouldPlayAd gate and live

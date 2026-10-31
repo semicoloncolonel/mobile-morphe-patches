@@ -117,6 +117,8 @@ public final class TrackerBlocker {
             "api2.amplitude.com", // Amplitude event upload (not the Experiment flag hosts)
             // CNN (26.21.0)
             "zion.api.cnn.io", "collector.cdp.cnn.com", // CNN data collection
+            // NFL (61.0.18)
+            "prf.hn", // Partnerize purchase attribution
             // Google Analytics / Firebase Analytics upload
             "app-measurement.com", "google-analytics.com",
             // Google Ads conversion tracking (not ad serving)

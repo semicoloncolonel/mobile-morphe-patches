@@ -108,9 +108,19 @@ val spoofCarrierPatch = bytecodePatch(
     val carrierName by stringOption(
         key = "carrierName",
         default = "",
-        values = mapOf("Hidden (blank)" to ""),
+        values = mapOf(
+            "Hidden (blank)" to "",
+            "AT&T" to "AT&T",
+            "Google Fi" to "Google Fi",
+            "Mint Mobile" to "Mint Mobile",
+            "T-Mobile" to "T-Mobile",
+            "US Mobile" to "US Mobile",
+            "Verizon" to "Verizon",
+            "Visible" to "Visible",
+        ),
         title = "Carrier name",
-        description = "The carrier name the app sees. Leave blank to hide the carrier.",
+        description = "The carrier name the app sees. Pick one from the list or type any name. " +
+            "Blank hides the carrier.",
         required = false,
     )
 

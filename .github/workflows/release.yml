@@ -58,5 +58,5 @@ jobs:
         if: steps.release.outputs.new_release_published == 'true'
         uses: actions/attest-build-provenance@v3
         with:
-          subject-name: 'Mobile Stream Patches ${{ steps.release.outputs.new_release_git_tag }}'
+          subject-name: 'Mobile Morphe Patches ${{ steps.release.outputs.new_release_git_tag }}'
           subject-path: patches/build/libs/patches-*.mpp

@@ -1,4 +1,4 @@
-rootProject.name = "mobile-stream-patches"
+rootProject.name = "mobile-morphe-patches"
 
 pluginManagement {
     repositories {

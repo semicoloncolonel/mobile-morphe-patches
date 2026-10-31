@@ -12,7 +12,8 @@ Credits:
   mapping and live ad-break mask, the Paramount+ shouldPlayAd gate and live
   slate rewrite, the HBO Max ad-origin filter, the
   Disable auto-updates version bump, the Peacock Sky SDK
-  SSAI switches, the Prime Video Minerva metrics hook, the Fox One IMA/DAI
+  SSAI switches, the Prime Video Minerva metrics hook, the ESPN
+  isAdDisabled hook, the Fox One IMA/DAI
   and Yospace hooks (from ajstrick81's unreleased, in-development Fox One
   patch), and the build setup are ajstrick81's work. This
   project re-targets them at the phone apps.

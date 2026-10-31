@@ -10,6 +10,9 @@ import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.appletv.shared.Constants as AppleTv
 import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
+import semicoloncolonel.mobilestream.patches.espn.shared.Constants as Espn
+import semicoloncolonel.mobilestream.patches.nfl.shared.Constants as Nfl
+import semicoloncolonel.mobilestream.patches.nba.shared.Constants as Nba
 import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
 import semicoloncolonel.mobilestream.patches.hulu.shared.Constants as Hulu
 import semicoloncolonel.mobilestream.patches.foxnews.shared.Constants as FoxNews
@@ -68,6 +71,9 @@ val disableAutoUpdatesPatch = resourcePatch(
         FoxNews.COMPATIBILITY,
         MsNow.COMPATIBILITY,
         Cnn.COMPATIBILITY,
+        Espn.COMPATIBILITY,
+        Nfl.COMPATIBILITY,
+        Nba.COMPATIBILITY,
     )
 
     execute {

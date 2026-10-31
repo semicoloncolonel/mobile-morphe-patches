@@ -1,3 +1,15 @@
+## [1.0.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.1...v1.0.2) (2026-10-31)
+
+
+### Features
+
+* add carrier presets to Spoof carrier ([00bc6c7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/00bc6c756b489d971dad5311f8eb5c53e746cacc))
+* add Spoof carrier ([80bae66](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/80bae6637793cca09548af088d94554b2aad0b18))
+* enable the shared patches for ESPN, NFL and NBA ([03128b9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03128b9714ccf176d544325039ab737a6907d90c))
+* **espn:** add ESPN Skip ads and Block analytics ([a954b61](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a954b61f8a932fb6fa5ca8c1d8150251abfd4ea8))
+* **nba:** add NBA Skip ads, Disable Ask NBA AI and Block analytics ([11f9b1a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/11f9b1a0debc3d0c55bceeaf76373fd0f49ec62d))
+* **nfl:** add NFL Skip ads and Block analytics ([5cd4dfe](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5cd4dfecc8b41b0dba9d05e6673d97b03b32f4f9))
+
 ## [1.0.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.0...v1.0.1) (2026-10-31)
 
 

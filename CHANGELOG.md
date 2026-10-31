@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.0...v1.0.1) (2026-10-31)
+
+
+### Bug Fixes
+
+* match the Fox IMA ad listener by name only ([ef0f399](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ef0f39933a9730aeba05b1c12a1966a3efce0660))
+
 # 1.0.0 (2026-10-31)
 
 

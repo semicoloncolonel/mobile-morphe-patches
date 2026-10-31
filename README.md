@@ -25,7 +25,6 @@ These patches are ports of [ajstrick81's Android TV patches](https://github.com/
 | Hallmark+ | Skip ads (experimental), Disable Pairip license check, Block analytics & tracking (opt-in) | `8.108.2` |
 | Starz | Skip pre-roll promo (experimental), Remove social sign-in, Block analytics & tracking (opt-in) | `6.11.0` |
 | PBS | Skip ads (experimental), Block analytics & tracking (opt-in) | `5.27.0` |
-| Samsung TV Plus | Block analytics & tracking (opt-in) | `1.0.30.8` |
 | Fox News | Skip ads (experimental), Opt out of data sale & sharing, Block analytics & tracking (opt-in) | `5.49.2` |
 | MS NOW | Opt out of data sale & sharing, Block analytics & tracking (opt-in) | `14.6.0` |
 | CNN | Skip ads (experimental), Opt out of data sale & sharing, Remove social sign-in, Block analytics & tracking (opt-in) | `26.21.0` |
@@ -38,7 +37,7 @@ These patches are ports of [ajstrick81's Android TV patches](https://github.com/
 
 ## What the patches do
 
-**Skip ads** stops the app from loading ad breaks, server-stitched ad streams, and pause-screen ads. On Pluto TV, it removes on-demand ads only. Live TV ads are part of the broadcast. On Paramount+, live sports breaks are replaced with Paramount's "Commercial in Progress" card. On AMC+, it plays videos without the stitched-in ad breaks, which also removes the interactive true[X] and Brightline ads. On Apple TV, it stops the ad interstitials in on-demand videos, along with any promos delivered the same way. On Hallmark+, it stops FreeWheel ad breaks and pause-screen ads, but ads that the server stitches into a stream remain. On PBS, it stops the sponsor messages before and during videos. On Fox News, it removes banner, feed, sponsored, and full-screen ads, and plays videos without inserted ad breaks. On CNN, it removes banner and sponsored-content ads and plays article videos and clips without ads. All Access streaming is not changed. Samsung TV Plus has no Skip ads patch: its ads are stitched into the stream with no marker the app can detect.
+**Skip ads** stops the app from loading ad breaks, server-stitched ad streams, and pause-screen ads. On Pluto TV, it removes on-demand ads only. Live TV ads are part of the broadcast. On Paramount+, live sports breaks are replaced with Paramount's "Commercial in Progress" card. On AMC+, it plays videos without the stitched-in ad breaks, which also removes the interactive true[X] and Brightline ads. On Apple TV, it stops the ad interstitials in on-demand videos, along with any promos delivered the same way. On Hallmark+, it stops FreeWheel ad breaks and pause-screen ads, but ads that the server stitches into a stream remain. On PBS, it stops the sponsor messages before and during videos. On Fox News, it removes banner, feed, sponsored, and full-screen ads, and plays videos without inserted ad breaks. On CNN, it removes banner and sponsored-content ads and plays article videos and clips without ads. All Access streaming is not changed.
 
 **Mask live ad breaks** (Pluto TV) covers live ads with a black screen and mutes them, then restores the show when the break ends. Live ads are part of the broadcast, so they cannot be cut out.
 
@@ -58,7 +57,6 @@ These patches are ports of [ajstrick81's Android TV patches](https://github.com/
 - On Hallmark+, it blocks Kochava, Datazoom, and Firebase/Google Analytics.
 - On Starz, it blocks AppsFlyer, CleverTap, Leanplum, Braze, Ethnio surveys, and Firebase/Google Analytics.
 - On PBS, it blocks AppsFlyer, Mux playback analytics, and Firebase/Google Analytics.
-- On Samsung TV Plus, it blocks Braze, Firebase/Google Analytics, and Samsung's own usage and diagnostics logging. Channels and sign-in are left alone.
 - On Fox News, it blocks Adobe, AppsFlyer, Chartbeat, comScore, Nielsen, Firebase/Google Analytics, and Fox's own ad telemetry and ad-ID graph. Push notifications are left alone.
 - On MS NOW, it blocks Adobe, Kochava, Nielsen, comScore, Amplitude, Parse.ly, Iterate, and Firebase/Google Analytics.
 - On CNN, it blocks Adobe, AppsFlyer, Chartbeat, comScore, Firebase/Google Analytics, and CNN's own data collection. Push notifications are left alone.

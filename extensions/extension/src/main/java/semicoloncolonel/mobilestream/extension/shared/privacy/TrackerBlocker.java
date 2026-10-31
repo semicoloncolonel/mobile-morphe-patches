@@ -111,10 +111,6 @@ public final class TrackerBlocker {
             "ethn.io", // Ethnio research surveys
             // PBS (5.27.0)
             "qoe.pbs.org", // Mux Data beacons on a PBS domain
-            // Samsung TV Plus phone (1.0.30.8)
-            "di.atlas.samsung.com", // Samsung DI Atlas telemetry
-            "ureca-lab.com", "ureca.samsungapps.com", // Samsung log collection
-            "diagmon-policy.samsungdm.com", "diagmon-serviceapi.samsungdm.com", // Samsung DiagMon
             // Fox News phone (5.49.2)
             "pyxis.atp.fox", // Fox ad telemetry
             "xid.atp.fox", "idgraph.dt.fox", // Fox ad-ID graph

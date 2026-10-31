@@ -23,7 +23,6 @@ import semicoloncolonel.mobilestream.patches.paramount.shared.Constants as Param
 import semicoloncolonel.mobilestream.patches.peacock.shared.Constants as Peacock
 import semicoloncolonel.mobilestream.patches.pluto.shared.Constants as Pluto
 import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as PrimeVideo
-import semicoloncolonel.mobilestream.patches.samsungtvplus.shared.Constants as SamsungTvPlus
 import semicoloncolonel.mobilestream.patches.starz.shared.Constants as Starz
 import semicoloncolonel.mobilestream.patches.tubi.shared.Constants as Tubi
 import semicoloncolonel.mobilestream.patches.wsj.shared.Constants as Wsj
@@ -66,7 +65,6 @@ val disableAutoUpdatesPatch = resourcePatch(
         Hallmark.COMPATIBILITY,
         Starz.COMPATIBILITY,
         Pbs.COMPATIBILITY,
-        SamsungTvPlus.COMPATIBILITY,
         FoxNews.COMPATIBILITY,
         MsNow.COMPATIBILITY,
         Cnn.COMPATIBILITY,

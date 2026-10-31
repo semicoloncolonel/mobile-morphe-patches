@@ -2,7 +2,10 @@ package semicoloncolonel.mobilestream.patches.foxnews.ads
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.smali.ExternalLabel
 import semicoloncolonel.mobilestream.patches.foxnews.shared.Constants
 
 private const val AD_VIEW = "Lcom/foxnews/adKit/FoxNewsAdView;"
@@ -47,9 +50,16 @@ val skipAdsPatch = bytecodePatch(
         // Collapse the slot the same way the app collapses a Taboola unit
         // that fails to render, then report a no-fill (GAM code 3) so the
         // caller takes its own failed-ad path.
-        SetAdTypeFingerprint.method.addInstructions(
+        //
+        // setAdType(null) is how callers clear a slot, and the feed's
+        // failure handler does exactly that. Null calls run the original
+        // code; intercepting them too made the failure handler call back
+        // into this patch forever (StackOverflowError on 5.49.2).
+        val setAdType = SetAdTypeFingerprint.method
+        setAdType.addInstructionsWithLabels(
             0,
             """
+                if-eqz p1, :original
                 invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
                 const/16 v0, 0x8
                 invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
@@ -73,6 +83,7 @@ val skipAdsPatch = bytecodePatch(
                 :done
                 return-void
             """,
+            ExternalLabel("original", setAdType.getInstruction(0)),
         )
 
         listOf(ShouldShowInterstitialFingerprint, ShouldLoadImaStreamFingerprint).forEach {

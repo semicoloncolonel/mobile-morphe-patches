@@ -63,3 +63,16 @@
     public static java.util.List adMetadata(java.util.List);
     public static double mapStreamSeconds(double);
 }
+
+# NBA — "Skip ads". inject() is called only from injected smali in the app's
+# WebViewClient page callbacks.
+-keep class semicoloncolonel.mobilestream.extension.nba.ads.NbaWebVideoAds {
+    public static void inject(android.webkit.WebView, java.lang.String);
+}
+
+# NBA — "Disable Ask NBA AI". filterMenu() is called only from injected smali
+# in MenuItem's constructor.
+-keep class semicoloncolonel.mobilestream.extension.nba.misc.NbaAskFilter {
+    public static java.util.List filterMenu(java.util.List);
+}
+

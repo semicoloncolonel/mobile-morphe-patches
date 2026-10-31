@@ -18,7 +18,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 object FoxImaAdEventListenerFingerprint : Fingerprint(
     definingClass = "Lcom/fox/android/video/player/api/ima/listeners/FoxImaAdListeners;",
     name = "adEventListener_delegate\$lambda\$10\$lambda\$9",
-    strings = listOf("adEvent"),
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL)
 )
 

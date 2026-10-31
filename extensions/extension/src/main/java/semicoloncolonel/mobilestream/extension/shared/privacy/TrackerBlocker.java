@@ -103,8 +103,6 @@ public final class TrackerBlocker {
             "parsely.com", // Parse.ly
             "snplow.net", // Snowplow collector
             "rlcdn.com", // LiveRamp ATS identity
-            // Hallmark+ phone (8.108.2)
-            "datazoom.io", // Datazoom video analytics
             // Starz phone (6.11.0)
             "clevertap-prod.com", // CleverTap engagement analytics
             "leanplum.com", // Leanplum engagement analytics

@@ -15,7 +15,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import semicoloncolonel.mobilestream.patches.foxone.shared.Constants as FoxOne
-import semicoloncolonel.mobilestream.patches.hallmark.shared.Constants as Hallmark
 
 // Google's Pairip licensing (com.pairip.licensecheck) asks the Play Store
 // whether this install came from Play, and blocks the app when it did not.
@@ -45,7 +44,7 @@ val disablePairipLicenseCheckPatch = bytecodePatch(
         "any copy not installed from the Play Store. Client-side only; it does not bypass Play " +
         "Integrity attestation.",
 ) {
-    compatibleWith(FoxOne.COMPATIBILITY, Hallmark.COMPATIBILITY)
+    compatibleWith(FoxOne.COMPATIBILITY)
 
     execute {
         PairipProcessResponseFingerprint.method.apply {

@@ -11,9 +11,9 @@ import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.appletv.shared.Constants as AppleTv
 import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
 import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
+import semicoloncolonel.mobilestream.patches.hulu.shared.Constants as Hulu
 import semicoloncolonel.mobilestream.patches.foxnews.shared.Constants as FoxNews
 import semicoloncolonel.mobilestream.patches.foxone.shared.Constants as FoxOne
-import semicoloncolonel.mobilestream.patches.hallmark.shared.Constants as Hallmark
 import semicoloncolonel.mobilestream.patches.hbomax.shared.Constants as HboMax
 import semicoloncolonel.mobilestream.patches.mgm.shared.Constants as Mgm
 import semicoloncolonel.mobilestream.patches.msnow.shared.Constants as MsNow
@@ -51,6 +51,7 @@ val disableAutoUpdatesPatch = resourcePatch(
     compatibleWith(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
+        Hulu.COMPATIBILITY,
         Pluto.COMPATIBILITY,
         Paramount.COMPATIBILITY,
         HboMax.COMPATIBILITY,
@@ -62,7 +63,6 @@ val disableAutoUpdatesPatch = resourcePatch(
         Wsj.COMPATIBILITY,
         Amc.COMPATIBILITY,
         AppleTv.COMPATIBILITY,
-        Hallmark.COMPATIBILITY,
         Starz.COMPATIBILITY,
         Pbs.COMPATIBILITY,
         FoxNews.COMPATIBILITY,

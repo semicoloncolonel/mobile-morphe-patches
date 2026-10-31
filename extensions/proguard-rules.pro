@@ -47,3 +47,19 @@
 -keep class semicoloncolonel.mobilestream.extension.mgm.ads.MgmPrerollSkipper {
     public static void maybeSkipAux(java.lang.Object, java.util.List);
 }
+
+# Shared "Report Wi-Fi connection" / "Hide VPN connection" (opt-in). Every
+# public static method replaces a framework call at app call sites via
+# injected invoke-static, and reportWifi / hideVpn are overwritten by the
+# patches, so R8 must keep them as they are and not fold their result.
+-keep class semicoloncolonel.mobilestream.extension.shared.privacy.NetworkStateSpoofer {
+    public static *;
+}
+
+# Hulu — "Skip ads". filter / adMetadata / mapStreamSeconds are called only
+# from injected smali via invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.hulu.ads.HuluMpdFilter {
+    public static java.io.InputStream filter(java.io.InputStream);
+    public static java.util.List adMetadata(java.util.List);
+    public static double mapStreamSeconds(double);
+}

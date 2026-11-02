@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.3...v1.0.4) (2026-11-02)
+
+
+### Bug Fixes
+
+* **primevideo:** rename shared Amazon permissions ([2eeb522](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2eeb5229cb3c1eee24dbfcbba2b31a7299e07477))
+
 ## [1.0.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.2...v1.0.3) (2026-11-02)
 
 

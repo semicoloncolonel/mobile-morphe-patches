@@ -119,9 +119,9 @@ Some of these patches are ports of [ajstrick81's Android TV patches](https://git
 
 **Hide device identifiers** is off by default and works on every app here. It gives the app a random Android ID, generated once per install, instead of your device's. It also reports a zeroed advertising ID with ad tracking limited, the same as deleting your ad ID in Android settings. The video DRM ID is left alone so playback keeps working.
 
-**Report Wi-Fi connection** is off by default and works on every app here. When the phone is on mobile data, the app sees an unmetered Wi-Fi connection instead, so settings such as "download over Wi-Fi only" and lower streaming quality on mobile data do not apply. Wi-Fi-only download jobs that the app hands to Android also run on mobile data. This can use a lot of mobile data.
+**Report Wi-Fi connection** is off by default and works on the streaming and news apps. When the phone is on mobile data, the app sees an unmetered Wi-Fi connection instead, so settings such as "download over Wi-Fi only" and lower streaming quality on mobile data do not apply. Wi-Fi-only download jobs that the app hands to Android also run on mobile data. This can use a lot of mobile data.
 
-**Hide VPN connection** is off by default and works on every app here. It hides an active VPN from the app's checks on the phone, so the app sees the Wi-Fi or mobile connection that the VPN runs over. The app can still recognize a VPN from your IP address on its servers, and checks built into an app's native code are not covered.
+**Hide VPN connection** is off by default and works on the streaming and news apps. It hides an active VPN from the app's checks on the phone, so the app sees the Wi-Fi or mobile connection that the VPN runs over. The app can still recognize a VPN from your IP address on its servers, and checks built into an app's native code are not covered.
 
 **Spoof carrier** is off by default and works on every app here. It hides your mobile carrier from the app and from the ad, analytics, and crash-reporting SDKs inside it. The carrier name is blank unless you type a different name in the patch option, in which case the app sees that name. The carrier's network code is always hidden. Carrier deals that an app detects from your carrier, such as League Pass included with a phone plan, do not work while this is on.
 

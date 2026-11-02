@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.4...v1.0.5) (2026-11-02)
+
+
+### Bug Fixes
+
+* limit the store-tracking privacy patches to the shopping apps ([6b2084b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6b2084b7427102f33ae145c979cee6a8d3e11805))
+
 ## [1.0.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.3...v1.0.4) (2026-11-02)
 
 

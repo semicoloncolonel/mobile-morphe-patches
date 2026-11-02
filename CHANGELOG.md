@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.2...v1.0.3) (2026-11-02)
+
+
+### Features
+
+* add DealSeek and seven store apps, with shopping privacy patches ([6c6abfa](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6c6abfa0cbaf084dbc779d87c37f3f2689c54a25))
+
 ## [1.0.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.1...v1.0.2) (2026-10-31)
 
 

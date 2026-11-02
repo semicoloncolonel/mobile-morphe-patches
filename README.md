@@ -24,7 +24,7 @@ Some of these patches are ports of [ajstrick81's Android TV patches](https://git
 | PBS | Skip ads (experimental), Block analytics & tracking (opt-in) | `5.27.0` | 10/30/26 |
 | Peacock | Skip ads (experimental), Disable Xfinity auto sign-in, Block analytics & tracking (opt-in) | `7.10.20` | 10/30/26 |
 | Pluto TV | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking (opt-in) | `17.2.0` | 10/31/26 |
-| Prime Video | Skip ads, Block analytics & tracking (opt-in) | `3.0.477.1447` | 10/31/26 |
+| Prime Video | Skip ads, Rename shared permissions, Block analytics & tracking (opt-in) | `3.0.477.1447` | 11/01/26 |
 | Starz | Skip launch video, Skip pre-roll promo (experimental), Remove social sign-in, Block analytics & tracking (opt-in) | `6.11.0` | 10/31/26 |
 | Tubi | Skip ads, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking (opt-in) | `10.43.1` | 10/30/26 |
 
@@ -93,6 +93,8 @@ Some of these patches are ports of [ajstrick81's Android TV patches](https://git
 **Disable Pairip license check** (Fox One and DealSeek) lets the patched app start. Google's Pairip license check blocks any copy that was not installed from the Play Store, and every patched app counts as one.
 
 **Strip affiliate links** (DealSeek) opens each deal at the store's own product page. The app normally sends a deal through its own click tracker, which also receives your analytics ID, and then through an affiliate network such as Impact or Sovrn. With this patch, the deal opens directly at the store, and affiliate tags such as Amazon's are removed. It covers Amazon, Walmart, Best Buy, eBay, Wayfair, and Target. DealSeek does not earn a commission on purchases made this way.
+
+**Rename shared permissions** (Prime Video) is applied with every Prime Video patch. Prime Video declares sign-in permissions that other Amazon apps also declare, and Android refuses to install an app that declares the same permission as an installed app signed with a different key. Without this patch, the patched Prime Video blocks installing Amazon Shopping and other Amazon apps from the Play Store with a "conflicting package" error. The patch adds a `mobilestream.` prefix to those permission names.
 
 **Disable Ask NBA AI** (NBA) hides the Ask NBA chat button on every screen and removes the Ask NBA tile from the Discover tab.
 

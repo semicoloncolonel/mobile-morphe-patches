@@ -12,32 +12,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstructio
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 import semicoloncolonel.mobilestream.patches.shared.SHOPPING_APPS
-import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
-import semicoloncolonel.mobilestream.patches.pbs.shared.Constants as Pbs
-import semicoloncolonel.mobilestream.patches.starz.shared.Constants as Starz
-import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
-import semicoloncolonel.mobilestream.patches.espn.shared.Constants as Espn
-import semicoloncolonel.mobilestream.patches.nfl.shared.Constants as Nfl
-import semicoloncolonel.mobilestream.patches.nba.shared.Constants as Nba
-import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
-import semicoloncolonel.mobilestream.patches.hulu.shared.Constants as Hulu
-import semicoloncolonel.mobilestream.patches.foxnews.shared.Constants as FoxNews
-import semicoloncolonel.mobilestream.patches.foxone.shared.Constants as FoxOne
-import semicoloncolonel.mobilestream.patches.hbomax.shared.Constants as HboMax
-import semicoloncolonel.mobilestream.patches.mgm.shared.Constants as Mgm
-import semicoloncolonel.mobilestream.patches.msnow.shared.Constants as MsNow
-import semicoloncolonel.mobilestream.patches.nytimes.shared.Constants as NyTimes
-import semicoloncolonel.mobilestream.patches.paramount.shared.Constants as Paramount
-import semicoloncolonel.mobilestream.patches.peacock.shared.Constants as Peacock
-import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as PrimeVideo
-import semicoloncolonel.mobilestream.patches.pluto.shared.Constants as Pluto
-import semicoloncolonel.mobilestream.patches.tubi.shared.Constants as Tubi
-import semicoloncolonel.mobilestream.patches.wsj.shared.Constants as Wsj
-import semicoloncolonel.mobilestream.patches.washingtonpost.shared.Constants as WashingtonPost
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Hide Wi-Fi networks / Block Bluetooth scanning / Hide cell tower info /
-// Block background location (all OPT-IN, default OFF).
+// Block background location (all OPT-IN, default OFF, shopping apps only).
 //
 // Retail apps tell that you are inside a store from nearby radio signals as
 // well as GPS: Walmart matches its store Wi-Fi in scans, Target, Home Depot
@@ -58,15 +36,6 @@ import semicoloncolonel.mobilestream.patches.washingtonpost.shared.Constants as 
 private const val HIDER = "Lsemicoloncolonel/mobilestream/extension/shared/privacy/NearbyHider;"
 private const val SPOOFER = "Lsemicoloncolonel/mobilestream/extension/shared/privacy/NetworkStateSpoofer;"
 private const val EXTENSION_PACKAGE = "Lsemicoloncolonel/mobilestream/extension/"
-
-private val EVERY_APP = arrayOf(
-    Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY,
-    Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY,
-    Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY,
-    Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY,
-    FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY,
-    Nfl.COMPATIBILITY, Nba.COMPATIBILITY, *SHOPPING_APPS,
-)
 
 private class CallRewrite(
     val definingClass: String,
@@ -196,7 +165,7 @@ val hideWifiNetworksPatch = bytecodePatch(
         "on-device.",
     default = false,
 ) {
-    compatibleWith(*EVERY_APP)
+    compatibleWith(*SHOPPING_APPS)
 
     extendWith("extensions/extension.mpe")
 
@@ -234,7 +203,7 @@ val blockBluetoothScanningPatch = bytecodePatch(
         "with Bluetooth accessories inside the app. Opt-in / experimental; test on-device.",
     default = false,
 ) {
-    compatibleWith(*EVERY_APP)
+    compatibleWith(*SHOPPING_APPS)
 
     dependsOn(beaconWakeupPatch)
 
@@ -251,7 +220,7 @@ val hideCellTowerInfoPatch = bytecodePatch(
         "carrier itself. Few app features rely on this. Opt-in / experimental; test on-device.",
     default = false,
 ) {
-    compatibleWith(*EVERY_APP)
+    compatibleWith(*SHOPPING_APPS)
 
     extendWith("extensions/extension.mpe")
 
@@ -270,7 +239,7 @@ val blockBackgroundLocationPatch = resourcePatch(
         "your drive after you close the app. Opt-in / experimental; test on-device.",
     default = false,
 ) {
-    compatibleWith(*EVERY_APP)
+    compatibleWith(*SHOPPING_APPS)
 
     execute {
         document("AndroidManifest.xml").use { document ->

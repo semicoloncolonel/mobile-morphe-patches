@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
+import semicoloncolonel.mobilestream.extension.shared.misc.AdBreakText;
+
 /**
  * Covers and mutes Fandango at Home's ad breaks while the ads play.
  *
@@ -128,7 +130,7 @@ public final class AdMask {
         layout.setClickable(true);
 
         TextView label = new TextView(activity);
-        label.setText("Ad break. The sound is off, and the title resumes when the break ends.");
+        label.setText(AdBreakText.untimed());
         label.setTextColor(Color.LTGRAY);
         label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         label.setGravity(Gravity.CENTER);

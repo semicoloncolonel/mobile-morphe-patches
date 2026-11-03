@@ -18,7 +18,8 @@ import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
-import java.util.Locale;
+
+import semicoloncolonel.mobilestream.extension.shared.misc.AdBreakText;
 
 /**
  * Covers and mutes the ad breaks in ABC News's live streams.
@@ -42,8 +43,6 @@ public final class LiveBreakMask {
     private static TextView label;
     private static Object timer;
     private static Method timerValue;
-
-    private static final String NO_TIME = "Ad break. The sound is off, and the stream resumes when the break ends.";
 
     private static final Runnable TICK = new Runnable() {
         @Override
@@ -108,16 +107,14 @@ public final class LiveBreakMask {
         }
     }
 
-    private static String coverText() {
+    private static CharSequence coverText() {
         try {
             if (timer != null) {
                 Object value = timerValue.invoke(timer);
                 if (value instanceof Number) {
                     long seconds = ((Number) value).longValue() / 1000;
                     if (seconds >= 0) {
-                        return String.format(Locale.US,
-                                "Ad break. The sound is off, and the stream resumes in %d:%02d.",
-                                seconds / 60, seconds % 60);
+                        return AdBreakText.timed(seconds);
                     }
                 }
             }
@@ -125,7 +122,7 @@ public final class LiveBreakMask {
             Log.e(TAG, "timer read failure", ex);
             timer = null;
         }
-        return NO_TIME;
+        return AdBreakText.untimed();
     }
 
     /** Injection point: AdStatusStateModifier, with the new isInAd value. */

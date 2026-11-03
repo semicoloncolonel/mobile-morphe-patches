@@ -14,11 +14,7 @@ import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-
-internal const val GMS_EXTENSION_CLASS =
-    "Lsemicoloncolonel/mobilestream/extension/yttv/misc/GmsCoreSupport;"
 
 // Every fingerprint below was checked against YouTube TV 10.44.0. The names
 // after each one are what it matched there.
@@ -51,26 +47,6 @@ internal object CastContextFetchFingerprint : Fingerprint(
     )
 )
 
-// GooglePlayServicesUtil.isGooglePlayServicesAvailable (qbh.a(Context, I)I).
-internal object GooglePlayUtilityFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
-    returnType = "I",
-    parameters = listOf("L", "I"),
-    filters = listOf(
-        string("MetadataValueReader"),
-        string("This should never happen."),
-        string("com.google.android.gms"),
-    )
-)
-
-// GooglePlayServicesUtil.ensurePlayServicesAvailable (qbh.c(Context, I)V).
-internal object ServiceCheckFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
-    returnType = "V",
-    parameters = listOf("L", "I"),
-    strings = listOf("Google Play Services not available"),
-)
-
 // Google Notifications Platform registration (zfw.b(Object)Object). The
 // second filter is the move-result of Context.getPackageName().
 internal object GnpRegistrationTargetFingerprint : Fingerprint(
@@ -85,16 +61,3 @@ internal object GnpRegistrationTargetFingerprint : Fingerprint(
     )
 )
 
-internal object GmsCoreVendorGroupIdFingerprint : Fingerprint(
-    definingClass = GMS_EXTENSION_CLASS,
-    name = "getGmsCoreVendorGroupId",
-    returnType = "Ljava/lang/String;",
-    parameters = listOf(),
-)
-
-internal object OriginalPackageNameFingerprint : Fingerprint(
-    definingClass = GMS_EXTENSION_CLASS,
-    name = "getOriginalPackageName",
-    returnType = "Ljava/lang/String;",
-    parameters = listOf(),
-)

@@ -124,11 +124,11 @@
     public static void onCuePointProvider(java.lang.Object);
 }
 
-# YouTube TV — "GmsCore support". checkGmsCore() is called only from injected
-# smali in MainActivity.onCreate, and getOriginalPackageName /
+# YouTube TV and Moviebase — "GmsCore support". checkGmsCore() is called only
+# from injected smali in the main activity's onCreate, and getOriginalPackageName /
 # getGmsCoreVendorGroupId are overwritten by the patch, so R8 must keep them
 # as they are and not fold their result.
--keep class semicoloncolonel.mobilestream.extension.yttv.misc.GmsCoreSupport {
+-keep class semicoloncolonel.mobilestream.extension.shared.misc.GmsCoreSupport {
     public static *;
 }
 
@@ -168,3 +168,9 @@
 # ABC News — "Mask live ad breaks". Called only from injected smali in
 # BreakEventProcessor and ComponentActivity.onCreate.
 -keep class semicoloncolonel.mobilestream.extension.abcnews.LiveBreakMask { public static *; }
+
+# Moviebase — "Hide Premium upsell". isAutomatic() is called only from injected
+# smali in the Premium screen opener.
+-keep class semicoloncolonel.mobilestream.extension.moviebase.UpsellFilter {
+    public static boolean isAutomatic(java.lang.Object);
+}

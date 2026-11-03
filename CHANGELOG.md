@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.5...v1.0.6) (2026-11-03)
+
+
+### Features
+
+* add Moviebase and clean up the README ([e7cd229](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e7cd229ce019db4d82239eeb974b157bb6b39a18))
+
 ## [1.0.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.4...v1.0.5) (2026-11-03)
 
 

@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.4...v1.0.5) (2026-11-03)
+
+
+### Features
+
+* add ABC News, CBS News, NBC News, Fox Local, YouTube TV, and My Verizon ([7c2d45e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7c2d45ec6a80eff82baad07c9e1ccb32de79962a))
+
 ## [1.0.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.3...v1.0.4) (2026-11-02)
 
 

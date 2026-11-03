@@ -133,6 +133,8 @@ public final class TrackerBlocker {
             "siteintercept.qualtrics.com", // Qualtrics survey targeting
             "z.moatads.com", "px.moatads.com", // Moat ad measurement
             "events.brightline.tv", // Brightline ad events
+            // Moviebase (7.7.0)
+            "api-diagnostics.revenuecat.com", // RevenueCat SDK diagnostics, not purchases
             // NPS (2.15.0)
             "events.mapbox.com", // Mapbox map usage events
             // Google Analytics / Firebase Analytics upload

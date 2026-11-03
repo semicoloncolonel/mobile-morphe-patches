@@ -12,6 +12,7 @@ import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants as NbcNews
 import semicoloncolonel.mobilestream.patches.foxlocal.shared.Constants as FoxLocal
 import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants as AbcNews
+import semicoloncolonel.mobilestream.patches.moviebase.shared.Constants as Moviebase
 import semicoloncolonel.mobilestream.patches.shared.SHOPPING_APPS
 import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.appletv.shared.Constants as AppleTv
@@ -96,6 +97,7 @@ val disableAutoUpdatesPatch = resourcePatch(
         NbcNews.COMPATIBILITY,
         FoxLocal.COMPATIBILITY,
         AbcNews.COMPATIBILITY,
+        Moviebase.COMPATIBILITY,
         *SHOPPING_APPS,
         JustWatch.COMPATIBILITY,
         Fema.COMPATIBILITY,

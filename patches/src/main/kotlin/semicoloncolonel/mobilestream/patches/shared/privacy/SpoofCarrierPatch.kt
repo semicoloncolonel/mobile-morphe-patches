@@ -16,6 +16,7 @@ import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants as NbcNews
 import semicoloncolonel.mobilestream.patches.foxlocal.shared.Constants as FoxLocal
 import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants as AbcNews
+import semicoloncolonel.mobilestream.patches.moviebase.shared.Constants as Moviebase
 import semicoloncolonel.mobilestream.patches.shared.SHOPPING_APPS
 import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.pbs.shared.Constants as Pbs
@@ -113,7 +114,7 @@ val spoofCarrierPatch = bytecodePatch(
         "will not work while this is on. Experimental.",
     default = false,
 ) {
-    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, WhiteHouse.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, JustWatch.COMPATIBILITY, Nps.COMPATIBILITY, Nfg.COMPATIBILITY, RecGov.COMPATIBILITY)
+    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, WhiteHouse.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, JustWatch.COMPATIBILITY, Nps.COMPATIBILITY, Nfg.COMPATIBILITY, RecGov.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")
 

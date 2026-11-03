@@ -7,7 +7,7 @@
  * ALL CREDIT FOR THE GMSCORE CHECKS GOES TO MORPHE AND REVANCED.
  */
 
-package semicoloncolonel.mobilestream.extension.yttv.misc;
+package semicoloncolonel.mobilestream.extension.shared.misc;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -28,7 +28,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 /**
- * Checks, when YouTube TV's main activity starts, that GmsCore is installed,
+ * Checks, when the app's main activity starts, that GmsCore is installed,
  * exempt from battery optimization, and running in the background, and that
  * the app may see GmsCore's accounts. Without these the app cannot sign in or
  * keep its session.
@@ -42,7 +42,7 @@ import android.widget.Toast;
  */
 @SuppressWarnings("unused")
 public final class GmsCoreSupport {
-    private static final String TAG = "MSP-YTTV-GMS";
+    private static final String TAG = "MSP-GMS";
 
     private static final String GMS_CORE_PACKAGE_NAME = getGmsCoreVendorGroupId() + ".android.gms";
     private static final Uri GMS_CORE_PROVIDER =
@@ -90,15 +90,12 @@ public final class GmsCoreSupport {
         }, 100);
     }
 
-    /** Injection point: MainActivity.onCreate. */
+    /** Injection point: the main activity's onCreate. */
     public static void checkGmsCore(Activity activity) {
         try {
-            // A root mount keeps the stock package name and does not need GmsCore.
-            String originalPackageName = getOriginalPackageName();
-            if (originalPackageName == null || originalPackageName.equals(activity.getPackageName())) {
-                Log.i(TAG, "Running under the stock package name");
-                return;
-            }
+            // Null when "GmsCore support" was not applied. The app can keep its
+            // stock package name and still need GmsCore.
+            if (getOriginalPackageName() == null) return;
 
             if (!isInstalled(activity, GMS_CORE_PACKAGE_NAME)) {
                 Log.i(TAG, "GmsCore was not found");
@@ -117,7 +114,7 @@ public final class GmsCoreSupport {
                 Log.i(TAG, "GmsCore is not exempt from battery optimization");
                 showDialog(activity,
                         "GmsCore is not exempt from battery optimization. Android can stop it in "
-                                + "the background, and YouTube TV can then lose its sign-in or "
+                                + "the background, and " + appName(activity) + " can then lose its sign-in or "
                                 + "notifications. Tap Continue and allow GmsCore to run in the "
                                 + "background.",
                         "Continue",
@@ -156,6 +153,8 @@ public final class GmsCoreSupport {
         if (activity.checkSelfPermission(Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED) {
             return;
         }
+        // Apps that sign in through GmsCore's own account picker do not declare it.
+        if (!declaresPermission(activity, Manifest.permission.GET_ACCOUNTS)) return;
         Log.i(TAG, "GET_ACCOUNTS is not granted");
 
         SharedPreferences prefs = activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
@@ -166,9 +165,9 @@ public final class GmsCoreSupport {
                 && !activity.shouldShowRequestPermissionRationale(Manifest.permission.GET_ACCOUNTS);
 
         showDialog(activity,
-                "To sign in, YouTube TV needs permission to see the Google accounts you added to "
+                "To sign in, " + appName(activity) + " needs permission to see the Google accounts you added to "
                         + "GmsCore. Without it, the sign-in screen shows no accounts.\n\n"
-                        + "Android lists this permission under Contacts. YouTube TV cannot read "
+                        + "Android lists this permission under Contacts. " + appName(activity) + " cannot read "
                         + "your contacts with it. These patches do not collect or send any of "
                         + "your data.\n\n"
                         + (useSettings
@@ -185,6 +184,24 @@ public final class GmsCoreSupport {
                         activity.requestPermissions(new String[]{Manifest.permission.GET_ACCOUNTS}, 0);
                     }
                 });
+    }
+
+    private static String appName(Context context) {
+        return context.getApplicationInfo().loadLabel(context.getPackageManager()).toString();
+    }
+
+    private static boolean declaresPermission(Context context, String permission) {
+        try {
+            String[] requested = context.getPackageManager().getPackageInfo(
+                    context.getPackageName(), PackageManager.GET_PERMISSIONS).requestedPermissions;
+            if (requested == null) return false;
+            for (String name : requested) {
+                if (permission.equals(name)) return true;
+            }
+        } catch (PackageManager.NameNotFoundException ex) {
+            Log.e(TAG, "declaresPermission failure", ex);
+        }
+        return false;
     }
 
     private static boolean isInstalled(Context context, String packageName) {

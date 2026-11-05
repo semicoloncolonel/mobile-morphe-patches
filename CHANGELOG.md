@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.10...v1.0.11) (2026-11-05)
+
+
+### Features
+
+* add Plex on Android TV, DealSeek and White House patches, and YouTube TV quality and picture-in-picture fixes ([4f44861](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4f44861338a0473729178807822e582da9101f98))
+
 ## [1.0.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.9...v1.0.10) (2026-11-05)
 
 

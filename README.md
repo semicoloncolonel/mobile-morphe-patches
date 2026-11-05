@@ -39,6 +39,7 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | Paramount+ | Skip launch video, Skip ads, Block analytics & tracking¹ ² | `17.3.0` | 11/04/26 |
 | PBS | Skip ads¹, Block analytics & tracking¹ ² | `5.27.0` | 10/30/26 |
 | Peacock | Skip ads¹, Disable Xfinity auto sign-in, Block analytics & tracking¹ ² | `7.10.20` | 10/30/26 |
+| Plex | Skip ads, Hide sponsored content, Block analytics & tracking² | `2026.22.0` | 11/04/26 |
 | Pluto TV | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking¹ ² | `17.3.0` | 11/02/26 |
 | Prime Video | Skip ads, Rename shared permissions, Disable AI¹ ², Block analytics & tracking¹ ² | `3.0.480.457` | 11/04/26 |
 | Starz | Skip launch video, Skip pre-roll promo¹, Remove social sign-in, Block analytics & tracking¹ ² | `6.11.0` | 10/31/26 |
@@ -123,6 +124,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - NFL: ads in clips and highlights.
 - Paramount+: ads in videos. Live sports breaks show Paramount's "Commercial in Progress" card.
 - PBS: sponsor messages before and during videos.
+- Plex: ads in on-demand titles, and pause ads. Live TV is not changed.
 - Pluto TV: on-demand ads. Live breaks are covered by Mask live ad breaks.
 - Prime Video: every ad break. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
 - Xumo Play: pre-roll and mid-roll ads in on-demand videos. Live breaks are covered by Mask live ad breaks.
@@ -139,6 +141,7 @@ To turn off Mask live ad breaks on Pluto TV without patching again, create a fil
 | Patch | App | What it does |
 |-------|-----|--------------|
 | Hide sponsored listings | Amazon Shopping, Best Buy, Target | Removes sponsored products from search results, and on Amazon, from product pages. Best Buy's "Featured products" row still shows. |
+| Hide sponsored content | Plex | Removes sponsored titles from the rows on Home and Discover, the large sponsored card at the top of each screen, and promoted "Watch Now on" cards. The items are removed from the feed, so no empty space is left behind. |
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |
 | Strip affiliate links | DealSeek | Opens each deal at the store's own page, without DealSeek's click tracker or affiliate tags. Covers Amazon, Walmart, Best Buy, eBay, Wayfair, and Target. |
 
@@ -223,6 +226,7 @@ The White House patches let you remove only the parts of the app you do not want
 - Paramount+: Braze, Conviva, Nielsen, comScore, Kochava, Adobe Analytics, New Relic, Tealium, and Branch.
 - PBS: AppsFlyer and Mux.
 - Peacock: Braze, Conviva, Nielsen, comScore, Adobe Analytics, New Relic, mParticle, and Branch.
+- Plex: Kochava, Plex's own analytics, Plex's ad measurement, and Statsig event logging.
 - Pluto TV: Kochava, comScore, Nielsen, Adobe Analytics, Conviva, New Relic, Salesforce Marketing Cloud, and Pluto's Tealium tag config.
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.

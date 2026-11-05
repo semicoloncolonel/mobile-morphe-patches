@@ -187,3 +187,7 @@
 # YouTube TV — "Mask live ad breaks". cuepoints() is called only from injected
 # smali in the cue-point callback.
 -keep class semicoloncolonel.mobilestream.extension.yttv.ads.YttvLiveMask { public static *; }
+
+# Plex — "Hide sponsored content". filterBody() and filterBytes() are called only from injected
+# smali in the NitroResponse constructor.
+-keep class semicoloncolonel.mobilestream.extension.plex.PlexSponsoredFilter { public static *; }

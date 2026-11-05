@@ -42,7 +42,9 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | Plex | Skip ads, Hide sponsored content, Block analytics & tracking² | `2026.22.0`, Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking¹ ² | `17.3.0` | 11/02/26 |
 | Prime Video | Skip ads, Rename shared permissions, Disable AI¹ ², Block analytics & tracking¹ ² | `3.0.480.457` | 11/04/26 |
+| Shudder | Block analytics & tracking² | `10.1.1` | 11/05/26 |
 | Starz | Skip launch video, Skip pre-roll promo¹, Remove social sign-in, Block analytics & tracking¹ ² | `6.11.0` | 10/31/26 |
+| Sundance Now | Block analytics & tracking² | `5.0.25.2` | 11/05/26 |
 | Tubi | Skip ads, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking¹ ² | `10.44.1` | 11/04/26 |
 | Xumo Play | Skip ads, Mask live ad breaks¹, Block analytics & tracking¹ ² | `4.6.21` | 11/04/26 |
 | YouTube TV | GmsCore support, Skip ads¹, Mask live ad breaks¹ ², Start at high quality¹ ², Fix picture-in-picture¹, Change app name, Block telemetry², Hide prompts and promos², Hide membership upsell² | `10.44.0` | 11/05/26 |
@@ -53,7 +55,7 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 |-----|---------|----------------|--------------|
 | ABC News | Skip ads¹, Mask live ad breaks, Block analytics & tracking² | `8.98.2` | 11/02/26 |
 | CBS News | Disable signature check, Skip ads, Hide surveys, Opt out of data sale & sharing, Block analytics & tracking² | `5.20` | 11/02/26 |
-| CNN | Skip ads¹, Opt out of data sale & sharing, Remove social sign-in, Block analytics & tracking¹ ² | `26.21.0` | 10/30/26 |
+| CNN | Skip ads¹, Faster launch, Opt out of data sale & sharing, Remove social sign-in, Block analytics & tracking¹ ² | `26.21.0` | 11/05/26 |
 | Fox Local | Skip ads¹, Hide pop-ups and rating prompts, Opt out of data sale & sharing, Block analytics & tracking² | `7.22.0` | 11/02/26 |
 | Fox News | Skip ads¹, Opt out of data sale & sharing, Block analytics & tracking¹ ², Enable developer menu² | `5.49.2` | 10/31/26 |
 | MS NOW | Opt out of data sale & sharing, Block analytics & tracking¹ ² | `14.6.0` | 10/31/26 |
@@ -61,6 +63,7 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | The New York Times | Skip ads¹, Hide upsell pop-ups¹, Remove social sign-in, Block analytics & tracking¹ ² | `11.98.0` | 10/30/26 |
 | The Wall Street Journal | Skip ads¹, Hide marketing pop-ups¹, Block analytics & tracking¹ ² | `15.12.0.42675` | 10/30/26 |
 | The Washington Post | Skip ads¹, Hide marketing pop-ups¹, Disable AI¹ ², Block analytics & tracking¹ ² | `7.18.1` | 10/30/26 |
+| theScore | Block analytics & tracking² | `26.16.0` | 11/05/26 |
 
 ### Government
 
@@ -231,12 +234,15 @@ The White House patches let you remove only the parts of the app you do not want
 - Pluto TV: Kochava, comScore, Nielsen, Adobe Analytics, Conviva, New Relic, Salesforce Marketing Cloud, and Pluto's Tealium tag config.
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
+- Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.
 - Starz: AppsFlyer, CleverTap, Leanplum, Braze, and Ethnio surveys.
+- Sundance Now: AppsFlyer, Braze, New Relic, and Firebase Analytics.
 - T-Life: Adobe, MoEngage and its marketing messages, Amplitude, Splunk, Luciq, and Branch.
 - T-Mobile Play: the app's usage events and Apptentive surveys.
 - The New York Times: AppsFlyer, Chartbeat, comScore, Datadog, and Iterate surveys.
 - The Wall Street Journal: Adobe Analytics, AppsFlyer, Braze, comScore, LiveRamp, Parse.ly, Permutive, and Snowplow.
 - The Washington Post: AppsFlyer, Chartbeat, comScore, Permutive, Iterable, and Airship analytics.
+- theScore: theScore's own event tracking, Amplitude, AppsFlyer, Branch, comScore, Datadog, Segment, Airship analytics, and LiveRamp. Airship push notifications are left alone.
 - Tubi: Adjust, Branch, Braze, Nielsen, Conviva, NPAW/Youbora, Mux, and Tubi's own analytics. Recommendations may be less personalized.
 - Visible: Tealium and Swrve, with its marketing notifications and in-app promotions.
 - White House: the Firebase events that record what you read, watch, and search for, and the app's access to your advertising ID.
@@ -263,9 +269,9 @@ These are off by default and shared across apps:
 | Patch | Works on | What it does |
 |-------|----------|--------------|
 | Hide device identifiers | Every app except YouTube TV, MyTSA, and National Forests & Grasslands | Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. |
-| Spoof carrier | Every app except YouTube TV, the carrier apps, MyTSA, and FEMA | Hides your carrier, or shows a name you type. Carrier deals, such as League Pass with a phone plan, stop working. |
-| Report Wi-Fi connection | Streaming and news apps, except Apple TV, JustWatch, and YouTube TV | Shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data. |
-| Hide VPN connection | Streaming and news apps, except Apple TV, JustWatch, and YouTube TV | Hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address. |
+| Spoof carrier | Every app except YouTube TV, theScore, the carrier apps, MyTSA, and FEMA | Hides your carrier, or shows a name you type. Carrier deals, such as League Pass with a phone plan, stop working. |
+| Report Wi-Fi connection | Streaming and news apps, except Apple TV, JustWatch, theScore, and YouTube TV | Shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data. |
+| Hide VPN connection | Streaming and news apps, except Apple TV, JustWatch, theScore, and YouTube TV | Hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address. |
 | Hide Wi-Fi networks | Shopping apps and T-Life | Hides nearby Wi-Fi networks and the name of yours. Store detection, smart-home setup, and checkout fraud checks can be affected. On T-Life, leave it off if you use Secure Wi-Fi or T-Mobile Home Internet. |
 | Block Bluetooth scanning | Shopping apps, T-Life, and NPS | Stops scans for devices and beacons. In-store maps, CVS kiosk check-in, Amazon smart-home setup, park beacon content, and accessory pairing stop working. |
 | Hide cell tower info | Shopping apps | Hides the cell towers your phone sees, which can place you within a few blocks. |
@@ -279,6 +285,7 @@ These are off by default and shared across apps:
 | GmsCore support | Moviebase, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. |
 | Change app name | YouTube TV | Names the app "YT TV+" by default, so it is easy to tell apart from the official app. |
 | Remove social sign-in | CNN, HBO Max, MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
+| Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
 | Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz, White House | Opens the app without the intro video. |

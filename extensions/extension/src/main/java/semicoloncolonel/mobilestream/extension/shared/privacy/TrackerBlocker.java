@@ -104,6 +104,9 @@ public final class TrackerBlocker {
             "parsely.com", // Parse.ly
             "snplow.net", // Snowplow collector
             "rlcdn.com", // LiveRamp ATS identity
+            "liveramp.com", // LiveRamp on-device ATS
+            "analytics-tracker.thescore.com",
+            "api.eu.amplitude.com",
             // Starz phone (6.11.0)
             "clevertap-prod.com", // CleverTap engagement analytics
             "leanplum.com", // Leanplum engagement analytics

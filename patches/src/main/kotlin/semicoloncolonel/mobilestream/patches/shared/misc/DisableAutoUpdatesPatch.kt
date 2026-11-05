@@ -36,6 +36,9 @@ import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as Prim
 import semicoloncolonel.mobilestream.patches.starz.shared.Constants as Starz
 import semicoloncolonel.mobilestream.patches.tubi.shared.Constants as Tubi
 import semicoloncolonel.mobilestream.patches.xumo.shared.Constants as Xumo
+import semicoloncolonel.mobilestream.patches.shudder.shared.Constants as Shudder
+import semicoloncolonel.mobilestream.patches.sundancenow.shared.Constants as SundanceNow
+import semicoloncolonel.mobilestream.patches.thescore.shared.Constants as TheScore
 import semicoloncolonel.mobilestream.patches.verizon.shared.Constants as Verizon
 import semicoloncolonel.mobilestream.patches.wsj.shared.Constants as Wsj
 import semicoloncolonel.mobilestream.patches.justwatch.shared.Constants as JustWatch
@@ -108,7 +111,7 @@ val disableAutoUpdatesPatch = resourcePatch(
         Xfinity.COMPATIBILITY,
         Att.COMPATIBILITY,
         Verizon.COMPATIBILITY,
-        Xumo.COMPATIBILITY,
+        Xumo.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY,
     )
 
     execute {

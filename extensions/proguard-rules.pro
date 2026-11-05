@@ -195,3 +195,19 @@
 # YouTube TV — "Fix picture-in-picture". setParams() and enter() replace the
 # app's picture-in-picture calls in injected smali.
 -keep class semicoloncolonel.mobilestream.extension.yttv.YttvPictureInPicture { public static *; }
+
+# Fox News and The Wall Street Journal — "Hide prediction markets".
+# filterFoxItems() is called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.shared.misc.PredictionMarkets { public static *; }
+
+# The Washington Post — "Skip ads". track() is called only from injected smali
+# in the BannerAdView constructors.
+-keep class semicoloncolonel.mobilestream.extension.washingtonpost.AdSlotCollapser { public static *; }
+
+# CNN — "Faster launch". start() replaces Optimizely's asynchronous initialize
+# call in OptimizelyClientFactory.
+-keep class semicoloncolonel.mobilestream.extension.cnn.OptimizelyQuickStart { public static *; }
+
+# ESPN — "Hide betting". pref(), featuresOff() and sections() are called only
+# from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.espn.HideBetting { public static *; }

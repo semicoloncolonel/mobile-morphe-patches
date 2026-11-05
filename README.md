@@ -39,13 +39,13 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | Paramount+ | Skip launch video, Skip ads, Block analytics & tracking¹ ² | `17.3.0` | 11/04/26 |
 | PBS | Skip ads¹, Block analytics & tracking¹ ² | `5.27.0` | 10/30/26 |
 | Peacock | Skip ads¹, Disable Xfinity auto sign-in, Block analytics & tracking¹ ² | `7.10.20` | 10/30/26 |
-| Plex | Skip ads, Hide sponsored content, Block analytics & tracking² | `2026.22.0` | 11/04/26 |
+| Plex | Skip ads, Hide sponsored content, Block analytics & tracking² | `2026.22.0`, Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking¹ ² | `17.3.0` | 11/02/26 |
 | Prime Video | Skip ads, Rename shared permissions, Disable AI¹ ², Block analytics & tracking¹ ² | `3.0.480.457` | 11/04/26 |
 | Starz | Skip launch video, Skip pre-roll promo¹, Remove social sign-in, Block analytics & tracking¹ ² | `6.11.0` | 10/31/26 |
 | Tubi | Skip ads, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking¹ ² | `10.44.1` | 11/04/26 |
 | Xumo Play | Skip ads, Mask live ad breaks¹, Block analytics & tracking¹ ² | `4.6.21` | 11/04/26 |
-| YouTube TV | GmsCore support, Skip ads¹, Mask live ad breaks¹ ², Change app name, Block telemetry², Hide prompts and promos², Hide membership upsell² | `10.44.0` | 11/04/26 |
+| YouTube TV | GmsCore support, Skip ads¹, Mask live ad breaks¹ ², Start at high quality¹ ², Fix picture-in-picture¹, Change app name, Block telemetry², Hide prompts and promos², Hide membership upsell² | `10.44.0` | 11/05/26 |
 
 ### News
 
@@ -71,7 +71,7 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | National Forests & Grasslands | Disable Pairip license check, Block analytics & tracking² | `1.3.0` | 11/02/26 |
 | NPS | Block analytics & tracking², Block Bluetooth scanning² | `2.15.0` | 11/02/26 |
 | Recreation.gov | Skip location on open, Hide rating prompt, Block analytics & tracking², Show hidden details² | `2.2.67` | 11/04/26 |
-| White House | Disable Pairip license check, Remove microphone access, Hide social feeds², Hide promotions², Block analytics & tracking², Route traffic through a proxy² | `47.7.8` | 11/02/26 |
+| White House | Skip launch video, Disable Pairip license check, Remove microphone access, Hide social feeds², Hide promotions², Block analytics & tracking², Route traffic through a proxy² | `47.7.8` | 11/05/26 |
 
 ### Shopping
 
@@ -80,7 +80,7 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | Amazon Shopping | Hide sponsored listings¹, Disable AI¹ ² | `32.19.0.100` | 11/01/26 |
 | Best Buy | Hide sponsored listings¹, Disable AI¹ ² | `26.10.10` | 11/01/26 |
 | CVS | Disable AI¹ ² | `26.10.50` | 11/01/26 |
-| DealSeek | Strip affiliate links, Disable Pairip license check, Block analytics & tracking¹ ² | `1.64.0` | 11/01/26 |
+| DealSeek | Strip affiliate links, Hide pop-ups, Disable Pairip license check, Block analytics & tracking¹ ² | `1.64.0` | 11/05/26 |
 | Target | Hide sponsored listings¹, Disable AI¹ ² | `2026.43.0` | 11/01/26 |
 | The Home Depot | Disable AI¹ ² | `8.2.5` | 11/01/26 |
 | Walgreens | The shared privacy patches only | `118.0` | 11/01/26 |
@@ -153,8 +153,9 @@ To turn off Mask live ad breaks on Pluto TV without patching again, create a fil
 | Hide upsell pop-ups | The New York Times | The full-screen subscription takeover and the promo banner at the top. |
 | Hide marketing pop-ups | The Washington Post, The Wall Street Journal | In-app marketing messages, such as subscription offers, and the subscribe banner on The Washington Post's home page. |
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
+| Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide prompts and promos | YouTube TV | The rate-the-app dialog, promo banners, the app tour, the highlights autoplay prompt, and the "Watch on YouTube" dialog. The last three are hidden only on a fresh install or after you clear the app's data. |
-| Hide membership upsell | YouTube TV | The "Add to membership" shelf on the home screen, which promotes paid add-on networks. The shelf is removed from the feed, so no empty space is left behind. |
+| Hide membership upsell | YouTube TV | The "Add to membership" shelf on the home screen and in search results, which promotes paid add-on networks. The shelf is removed from the feed, so no empty space is left behind. |
 | Hide surveys | CBS News | Qualtrics surveys and the rate-the-app prompt they can lead to. |
 | Hide surveys and rating prompt | NBC News | Iterate surveys and the rate-the-app prompt. |
 | Hide rating prompt | Recreation.gov | The rate-the-app prompt after checkout. |
@@ -279,7 +280,9 @@ These are off by default and shared across apps:
 | Change app name | YouTube TV | Names the app "YT TV+" by default, so it is easy to tell apart from the official app. |
 | Remove social sign-in | CNN, HBO Max, MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
-| Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz | Opens the app without the intro video. |
+| Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
+| Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz, White House | Opens the app without the intro video. |
+| Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
 | Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |
 

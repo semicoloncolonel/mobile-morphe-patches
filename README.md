@@ -26,23 +26,23 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 | AMC+ | Skip launch video, Skip ads¹, Block analytics & tracking¹ ² | `1.8.62.1` | 10/31/26 |
 | Apple TV | Skip ads¹, Block analytics & tracking¹ ² | `3.0.0` | 10/30/26 |
 | Disney+ | Skip launch video, Skip ads, Block analytics & tracking¹ ² | `26.20.0+rc2-2026.10.28` | 11/02/26 |
-| ESPN | Skip ads¹, Block analytics & tracking¹ ² | `8.27.0` | 10/31/26 |
+| ESPN | Skip ads¹, Block analytics & tracking¹ ² | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads, Block analytics & tracking² | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Skip ads¹, Disable Pairip license check, Block analytics & tracking¹ ² | `1.24.0` | 10/30/26 |
 | HBO Max | Skip ads, Remove social sign-in, Block analytics & tracking¹ ² | `7.14.0.530` | 10/30/26 |
 | Hulu | Skip ads¹, Block analytics & tracking¹ ² | `6.34.0+18552420-google` | 10/31/26 |
-| JustWatch | Block ads, Hide sponsored titles, Block analytics & tracking² | `26.43.10`, Android TV `26.43.8` | 11/04/26 |
+| JustWatch | Block ads, Hide sponsored titles, Block analytics & tracking² | `26.44.2`, Android TV `26.43.8` | 11/04/26 |
 | MGM+ | Skip ads¹, Skip pre-roll promo¹, Skip lion intro, Disable MGM+ AI², Remove social sign-in, Block analytics & tracking¹ ² | `240.0.2026240000` | 10/30/26 |
 | Moviebase | GmsCore support, Disable Pairip license check, Block ads, Hide Premium upsell, Block analytics & tracking² | `7.7.0` | 11/02/26 |
 | NBA | Skip ads¹, Disable Ask NBA AI¹ ², Block analytics & tracking¹ ² | `1.2.0` | 10/31/26 |
 | NFL | Skip ads¹, Block analytics & tracking¹ ² | `61.0.18` | 10/31/26 |
-| Paramount+ | Skip launch video, Skip ads, Block analytics & tracking¹ ² | `17.2.0` | 10/31/26 |
+| Paramount+ | Skip launch video, Skip ads, Block analytics & tracking¹ ² | `17.3.0` | 11/04/26 |
 | PBS | Skip ads¹, Block analytics & tracking¹ ² | `5.27.0` | 10/30/26 |
 | Peacock | Skip ads¹, Disable Xfinity auto sign-in, Block analytics & tracking¹ ² | `7.10.20` | 10/30/26 |
 | Pluto TV | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking¹ ² | `17.3.0` | 11/02/26 |
-| Prime Video | Skip ads, Rename shared permissions, Disable AI¹ ², Block analytics & tracking¹ ² | `3.0.477.1447` | 11/01/26 |
+| Prime Video | Skip ads, Rename shared permissions, Disable AI¹ ², Block analytics & tracking¹ ² | `3.0.480.457` | 11/04/26 |
 | Starz | Skip launch video, Skip pre-roll promo¹, Remove social sign-in, Block analytics & tracking¹ ² | `6.11.0` | 10/31/26 |
-| Tubi | Skip ads, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking¹ ² | `10.43.1` | 10/30/26 |
+| Tubi | Skip ads, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking¹ ² | `10.44.1` | 11/04/26 |
 | Xumo Play | Skip ads, Mask live ad breaks¹, Block analytics & tracking¹ ² | `4.6.21` | 11/04/26 |
 | YouTube TV | GmsCore support, Skip ads¹, Mask live ad breaks¹ ², Change app name, Block telemetry², Hide prompts and promos², Hide membership upsell² | `10.44.0` | 11/04/26 |
 
@@ -89,7 +89,7 @@ YouTube TV and Moviebase sign in with Google through MicroG RE, so install it fi
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| Mint Mobile | Block analytics & tracking² | `2.3.40` | 11/01/26 |
+| Mint Mobile | Block analytics & tracking² | `2.3.41` | 11/04/26 |
 | My Verizon | Block session recording, Block analytics & tracking², Disable AI¹ ² | `22.2.5` | 11/02/26 |
 | myAT&T | Block session recording, Block background network reports¹, Block analytics & tracking², Disable AI² | `2026.10.1` | 11/01/26 |
 | T-Life | Block location tracking, Block session recording, Block analytics & tracking², Disable AI² | `12.3.1` | 11/01/26 |

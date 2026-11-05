@@ -8,7 +8,7 @@ object Constants {
     val COMPATIBILITY = Compatibility(
         name = "Plex",
         packageName = "com.plexapp.android",
-        description = "The phone app.",
+        description = "The Plex app, for phones and Android TV.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xE5A00D,
         targets = listOf(AppTarget("2026.22.0")),

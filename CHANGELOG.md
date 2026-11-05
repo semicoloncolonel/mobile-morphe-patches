@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.9...v1.0.10) (2026-11-05)
+
+
+### Bug Fixes
+
+* find Tubi's ad-break error result instead of naming it ([1baffdb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1baffdb5319de5c6a05a127d2bdee833922f4456))
+
 ## [1.0.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.8...v1.0.9) (2026-11-05)
 
 

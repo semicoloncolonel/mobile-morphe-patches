@@ -1,3 +1,15 @@
+## [1.0.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.8...v1.0.9) (2026-11-05)
+
+
+### Bug Fixes
+
+* support the latest ESPN, Paramount+, Prime Video, Tubi, Mint Mobile, and JustWatch ([f3f0f3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f3f0f3f8266e3de743f3eacad3ff008ba02f0abb))
+
+
+### Features
+
+* add Plex ([3603e62](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3603e62aa65eb452dfeec3d102c3494c80c29f40))
+
 ## [1.0.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.7...v1.0.8) (2026-11-05)
 
 

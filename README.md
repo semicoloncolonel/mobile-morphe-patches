@@ -134,7 +134,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 
 **Block ads** (JustWatch, Moviebase, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
 
-**Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers the ads YouTube TV adds to a live break, and the network's own commercials around them still play.
+**Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
 
 To turn off Mask live ad breaks on Pluto TV without patching again, create a file named `slate_off` in `Android/data/tv.pluto.android/files`. A file named `pluto_slate_mode` that contains `black` or `mute` keeps only the cover or only the muting.
 

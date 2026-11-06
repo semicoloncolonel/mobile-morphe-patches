@@ -211,3 +211,15 @@
 # ESPN — "Hide betting". pref(), featuresOff() and sections() are called only
 # from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.espn.HideBetting { public static *; }
+
+# MLB — "Mask live ad breaks". wrap() and the overlay helpers are called only
+# from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.mlb.MlbManifestRewriter { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.mlb.AdBreakOverlayHelper { public static *; }
+
+# NPR — "Hide donate buttons". Called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.npr.DonateButtonHider { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.npr.NprWebCleanup { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.npr.AdRowCollapser { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.newsnation.NewsNationAds { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.newsnation.AdSwitchFilter { *; }

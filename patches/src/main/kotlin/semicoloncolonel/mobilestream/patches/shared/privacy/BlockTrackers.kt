@@ -189,7 +189,9 @@ internal fun BytecodePatchContext.blockTrackersAtDns() {
             targets += classDef.type
         }
     }
-    check(targets.isNotEmpty()) { "no InetAddress.getAllByName call to route through the blocklist" }
+    // No calls can be left when another patch source already replaced them
+    // (or the app stops using it), so skip the DNS layer instead of failing.
+    if (targets.isEmpty()) return
 
     val replacement = "$TRACKER_BLOCKER->lookup(Ljava/lang/String;)[Ljava/net/InetAddress;"
     targets.forEach { type ->

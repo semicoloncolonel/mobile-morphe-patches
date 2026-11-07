@@ -1,10 +1,3 @@
-## [1.0.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.13...v1.0.14) (2026-11-07)
-
-
-### Bug Fixes
-
-* resume Pluto TV at the right spot, and add a blocking level to its Block analytics patch ([3794c91](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3794c9155842fcc4a4b64d7bed29c0128d937d06))
-
 ## [1.0.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.12...v1.0.13) (2026-11-07)
 
 

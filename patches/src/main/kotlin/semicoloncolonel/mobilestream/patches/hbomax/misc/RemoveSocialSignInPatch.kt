@@ -10,7 +10,8 @@ import semicoloncolonel.mobilestream.patches.hbomax.shared.Constants
 // this patch is a safeguard: it pins the screen's Google switch off in case a
 // later build or server config turns it on. Email and phone sign-in, and the
 // sign-in a subscription needs, are unchanged. The Android TV build does not
-// have this sign-in screen, so the patch is offered for the phone build only.
+// have this sign-in screen, so the patch is listed for the phone build only
+// and does nothing on the TV build.
 internal object EnableSignInWithGoogleFingerprint : Fingerprint(
     definingClass = "Lcom/discovery/gi/domain/unifiedauthentication/model/UnifiedAuthenticationScreenConfiguration;",
     name = "getEnableSignInWithGoogle",
@@ -25,6 +26,8 @@ val removeSocialSignInPatch = bytecodePatch(
     compatibleWith(Constants.PHONE_COMPATIBILITY)
 
     execute {
-        EnableSignInWithGoogleFingerprint.method.addInstructions(0, "const/4 v0, 0x0\nreturn v0")
+        // Morphe Manager offers this patch for every HBO Max build, including
+        // the Android TV build, which has no such screen. There it does nothing.
+        EnableSignInWithGoogleFingerprint.methodOrNull?.addInstructions(0, "const/4 v0, 0x0\nreturn v0")
     }
 }

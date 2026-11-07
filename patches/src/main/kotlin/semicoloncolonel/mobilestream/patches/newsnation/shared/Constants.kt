@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.newsnation.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 // NewsNation ships two different apps under one package name: the phone app
 // (React Native, 510.x) and the Android TV app (a Haystack TV build, 4.x).
@@ -24,6 +25,6 @@ object Constants {
         description = "The Android TV app, not the phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x13284B,
-        targets = listOf(AppTarget("4.94")),
+        targets = listOf(devTarget("4.94")),
     )
 }

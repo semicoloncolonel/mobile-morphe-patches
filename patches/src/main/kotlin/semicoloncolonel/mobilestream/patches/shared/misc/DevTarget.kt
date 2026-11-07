@@ -8,5 +8,13 @@ import app.morphe.patcher.patch.AppTarget
  * version needs no change when dev is merged into main. After that merge,
  * change it back to a plain AppTarget, so the next dev cycle does not mark a
  * released version as experimental.
+ *
+ * [versionCode] and [description] are optional, as on AppTarget: Morphe Manager
+ * shows the description next to the version and checks an APK against the code.
  */
-fun devTarget(version: String) = AppTarget(version = version, isExperimental = IS_DEV_BUILD)
+fun devTarget(version: String, versionCode: Int? = null, description: String? = null) =
+    if (versionCode != null) {
+        AppTarget(version, versionCode, isExperimental = IS_DEV_BUILD, description = description)
+    } else {
+        AppTarget(version = version, isExperimental = IS_DEV_BUILD, description = description)
+    }

@@ -1,3 +1,10 @@
+## [1.0.14-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.1...v1.0.14-dev.2) (2026-11-07)
+
+
+### Bug Fixes
+
+* support the latest versions of 16 apps, and HBO Max on Android TV ([4abceb4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4abceb49a98da8c39107f1522a1cb87455771923))
+
 ## [1.0.14-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.13...v1.0.14-dev.1) (2026-11-07)
 
 

@@ -1,3 +1,10 @@
+## [1.0.14-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.3...v1.0.14-dev.4) (2026-11-07)
+
+
+### Bug Fixes
+
+* label phone and TV builds in Morphe Manager, and keep pins on public app versions ([42e7bd2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/42e7bd22c0affd29bfbaafd2c745c93feb13b1a8))
+
 ## [1.0.14-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.2...v1.0.14-dev.3) (2026-11-07)
 
 

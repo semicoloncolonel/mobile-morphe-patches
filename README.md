@@ -33,7 +33,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 ### Android TV
 
 > [!IMPORTANT]
-> Pluto TV, Plex, JustWatch, and HBO Max also work on Android TV. On a TV, patch the Android TV build, which APKMirror lists separately with "Android TV" in its name. Morphe Manager's download link searches by package name and version, so it can lead to the phone build instead. Pluto TV's phone and Android TV builds are both version 17.3.0, so check the version code: the Android TV build is 520000991, and the phone build is 420000991. Starz and Disney+ also have Android TV builds with the same version names as their phone builds, but their patches support only the phone builds.
+> Pluto TV, Plex, JustWatch, and HBO Max also work on Android TV. On a TV, patch the Android TV build, which APKMirror lists separately with "Android TV" in its name. Morphe Manager's download link searches by package name and version, so it can lead to the phone build instead. Pluto TV's phone and Android TV builds are both version 17.3.0, so check the version code: the Android TV build is 520000991, and the phone build is 420000991. Starz and Disney+ also have Android TV builds with the same version names as their phone builds, but their patches support only the phone builds. The Play Store installs the HBO Max phone app as `com.wbd.stream`, and APKMirror lists it as `com.wbd.hbomax`. The patches support both package names for the phone build.
 
 > [!TIP]
 > To download the Android TV build directly, use [Aurora Store](https://auroraoss.com/) with a spoofed Android TV device. Aurora's [config generator](https://auroraoss.com/config-generator) creates the device config for spoofing.
@@ -57,7 +57,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | ESPN | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads, Block analytics & tracking ⚙️ | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Skip ads 🧪, Disable Pairip license check, Block analytics & tracking 🧪⚙️ | `1.25.1` | 11/06/26 |
-| HBO Max 📺 | Skip ads, Remove social sign-in (phone), Block analytics & tracking 🧪⚙️ | `22.0.0.321`, Android TV `22.0.0.36` | 11/06/26 |
+| HBO Max 📺 | Skip ads, Remove social sign-in (phone), Block analytics & tracking 🧪⚙️ | `22.0.0.321`, Android TV `22.0.0.36` | 11/07/26 |
 | Hulu | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `6.34.0+18552420-google` | 10/31/26 |
 | JustWatch 📺 | Block ads, Hide sponsored titles, Block analytics & tracking ⚙️ | `26.44.2`, Android TV `26.43.8` | 11/04/26 |
 | MGM+ | Skip ads 🧪, Skip pre-roll promo 🧪, Skip lion intro, Disable MGM+ AI ⚙️, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `240.0.2026240000` | 10/30/26 |

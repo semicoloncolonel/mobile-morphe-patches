@@ -12,6 +12,10 @@ Some patches are phone ports of [ajstrick81's Android TV patches](https://github
 2. Add this project in Morphe Manager with the link above, or go to Sources, tap +, choose Remote, and paste `https://raw.githubusercontent.com/semicoloncolonel/mobile-morphe-patches/main/patches-bundle.json`.
 3. Select the file and apply the patches.
 
+Pluto TV, Plex, and JustWatch also work on Android TV. On a TV, patch the Android TV build, which APKMirror lists separately with "Android TV" in its name. Morphe Manager's download link searches by package name and version, so it can lead to the phone build instead. Pluto TV's phone and Android TV builds are both version 17.3.0, so check the version code: the Android TV build is 520000991, and the phone build is 420000991.
+
+To download the Android TV build directly, use [Aurora Store](https://auroraoss.com/) with a spoofed Android TV device. Aurora's [config generator](https://auroraoss.com/config-generator) creates the device config for spoofing.
+
 YouTube TV and Moviebase sign in with Google through MicroG RE, so install it first. The patched YouTube TV installs beside the official app and asks to see MicroG RE's accounts, which Android lists under Contacts. It cannot read your contacts. The patched Moviebase replaces the official app unless you turn on the Clone app option.
 
 ## Apps

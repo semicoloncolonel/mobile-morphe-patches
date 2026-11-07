@@ -1,3 +1,18 @@
+## [1.0.15-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14...v1.0.15-dev.1) (2026-11-07)
+
+
+### Bug Fixes
+
+* build with Morphe patcher 2.3.0 ([3457197](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/345719765abbee0f7a7cadc5e06ca287e3427638))
+* label phone and TV builds in Morphe Manager, and keep pins on public app versions ([42e7bd2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/42e7bd22c0affd29bfbaafd2c745c93feb13b1a8))
+* mark app versions from the dev branch as experimental, and skip HBO Max's social sign-in patch on the TV build ([dc84ef4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dc84ef4ef58cc6de0bc27bd60c5a9fb8787243f4))
+* support the latest versions of 16 apps, and HBO Max on Android TV ([4abceb4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4abceb49a98da8c39107f1522a1cb87455771923))
+
+
+### Features
+
+* add Truth Social ([a59fc13](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a59fc135ef84f86f9da88617582c849473e42ae9))
+
 ## [1.0.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.13...v1.0.14) (2026-11-07)
 
 

@@ -1,3 +1,10 @@
+## [1.0.15-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15-dev.1...v1.0.15-dev.2) (2026-11-07)
+
+
+### Bug Fixes
+
+* let Pluto TV's Block analytics patch apply when the app has no DNS lookups to block ([868464e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/868464e82af6bc499320e44d642e596582666376))
+
 ## [1.0.15-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14...v1.0.15-dev.1) (2026-11-07)
 
 

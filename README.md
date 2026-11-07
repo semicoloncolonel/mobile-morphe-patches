@@ -1,6 +1,6 @@
 # Mobile Morphe Patches
 
-[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-67-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-68-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
 
 Morphe patches that remove ads and block tracking in the phone versions of streaming, news, shopping, carrier, and government apps.
 
@@ -81,7 +81,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 </details>
 
 <details>
-<summary><b>📰 News</b> · 20 apps</summary>
+<summary><b>📰 News</b> · 21 apps</summary>
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
@@ -104,6 +104,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | The Wall Street Journal | Skip ads 🧪, Hide marketing pop-ups 🧪, Block analytics & tracking 🧪⚙️ | `15.12.0.42675` | 10/30/26 |
 | The Washington Post | Skip ads 🧪, Hide marketing pop-ups 🧪, Disable AI 🧪⚙️, Block analytics & tracking 🧪⚙️ | `7.18.1` | 10/30/26 |
 | theScore | Block analytics & tracking ⚙️ | `26.16.0` | 11/05/26 |
+| Truth Social | Skip ads, Hide Truth+, Hide crypto and prediction markets, Disable update and review prompts, Disable forced updates, Disable AI, Save videos, Fix pictures shown as videos, Show poll results ⚙️, Show sensitive media ⚙️, Block analytics & tracking ⚙️, Route traffic through a proxy ⚙️ | `1.28.3` | 11/06/26 |
 | USA TODAY | Skip ads, Hide subscription prompts, Hide rating prompt, Block analytics & tracking ⚙️ | `8.15.0` | 11/06/26 |
 
 </details>
@@ -190,6 +191,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - Plex: ads in on-demand titles, and pause ads. Live TV is not changed.
 - Pluto TV: on-demand ads. Live breaks are covered by Mask live ad breaks.
 - Prime Video: every ad break. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
+- Truth Social: sponsored Truths, boosted posts (paid promotions marked "Boosted"), the other ads placed in the feeds, Google ads, the top banner ad, and the ad on a post's detail page.
 - USA TODAY: the ads in the section fronts, articles, galleries, and videos, Taboola recommendations, and the ad-free upsells. It turns on the app's own ad-free mode, so premium articles stay locked and Settings may show you as ad-free.
 - Xumo Play: pre-roll and mid-roll ads in on-demand videos. Live breaks are covered by Mask live ad breaks.
 - YouTube TV: ads inserted into on-demand videos and DVR recordings, and overlay and pause ads. With Mask live ad breaks, the ads YouTube TV inserts into live breaks are covered instead.
@@ -218,7 +220,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 ### 🔕 Pop-ups and prompts
 
 <details>
-<summary>All pop-up and prompt patches · 27</summary>
+<summary>All pop-up and prompt patches · 30</summary>
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
@@ -228,6 +230,9 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide follow upsell | Substack | The "Follow" upsell card shown under notes in the Notes feed. |
+| Hide Truth+ | Truth Social | The Truth+ button at the top of the home feeds, the Watch tab, the strip of live Truth+ streams, the live shows row, and the Truth+ banners in the feeds and the side menu. The "+" badges on subscribers' names stay. |
+| Hide crypto and prediction markets | Truth Social | Truth Predict, the prediction market run with Crypto.com's US derivatives exchange, and Gems, the rewards that convert to Crypto.com's CRO token. |
+| Disable update and review prompts | Truth Social | The Play Store update prompt and the rate-the-app prompt. A patched app cannot update from the Play Store. |
 | Hide betting odds | MLB | The betting-odds section on the scores sheet, its toggle, and its legal disclaimer. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide prompts and promos | YouTube TV | The rate-the-app dialog, promo banners, the app tour, the highlights autoplay prompt, and the "Watch on YouTube" dialog. The last three are hidden only on a fresh install or after you clear the app's data. |
@@ -277,6 +282,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - Target: Ask Target, AI mode in search, the AI gift finder, the AI shopping list scanner, and AI replies in support chat. AI review summaries still show.
 - The Home Depot: the Magic Apron assistant and its chat button on the store's web pages.
 - The Washington Post: Ask The Post AI, its Ask tab, AI article summaries, and the questions under articles.
+- Truth Social: the Ask Perplexity AI button on Discover.
 - Walmart: the Sparky assistant and the AI features on item and search pages. Customer care chat falls back to the regular help pages.
 - Xfinity: the Xfinity Assistant. Support steps that open it can stop working.
 
@@ -339,6 +345,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - The Washington Post: AppsFlyer, Chartbeat, comScore, Permutive, Iterable, and Airship analytics.
 - theScore: theScore's own event tracking, Amplitude, AppsFlyer, Branch, comScore, Datadog, Segment, Airship analytics, and LiveRamp. Airship push notifications are left alone.
 - Tubi: Adjust, Branch, Braze, Nielsen, Conviva, NPAW/Youbora, Mux, and Tubi's own analytics. Recommendations may be less personalized.
+- Truth Social: Mixpanel, Adjust, and Firebase/Google Analytics. Truth Social's own requests are left alone.
 - USA TODAY: mParticle, Adjust, comScore, Parse.ly, and LiveRamp. Airship, which delivers breaking-news alerts, is left alone.
 - Visible: Tealium and Swrve, with its marketing notifications and in-app promotions.
 - White House: the Firebase events that record what you read, watch, and search for, and the app's access to your advertising ID.
@@ -362,7 +369,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Opt out of data sale & sharing | CBS News, CNN, Fox Local, Fox News, MS NOW, NBC News, NPR | Sets the privacy choice to "do not sell or share" and sends ad partners the US Privacy opt-out signal. On Fox News, it also opts out of Nielsen measurement. On NPR, it chooses Reject All on the cookie banner of the npr.org pages inside the app and hides the banner. You can change it in the app's privacy settings, except on CBS News and CNN. |
 | Remove microphone access | White House | Removes the microphone permission, which no feature uses. |
 | Skip location on open | Recreation.gov | Stops the precise location check at every launch. Nearby search and permit check-in still use location. |
-| Route traffic through a proxy | AP News, NewsBreak, NPR, White House | Sends the app's traffic through the proxy you set, such as Orbot for Tor or a SOCKS5 server from a VPN service. A SOCKS5 proxy that needs a login is entered as `socks5://user:password@host:port`, and the login is stored in the patched app. The app cannot connect while the proxy is off, and web pages inside the app do not use it. |
+| Route traffic through a proxy | AP News, NewsBreak, NPR, Truth Social, White House | Sends the app's traffic through the proxy you set, such as Orbot for Tor or a SOCKS5 server from a VPN service. A SOCKS5 proxy that needs a login is entered as `socks5://user:password@host:port`, and the login is stored in the patched app. The app cannot connect while the proxy is off, and web pages inside the app do not use it. |
 
 </details>
 
@@ -371,7 +378,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 
 | Patch | Works on | What it does |
 |-------|----------|--------------|
-| Hide device identifiers | Every app except YouTube TV, MyTSA, and National Forests & Grasslands | Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. |
+| Hide device identifiers | Every app except YouTube TV, MyTSA, and National Forests & Grasslands | Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. On Truth Social, the Adjust ID the app sends to Truth Social's own server is also replaced with a random one. |
 | Spoof carrier | Every app except YouTube TV, theScore, the carrier apps, MyTSA, and FEMA | Hides your carrier, or shows a name you type. Carrier deals, such as League Pass with a phone plan, stop working. |
 | Report Wi-Fi connection | Streaming and news apps, except Apple TV, JustWatch, theScore, and YouTube TV | Shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data. |
 | Hide VPN connection | Streaming and news apps, except Apple TV, JustWatch, theScore, and YouTube TV | Hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address. |
@@ -386,7 +393,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 ### 🔑 Sign-in and startup
 
 <details>
-<summary>Sign-in and startup patches · 10</summary>
+<summary>Sign-in and startup patches · 11</summary>
 
 | Patch | App | What it does |
 |-------|-----|--------------|
@@ -400,6 +407,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
 | Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |
+| Disable forced updates | Truth Social | Keeps the app open when Truth Social's server asks for a newer version. A patched app cannot update from the Play Store. |
 
 </details>
 
@@ -419,6 +427,14 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 **Show hidden details** (Recreation.gov) shows details the app receives but does not display: the ticket-lottery application and award counts and the per-account limit (in a dialog you dismiss, since that screen has no text to add them to), when each ticket time slot stops selling, booking window rules, the deadline to confirm a lottery win, and when venue booking opens or closes. The lottery's results date is left out because the app already shows it.
 
 **Enable developer menu** (Fox News) opens the hidden developer menu with a long-press on the Fox logo at the bottom of Settings. Reopen the app after you change a feature flag. Some of its settings point the app at test servers.
+
+**Save videos** (Truth Social) adds a "Save video" row to the full-screen player's Playback Controls, and names the Save button "Save video" for a video in the media viewer. The video is saved at its original quality to Movies/Truth Social.
+
+**Fix pictures shown as videos** (Truth Social) shows a post's picture as a picture. The app sometimes draws a picture in its video player, with a play button that does nothing, when a related post has a video. With this on, the picture opens in the image viewer.
+
+**Show poll results** (Truth Social) adds each option's share of the votes to its label before you vote, such as "Yes · 62%". The server sends the counts, but the app shows them only after you vote. You can still vote.
+
+**Show sensitive media** (Truth Social) shows the media in posts marked sensitive without blurring it first. Content warnings written by the author still show.
 
 **Disable screenshot detection** (Substack) stops the app from reacting when you take a screenshot. Substack registers Android's screenshot callback on its reader and other screens and then runs its own handler; with this on, a screenshot does nothing.
 

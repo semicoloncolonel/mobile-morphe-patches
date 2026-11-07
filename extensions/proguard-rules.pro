@@ -30,6 +30,7 @@
 # Settings.Secure.getString at app call sites via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.DeviceIdSpoofer {
     public static java.lang.String getSecureString(android.content.ContentResolver, java.lang.String);
+    public static java.lang.String maskId(java.lang.String);
 }
 
 # Pluto TV — "Mask live ad breaks". All five entry points are called only from
@@ -223,3 +224,11 @@
 -keep class semicoloncolonel.mobilestream.extension.npr.AdRowCollapser { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.newsnation.NewsNationAds { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.newsnation.AdSwitchFilter { *; }
+
+# Truth Social — "Skip ads" and "Show poll results". add() and annotate() are
+# called only from injected smali, and boostField() is overwritten by the
+# patch, so R8 must keep them as they are and not fold its result.
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.BoostFilter { *; }
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.PollPreview { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaSaver { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaTypeFix { *; }

@@ -1,3 +1,10 @@
+## [1.0.15-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15-dev.2...v1.0.15-dev.3) (2026-11-07)
+
+
+### Features
+
+* support HBO Max as the Play Store installs it (com.wbd.stream) ([d8c0d22](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d8c0d22ff0bfa83b67f4b7b94e47fadb63731563))
+
 ## [1.0.15-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15-dev.1...v1.0.15-dev.2) (2026-11-07)
 
 

@@ -1,3 +1,10 @@
+## [1.0.14-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.2...v1.0.14-dev.3) (2026-11-07)
+
+
+### Bug Fixes
+
+* mark app versions from the dev branch as experimental, and skip HBO Max's social sign-in patch on the TV build ([dc84ef4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dc84ef4ef58cc6de0bc27bd60c5a9fb8787243f4))
+
 ## [1.0.14-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.1...v1.0.14-dev.2) (2026-11-07)
 
 

@@ -31,4 +31,15 @@ object Constants {
         appIconColor = 0x002BE7,
         targets = listOf(devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
     )
+
+    // The same phone app under the package name the Play Store installs.
+    // Only the phone build is known under this name, so only it is listed.
+    val STREAM_COMPATIBILITY = Compatibility(
+        name = "HBO Max",
+        packageName = "com.wbd.stream",
+        description = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x002BE7,
+        targets = listOf(devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
+    )
 }

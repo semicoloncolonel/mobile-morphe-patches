@@ -324,7 +324,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - PBS: AppsFlyer and Mux.
 - Peacock: Braze, Conviva, Nielsen, comScore, Adobe Analytics, New Relic, mParticle, and Branch.
 - Plex: Kochava, Plex's own analytics, Plex's ad measurement, and Statsig event logging.
-- Pluto TV: Kochava, comScore, Nielsen, Adobe Analytics, Conviva, New Relic, Salesforce Marketing Cloud, and Pluto's Tealium tag config.
+- Pluto TV: Kochava, comScore, Nielsen, Adobe Analytics, Conviva, New Relic, and Salesforce Marketing Cloud. The Blocking level option chooses what happens to Pluto's own playback tracking, which also saves your place. Relaxed, the default, leaves it on, so Continue Watching keeps working. Aggressive blocks it too, so Pluto TV does not remember where you stopped.
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
 - Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.

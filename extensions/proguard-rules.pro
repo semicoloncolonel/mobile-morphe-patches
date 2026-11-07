@@ -11,7 +11,9 @@
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker {
     # Overwritten by patches, so R8 must not fold its constant answer.
     public static boolean keepBraze();
+    public static boolean blockResumeTracking();
     public static *** openConnection(java.net.URL);
+    public static java.net.InetAddress[] lookup(java.lang.String);
     public static void install(okhttp3.OkHttpClient$Builder);
     public static *** blockWebRequest(android.webkit.WebResourceRequest);
     public static java.lang.String filterJsRequestUrl(java.lang.String);
@@ -19,11 +21,10 @@
 }
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker$BlockInterceptor { *; }
 
-# Pluto TV — "Skip ads". filter / mapResumePosition are called only from
+# Pluto TV — "Skip ads". filter is called only from
 # injected smali via invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.pluto.ads.PlutoMpdFilter {
     public static java.io.InputStream filter(java.io.InputStream);
-    public static long mapResumePosition(long);
 }
 
 # Shared "Hide device identifiers" (opt-in). getSecureString replaces

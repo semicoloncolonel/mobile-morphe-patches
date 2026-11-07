@@ -11,6 +11,6 @@ object Constants {
         description = "The myAT&T app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x009FDB,
-        targets = listOf(AppTarget("2026.10.1"))
+        targets = listOf(AppTarget("2026.10.2"))
     )
 }

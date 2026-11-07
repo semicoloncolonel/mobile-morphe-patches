@@ -11,6 +11,6 @@ object Constants {
         description = "The phone app, not the Android TV app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x000000,
-        targets = listOf(AppTarget("7.10.20"))
+        targets = listOf(AppTarget("7.10.30"))
     )
 }

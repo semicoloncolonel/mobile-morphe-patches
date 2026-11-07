@@ -1,5 +1,5 @@
-name: Bug report
-description: Report a patch that fails, crashes, or does not work as described.
+name: 🐞 Bug report
+description: A patch fails to apply, the patched app crashes or will not play, or a patch does not do what the README says.
 title: "bug: "
 labels: ["bug"]
 body:
@@ -9,6 +9,15 @@ body:
         Thank you for reporting a problem. Only the description is required, but every other field helps find the cause faster.
 
         Before you start, please check the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) for the same problem.
+  - type: checkboxes
+    id: before
+    attributes:
+      label: Before you submit
+      options:
+        - label: "I read the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches#known-issues) in the README."
+          required: true
+        - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this problem."
+          required: true
   - type: dropdown
     id: app
     attributes:
@@ -213,5 +222,4 @@ body:
     attributes:
       label: Checks
       options:
-        - label: I searched the existing issues and did not find this problem.
         - label: The problem does not happen in the unpatched app.

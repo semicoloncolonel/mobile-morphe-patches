@@ -1,5 +1,5 @@
-name: Patch request
-description: Ask for a new app, a new patch, or support for another version or build.
+name: 📦 New app or patch request
+description: Ask for an app that is not supported yet, a new patch for a supported app, another version, or the Android TV build.
 title: "request: "
 labels: ["enhancement"]
 body:
@@ -9,6 +9,13 @@ body:
         Thank you for the suggestion. Only the request itself is required, but every other field helps.
 
         Before you start, please check the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) for the same request.
+  - type: checkboxes
+    id: before
+    attributes:
+      label: Before you submit
+      options:
+        - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this request."
+          required: true
   - type: dropdown
     id: kind
     attributes:
@@ -54,9 +61,3 @@ body:
     attributes:
       label: Anything else
       description: Links, other projects that patch this app, or anything else that could help.
-  - type: checkboxes
-    id: checks
-    attributes:
-      label: Checks
-      options:
-        - label: I searched the existing issues and did not find this request.

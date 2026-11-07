@@ -53,11 +53,11 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 |-----|---------|----------------|--------------|
 | AMC+ | Skip launch video, Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `1.8.62.1` | 10/31/26 |
 | Apple TV | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `3.0.0` | 10/30/26 |
-| Disney+ | Skip launch video, Skip ads, Block analytics & tracking 🧪⚙️ | `26.21.0+rc1-2026.11.04` | 11/06/26 |
+| Disney+ | Skip launch video, Skip ads, Block analytics & tracking 🧪⚙️ | `26.20.0+rc2-2026.10.28` | 11/02/26 |
 | ESPN | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `8.29.0` | 11/04/26 |
-| Fandango at Home | Mask ads, Block analytics & tracking ⚙️ | `10.25.preview17.179399459` | 11/06/26 |
+| Fandango at Home | Mask ads, Block analytics & tracking ⚙️ | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Skip ads 🧪, Disable Pairip license check, Block analytics & tracking 🧪⚙️ | `1.25.1` | 11/06/26 |
-| HBO Max 📺 | Skip ads, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `22.0.0.321`, Android TV `22.0.0.36` | 11/06/26 |
+| HBO Max 📺 | Skip ads, Remove social sign-in (phone), Block analytics & tracking 🧪⚙️ | `22.0.0.321`, Android TV `22.0.0.36` | 11/06/26 |
 | Hulu | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `6.34.0+18552420-google` | 10/31/26 |
 | JustWatch 📺 | Block ads, Hide sponsored titles, Block analytics & tracking ⚙️ | `26.44.2`, Android TV `26.43.8` | 11/04/26 |
 | MGM+ | Skip ads 🧪, Skip pre-roll promo 🧪, Skip lion intro, Disable MGM+ AI ⚙️, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `240.0.2026240000` | 10/30/26 |
@@ -86,7 +86,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | ABC News | Skip ads 🧪, Mask live ad breaks, Block analytics & tracking ⚙️ | `8.98.2` | 11/02/26 |
-| AP News | GmsCore support ⚙️, Skip ads, Hide donate button, Block analytics & tracking ⚙️, Route traffic through a proxy ⚙️ | `6.32` | 11/06/26 |
+| AP News | GmsCore support ⚙️, Skip ads, Hide donate button, Block analytics & tracking ⚙️, Route traffic through a proxy ⚙️ | `6.31.2` | 11/05/26 |
 | CBS News | Disable signature check, Skip ads, Hide surveys, Opt out of data sale & sharing, Block analytics & tracking ⚙️ | `5.20` | 11/02/26 |
 | CNN | Skip ads 🧪, Faster launch, Opt out of data sale & sharing, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `26.21.0` | 11/05/26 |
 | C-SPAN Now | Skip ads 🧪, Hide promo banners, Block analytics & tracking ⚙️ | `1.25.0` | 11/05/26 |
@@ -100,7 +100,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | NPR | Fix media connection crash, Skip ads, Hide Waze bar, Hide donate buttons, Opt out of data sale & sharing, Block analytics & tracking ⚙️, Route traffic through a proxy ⚙️ | `7.10.0` | 11/05/26 |
 | Substack | Block analytics & tracking ⚙️, Disable screenshot detection, Hide follow upsell | `3.12.0` | 11/05/26 |
 | The Daily Wire | GmsCore support ⚙️, Skip ads, Block analytics & tracking ⚙️ | `3.5.21` | 11/05/26 |
-| The New York Times | Skip ads 🧪, Hide upsell pop-ups 🧪, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `11.99.0` | 11/06/26 |
+| The New York Times | Skip ads 🧪, Hide upsell pop-ups 🧪, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `11.98.0` | 10/30/26 |
 | The Wall Street Journal | Skip ads 🧪, Hide marketing pop-ups 🧪, Block analytics & tracking 🧪⚙️ | `15.12.0.42675` | 10/30/26 |
 | The Washington Post | Skip ads 🧪, Hide marketing pop-ups 🧪, Disable AI 🧪⚙️, Block analytics & tracking 🧪⚙️ | `7.18.1` | 10/30/26 |
 | theScore | Block analytics & tracking ⚙️ | `26.16.0` | 11/05/26 |
@@ -127,11 +127,11 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| Amazon Shopping | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `32.20.2.100` | 11/06/26 |
+| Amazon Shopping | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `32.19.0.100` | 11/01/26 |
 | Best Buy | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `26.10.10` | 11/01/26 |
-| CVS | Disable AI 🧪⚙️ | `26.11.10` | 11/06/26 |
+| CVS | Disable AI 🧪⚙️ | `26.10.50` | 11/01/26 |
 | DealSeek | Strip affiliate links, Hide pop-ups, Disable Pairip license check, Block analytics & tracking 🧪⚙️ | `1.64.0` | 11/05/26 |
-| Target | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `2026.44.0` | 11/06/26 |
+| Target | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `2026.43.0` | 11/01/26 |
 | The Home Depot | Disable AI 🧪⚙️ | `8.2.5` | 11/01/26 |
 | Walgreens | The shared privacy patches only | `118.0` | 11/01/26 |
 | Walmart | Disable AI 🧪⚙️ | `26.42.1` | 11/06/26 |
@@ -392,7 +392,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 |-------|-----|--------------|
 | GmsCore support | AP News, MLB, Moviebase, NewsBreak, The Daily Wire, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. |
 | Change app name | YouTube TV | Names the app "YT TV+" by default, so it is easy to tell apart from the official app. |
-| Remove social sign-in | CNN, HBO Max, MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
+| Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 | Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |

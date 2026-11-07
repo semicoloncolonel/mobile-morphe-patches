@@ -16,7 +16,7 @@ object Constants {
         description = "The phone app, not the Android TV app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x13284B,
-        targets = listOf(AppTarget("510.3.0")),
+        targets = listOf(AppTarget("510.3.0", 1025, description = "Phone build")),
     )
 
     val TV_COMPATIBILITY = Compatibility(
@@ -25,6 +25,6 @@ object Constants {
         description = "The Android TV app, not the phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x13284B,
-        targets = listOf(devTarget("4.94")),
+        targets = listOf(devTarget("4.94", versionCode = 8335, description = "Android TV build")),
     )
 }

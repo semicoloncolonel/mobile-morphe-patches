@@ -20,8 +20,8 @@ internal object EnableSignInWithGoogleFingerprint : Fingerprint(
 
 @Suppress("unused")
 val removeSocialSignInPatch = bytecodePatch(
-    name = "Remove social sign-in",
-    description = "Keeps Sign in with Google turned off.",
+    name = "Remove social sign-in (phone)",
+    description = "Keeps Sign in with Google turned off. The Android TV app has no such option, so this does nothing there.",
 ) {
     compatibleWith(Constants.PHONE_COMPATIBILITY)
 

@@ -15,7 +15,10 @@ object Constants {
         description = "The HBO Max app, for phones (version $PHONE_VERSION) and Android TV (version $TV_VERSION).",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(devTarget(PHONE_VERSION), devTarget(TV_VERSION))
+        targets = listOf(
+            devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"),
+            devTarget(TV_VERSION, versionCode = 1842000036, description = "Android TV build"),
+        )
     )
 
     // For patches that only apply to the phone build, such as the sign-in
@@ -26,6 +29,6 @@ object Constants {
         description = "The HBO Max phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(devTarget(PHONE_VERSION))
+        targets = listOf(devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
     )
 }

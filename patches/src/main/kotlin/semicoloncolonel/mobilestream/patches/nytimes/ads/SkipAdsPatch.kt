@@ -1,38 +1,30 @@
 package semicoloncolonel.mobilestream.patches.nytimes.ads
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import semicoloncolonel.mobilestream.patches.nytimes.shared.Constants
 
-// NYT phone 11.98.0. Every native ad slot (section fronts, the article feed,
-// slideshows; banners and native ads alike) asks AdRepositoryImpl for its ad.
-// Both public entry points funnel into one method, renamed j(position, page
-// context, ad type) in this build. It writes a state for the slot into
-// LocalAdCache and returns that cache entry as a Flow the slot observes.
+// NYT phone 11.99.0. Every native ad slot (section fronts, the article feed,
+// slideshows; banners and native ads alike) asks the ad repository for its ad
+// (AdRepositoryImpl, renamed to a one-letter class in 11.99.0). Its fetch
+// method first reads the app's "Google Ad Manager enabled" config flag. When
+// that flag is off, the app writes its own EmptyAd state for the slot, which
+// the slot shows as nothing, and returns without requesting an ad.
 //
-// The app already has an EmptyAd state (gj$c, "EmptyAd(position=...)") that a
-// slot shows as nothing. This patch writes EmptyAd for every slot and returns
-// the cache flow, before any ad request or the alternate request path runs.
-// The obfuscated names are read from j's own instructions, not hard-coded.
+// This patch sets that flag to off right after it is read, so the app takes
+// its own no-ads path for every slot. The method is found by the consent
+// preferences it sets before an ad request, not by its obfuscated name.
 internal object AdRepositoryFetchFingerprint : Fingerprint(
-    returnType = "Lkotlinx/coroutines/flow/Flow;",
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    custom = { method, classDef ->
-        classDef.type == "Lcom/nytimes/android/ads/core/data/repositories/AdRepositoryImpl;" &&
-            method.parameterTypes.size == 3 &&
+    strings = listOf("gad_has_consent_for_cookies", "gad_rdp"),
+    custom = { method, _ ->
+        method.parameterTypes.size == 3 &&
             method.parameterTypes.first().toString() == "Ljava/lang/String;"
     },
 )
-
-private fun MethodReference.smali() =
-    "$definingClass->$name(${parameterTypes.joinToString("")})$returnType"
 
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
@@ -44,35 +36,10 @@ val skipAdsPatch = bytecodePatch(
     execute {
         AdRepositoryFetchFingerprint.method.apply {
             val instructions = implementation!!.instructions.toList()
-            val references = instructions.mapNotNull { (it as? ReferenceInstruction)?.reference }
-
-            // The first new-instance is the EmptyAd state, built from the position.
-            val emptyAd = (instructions.first { it.opcode == Opcode.NEW_INSTANCE } as ReferenceInstruction)
-                .reference as TypeReference
-            val cacheField = references.filterIsInstance<FieldReference>()
-                .first { it.type.endsWith("/LocalAdCache;") }
-            val cachePut = references.filterIsInstance<MethodReference>().first {
-                it.definingClass == cacheField.type && it.returnType == "V" &&
-                    it.parameterTypes.size == 2 && it.parameterTypes[0].toString() == "Ljava/lang/String;"
-            }
-            val cacheFlow = references.filterIsInstance<MethodReference>().first {
-                it.definingClass == definingClass && it.returnType == "Lkotlinx/coroutines/flow/Flow;" &&
-                    it.parameterTypes.map { type -> type.toString() } == listOf("Ljava/lang/String;")
-            }
-
-            // .locals 10 in 11.98.0, so p0/p1 are v10/v11 and fit 4-bit invokes.
-            addInstructions(
-                0,
-                """
-                    new-instance v0, ${emptyAd.type}
-                    invoke-direct {v0, p1}, ${emptyAd.type}-><init>(Ljava/lang/String;)V
-                    iget-object v1, p0, ${cacheField.definingClass}->${cacheField.name}:${cacheField.type}
-                    invoke-virtual {v1, p1, v0}, ${cachePut.smali()}
-                    invoke-virtual {p0, p1}, ${cacheFlow.smali()}
-                    move-result-object v0
-                    return-object v0
-                """.trimIndent(),
-            )
+            val flagRead = instructions.indexOfFirst { it.opcode == Opcode.IGET_BOOLEAN }
+            if (flagRead < 0) throw PatchException("Ad Manager flag read not found")
+            val register = (instructions[flagRead] as OneRegisterInstruction).registerA
+            addInstruction(flagRead + 1, "const/16 v$register, 0x0")
         }
     }
 }

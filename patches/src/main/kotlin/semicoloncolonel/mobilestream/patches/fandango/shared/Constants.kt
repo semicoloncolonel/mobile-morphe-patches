@@ -11,6 +11,6 @@ object Constants {
         description = "The phone app, formerly Vudu.",
         apkFileType = ApkFileType.APK,
         appIconColor = 0x3D7CF4,
-        targets = listOf(AppTarget("10.24.r009.179279954"))
+        targets = listOf(AppTarget("10.25.preview17.179399459"))
     )
 }

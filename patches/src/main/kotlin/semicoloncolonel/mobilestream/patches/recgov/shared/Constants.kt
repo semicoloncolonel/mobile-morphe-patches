@@ -11,6 +11,6 @@ object Constants {
         description = "The Recreation.gov app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x325D5A,
-        targets = listOf(AppTarget("2.2.67"))
+        targets = listOf(AppTarget("2.2.67.1"))
     )
 }

@@ -11,6 +11,6 @@ object Constants {
         description = "The AP News app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xE11B22,
-        targets = listOf(AppTarget("6.31.2 PROD"))
+        targets = listOf(AppTarget("6.32 PROD"))
     )
 }

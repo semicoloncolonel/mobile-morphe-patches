@@ -11,6 +11,6 @@ object Constants {
         description = "The Walmart shopping app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x0071DC,
-        targets = listOf(AppTarget("26.42"))
+        targets = listOf(AppTarget("26.42.1"))
     )
 }

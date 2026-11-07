@@ -1,3 +1,10 @@
+## [1.0.14-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.4...v1.0.14-dev.5) (2026-11-07)
+
+
+### Features
+
+* add Truth Social ([a59fc13](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a59fc135ef84f86f9da88617582c849473e42ae9))
+
 ## [1.0.14-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14-dev.3...v1.0.14-dev.4) (2026-11-07)
 
 

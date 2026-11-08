@@ -69,6 +69,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           ONLY: ${{ inputs.only }}
+          # A throwaway Google account, not in any beta program, for reading the
+          # version Google Play serves to an ordinary phone.
+          PLAY_EMAIL: ${{ secrets.PLAY_EMAIL }}
+          PLAY_AAS_TOKEN: ${{ secrets.PLAY_AAS_TOKEN }}
         run: |
           python .github/scripts/app_updates.py \
             --cli tools/*-all.jar --mpp tools/*.mpp --aapt2 "$AAPT2" --apksigner "$APKSIGNER" \

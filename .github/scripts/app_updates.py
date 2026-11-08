@@ -6,7 +6,8 @@ For each app in the patch bundle, this script:
 1. Reads the versions the bundle targets (Morphe CLI `list-patches`).
 2. Reads the public versions on APKPure (apkeep). APKPure lists public
    releases only, so beta builds are not reported.
-3. Asks Google Play which version it serves to an ordinary phone, using an
+3. Asks Google Play which version it serves to an ordinary phone, using a
+   throwaway account (PLAY_EMAIL, PLAY_AAS_TOKEN) or, without one, an
    anonymous login from Aurora Store's token dispenser. A newer APKPure
    version that Play does not serve yet, such as a staged rollout, is
    reported as not public on Play and is not downloaded or patched.
@@ -155,17 +156,42 @@ def proto_varint(buf, i):
 class PlayStore:
     """The versions Google Play serves to an ordinary phone.
 
-    Logs in once with an anonymous account from Aurora Store's token
-    dispenser, sending the Pixel 9a profile in .github/play-device.properties,
-    then reads each app's details page. Staged rollouts reach only some
-    devices, so a version Play does not serve to this phone is treated as not
-    yet public.
+    With PLAY_EMAIL and PLAY_AAS_TOKEN set (a throwaway Google account that is
+    not in any beta program), apkeep downloads the app from Play as a Pixel 9a
+    and the version is read from the download. GitHub's runners use this,
+    because Aurora's token dispenser refuses them.
+
+    Without them, it logs in once with an anonymous account from Aurora Store's
+    token dispenser, sending the Pixel 9a profile in
+    .github/play-device.properties, and reads each app's details page.
+
+    Staged rollouts reach only some devices, so a version Play does not serve
+    to this phone is treated as not yet public.
     """
 
-    def __init__(self, profile):
+    def __init__(self, profile, aapt2=None, workdir=None):
         self.profile = profile
+        self.aapt2 = aapt2
+        self.workdir = workdir
+        self.email = os.environ.get("PLAY_EMAIL")
+        self.aas_token = os.environ.get("PLAY_AAS_TOKEN")
         self.auth = None
         self.error = None
+
+    def account_version(self, package):
+        """The versionName of the APK Play gives the throwaway account, or None."""
+        with tempfile.TemporaryDirectory(dir=self.workdir) as tmp:
+            result = run(["apkeep", "-a", package, "-d", "google-play", "-e", self.email, "-t", self.aas_token,
+                          "-o", "split_apk=true", tmp], timeout=900)
+            base = next(Path(tmp).rglob(f"{package}.apk"), None)
+            if base is None:
+                # apkeep's output never contains the token, only the package and its error.
+                print(f"  {package}: Google Play download failed: {(result.stdout + result.stderr).strip()[-300:]}",
+                      flush=True)
+                return None
+            badging = run([self.aapt2, "dump", "badging", str(base)]).stdout
+            found = re.search(r"versionName='([^']+)'", badging)
+            return found.group(1) if found else None
 
     def login(self):
         props = {}
@@ -182,6 +208,8 @@ class PlayStore:
 
     def version(self, package):
         """The versionName Play serves for the package, or None."""
+        if self.email and self.aas_token:
+            return self.account_version(package)
         if self.error:
             return None
         try:
@@ -591,7 +619,7 @@ def main():
     certs = json.loads(certs_path.read_text()) if certs_path.exists() else {}
     out = Path(args.out)
     results = check(apps, app_names(args.repo), certs, args.cli, args.mpp, args.workdir,
-                    args.aapt2, args.apksigner, only, out / "patched", PlayStore(args.play_device))
+                    args.aapt2, args.apksigner, only, out / "patched", PlayStore(args.play_device, args.aapt2, args.workdir))
 
     out.mkdir(parents=True, exist_ok=True)
     (out / "app-updates.json").write_text(json.dumps(results, indent=2))

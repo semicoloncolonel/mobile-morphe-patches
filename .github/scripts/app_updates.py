@@ -145,18 +145,33 @@ def base_apk(apk, tmp):
         return base
 
 
+# apksigner's wording changes between build-tools versions: "Signer #1 certificate",
+# "V3.0 Signer: certificate", and, for apps that rotated their key, a signer per
+# Android version range such as "V3.1 Signer: (minSdkVersion=33, ...) certificate".
+# Read every signer's digest whatever the wording, except Google Play's source stamp.
+CERT_DIGEST = re.compile(r"^(?!Source Stamp)[^\n]*certificate SHA-256 digest: ([0-9a-f]{64})", re.M)
+
+
 def signing_cert(apk, apksigner):
-    """The SHA-256 digest of the APK's first signing certificate."""
+    """The SHA-256 digests of the APK's signing certificates, or None."""
     if not apksigner:
         return None
     with tempfile.TemporaryDirectory() as tmp:
         base = base_apk(apk, tmp)
         if base is None:
+            print(f"  {apk.name}: no base APK found")
             return None
-        out = run([apksigner, "verify", "--print-certs", str(base)]).stdout
-        # Apps that rotated their key list a signer per Android version range;
-        # any of them matching the known certificate is enough.
-        return re.findall(r"^Signer[^:\n]*certificate SHA-256 digest: ([0-9a-f]{64})", out, re.M) or None
+        result = run([apksigner, "verify", "--print-certs", str(base)])
+        # Any signer matching the known certificate is enough.
+        found = CERT_DIGEST.findall(result.stdout)
+        if found:
+            return found
+        if result.returncode == 0:
+            print(f"  {apk.name}: apksigner verified the APK, but its output format is not recognized:")
+        else:
+            print(f"  {apk.name}: apksigner could not verify the APK:")
+        print("  " + (result.stdout + result.stderr).strip()[:1000])
+        return None
 
 
 def version_code(apk, aapt2):

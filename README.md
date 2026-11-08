@@ -1,6 +1,6 @@
 # Mobile Morphe Patches
 
-[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-68-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-69-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
 
 Morphe patches that remove ads and block tracking in the phone versions of streaming, news, shopping, carrier, and government apps.
 
@@ -20,6 +20,8 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 
 > [!NOTE]
 > Some patches are phone ports of [ajstrick81's Android TV patches](https://github.com/ajstrick81/morphe-androidtv-patches), and the original hook designs are their work. For the Android TV apps, use the original project.
+>
+> This project focuses on phone apps that no other patch source covers. The [Morphe patches site](https://morphe-patches.software/) lists the patches from every source, so search it to see what else exists before you request an app. If another source already patches the app you want, please ask its author for updates or new patches.
 
 ## Install
 
@@ -47,12 +49,13 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | 📺 | Also works on the Android TV app. |
 
 <details open>
-<summary><b>🎬 Streaming</b> · 26 apps</summary>
+<summary><b>🎬 Streaming</b> · 27 apps</summary>
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | AMC+ | Skip launch video, Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `1.8.62.1` | 10/31/26 |
 | Apple TV | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `3.0.0` | 10/30/26 |
+| Apple TV (Android TV) 📺 | Auto-skip (Android TV) 🧪, Hide rating prompt (Android TV) 🧪 | `17.0.2` | 11/07/26 |
 | Disney+ | Skip launch video, Skip ads, Block analytics & tracking 🧪⚙️ | `26.20.0+rc2-2026.10.28` | 11/02/26 |
 | ESPN | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads, Block analytics & tracking ⚙️ | `10.24.r009.179279954` | 11/02/26 |
@@ -64,7 +67,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | Moviebase | GmsCore support, Disable Pairip license check, Block ads, Hide Premium upsell, Block analytics & tracking ⚙️ | `7.7.0` | 11/02/26 |
 | MLB | GmsCore support ⚙️, Skip ads, Hide surveys and rating prompt, Mask live ad breaks 🧪⚙️, Hide betting odds ⚙️, Block analytics & tracking ⚙️ | `26.21.0.49` | 11/05/26 |
 | NBA | Skip ads 🧪, Disable Ask NBA AI 🧪⚙️, Block analytics & tracking 🧪⚙️ | `1.2.0` | 10/31/26 |
-| NFL | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `61.0.19` | 11/06/26 |
+| NFL | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `61.0.19` | 11/07/26 |
 | Paramount+ | Skip launch video, Skip ads, Block analytics & tracking 🧪⚙️ | `17.3.0` | 11/04/26 |
 | PBS | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `5.27.0` | 10/30/26 |
 | Peacock | Skip ads 🧪, Disable Xfinity auto sign-in, Block analytics & tracking 🧪⚙️ | `7.10.30` | 11/06/26 |
@@ -74,7 +77,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | Shudder | Block analytics & tracking ⚙️ | `10.1.1` | 11/05/26 |
 | Starz | Skip launch video, Skip pre-roll promo 🧪, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `6.11.0` | 10/31/26 |
 | Sundance Now | Block analytics & tracking ⚙️ | `5.0.25.2` | 11/05/26 |
-| Tubi | Skip ads, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking 🧪⚙️ | `10.44.2` | 11/06/26 |
+| Tubi | Skip ads, Highest quality 🧪, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking 🧪⚙️ | `10.44.2` | 11/07/26 |
 | Xumo Play | Skip ads, Mask live ad breaks 🧪, Block analytics & tracking 🧪⚙️ | `4.6.21` | 11/04/26 |
 | YouTube TV | GmsCore support, Skip ads 🧪, Mask live ad breaks 🧪⚙️, Start at high quality 🧪⚙️, Fix picture-in-picture 🧪, Change app name, Block telemetry ⚙️, Hide prompts and promos ⚙️, Hide membership upsell ⚙️ | `10.44.0` | 11/05/26 |
 
@@ -118,7 +121,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | MyTSA | Block analytics & tracking ⚙️ | `5.1.0` | 11/02/26 |
 | National Forests & Grasslands | Disable Pairip license check, Block analytics & tracking ⚙️ | `1.3.0` | 11/02/26 |
 | NPS | Block analytics & tracking ⚙️, Block Bluetooth scanning ⚙️ | `2.15.0` | 11/02/26 |
-| Recreation.gov | Skip location on open, Hide rating prompt, Block analytics & tracking ⚙️, Show hidden details ⚙️ | `2.2.67.1` | 11/06/26 |
+| Recreation.gov | Skip location on open, Hide rating prompt, Block analytics & tracking ⚙️, Show hidden details ⚙️ | `2.2.67.1` | 11/07/26 |
 | White House | Skip launch video, Disable Pairip license check, Remove microphone access, Hide social feeds ⚙️, Hide promotions ⚙️, Block analytics & tracking ⚙️, Route traffic through a proxy ⚙️ | `47.7.8` | 11/05/26 |
 
 </details>
@@ -146,7 +149,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 |-----|---------|----------------|--------------|
 | Mint Mobile | Block analytics & tracking ⚙️ | `2.3.42` | 11/06/26 |
 | My Verizon | Block session recording, Block analytics & tracking ⚙️, Disable AI 🧪⚙️ | `22.2.5` | 11/02/26 |
-| myAT&T | Block session recording, Block background network reports 🧪, Block analytics & tracking ⚙️, Disable AI ⚙️ | `2026.10.2` | 11/06/26 |
+| myAT&T | Block session recording, Block background network reports 🧪, Block analytics & tracking ⚙️, Disable AI ⚙️ | `2026.10.2` | 11/07/26 |
 | T-Life | Block location tracking, Block session recording, Block analytics & tracking ⚙️, Disable AI ⚙️ | `12.3.1` | 11/01/26 |
 | T-Mobile Play | Block ads, Block analytics & tracking ⚙️, Block TV discovery ⚙️, Hide stories ⚙️ | `19.4.4` | 11/01/26 |
 | Visible | Block ads, Block session recording, Block analytics & tracking ⚙️ | `3.0.5` | 11/01/26 |
@@ -185,7 +188,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - NewsNation (Android TV): the video ads before clips. Ads in the live channels are not affected.
 - NPR: sponsor banners in the feed, the ad spaces in stories that open as web pages, and ads before videos. Sponsor credits read in podcasts and the live stream are part of the audio and still play.
 - The Daily Wire: the banner ads and their "Advertisement" slots, including the one pinned to the top of articles, and the pre-roll before videos. Members-only content stays locked.
-- NFL: ads in clips and highlights.
+- NFL: ads in clips and highlights, including the clips on article pages. The banner ads on article pages are not affected.
 - Paramount+: ads in videos. Live sports breaks show Paramount's "Commercial in Progress" card.
 - PBS: sponsor messages before and during videos.
 - Plex: ads in on-demand titles, and pause ads. Live TV is not changed.
@@ -247,6 +250,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Hide surveys and rating prompt | MLB | The Qualtrics surveys and the Play Store rating pop-up they lead to. |
 | Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
 | Hide rating prompt (Android TV) | NewsNation (Android TV) | The "rate this app" dialog. Rating from Settings still works. |
+| Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |
 | Hide rating prompt | Recreation.gov | The rate-the-app prompt after checkout. |
 | Hide rating prompt | USA TODAY | The Play Store rating request. |
 | Hide subscription prompts | USA TODAY | The "Sale" bar pinned to the bottom of articles, the Subscribe links above Top Stories and in the article toolbar, and the subscription offers that pop up on launch, such as the $1 trial. Sign In stays. |
@@ -274,7 +278,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - CVS: AI search in the help center, which also stops the download of Google's on-device AI model, AI insights, AI summaries of visits, lab results, and claims, and proactive AI on pharmacy orders.
 - MGM+ (Disable MGM+ AI): the "MGM+ AI" assistant, its "Get Personalized Pick" and "Not sure what to watch?" prompts, and the AI-picks rows on Home.
 - My Verizon: the assistant, its voice mode, and its floating button.
-- myAT&T: Andi, the assistant, and its Fusion AI features: chat history, voice to text, AI search suggestions, citations, and AI cards. The Andi button opens a chat that shows an error, and in-app chat with an agent stops too. Phone support is not affected.
+- myAT&T: Andi, the assistant, and its Fusion AI features: chat history, voice to text, AI search suggestions, citations, and AI cards. The round Andi button and the "Ask Andi" card on Home are removed, and in-app chat with an agent stops too. Phone support is not affected.
 - NBA (Disable Ask NBA AI): the Ask NBA button on every screen and its tile on the Discover tab.
 - NewsBreak (Disable NewsBreak AI): Nia, the AI chat in the toolbar, home channel, profile, and search, and Scout, the reading assistant in articles. Hide AI summaries, which is off by default, also hides the AI-written summary card on crime and local-alert pages. That card is the incident description, so the page keeps only its title and transcript.
 - Prime Video: Alexa+, its chat button, and its companion mode.
@@ -393,7 +397,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 ### 🔑 Sign-in and startup
 
 <details>
-<summary>Sign-in and startup patches · 11</summary>
+<summary>Sign-in and startup patches · 12</summary>
 
 | Patch | App | What it does |
 |-------|-----|--------------|
@@ -405,6 +409,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
 | Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz, White House | Opens the app without the intro video. |
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
+| Highest quality | Tubi | Plays the highest-resolution version of each title and live channel, and keeps it at the highest bitrate Tubi sends. Most titles stop at 720p, and a few have 1080p. Tubi sends the app fewer renditions than its website, so some titles play below the resolution the website offers. Turn it off if videos buffer. |
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
 | Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |
 | Disable forced updates | Truth Social | Keeps the app open when Truth Social's server asks for a newer version. A patched app cannot update from the Play Store. |
@@ -421,6 +426,8 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Rename shared permissions | Prime Video | Lets Amazon Shopping and other Amazon apps install beside the patched Prime Video. |
 
 ### ✨ Extra features
+
+**Auto-skip** (Apple TV on Android TV) presses Skip for you on the parts you choose in its options: Apple's promos for other titles, which are on by default, and recaps and intros, which are off by default. Other buttons, such as Add, are left alone.
 
 **Save content for offline use** (FEMA) keeps the Prepare guides, disaster declarations, FAQ, and the images you have viewed readable without a connection. Long-press the app icon for **Save all**, which downloads every guide in English and Spanish (about 150 MB), or **Refresh**, which updates the saved pages. Saved content is replaced only after the new copy downloads completely.
 
@@ -442,6 +449,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 
 | App | Issue | Cause or workaround |
 |-----|-------|---------------------|
+| NewsNation (Android TV), Apple TV (Android TV) | On a TV, Morphe Manager may offer to update the app to the phone version (NewsNation 510.3.0, Apple TV 3.0.0). | The phone and Android TV apps share a package name, and Morphe Manager compares only version numbers. Ignore the update. The Android TV versions are NewsNation 4.94 and Apple TV 17.0.2. |
 | HBO Max | On TV, a resumed episode can show "Couldn't Play Content" (error 39999) when it reaches a mid-roll ad break. | Start the episode from the beginning. |
 | Best Buy | On some phones, every screen has a white tint and the app can take a minute to start. | The official app does the same on these phones, so the patches do not cause it. This is under review. |
 | Moviebase | The Activity and Members tabs do not load. | Moviebase's community server accepts only requests that pass Google's Play Integrity check, which a patched app cannot pass. |

@@ -31,6 +31,7 @@
 # Settings.Secure.getString at app call sites via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.DeviceIdSpoofer {
     public static java.lang.String getSecureString(android.content.ContentResolver, java.lang.String);
+    public static java.lang.String maskId(java.lang.String);
 }
 
 # Pluto TV — "Mask live ad breaks". All five entry points are called only from
@@ -224,3 +225,21 @@
 -keep class semicoloncolonel.mobilestream.extension.npr.AdRowCollapser { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.newsnation.NewsNationAds { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.newsnation.AdSwitchFilter { *; }
+
+# Truth Social — "Skip ads" and "Show poll results". add() and annotate() are
+# called only from injected smali, and boostField() is overwritten by the
+# patch, so R8 must keep them as they are and not fold its result.
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.BoostFilter { *; }
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.PollPreview { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaSaver { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaTypeFix { *; }
+
+# Apple TV (Android TV) — "Auto-skip". Called only from injected smali, and its
+# skipPromos / skipRecaps / skipIntros answers are overwritten by the patch.
+-keep class semicoloncolonel.mobilestream.extension.appletv.AutoSkipper { public static *; }
+
+# NFL — "Skip ads" web view layer. Called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.nfl.NflWebAds { public static *; }
+
+# Tubi — "Highest quality". Called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.tubi.TubiQuality { public static *; }

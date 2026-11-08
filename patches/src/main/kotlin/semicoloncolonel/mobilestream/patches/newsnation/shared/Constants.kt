@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.newsnation.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import app.morphe.patcher.patch.FormFactor
 import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 // NewsNation ships two different apps under one package name: the phone app
@@ -26,5 +27,6 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x13284B,
         targets = listOf(devTarget("4.94", versionCode = 8335, description = "Android TV build")),
+        formFactor = FormFactor.TV,
     )
 }

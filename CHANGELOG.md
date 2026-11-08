@@ -1,3 +1,10 @@
+## [1.0.17-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.16...v1.0.17-dev.1) (2026-11-08)
+
+
+### Bug Fixes
+
+* support Prime Video 3.0.480.647 ([3cf56cd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3cf56cdf2b997202112141d8c7365dfdd1387414))
+
 ## [1.0.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15...v1.0.16) (2026-11-08)
 
 

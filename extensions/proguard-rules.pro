@@ -233,3 +233,13 @@
 -keep class semicoloncolonel.mobilestream.extension.truthsocial.PollPreview { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaSaver { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaTypeFix { *; }
+
+# Apple TV (Android TV) — "Auto-skip". Called only from injected smali, and its
+# skipPromos / skipRecaps / skipIntros answers are overwritten by the patch.
+-keep class semicoloncolonel.mobilestream.extension.appletv.AutoSkipper { public static *; }
+
+# NFL — "Skip ads" web view layer. Called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.nfl.NflWebAds { public static *; }
+
+# Tubi — "Highest quality". Called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.tubi.TubiQuality { public static *; }

@@ -79,7 +79,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | Sundance Now | Block analytics & tracking ⚙️ | `5.0.25.2` | 11/05/26 |
 | Tubi | Skip ads, Highest quality 🧪, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking 🧪⚙️ | `10.44.2` | 11/07/26 |
 | Xumo Play | Skip ads, Mask live ad breaks 🧪, Block analytics & tracking 🧪⚙️ | `4.6.21` | 11/04/26 |
-| YouTube TV | GmsCore support, Skip ads 🧪, Mask live ad breaks 🧪⚙️, Start at high quality 🧪⚙️, Fix picture-in-picture 🧪, Change app name, Block telemetry ⚙️, Hide prompts and promos ⚙️, Hide membership upsell ⚙️ | `10.44.0` | 11/05/26 |
+| YouTube TV | GmsCore support, Skip ads 🧪, Mask live ad breaks 🧪⚙️, Start at high quality 🧪⚙️, Fix picture-in-picture 🧪, Change app name, Block telemetry ⚙️, Hide prompts and promos ⚙️, Hide membership upsell ⚙️ | `10.45.0`, `10.44.0` | 11/07/26 |
 
 </details>
 

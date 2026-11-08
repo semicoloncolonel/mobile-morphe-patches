@@ -1,6 +1,6 @@
 name: App updates
 
-# Checks every patched app for a newer public version each day, test-patches
+# Checks every patched app for a newer public version four times a day, test-patches
 # it with the latest dev bundle, and keeps one "App update" issue per app.
 # APKPure downloads are used only when their signing certificate matches the
 # known-good one in .github/app-certs.json. Apps whose patches all apply are
@@ -12,7 +12,11 @@ name: App updates
 
 on:
   schedule:
-    - cron: "23 13 * * *"
+    # 00:30, 06:30, 12:30, and 18:30 Pacific time. GitHub's schedules run in
+    # UTC with no daylight saving time, so both the PDT slots (01, 07, 13,
+    # 19 UTC) and the PST slots (02, 08, 14, 20 UTC) are listed, and the
+    # schedule job skips the slot that does not match Pacific time today.
+    - cron: "30 1,2,7,8,13,14,19,20 * * *"
   workflow_dispatch:
     inputs:
       only:
@@ -26,8 +30,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  schedule:
+    name: Match Pacific time
+    runs-on: ubuntu-latest
+    permissions: {}
+    outputs:
+      run: ${{ steps.slot.outputs.run }}
+    steps:
+      - name: Check the slot
+        id: slot
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Each slot starts at :30 UTC, and GitHub can start a run late. Taking
+          # 30 minutes off the current time gives the slot's hour for any delay
+          # under an hour.
+          hour=$(date -u -d '30 minutes ago' +%-H)
+          if [ "$(TZ=America/Los_Angeles date +%Z)" = "PDT" ]; then slots="1 7 13 19"; else slots="2 8 14 20"; fi
+          run=false
+          for slot in $slots; do [ "$hour" = "$slot" ] && run=true; done
+          echo "UTC slot $hour, Pacific $(TZ=America/Los_Angeles date +%Z), run=$run"
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
   check:
     name: Check app versions
+    needs: schedule
+    if: needs.schedule.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:

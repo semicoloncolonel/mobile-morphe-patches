@@ -1,4 +1,4 @@
-## [1.0.16-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15...v1.0.16-dev.1) (2026-11-08)
+## [1.0.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15...v1.0.16) (2026-11-08)
 
 
 ### Bug Fixes

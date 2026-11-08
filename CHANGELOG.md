@@ -1,3 +1,10 @@
+## [1.0.16-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15...v1.0.16-dev.1) (2026-11-08)
+
+
+### Bug Fixes
+
+* let YouTube TV's GmsCore support patch apply to 10.45.0, where Google moved the Android ID lookup ([5e21acc](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5e21accfcf41e7c134fb1bb413aa9a87b7483794))
+
 ## [1.0.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.14...v1.0.15) (2026-11-08)
 
 

@@ -73,7 +73,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | Peacock | Skip ads 🧪, Disable Xfinity auto sign-in, Block analytics & tracking 🧪⚙️ | `7.10.30` | 11/06/26 |
 | Plex 📺 | Skip ads, Hide sponsored content, Block analytics & tracking ⚙️ | `2026.22.0`, Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV 📺 | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking 🧪⚙️ | `17.3.0`, Android TV `17.3.0` | 11/06/26 |
-| Prime Video | Skip ads, Rename shared permissions, Disable AI 🧪⚙️, Block analytics & tracking 🧪⚙️ | `3.0.480.457` | 11/04/26 |
+| Prime Video | Skip ads, Rename shared permissions, Disable AI 🧪⚙️, Block analytics & tracking 🧪⚙️ | `3.0.480.647` | 11/08/26 |
 | Shudder | Block analytics & tracking ⚙️ | `10.1.1` | 11/05/26 |
 | Starz | Skip launch video, Skip pre-roll promo 🧪, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `6.11.0` | 10/31/26 |
 | Sundance Now | Block analytics & tracking ⚙️ | `5.0.25.2` | 11/05/26 |

@@ -6,14 +6,18 @@ For each app in the patch bundle, this script:
 1. Reads the versions the bundle targets (Morphe CLI `list-patches`).
 2. Reads the public versions on APKPure (apkeep). APKPure lists public
    releases only, so beta builds are not reported.
-3. When APKPure has a newer version, downloads it and checks its signing
+3. Asks Google Play which version it serves to an ordinary phone, using an
+   anonymous login from Aurora Store's token dispenser. A newer APKPure
+   version that Play does not serve yet, such as a staged rollout, is
+   reported as not public on Play and is not downloaded or patched.
+4. When APKPure has a newer version that Play serves, downloads it and checks its signing
    certificate against the app's known-good certificate in
    .github/app-certs.json. APKPure has been found modifying apps, and a
    modified app cannot carry the developer's certificate, so a download
    whose certificate does not match is reported and not used. A matching
    download is checked for the Android TV build and patched with every patch
    for the app. Downloads are only patched on the runner, never installed.
-4. Writes a Markdown and JSON report, and with --issues keeps one GitHub
+5. Writes a Markdown and JSON report, and with --issues keeps one GitHub
    issue per app and version up to date: it opens "App update: <App>
    <version>", updates it on later runs, and closes it once the bundle
    targets that version.
@@ -31,6 +35,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import urllib.parse
+import urllib.request
 import zipfile
 from pathlib import Path
 
@@ -108,6 +114,103 @@ def apkpure_versions(package):
     out = run(["apkeep", "-a", package, "-d", "apk-pure", "-l"], timeout=120).stdout
     match = re.search(r"\|\s*(.+)", out)
     return [v.strip() for v in match.group(1).split(",") if v.strip()] if match else []
+
+
+DISPENSER_URL = "https://auroraoss.com/api/auth"
+PLAY_DETAILS_URL = "https://android.clients.google.com/fdfe/details"
+
+
+def proto_fields(buf):
+    """The fields of a protobuf message, as {field number: [values]}."""
+    fields, i = {}, 0
+    while i < len(buf):
+        key, i = proto_varint(buf, i)
+        number, wire = key >> 3, key & 7
+        if wire == 0:
+            value, i = proto_varint(buf, i)
+        elif wire == 2:
+            size, i = proto_varint(buf, i)
+            value, i = buf[i:i + size], i + size
+        elif wire == 1:
+            value, i = buf[i:i + 8], i + 8
+        elif wire == 5:
+            value, i = buf[i:i + 4], i + 4
+        else:
+            raise ValueError(f"unsupported wire type {wire}")
+        fields.setdefault(number, []).append(value)
+    return fields
+
+
+def proto_varint(buf, i):
+    result = shift = 0
+    while True:
+        byte = buf[i]
+        i += 1
+        result |= (byte & 0x7F) << shift
+        shift += 7
+        if not byte & 0x80:
+            return result, i
+
+
+class PlayStore:
+    """The versions Google Play serves to an ordinary phone.
+
+    Logs in once with an anonymous account from Aurora Store's token
+    dispenser, sending the Pixel 9a profile in .github/play-device.properties,
+    then reads each app's details page. Staged rollouts reach only some
+    devices, so a version Play does not serve to this phone is treated as not
+    yet public.
+    """
+
+    def __init__(self, profile):
+        self.profile = profile
+        self.auth = None
+        self.error = None
+
+    def login(self):
+        props = {}
+        for line in Path(self.profile).read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
+                props[key] = value.replace("\\:", ":")
+        request = urllib.request.Request(DISPENSER_URL, data=json.dumps(props).encode(), method="POST",
+                                         headers={"Content-Type": "application/json",
+                                                  "User-Agent": "com.aurora.store-4.8.3-75"})
+        with urllib.request.urlopen(request, timeout=30) as response:
+            self.auth = json.load(response)
+
+    def version(self, package):
+        """The versionName Play serves for the package, or None."""
+        if self.error:
+            return None
+        try:
+            if self.auth is None:
+                self.login()
+        except Exception as e:
+            self.error = f"Could not log in to Google Play: {e}"
+            print(self.error, flush=True)
+            return None
+        request = urllib.request.Request(
+            f"{PLAY_DETAILS_URL}?{urllib.parse.urlencode({'doc': package})}",
+            headers={"Authorization": f"Bearer {self.auth['authToken']}",
+                     "User-Agent": "Android-Finsky/41.2.29-23 (api=3,versionCode=84122900,sdk=35)",
+                     "X-DFE-Device-Id": self.auth["gsfId"],
+                     "X-DFE-Device-Config-Token": self.auth.get("deviceConfigToken", ""),
+                     "X-DFE-Device-Checkin-Consistency-Token": self.auth.get("deviceCheckInConsistencyToken", ""),
+                     "X-DFE-Client-Id": "am-android-google",
+                     "Accept-Language": "en-US"})
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                body = response.read()
+            # ResponseWrapper.payload.detailsResponse.item.details.appDetails.versionString
+            message = body
+            for number in (1, 2, 4, 13, 1):
+                message = proto_fields(message)[number][0]
+            return proto_fields(message)[4][0].decode()
+        except Exception as e:
+            print(f"  {package}: Google Play did not return a version ({e})", flush=True)
+            return None
 
 
 def download(package, version, workdir):
@@ -217,7 +320,7 @@ def patch_check(apk, patches, cli_path, mpp, workdir):
 
 # ── Report ──────────────────────────────────────────────────────────────────
 
-def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, keep_dir):
+def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, keep_dir, play):
     results = []
     for package in sorted(apps, key=lambda p: names.get(p, p).lower()):
         if only and package not in only:
@@ -234,10 +337,26 @@ def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, ke
             record["status"] = "up to date"
             record["latest"] = max(public, key=version_key)
         else:
+            # Only a version Google Play serves to an ordinary phone is public.
+            # A newer one on APKPure is a staged rollout or not released yet,
+            # so it is not downloaded or patched.
+            served = play.version(package)
+            record["play"] = served
+            if served is None:
+                record["status"] = "Play version unknown"
+                record["latest"] = candidates[0]
+                candidates = []
+            elif not [v for v in candidates if not newer(v, served)]:
+                record["status"] = "not public on Play"
+                record["latest"] = candidates[0]
+                candidates = []
+            else:
+                candidates = [v for v in candidates if not newer(v, served)]
+                record["status"] = "up to date"
+        if candidates:
             # Some apps share a package with their Android TV app, whose version
             # numbers can sort above the phone app's (Tubi's TV build is 10.44.5000).
             # The newest phone build is used, trying up to three versions.
-            record["status"] = "up to date"
             for version in candidates[:3]:
                 outcome = check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2,
                                         apksigner, keep_dir)
@@ -314,6 +433,14 @@ def render(results):
         lines.append(f"| {r['name']} | `{r['pinned']}` | `{r['latest']}`{build} | {summary_cell(r)} | {flag} |")
     if len(lines) == 4:
         lines.append("| Every app is up to date. | | | | |")
+    held = [f"{r['name']} `{r['latest']}` (Play serves `{r['play']}`)" for r in results
+            if r["status"] == "not public on Play"]
+    if held:
+        lines += ["", "Newer on APKPure but not public on Google Play, so not patched: " + ", ".join(held) + "."]
+    unknown = [r["name"] for r in results if r["status"] == "Play version unknown"]
+    if unknown:
+        lines += ["", "Google Play's version could not be read, so these were not patched: "
+                  + ", ".join(unknown) + "."]
     missing = [r["name"] for r in results if r["status"] == "not on APKPure"]
     if missing:
         lines += ["", "Not on APKPure: " + ", ".join(missing) + "."]
@@ -418,6 +545,13 @@ def sync_issues(results, owner):
             if r["pinned"] and not newer(version, r["pinned"]):
                 gh("issue", "close", str(issue["number"]), "--comment",
                    f"The patches now target {r['name']} `{r['pinned']}`, so this is closed.")
+        if r["status"] == "not public on Play":
+            for issue in mine:
+                version = issue["title"][len(prefix):]
+                if r["pinned"] is None or newer(version, r["pinned"]):
+                    gh("issue", "close", str(issue["number"]), "--reason", "not planned", "--comment",
+                       f"Google Play serves {r['name']} `{r['play']}` to an ordinary phone, so `{version}` "
+                       "is not public yet. A new issue opens when Play serves a newer version.")
         if r["status"] != "update":
             continue
         title = prefix + r["latest"]
@@ -441,6 +575,8 @@ def main():
     parser.add_argument("--aapt2", default=shutil.which("aapt2"), help="aapt2, to tell TV builds apart")
     parser.add_argument("--apksigner", default=shutil.which("apksigner"), help="apksigner, to read certificates")
     parser.add_argument("--certs", default=".github/app-certs.json", help="known-good certificates")
+    parser.add_argument("--play-device", default=".github/play-device.properties",
+                        help="device profile for the anonymous Google Play login")
     parser.add_argument("--only", default="", help="comma-separated package names")
     parser.add_argument("--out", default="app-updates")
     parser.add_argument("--workdir", default=tempfile.mkdtemp(prefix="app-updates-"))
@@ -455,7 +591,7 @@ def main():
     certs = json.loads(certs_path.read_text()) if certs_path.exists() else {}
     out = Path(args.out)
     results = check(apps, app_names(args.repo), certs, args.cli, args.mpp, args.workdir,
-                    args.aapt2, args.apksigner, only, out / "patched")
+                    args.aapt2, args.apksigner, only, out / "patched", PlayStore(args.play_device))
 
     out.mkdir(parents=True, exist_ok=True)
     (out / "app-updates.json").write_text(json.dumps(results, indent=2))

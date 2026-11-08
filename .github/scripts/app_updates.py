@@ -145,32 +145,32 @@ def base_apk(apk, tmp):
         return base
 
 
+# apksigner's wording changes between build-tools versions: "Signer #1 certificate",
+# "V3.0 Signer: certificate", and, for apps that rotated their key, a signer per
+# Android version range such as "V3.1 Signer: (minSdkVersion=33, ...) certificate".
+# Read every signer's digest whatever the wording, except Google Play's source stamp.
+CERT_DIGEST = re.compile(r"^(?!Source Stamp)[^\n]*certificate SHA-256 digest: ([0-9a-f]{64})", re.M)
+
+
 def signing_cert(apk, apksigner):
     """The SHA-256 digests of the APK's signing certificates, or None."""
     if not apksigner:
         return None
     with tempfile.TemporaryDirectory() as tmp:
-        if apk.suffix == ".apks":
-            # Try the base APK first, then every other APK in the bundle: all of
-            # them carry the developer's signature.
-            with zipfile.ZipFile(apk) as bundle:
-                names = sorted((n for n in bundle.namelist() if n.endswith(".apk")),
-                               key=lambda n: ("config." in n, n != f"{apk.stem}.apk" and n != "base.apk", n))
-                candidates = []
-                for i, name in enumerate(names):
-                    path = Path(tmp, f"{i}.apk")
-                    path.write_bytes(bundle.read(name))
-                    candidates.append((name, path))
+        base = base_apk(apk, tmp)
+        if base is None:
+            print(f"  {apk.name}: no base APK found")
+            return None
+        result = run([apksigner, "verify", "--print-certs", str(base)])
+        # Any signer matching the known certificate is enough.
+        found = CERT_DIGEST.findall(result.stdout)
+        if found:
+            return found
+        if result.returncode == 0:
+            print(f"  {apk.name}: apksigner verified the APK, but its output format is not recognized:")
         else:
-            candidates = [(apk.name, apk)]
-        for name, path in candidates:
-            result = run([apksigner, "verify", "--print-certs", str(path)])
-            # Apps that rotated their key list a signer per Android version range;
-            # any of them matching the known certificate is enough.
-            found = re.findall(r"^Signer[^:\n]*certificate SHA-256 digest: ([0-9a-f]{64})", result.stdout, re.M)
-            if found:
-                return found
-            print(f"  apksigner could not read {name}: {(result.stdout + result.stderr).strip()[:500]}")
+            print(f"  {apk.name}: apksigner could not verify the APK:")
+        print("  " + (result.stdout + result.stderr).strip()[:1000])
         return None
 
 

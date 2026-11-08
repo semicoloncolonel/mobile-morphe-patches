@@ -159,6 +159,18 @@ def signing_cert(apk, apksigner):
         return re.findall(r"^Signer[^:\n]*certificate SHA-256 digest: ([0-9a-f]{64})", out, re.M) or None
 
 
+def version_code(apk, aapt2):
+    """The base APK's versionCode, or None."""
+    if not aapt2:
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        base = base_apk(apk, tmp)
+        if base is None:
+            return None
+        found = re.search(r"versionCode='(\d+)'", run([aapt2, "dump", "badging", str(base)]).stdout)
+        return int(found.group(1)) if found else None
+
+
 def is_tv_build(apk, aapt2):
     """True when the base APK declares the Android TV (leanback) feature."""
     if not aapt2:
@@ -237,6 +249,7 @@ def check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, a
     outcome["cert_digest"] = digest
     if outcome["cert"] != "does not match":
         outcome["tv_build"] = is_tv_build(apk, aapt2)
+        outcome["version_code"] = version_code(apk, aapt2)
         if not outcome["tv_build"]:
             outcome["patches"] = patch_check(apk, app["patches"], cli_path, mpp, workdir)
             patched = Path(workdir, apk.stem + "-patched.apk")

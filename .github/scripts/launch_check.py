@@ -77,12 +77,15 @@ def main():
     args = parser.parse_args()
 
     results = json.loads((args.report / "app-updates.json").read_text())
+    launches = {}
     lines = ["", "## Launch check", "", "| App | Version | Result |", "|-----|---------|--------|"]
     for r in results:
         apk = args.report / "patched" / str(r.get("patched_apk", ""))
         if not r.get("patched_apk") or not apk.exists():
             continue
         result = launch(apk, r["package"], args.wait)
+        launches[r["package"]] = {"version": r["latest"], "result": result.splitlines()[0],
+                                  "ok": not result.startswith(("crashed", "closed", "did not install"))}
         print(f"{r['name']} {r['latest']}: {result.splitlines()[0]}", flush=True)
         lines.append(f"| {r['name']} | `{r['latest']}` | {result.splitlines()[0]} |")
         if args.issues:
@@ -91,6 +94,7 @@ def main():
             comment(r["name"], r["latest"],
                     f"Launch check on an Android 14 emulator: the patched {r['name']} `{r['latest']}` {result}{note}\n",
                     needs_review)
+    (args.report / "launch.json").write_text(json.dumps(launches, indent=2))
     if len(lines) > 5:
         with open(args.report / "app-updates.md", "a") as summary:
             summary.write("\n".join(lines) + "\n")

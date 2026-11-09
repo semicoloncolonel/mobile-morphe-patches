@@ -1,3 +1,18 @@
+## [1.0.20-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.1...v1.0.20-dev.2) (2026-11-09)
+
+
+### Bug Fixes
+
+* let CNBC's Hide rating prompt include the shared one, and cover SiriusXM and Costco ([aaaa4db](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/aaaa4db447562617c23876539a09a958eee30151))
+
+
+### Features
+
+* add CNBC ([3015e53](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3015e53a5ac5bcfd0bf2d8a906dd5d9ee27425da))
+* add Costco (experimental) ([7d36368](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7d36368fc4130c4833974a05f1ce545c5b925303))
+* add Hide rating prompt to every app ([0b2d79a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0b2d79afecd84d052ed905e834b7213fd625add8))
+* add SiriusXM ([dde5670](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dde5670a4ee1c2bc9cb9a0d9a2f52f73886c3544))
+
 ## [1.0.20-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.19...v1.0.20-dev.1) (2026-11-09)
 
 

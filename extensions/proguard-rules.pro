@@ -267,4 +267,21 @@
     public static void track(java.lang.Object);
     public static java.lang.String filterJson(java.lang.String);
     private static boolean mutePromos();
+
+# CNBC — "Skip ads". hide is called only from injected smali via invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.cnbc.AdHider {
+    public static void hide(android.view.View);
+}
+-keep class semicoloncolonel.mobilestream.extension.cnbc.VodAdSkipper {
+    public static void onAdTick();
+}
+-keep class semicoloncolonel.mobilestream.extension.cnbc.PremiumCardFilter {
+    public static boolean add(java.util.List, java.lang.Object);
+}
+-keep class semicoloncolonel.mobilestream.extension.cnbc.ArticleCleanup {
+    public static void hideAds(android.webkit.WebView);
+    public static void hideNewsletters(android.webkit.WebView);
+}
+-keep class semicoloncolonel.mobilestream.extension.cnbc.AdHider {
+    public static void collapseWhenAttached(android.view.View);
 }

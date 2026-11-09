@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.17...v1.0.18) (2026-11-09)
+
+
+### Bug Fixes
+
+* accept the Google Play build of JustWatch for Android TV, and support Disney+ 26.20.0+rc3-2026.11.02 ([4ac0e49](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4ac0e49848b6a5fc187d76a61245303e54015fdc))
+
 ## [1.0.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.16...v1.0.17) (2026-11-09)
 
 

@@ -168,6 +168,9 @@ public final class TrackerBlocker {
             "quantserve.com", "quantcount.com", // Quantcast measurement
             "tahoe-analytics.publishers.advertising.a2z.com", // Amazon publisher ad analytics
             "apcdp.apnews.com", // AP News BlueConic customer-data platform
+            // SiriusXM (2610.4.0)
+            "evergage.com", // Salesforce Personalization (Evergage)
+            "zc.adswizz.com", // AdsWizz SDK setup, which turns on its listening measurement
     };
 
     /**

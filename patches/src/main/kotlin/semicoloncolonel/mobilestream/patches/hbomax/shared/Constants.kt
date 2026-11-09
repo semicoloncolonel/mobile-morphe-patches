@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.hbomax.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 private const val PHONE_VERSION = "22.0.0.321"
 private const val TV_VERSION = "22.0.0.36"
@@ -16,8 +16,8 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
         targets = listOf(
-            devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"),
-            devTarget(TV_VERSION, versionCode = 1842000036, description = "Android TV build"),
+            AppTarget(version = PHONE_VERSION, versionCode = 1800026515, description = "Phone build"),
+            AppTarget(version = TV_VERSION, versionCode = 1842000036, description = "Android TV build"),
         )
     )
 
@@ -29,7 +29,7 @@ object Constants {
         description = "The HBO Max phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
+        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
     )
 
     // The same phone app under the package name the Play Store installs.
@@ -40,6 +40,6 @@ object Constants {
         description = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(devTarget(PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
+        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
     )
 }

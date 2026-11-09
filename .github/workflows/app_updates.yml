@@ -13,10 +13,12 @@ name: App updates
 on:
   schedule:
     # 00:30, 06:30, 12:30, and 18:30 Pacific time. GitHub's schedules run in
-    # UTC with no daylight saving time, so both the PDT slots (01, 07, 13,
-    # 19 UTC) and the PST slots (02, 08, 14, 20 UTC) are listed, and the
-    # schedule job skips the slot that does not match Pacific time today.
-    - cron: "30 1,2,7,8,13,14,19,20 * * *"
+    # UTC with no daylight saving time, so the PDT slots and the PST slots are
+    # two separate lines, and the schedule job runs only the line that matches
+    # Pacific time today. The line keeps working when GitHub starts a run
+    # hours late, which a check of the clock does not.
+    - cron: "30 1,7,13,19 * * *"
+    - cron: "30 2,8,14,20 * * *"
   workflow_dispatch:
     inputs:
       only:
@@ -41,19 +43,19 @@ jobs:
         id: slot
         env:
           EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
           if [ "$EVENT" != "schedule" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # Each slot starts at :30 UTC, and GitHub can start a run late. Taking
-          # 30 minutes off the current time gives the slot's hour for any delay
-          # under an hour.
-          hour=$(date -u -d '30 minutes ago' +%-H)
-          if [ "$(TZ=America/Los_Angeles date +%Z)" = "PDT" ]; then slots="1 7 13 19"; else slots="2 8 14 20"; fi
+          # GitHub can start a scheduled run hours late, so the slot comes from
+          # the cron line that fired, not from the clock.
+          zone=$(TZ=America/Los_Angeles date +%Z)
+          if [ "$zone" = "PDT" ]; then line="30 1,7,13,19 * * *"; else line="30 2,8,14,20 * * *"; fi
           run=false
-          for slot in $slots; do [ "$hour" = "$slot" ] && run=true; done
-          echo "UTC slot $hour, Pacific $(TZ=America/Los_Angeles date +%Z), run=$run"
+          [ "$SCHEDULE" = "$line" ] && run=true
+          echo "Cron line \"$SCHEDULE\", Pacific $zone, run=$run"
           echo "run=$run" >> "$GITHUB_OUTPUT"
 
   check:

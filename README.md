@@ -60,7 +60,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | ESPN | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads, Block analytics & tracking ⚙️ | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Skip ads 🧪, Disable Pairip license check, Block analytics & tracking 🧪⚙️ | `1.25.1` | 11/06/26 |
-| HBO Max 📺 | Skip ads, Remove social sign-in (phone), Block analytics & tracking 🧪⚙️ | `22.0.0.321`, Android TV `22.0.0.36` | 11/07/26 |
+| HBO Max 📺 | Skip ads, Remove social sign-in (phone), Block analytics & tracking 🧪⚙️, Video quality 🧪⚙️ | `22.0.0.321`, Android TV `22.0.0.36` | 11/07/26 |
 | Hulu | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `6.34.0+18552420-google` | 10/31/26 |
 | JustWatch 📺 | GmsCore support 🧪⚙️, Block ads, Hide sponsored titles, Streaming titles only 🧪⚙️, Hide unavailable titles 🧪⚙️, Hide watched titles 🧪⚙️, Block analytics & tracking ⚙️ | `26.44.2`, Android TV `26.43.8` | 11/08/26 |
 | MGM+ | Skip ads 🧪, Skip pre-roll promo 🧪, Skip lion intro, Disable MGM+ AI ⚙️, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `240.0.2026240000` | 10/30/26 |
@@ -410,6 +410,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
 | Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz, White House | Opens the app without the intro video. |
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
+| Video quality | HBO Max | Plays the resolution you choose in its options: 480p, 720p, 1080p, or 2160p. When a title does not have it, the closest lower one plays, or the lowest one when every rendition is higher. HBO decides which resolutions it sends: in testing on a 4K plan, it sent at most 1080p to an NVIDIA Shield, even for titles marked 4K. Videos can buffer if your connection is too slow for the choice. |
 | Highest quality | Tubi | Plays the highest-resolution version of each title and live channel, and keeps it at the highest bitrate Tubi sends. Most titles stop at 720p, and a few have 1080p. Tubi sends the app fewer renditions than its website, so some titles play below the resolution the website offers. Turn it off if videos buffer. |
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
 | Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |

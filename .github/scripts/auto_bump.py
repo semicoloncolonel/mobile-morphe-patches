@@ -16,7 +16,7 @@ updates workflow, which runs only when the repository variable AUTO_BUMP is
     TV) keep their "ready to bump" issue for a person to handle.
 
 The pin becomes devTarget(new version, versionCode = ...), so dev builds mark
-it experimental, and the README's tested version and date are updated. The
+it experimental, and the tested version and date in docs/apps.md are updated. The
 workflow then commits to dev and starts the Release workflow, which publishes
 the next dev pre-release. semantic-release numbers it from the git tags, so it
 follows any dev pre-release published by hand.
@@ -113,8 +113,8 @@ def bump_constants(repo, package, old, new, code):
 
 
 def bump_readme(repo, name, old, new):
-    """Updates the app's row in the README. Returns False when no row matched."""
-    readme = Path(repo, "README.md")
+    """Updates the app's row in docs/apps.md. Returns False when no row matched."""
+    readme = Path(repo, "docs", "apps.md")
     lines = readme.read_text().split("\n")
     today = datetime.date.today().strftime("%m/%d/%y")
     for i, line in enumerate(lines):

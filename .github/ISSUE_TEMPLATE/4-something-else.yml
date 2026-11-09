@@ -1,5 +1,5 @@
 name: 💬 Something else
-description: A question, an idea, a problem with the README, or anything that does not fit the other forms.
+description: A question, an idea, a problem with the documentation, or anything that does not fit the other forms.
 labels: ["question"]
 body:
   - type: markdown
@@ -11,7 +11,7 @@ body:
     attributes:
       label: Before you submit
       options:
-        - label: "I read the README, including the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches#known-issues)."
+        - label: "I read the README and the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/known-issues.md)."
           required: true
         - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this topic."
           required: true
@@ -22,8 +22,29 @@ body:
       options:
         - A question about using the patches
         - An idea or suggestion
-        - The README or other documentation
+        - The documentation
         - Something else
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: The phone, tablet, or TV device model, if your topic is about a problem on a device.
+      placeholder: "Galaxy S25 Ultra, NVIDIA Shield, Google TV Streamer"
+  - type: dropdown
+    id: android-version
+    attributes:
+      label: Android version
+      description: On a phone, see Settings > About phone. On a TV, see Settings > System > About.
+      options:
+        - "Android 16"
+        - "Android 15"
+        - "Android 14"
+        - "Android 13"
+        - "Android 12 or 12L"
+        - "Android 11"
+        - "Android 10"
+        - "Android 9 or older"
+        - "Not sure"
   - type: textarea
     id: details
     attributes:

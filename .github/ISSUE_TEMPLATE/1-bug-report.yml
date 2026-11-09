@@ -1,12 +1,12 @@
 name: 🐞 Bug report
-description: A patch fails to apply, the patched app crashes or will not play, or a patch does not do what the README says.
+description: A patch fails to apply, the patched app crashes or will not play, or a patch does not do what its description says.
 title: "bug: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for reporting a problem. Only the description is required, but every other field helps find the cause faster.
+        Thank you for reporting a problem. Only the description, the device, and the Android version are required, but every other field helps find the cause faster.
 
         Before you start, please check the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) for the same problem.
   - type: checkboxes
@@ -14,7 +14,7 @@ body:
     attributes:
       label: Before you submit
       options:
-        - label: "I read the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches#known-issues) in the README."
+        - label: "I read the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/known-issues.md)."
           required: true
         - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this problem."
           required: true
@@ -32,7 +32,9 @@ body:
         - "Best Buy"
         - "C-SPAN Now"
         - "CBS News"
+        - "CNBC"
         - "CNN"
+        - "Costco"
         - "CVS"
         - "DealSeek"
         - "Disney+"
@@ -58,7 +60,6 @@ body:
         - "NBC News"
         - "NewsBreak"
         - "NewsNation"
-        - "NewsNation (Android TV)"
         - "NFL"
         - "NPR"
         - "NPS"
@@ -70,6 +71,7 @@ body:
         - "Prime Video"
         - "Recreation.gov"
         - "Shudder"
+        - "SiriusXM"
         - "Starz"
         - "Substack"
         - "Sundance Now"
@@ -82,6 +84,7 @@ body:
         - "The Wall Street Journal"
         - "The Washington Post"
         - "theScore"
+        - "Truth Social"
         - "Tubi"
         - "USA TODAY"
         - "Visible"
@@ -128,7 +131,7 @@ body:
     attributes:
       label: Patches version
       description: The version of these patches, shown under Sources in Morphe Manager.
-      placeholder: "1.0.13"
+      placeholder: "1.0.20"
   - type: input
     id: manager-version
     attributes:
@@ -154,6 +157,8 @@ body:
       label: Device
       description: The phone, tablet, or TV device model.
       placeholder: "Galaxy S25 Ultra, NVIDIA Shield, Google TV Streamer"
+    validations:
+      required: true
   - type: dropdown
     id: android-version
     attributes:
@@ -169,6 +174,8 @@ body:
         - "Android 10"
         - "Android 9 or older"
         - "Not sure"
+    validations:
+      required: true
   - type: dropdown
     id: root
     attributes:

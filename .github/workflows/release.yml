@@ -57,6 +57,10 @@ jobs:
       - name: Release
         uses: cycjimmy/semantic-release-action@v6
         id: release
+        # The action installs semantic-release itself instead of using the
+        # lockfile's copy, so the major version is pinned here.
+        with:
+          semantic_version: 25
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MORPHE_SIGNING_KEY: ${{ secrets.MORPHE_SIGNING_KEY }}

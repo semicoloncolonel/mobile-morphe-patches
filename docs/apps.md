@@ -84,7 +84,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | FEMA | Save content for offline use<br>Block analytics & tracking ⚙️ | `3.2.1` | 11/02/26 |
 | MyTSA | Block analytics & tracking ⚙️ | `5.1.0` | 11/02/26 |
 | National Forests & Grasslands | Disable Pairip license check<br>Block analytics & tracking ⚙️ | `1.3.0` | 11/02/26 |
-| NPS | Block analytics & tracking ⚙️<br>Block Bluetooth scanning ⚙️ | `2.15.0` | 11/02/26 |
+| NPS | Block analytics & tracking ⚙️<br>Block Bluetooth scanning ⚙️ | `2.16.0` | 11/09/26 |
 | Recreation.gov | Hide rating prompt<br>Skip location on open<br>Block analytics & tracking ⚙️<br>Show hidden details ⚙️ | `2.2.67.1` | 11/07/26 |
 | White House | Disable Pairip license check<br>Remove microphone access<br>Skip launch video<br>Block analytics & tracking ⚙️<br>Hide promotions ⚙️<br>Hide social feeds ⚙️<br>Route traffic through a proxy ⚙️ | `47.7.8` | 11/05/26 |
 
@@ -97,7 +97,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Costco | Hide sponsored products 🧪<br>Block analytics & tracking 🧪⚙️ | `26.10.2.2` | 11/08/26 |
 | CVS | Disable AI 🧪⚙️ | `26.10.50` | 11/01/26 |
 | DealSeek | Disable Pairip license check<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking 🧪⚙️ | `1.64.0` | 11/05/26 |
-| Target | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `2026.43.0` | 11/01/26 |
+| Target | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `2026.44.0` | 11/09/26 |
 | The Home Depot | Disable AI 🧪⚙️ | `8.2.5` | 11/01/26 |
 | Walgreens | The shared privacy patches only | `118.0` | 11/01/26 |
 | Walmart | Disable AI 🧪⚙️ | `26.42.1`<br>`26.42.2` 🧪 | 11/08/26 |

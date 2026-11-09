@@ -260,17 +260,20 @@
 -keep class semicoloncolonel.mobilestream.extension.siriusxm.HiddenNamesActivity { *; }
 
 # SiriusXM — "Mask live ad breaks". Called only from injected smali via
-# invoke-static.
+# invoke-static, and the patch overwrites mutePromos.
 -keep class semicoloncolonel.mobilestream.extension.siriusxm.LiveAdMute {
     public static void setMetadata(android.media.session.MediaSession, android.media.MediaMetadata);
     public static float volume(java.lang.Object, float);
     public static void track(java.lang.Object);
     public static java.lang.String filterJson(java.lang.String);
     private static boolean mutePromos();
+}
 
-# CNBC — "Skip ads". hide is called only from injected smali via invoke-static.
+# CNBC — "Skip ads", "Hide premium promotions", and "Hide newsletter
+# pop-ups". Called only from injected smali via invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.cnbc.AdHider {
     public static void hide(android.view.View);
+    public static void collapseWhenAttached(android.view.View);
 }
 -keep class semicoloncolonel.mobilestream.extension.cnbc.VodAdSkipper {
     public static void onAdTick();
@@ -282,6 +285,7 @@
     public static void hideAds(android.webkit.WebView);
     public static void hideNewsletters(android.webkit.WebView);
 }
--keep class semicoloncolonel.mobilestream.extension.cnbc.AdHider {
-    public static void collapseWhenAttached(android.view.View);
-}
+
+# Shared "Hide rating prompt". launchReviewFlow() replaces Google Play's
+# ReviewManager.launchReviewFlow at app call sites via injected invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.shared.misc.RatingPromptBlocker { public static *; }

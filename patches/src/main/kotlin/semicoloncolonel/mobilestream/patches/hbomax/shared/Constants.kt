@@ -7,6 +7,12 @@ import app.morphe.patcher.patch.Compatibility
 private const val PHONE_VERSION = "22.0.0.321"
 private const val TV_VERSION = "22.0.0.36"
 
+// The phone build needs Android 12L. Morphe Manager leaves out versions the
+// device cannot install, so declaring it makes Manager suggest the Android TV
+// build on Android TV devices that run Android 11 or earlier, such as the
+// NVIDIA Shield, instead of the newer-numbered phone build.
+private const val PHONE_MIN_SDK = 32
+
 object Constants {
     // The phone and Android TV builds share the package name but not the version.
     val COMPATIBILITY = Compatibility(
@@ -16,8 +22,8 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
         targets = listOf(
-            AppTarget(version = PHONE_VERSION, versionCode = 1800026515, description = "Phone build"),
-            AppTarget(version = TV_VERSION, versionCode = 1842000036, description = "Android TV build"),
+            AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
+            AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
         )
     )
 
@@ -29,7 +35,7 @@ object Constants {
         description = "The HBO Max phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
+        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"))
     )
 
     // The same phone app under the package name the Play Store installs.
@@ -40,6 +46,6 @@ object Constants {
         description = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, description = "Phone build"))
+        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"))
     )
 }

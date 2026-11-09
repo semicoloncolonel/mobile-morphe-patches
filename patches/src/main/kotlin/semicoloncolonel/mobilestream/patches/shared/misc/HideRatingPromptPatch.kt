@@ -16,6 +16,7 @@ import semicoloncolonel.mobilestream.patches.apnews.shared.Constants as ApNews
 import semicoloncolonel.mobilestream.patches.att.shared.Constants as Att
 import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
+import semicoloncolonel.mobilestream.patches.costco.shared.Constants as Costco
 import semicoloncolonel.mobilestream.patches.cspan.shared.Constants as Cspan
 import semicoloncolonel.mobilestream.patches.dailywire.shared.Constants as DailyWire
 import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
@@ -45,6 +46,7 @@ import semicoloncolonel.mobilestream.patches.plex.shared.Constants as Plex
 import semicoloncolonel.mobilestream.patches.pluto.shared.Constants as Pluto
 import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as PrimeVideo
 import semicoloncolonel.mobilestream.patches.shudder.shared.Constants as Shudder
+import semicoloncolonel.mobilestream.patches.siriusxm.shared.Constants as SiriusXm
 import semicoloncolonel.mobilestream.patches.starz.shared.Constants as Starz
 import semicoloncolonel.mobilestream.patches.substack.shared.Constants as Substack
 import semicoloncolonel.mobilestream.patches.sundancenow.shared.Constants as SundanceNow
@@ -72,9 +74,10 @@ import semicoloncolonel.mobilestream.patches.yttv.shared.Constants as YtTv
 //
 // Apps that rename Google's review classes (myAT&T 2026.10.2, Recreation.gov
 // 2.2.67.1, and the Apple TV phone app 3.0.0) or its Task class (Tubi 10.44.2)
-// have no call to match, so the patch applies and does nothing there. App-specific "Hide rating prompt" patches, for apps that also
-// show their own "Enjoying the app?" dialog, depend on this one, and those
-// apps are left out of the list below so no app lists the name twice.
+// have no call to match, so the patch applies and does nothing there.
+// App-specific "Hide rating prompt" patches, for apps that also decide on
+// their own when to ask for a rating, depend on this one, and those apps are
+// left out of the list below so no app lists the name twice.
 
 private const val EXTENSION_PACKAGE = "Lsemicoloncolonel/mobilestream/extension/"
 private const val REVIEW_PACKAGE = "Lcom/google/android/play/core/review/"
@@ -156,8 +159,8 @@ val hideRatingPromptPatch = bytecodePatch(
     name = "Hide rating prompt",
     description = "Stops Google Play's rate-this-app sheet.",
 ) {
-    // Apple TV, Recreation.gov, NewsBreak, and USA TODAY have their own Hide
-    // rating prompt patch, which includes this one.
+    // Apple TV, CNBC, Recreation.gov, NewsBreak, and USA TODAY have their own
+    // Hide rating prompt patch, which includes this one.
     compatibleWith(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
@@ -176,6 +179,7 @@ val hideRatingPromptPatch = bytecodePatch(
         Xumo.COMPATIBILITY,
         Shudder.COMPATIBILITY,
         SundanceNow.COMPATIBILITY,
+        SiriusXm.COMPATIBILITY,
         Fandango.COMPATIBILITY,
         Moviebase.COMPATIBILITY,
         JustWatch.COMPATIBILITY,
@@ -205,6 +209,7 @@ val hideRatingPromptPatch = bytecodePatch(
         WhiteHouse.COMPATIBILITY,
         *GOV_APPS,
         *SHOPPING_APPS,
+        Costco.COMPATIBILITY,
         Mint.COMPATIBILITY,
         Verizon.COMPATIBILITY,
         Att.COMPATIBILITY,

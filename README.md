@@ -1,6 +1,6 @@
 # Mobile Morphe Patches
 
-[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-69-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-70-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
 
 Morphe patches that remove ads and block tracking in the phone versions of streaming, news, shopping, carrier, and government apps.
 
@@ -49,7 +49,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | 📺 | Also works on the Android TV app. |
 
 <details open>
-<summary><b>🎬 Streaming</b> · 27 apps</summary>
+<summary><b>🎬 Streaming</b> · 28 apps</summary>
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
@@ -75,6 +75,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | Pluto TV 📺 | Skip launch video, Skip ads, Mask live ad breaks, Block analytics & tracking 🧪⚙️ | `17.3.0`, Android TV `17.3.0` | 11/06/26 |
 | Prime Video | Skip ads, Rename shared permissions, Disable AI 🧪⚙️, Block analytics & tracking 🧪⚙️ | `3.0.480.647` | 11/08/26 |
 | Shudder | Block analytics & tracking ⚙️ | `10.1.1` | 11/05/26 |
+| SiriusXM | Mask live ad breaks 🧪⚙️, Hide content 🧪⚙️, Hide Howard tab ⚙️, Block analytics & tracking ⚙️ | `2610.4.0` | 11/08/26 |
 | Starz | Skip launch video, Skip pre-roll promo 🧪, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `6.11.0` | 10/31/26 |
 | Sundance Now | Block analytics & tracking ⚙️ | `5.0.25.2` | 11/05/26 |
 | Tubi | Skip ads, Highest quality 🧪, Remove social sign-in, Hide sign-in prompts, Block analytics & tracking 🧪⚙️ | `10.44.2` | 11/07/26 |
@@ -204,6 +205,8 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 **Block ads** (JustWatch, Moviebase, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
 
 **Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
+
+On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels during each commercial that SiriusXM labels as an ad, and the player shows "Ad - 🔇 Commercial break" in place of the advertiser's name. The sound comes back when the show returns. Its **Also mute promos and PSAs** option, off by default, also mutes SiriusXM's own channel promos and public service announcements, which SiriusXM does not label as ads. They show as "🔇 Announcement". Ads in podcasts are part of each episode's audio file, so they still play.
 
 > [!TIP]
 > To turn off Mask live ad breaks on Pluto TV without patching again, create a file named `slate_off` in `Android/data/tv.pluto.android/files`. A file named `pluto_slate_mode` that contains `black` or `mute` keeps only the cover or only the muting.
@@ -339,6 +342,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
 - Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.
+- SiriusXM: Datadog, Mux, Branch, Salesforce Marketing Cloud and Personalization, and AdsWizz listening measurement.
 - Starz: AppsFlyer, CleverTap, Leanplum, Braze, and Ethnio surveys.
 - Sundance Now: AppsFlyer, Braze, New Relic, and Firebase Analytics.
 - T-Life: Adobe, MoEngage and its marketing messages, Amplitude, Splunk, Luciq, and Branch.
@@ -436,6 +440,10 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 **Streaming titles only**, **Hide unavailable titles**, and **Hide watched titles** (JustWatch) change what the Watchlist shows, on phones and Android TV, using JustWatch's own data for each title. Streaming titles only shows titles you can stream on a subscription or for free, and hides titles you can only rent or buy. Picking a Types filter in the app overrides it. Hide unavailable titles hides titles that are not on the services you picked in the service bar. With All picked, it hides titles that no service offers, except titles that are not released yet. Hide watched titles hides movies you marked as seen and shows you are caught up on. The Seen, Likes, and Dislikes tabs and your other lists are not changed, and the title count at the top of the Watchlist still includes hidden titles.
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
+
+**Hide content** (SiriusXM) hides the people, shows, podcasts, and channels you list. A person's own channels, shows, and page are hidden, along with every episode of a hidden show and the episodes that name them as a host or guest, such as "with Name", "featuring Name", or "Name joins". Episodes that only talk about someone stay. Its **Also hide mentions** option hides everything that mentions a name. Long-press the app icon and choose **Hidden names** to edit the list in the app. Saving restarts SiriusXM. The patch options set the list it starts with. A guest that SiriusXM does not name in the text is not hidden.
+
+**Hide Howard tab** (SiriusXM) removes the Howard tab from the top of Discover.
 
 **Hide player overlays** (Apple TV) hides the overlays you choose in its options: the rating card when a title starts, product placement notices, and photosensitivity and high-motion warnings. The warnings are shown by default.
 

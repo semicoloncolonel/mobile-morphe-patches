@@ -129,12 +129,13 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 </details>
 
 <details>
-<summary><b>🛒 Shopping</b> · 8 apps</summary>
+<summary><b>🛒 Shopping</b> · 9 apps</summary>
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | Amazon Shopping | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `32.19.0.100` | 11/01/26 |
 | Best Buy | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `26.10.10` | 11/01/26 |
+| Costco | Hide sponsored products 🧪, Block analytics & tracking 🧪⚙️ | `26.10.2.2` | 11/08/26 |
 | CVS | Disable AI 🧪⚙️ | `26.10.50` | 11/01/26 |
 | DealSeek | Strip affiliate links, Hide pop-ups, Disable Pairip license check, Block analytics & tracking 🧪⚙️ | `1.64.0` | 11/05/26 |
 | Target | Hide sponsored listings 🧪, Disable AI 🧪⚙️ | `2026.43.0` | 11/01/26 |
@@ -214,10 +215,11 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 > To turn off Mask live ad breaks on Pluto TV without patching again, create a file named `slate_off` in `Android/data/tv.pluto.android/files`. A file named `pluto_slate_mode` that contains `black` or `mute` keeps only the cover or only the muting.
 
 <details>
-<summary>Sponsored content patches · 4</summary>
+<summary>Sponsored content patches · 5</summary>
 
 | Patch | App | What it does |
 |-------|-----|--------------|
+| Hide sponsored products | Costco | Removes the sponsored products and ad placements from the home page, search results, and category pages. The app no longer asks Costco's server for them, so no empty space is left behind. |
 | Hide sponsored listings | Amazon Shopping, Best Buy, Target | Removes sponsored products from search results, and on Amazon, from product pages. Best Buy's "Featured products" row still shows. |
 | Hide sponsored content | Plex | Removes sponsored titles from the rows on Home and Discover, the large sponsored card at the top of each screen, and promoted "Watch Now on" cards. The items are removed from the feed, so no empty space is left behind. |
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |
@@ -315,6 +317,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - CBS News: Adobe Analytics, comScore, Nielsen, Mux, New Relic, Flurry, Kochava, and Moat.
 - CNBC: Adobe, Amplitude, AppsFlyer, CleverTap, comScore, Kochava, Nielsen, and Airship analytics.
 - CNN: Adobe, AppsFlyer, Chartbeat, comScore, and CNN's own data collection.
+- Costco: Adobe Analytics, comScore, and Kochava.
 - C-SPAN Now: the Facebook SDK, Firebase/Google Analytics, and the Privacy Sandbox on-device ad-retargeting call. OneSignal push is left alone.
 - DealSeek: AppsFlyer, TikTok, and PostHog. The PostHog feature flags the app reads are left alone.
 - Disney+: Braze, Conviva, and Nielsen. Disney's own analytics share servers with sign-in and playback, so they are not blocked.
@@ -482,6 +485,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | JustWatch | With Hide unavailable titles or Hide watched titles on, the title count at the top of the Watchlist still includes the hidden titles. | The count comes from JustWatch's server before titles are hidden. |
 | HBO Max | On TV, a resumed episode can show "Couldn't Play Content" (error 39999) when it reaches a mid-roll ad break. | Start the episode from the beginning. |
 | Best Buy | On some phones, every screen has a white tint and the app can take a minute to start. | The official app does the same on these phones, so the patches do not cause it. This is under review. |
+| Costco | Passkey sign-in does not work, and Costco may not show all of your account information. | Android allows a passkey only in an app signed by its owner, and Costco's security check after sign-in requires Costco's own signature. Sign in with your email and password. |
 | Moviebase | The Activity and Members tabs do not load. | Moviebase's community server accepts only requests that pass Google's Play Integrity check, which a patched app cannot pass. |
 | Walmart | Sign-in codes are not sent by text. | A DNS filter may block `drfdisvc.walmart.com`. Allow it and `h-walmart.online-metrix.net`, which Walmart uses for fraud checks at sign-in. |
 | YouTube TV | The location check can take a while indoors, or fail with a VPN on. | MicroG RE falls back to GPS when its Wi-Fi location service has no data for your area. Turn off the VPN if YouTube TV cannot determine your location. |

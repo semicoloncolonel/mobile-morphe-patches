@@ -1,6 +1,6 @@
 # Mobile Morphe Patches
 
-[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-70-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-72-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
 
 Morphe patches that remove ads and block tracking in the phone versions of streaming, news, shopping, carrier, and government apps.
 
@@ -230,7 +230,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 ### 🔕 Pop-ups and prompts
 
 <details>
-<summary>All pop-up and prompt patches · 34</summary>
+<summary>All pop-up and prompt patches · 35</summary>
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
@@ -258,6 +258,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide Premium upsells | NewsBreak | The "Ad-free Reading" banner and Upgrade button on the Me tab, the Premium button on profiles, the promo on Home, the bottom-bar badge, and the Premium offers in pop-ups and ad dialogs. If you pay for NewsBreak Premium, leave it off: the app stops refreshing your subscription status. |
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |
 | Hide surveys and rating prompt | MLB | The Qualtrics surveys and the Play Store rating pop-up they lead to. |
+| Hide rating prompt | Every app except Apple TV, CNBC, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
 | Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
 | Hide rating prompt (Android TV) | NewsNation (Android TV) | The "rate this app" dialog. Rating from Settings still works. |
 | Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |

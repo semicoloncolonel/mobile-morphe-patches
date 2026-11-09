@@ -1,3 +1,10 @@
+## [1.0.20-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.3...v1.0.20-dev.4) (2026-11-09)
+
+
+### Bug Fixes
+
+* support NPS 2.16.0, Target 2026.44.0 ([326ae5f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/326ae5fd796413fbee01ff3bbb47680b744def6a))
+
 ## [1.0.20-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.2...v1.0.20-dev.3) (2026-11-09)
 
 

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-09T22:36:16",
-  "description": "## [1.0.20-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.2...v1.0.20-dev.3) (2026-11-09)\n\n\n### Bug Fixes\n\n* accept only the phone build of Disney+ 26.20.0+rc2-2026.10.28 ([851a29e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/851a29e2229af2f1c3b4569a40d9f9516b607832))\n* say that Hide marketing pop-ups does not remove The Washington Post or WSJ paywalls ([8420d87](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8420d87b82da0f4ae104413e4a92e3b999fc4535))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.20-dev.3/patches-1.0.20-dev.3.mpp",
+  "created_at": "2026-11-09T23:37:59",
+  "description": "## [1.0.20-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.3...v1.0.20-dev.4) (2026-11-09)\n\n\n### Bug Fixes\n\n* support NPS 2.16.0, Target 2026.44.0 ([326ae5f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/326ae5fd796413fbee01ff3bbb47680b744def6a))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.20-dev.4/patches-1.0.20-dev.4.mpp",
   "signature_download_url": "",
-  "version": "1.0.20-dev.3",
+  "version": "1.0.20-dev.4",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

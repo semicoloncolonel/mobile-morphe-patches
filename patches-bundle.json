@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-09T02:44:07",
-  "description": "## [1.0.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.18...v1.0.19) (2026-11-09)\n\n\n### Bug Fixes\n\n* accept only the phone build of Disney+ 26.20.0+rc3-2026.11.02, and offer the Android TV build of HBO Max on Android 11 TVs ([1ef60e9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ef60e920c9d22b634cd93118cf54da6204c6863))\n* offer the Android TV build of HBO Max under the Play Store package name ([6d37589](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6d375899930a21cc780f6b586d446dac63222eff))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.19/patches-1.0.19.mpp",
+  "created_at": "2026-11-09T03:15:52",
+  "description": "## [1.0.20-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.19...v1.0.20-dev.1) (2026-11-09)\n\n\n### Features\n\n* add Video quality to HBO Max ([7c9a573](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7c9a5731e047973c9881966a7c011fe65a3ea875))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.20-dev.1/patches-1.0.20-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.0.19",
+  "version": "1.0.20-dev.1",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

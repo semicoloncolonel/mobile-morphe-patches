@@ -1,6 +1,6 @@
 # Mobile Morphe Patches
 
-[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-69-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![Apps](https://img.shields.io/badge/apps-70-0ea5e9)](#apps) [![Android TV](https://img.shields.io/badge/Android_TV-5_apps-14b8a6)](#android-tv) [![License](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
 
 Morphe patches that remove ads and block tracking in the phone versions of streaming, news, shopping, carrier, and government apps.
 
@@ -84,13 +84,14 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 </details>
 
 <details>
-<summary><b>📰 News</b> · 21 apps</summary>
+<summary><b>📰 News</b> · 22 apps</summary>
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | ABC News | Skip ads 🧪, Mask live ad breaks, Block analytics & tracking ⚙️ | `8.98.2` | 11/02/26 |
 | AP News | GmsCore support ⚙️, Skip ads, Hide donate button, Block analytics & tracking ⚙️, Route traffic through a proxy ⚙️ | `6.31.2` | 11/05/26 |
 | CBS News | Disable signature check, Skip ads, Hide surveys, Opt out of data sale & sharing, Block analytics & tracking ⚙️ | `5.20` | 11/02/26 |
+| CNBC | Skip ads 🧪, Fix launch with DNS blockers, Hide premium promotions ⚙️, Hide newsletter pop-ups, Hide rating prompt, Dark mode 🧪⚙️, Block analytics & tracking ⚙️ | `8.8.2` | 11/08/26 |
 | CNN | Skip ads 🧪, Faster launch, Opt out of data sale & sharing, Remove social sign-in, Block analytics & tracking 🧪⚙️ | `26.21.0` | 11/05/26 |
 | C-SPAN Now | Skip ads 🧪, Hide promo banners, Block analytics & tracking ⚙️ | `1.25.0` | 11/05/26 |
 | Fox Local | Skip ads 🧪, Hide pop-ups and rating prompts, Opt out of data sale & sharing, Block analytics & tracking ⚙️ | `7.22.0` | 11/02/26 |
@@ -173,6 +174,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - AP News: ad and sponsored rows in the feed and articles, the sticky banner, "Sponsored by" rows, and ads before videos.
 - Apple TV: ad interstitials in on-demand videos, and promos delivered the same way.
 - CBS News: banner ads, ads in videos and recordings, and Taboola recommendations under articles.
+- CNBC: banner and in-feed ads, the ad slots in articles, and the ad breaks in on-demand videos, which are skipped as each one starts. Ads in the live TV stream are part of the broadcast and still play.
 - CNN: banner and sponsored-content ads, and ads in videos and clips. All Access streaming is not changed.
 - C-SPAN Now: the pre-roll before archive and on-demand videos. Ads in the live channels are stitched into the stream and still play.
 - ESPN: scheduled breaks and on-demand mid-rolls.
@@ -223,11 +225,14 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 ### 🔕 Pop-ups and prompts
 
 <details>
-<summary>All pop-up and prompt patches · 31</summary>
+<summary>All pop-up and prompt patches · 34</summary>
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
 | Hide Premium upsell | Moviebase | The Premium screen that opens on its own at launch and after sign-in. Premium still opens from Settings and the app's buttons. |
+| Hide premium promotions | CNBC | The "Premium Content" subscription card and its "Latest Episodes" heading on show pages, so a show's page starts with its free clips. The card to sign in with a TV provider stays. |
+| Hide newsletter pop-ups | CNBC | The newsletter sign-up bars that slide in over articles and ask for your email address. |
+| Hide rating prompt | CNBC | The Play Store rating request. |
 | Hide upsell pop-ups | The New York Times | The full-screen subscription takeover and the promo banner at the top. |
 | Hide marketing pop-ups | The Washington Post, The Wall Street Journal | In-app marketing messages, such as subscription offers, and the subscribe banner on The Washington Post's home page. |
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
@@ -305,6 +310,7 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 - AP News: Adjust, Branch, Amplitude, Segment, comScore, Parse.ly, LiveRamp, Iterable, Permutive, Quantcast, and AP's BlueConic customer-data platform.
 - Apple TV: Apple's usage metrics, such as the pages you view and what you tap, play, and search for. On Android TV, this is a separate, experimental patch, Block analytics & tracking (Android TV). It turns off Apple's usage metrics in the app and stops the player's playback reports. See Known issues for what it does not cover yet. The Android TV app then stops downloading updates to its screens between app updates, because those updates would bring the metrics back.
 - CBS News: Adobe Analytics, comScore, Nielsen, Mux, New Relic, Flurry, Kochava, and Moat.
+- CNBC: Adobe, Amplitude, AppsFlyer, CleverTap, comScore, Kochava, Nielsen, and Airship analytics.
 - CNN: Adobe, AppsFlyer, Chartbeat, comScore, and CNN's own data collection.
 - C-SPAN Now: the Facebook SDK, Firebase/Google Analytics, and the Privacy Sandbox on-device ad-retargeting call. OneSignal push is left alone.
 - DealSeek: AppsFlyer, TikTok, and PostHog. The PostHog feature flags the app reads are left alone.
@@ -398,13 +404,14 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 ### 🔑 Sign-in and startup
 
 <details>
-<summary>Sign-in and startup patches · 12</summary>
+<summary>Sign-in and startup patches · 13</summary>
 
 | Patch | App | What it does |
 |-------|-----|--------------|
 | GmsCore support | AP News, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, JustWatch, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. |
 | Change app name | YouTube TV | Names the app "YT TV+" by default, so it is easy to tell apart from the official app. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
+| Fix launch with DNS blockers | CNBC | Opens the app when a DNS blocker blocks OneTrust, the app's privacy consent service. Without it, the app stays on its splash screen. |
 | Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
@@ -436,6 +443,8 @@ Everything runs on the phone, inside the patched app. The patches do not send da
 **Streaming titles only**, **Hide unavailable titles**, and **Hide watched titles** (JustWatch) change what the Watchlist shows, on phones and Android TV, using JustWatch's own data for each title. Streaming titles only shows titles you can stream on a subscription or for free, and hides titles you can only rent or buy. Picking a Types filter in the app overrides it. Hide unavailable titles hides titles that are not on the services you picked in the service bar. With All picked, it hides titles that no service offers, except titles that are not released yet. Hide watched titles hides movies you marked as seen and shows you are caught up on. The Seen, Likes, and Dislikes tabs and your other lists are not changed, and the title count at the top of the Watchlist still includes hidden titles.
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
+
+**Dark mode** (CNBC) lets Android darken the app while the phone is in dark mode. CNBC has only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
 
 **Hide player overlays** (Apple TV) hides the overlays you choose in its options: the rating card when a title starts, product placement notices, and photosensitivity and high-motion warnings. The warnings are shown by default.
 

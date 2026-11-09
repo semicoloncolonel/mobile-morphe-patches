@@ -1,3 +1,10 @@
+## [1.0.20-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.19...v1.0.20-dev.1) (2026-11-09)
+
+
+### Features
+
+* add Video quality to HBO Max ([7c9a573](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7c9a5731e047973c9881966a7c011fe65a3ea875))
+
 ## [1.0.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.18...v1.0.19) (2026-11-09)
 
 

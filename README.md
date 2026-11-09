@@ -56,7 +56,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 | AMC+ | Skip launch video, Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `1.8.62.1` | 10/31/26 |
 | Apple TV | Skip ads 🧪, Auto-skip 🧪, Hide rating prompt 🧪, Show release times 🧪, Hide player overlays 🧪⚙️, Disable up next 🧪⚙️, Block analytics & tracking 🧪⚙️ | `3.0.0` | 11/08/26 |
 | Apple TV (Android TV) 📺 | Auto-skip (Android TV) 🧪, Hide rating prompt (Android TV) 🧪, Show release times (Android TV) 🧪, Block analytics & tracking (Android TV) 🧪⚙️ | `17.0.2` | 11/08/26 |
-| Disney+ | Skip launch video, Skip ads, Block analytics & tracking 🧪⚙️ | `26.20.0+rc2-2026.10.28` | 11/02/26 |
+| Disney+ | Skip launch video, Skip ads, Block analytics & tracking 🧪⚙️ | `26.20.0+rc2-2026.10.28`, `26.20.0+rc3-2026.11.02` 🧪 | 11/08/26 |
 | ESPN | Skip ads 🧪, Block analytics & tracking 🧪⚙️ | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads, Block analytics & tracking ⚙️ | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Skip ads 🧪, Disable Pairip license check, Block analytics & tracking 🧪⚙️ | `1.25.1` | 11/06/26 |

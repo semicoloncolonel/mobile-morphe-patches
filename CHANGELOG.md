@@ -1,3 +1,18 @@
+## [1.0.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.16...v1.0.17) (2026-11-09)
+
+
+### Bug Fixes
+
+* support Prime Video 3.0.480.647 ([3cf56cd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3cf56cdf2b997202112141d8c7365dfdd1387414))
+* Support Walmart 26.42.2 as an experimental version ([7dc6058](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7dc6058ffb6122b9313e7d053b0de1c934259625))
+
+
+### Features
+
+* Add Auto-skip, release times, and player options to the Apple TV phone app ([fbf4267](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fbf42678d06c666007ac88d06e350362e810bc47))
+* Add JustWatch Watchlist filters and GmsCore support, and remove its empty banner spaces ([3bd544d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3bd544d35cf93b81e317bd55b0f436dccb1bc767))
+* Add release times and analytics blocking to Apple TV on Android TV ([9d2a463](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9d2a46362976b961bfd5dea388b5d441a3ab3264))
+
 ## [1.0.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.15...v1.0.16) (2026-11-08)
 
 

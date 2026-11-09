@@ -1,12 +1,12 @@
 name: 🐞 Bug report
-description: A patch fails to apply, the patched app crashes or will not play, or a patch does not do what the README says.
+description: A patch fails to apply, the patched app crashes or will not play, or a patch does not do what its description says.
 title: "bug: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for reporting a problem. Only the description is required, but every other field helps find the cause faster.
+        Thank you for reporting a problem. The required fields are the basics needed to find the cause, and every other field helps find it faster. A report without them cannot be looked into.
 
         Before you start, please check the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) for the same problem.
   - type: checkboxes
@@ -14,7 +14,7 @@ body:
     attributes:
       label: Before you submit
       options:
-        - label: "I read the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches#known-issues) in the README."
+        - label: "I read the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/known-issues.md)."
           required: true
         - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this problem."
           required: true
@@ -82,6 +82,7 @@ body:
         - "The Wall Street Journal"
         - "The Washington Post"
         - "theScore"
+        - "Truth Social"
         - "Tubi"
         - "USA TODAY"
         - "Visible"
@@ -92,12 +93,16 @@ body:
         - "Xumo Play"
         - "YouTube TV"
         - "Other (name it in the description)"
+    validations:
+      required: true
   - type: input
     id: app-version
     attributes:
       label: App version
       description: The version you patched. In Morphe Manager it is shown when you select the APK.
       placeholder: "17.3.0"
+    validations:
+      required: true
   - type: input
     id: version-code
     attributes:
@@ -113,6 +118,8 @@ body:
         - Phone or tablet
         - Android TV or Google TV
         - Not sure
+    validations:
+      required: true
   - type: dropdown
     id: apk-source
     attributes:
@@ -123,12 +130,16 @@ body:
         - Installed copy from the Play Store
         - Morphe Manager's download link
         - Other (name it in the description)
+    validations:
+      required: true
   - type: input
     id: patches-version
     attributes:
       label: Patches version
       description: The version of these patches, shown under Sources in Morphe Manager.
-      placeholder: "1.0.13"
+      placeholder: "1.0.19"
+    validations:
+      required: true
   - type: input
     id: manager-version
     attributes:
@@ -154,6 +165,8 @@ body:
       label: Device
       description: The phone, tablet, or TV device model.
       placeholder: "Galaxy S25 Ultra, NVIDIA Shield, Google TV Streamer"
+    validations:
+      required: true
   - type: dropdown
     id: android-version
     attributes:
@@ -169,6 +182,8 @@ body:
         - "Android 10"
         - "Android 9 or older"
         - "Not sure"
+    validations:
+      required: true
   - type: dropdown
     id: root
     attributes:

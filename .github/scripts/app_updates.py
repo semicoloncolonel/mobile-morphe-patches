@@ -29,6 +29,7 @@ any site's bot protection.
 """
 
 import argparse
+import functools
 import json
 import os
 import re
@@ -63,13 +64,36 @@ def version_key(version):
     return [int(part) for part in re.findall(r"\d+", version)]
 
 
-def newer(a, b):
+RELEASE_DATE = re.compile(r"(\d{4})\.(\d{2})\.(\d{2})$")
+
+
+def compare(a, b):
+    """-1, 0, or 1 as version a is older than, the same as, or newer than b."""
     # Hulu's versions are "6.34.0+18552420-google", but APKPure lists only the
     # build part, "18552420-google". When only one side has a "+", compare the
     # build parts.
     if ("+" in a) != ("+" in b):
         a, b = a.split("+", 1)[-1], b.split("+", 1)[-1]
-    return version_key(a) > version_key(b)
+    key_a, key_b = version_key(a), version_key(b)
+    if "+" not in a:
+        # Disney+'s build parts are "rc3-2026.11.02": a release candidate number
+        # that starts over with every version, then the build date. APKPure lists
+        # only that part, so the date orders them, not the release candidate.
+        # Its old releases, such as "3.5.0-rc4", have no date and are older.
+        date_a, date_b = RELEASE_DATE.search(a), RELEASE_DATE.search(b)
+        if date_a and date_b:
+            key_a = [int(part) for part in date_a.groups()] + key_a
+            key_b = [int(part) for part in date_b.groups()] + key_b
+        elif date_a or date_b:
+            return 1 if date_a else -1
+    return (key_a > key_b) - (key_a < key_b)
+
+
+def newer(a, b):
+    return compare(a, b) > 0
+
+
+version_order = functools.cmp_to_key(compare)
 
 
 # ── The bundle ──────────────────────────────────────────────────────────────
@@ -317,6 +341,18 @@ def version_code(apk, aapt2):
         return int(found.group(1)) if found else None
 
 
+def version_name(apk, aapt2):
+    """The base APK's versionName, or None."""
+    if not aapt2:
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        base = base_apk(apk, tmp)
+        if base is None:
+            return None
+        found = re.search(r"versionName='([^']+)'", run([aapt2, "dump", "badging", str(base)]).stdout)
+        return found.group(1) if found else None
+
+
 def is_tv_build(apk, aapt2):
     """True when the base APK declares the Android TV (leanback) feature."""
     if not aapt2:
@@ -354,16 +390,16 @@ def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, ke
         if only and package not in only:
             continue
         app = apps[package]
-        pinned = max(app["versions"], key=version_key) if app["versions"] else None
+        pinned = max(app["versions"], key=version_order) if app["versions"] else None
         record = {"package": package, "name": names.get(package, package), "pinned": pinned,
-                  "targets": sorted(app["versions"], key=version_key)}
+                  "targets": sorted(app["versions"], key=version_order)}
         public = apkpure_versions(package)
-        candidates = sorted((v for v in public if not pinned or newer(v, pinned)), key=version_key, reverse=True)
+        candidates = sorted((v for v in public if not pinned or newer(v, pinned)), key=version_order, reverse=True)
         if not public:
             record["status"] = "not on APKPure"
         elif not candidates:
             record["status"] = "up to date"
-            record["latest"] = max(public, key=version_key)
+            record["latest"] = max(public, key=version_order)
         else:
             # Only a version Google Play serves to an ordinary phone is public.
             # A newer one on APKPure is a staged rollout or not released yet,
@@ -385,14 +421,25 @@ def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, ke
             # Some apps share a package with their Android TV app, whose version
             # numbers can sort above the phone app's (Tubi's TV build is 10.44.5000).
             # The newest phone build is used, trying up to three versions.
+            first_tv = None
             for version in candidates[:3]:
                 outcome = check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2,
                                         apksigner, keep_dir)
                 if outcome.get("tv_build"):
                     record.setdefault("tv_builds_skipped", []).append(version)
+                    first_tv = first_tv or (version, outcome)
                     continue
-                record.update(outcome, status="update", latest=version)
+                # APKPure can shorten the name (Disney+'s "rc1-2026.11.20"), so the
+                # report uses the version name inside the APK, which the pin needs.
+                record.update(outcome, status="update", latest=outcome.get("version_name") or version)
                 break
+            else:
+                # APKPure has only the Android TV build of the newer versions, as it
+                # does for Disney+. It cannot be test-patched as the phone app, but the
+                # update is still reported, marked for review.
+                if first_tv:
+                    version, outcome = first_tv
+                    record.update(outcome, status="update", latest=outcome.get("version_name") or version)
         print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
         results.append(record)
     return results
@@ -412,6 +459,7 @@ def check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, a
     if outcome["cert"] != "does not match":
         outcome["tv_build"] = is_tv_build(apk, aapt2)
         outcome["version_code"] = version_code(apk, aapt2)
+        outcome["version_name"] = version_name(apk, aapt2)
         if not outcome["tv_build"]:
             outcome["patches"] = patch_check(apk, app["patches"], cli_path, mpp, workdir)
             patched = Path(workdir, apk.stem + "-patched.apk")

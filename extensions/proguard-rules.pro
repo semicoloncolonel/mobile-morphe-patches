@@ -247,3 +247,4 @@
 
 # Tubi — "Highest quality". Called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.tubi.TubiQuality { public static *; }
+-keep class semicoloncolonel.mobilestream.extension.hbomax.HboQuality { public static *; }

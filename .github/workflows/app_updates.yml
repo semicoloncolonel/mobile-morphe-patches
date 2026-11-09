@@ -118,7 +118,7 @@ jobs:
 
       - name: Upload report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: app-updates
           path: app-updates
@@ -171,7 +171,7 @@ jobs:
 
       - name: Upload launch results
         if: always() && steps.apps.outputs.any == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: launch-results
           path: app-updates/launch.json

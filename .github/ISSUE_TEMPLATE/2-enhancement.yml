@@ -18,6 +18,8 @@ body:
           required: true
         - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this enhancement."
           required: true
+        - label: "I understand that the patches do not currently remove paywalls or unlock paid content."
+          required: true
   - type: dropdown
     id: app
     attributes:

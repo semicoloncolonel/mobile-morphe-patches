@@ -6,7 +6,9 @@ updates workflow, which runs only when the repository variable AUTO_BUMP is
 "true". An app is bumped when all of these hold:
 
   - APKPure has a newer version, and its signing certificate matches the
-    known-good one in .github/app-certs.json.
+    known-good one in .github/app-certs.json. A staged rollout that Google
+    Play has not released to everyone counts, because dev is for testing;
+    the commit message says it is a rollout.
   - Every one of the app's patches applies to it.
   - The patched app opened on the emulator (or could not be tested there
     because it has no x86 code). A crash, a quick exit, or a failed install
@@ -22,7 +24,12 @@ the next dev pre-release. semantic-release numbers it from the git tags, so it
 follows any dev pre-release published by hand.
 
     python3 .github/scripts/auto_bump.py app-updates --repo .
-    python3 .github/scripts/auto_bump.py app-updates --comment <commit sha>
+    python3 .github/scripts/auto_bump.py app-updates --comment <commit sha> [--release <tag>]
+
+The workflow waits for the Release run. When it succeeds, each bumped app's
+issue is closed with a link to the pre-release. Otherwise the issue gets a
+comment and stays open, and the next update check closes it once a release
+pins the new version.
 """
 
 import argparse
@@ -162,18 +169,24 @@ def bump(report, repo):
         readme = bump_readme(repo, record["name"], record["pinned"], record["latest"])
         bumped.append({"package": record["package"], "name": record["name"], "from": record["pinned"],
                        "to": record["latest"], "version_code": record.get("version_code"),
-                       "launch": launches[record["package"]]["result"], "readme": readme})
+                       "launch": launches[record["package"]]["result"], "readme": readme,
+                       "rollout": record.get("rollout", False), "play": record.get("play")})
         print(f"{record['name']}: {record['pinned']} -> {record['latest']}")
     (report / "bumped.json").write_text(json.dumps(bumped, indent=2))
     if bumped:
-        subject = "fix: support " + ", ".join(f"{b['name']} {b['to']}" for b in bumped)
+        # "testing", not "support": nobody has checked the bump on a device yet.
+        subject = "fix: testing " + ", ".join(f"{b['name']} {b['to']}" for b in bumped)
         body = "\n".join(
             f"- {b['name']} {b['from']} -> {b['to']}: every patch applied, and the launch check said "
-            f"{b['launch']}." for b in bumped)
+            f"{b['launch']}."
+            + (f" Staged rollout: Google Play still serves {b['play']} to an ordinary phone." if b["rollout"] else "")
+            for b in bumped)
         (report / "bump-message.txt").write_text(f"{subject}\n\nAutomatic bump on dev.\n\n{body}\n")
 
 
-def comment(report, sha):
+def comment(report, sha, release=None):
+    """Comments on each bumped app's issue. With the tag of the dev pre-release
+    that includes the bump, the issue is closed as resolved."""
     bumped = json.loads((report / "bumped.json").read_text())
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     for b in bumped:
@@ -184,10 +197,17 @@ def comment(report, sha):
         match = next((i for i in issues if i["title"] == title), None)
         if not match:
             continue
-        text = (f"Bumped to `{b['to']}` on dev in {repo}@{sha[:7]}. The next dev pre-release includes it, "
-                f"marked experimental. Check it on a device before it goes to main.\n")
-        subprocess.run(["gh", "issue", "comment", str(match["number"]), "--body-file", "-"],
-                       input=text, capture_output=True, text=True)
+        if release:
+            text = (f"Bumped to `{b['to']}` on dev in {repo}@{sha[:7]} and released in pre-release "
+                    f"[{release}](https://github.com/{repo}/releases/tag/{release}), marked experimental. "
+                    f"Check it on a device before it goes to main.\n")
+            subprocess.run(["gh", "issue", "close", str(match["number"]), "--reason", "completed",
+                            "--comment", text], capture_output=True, text=True)
+        else:
+            text = (f"Bumped to `{b['to']}` on dev in {repo}@{sha[:7]}. The dev pre-release did not finish, "
+                    f"so this stays open until a dev pre-release includes it.\n")
+            subprocess.run(["gh", "issue", "comment", str(match["number"]), "--body-file", "-"],
+                           input=text, capture_output=True, text=True)
 
 
 def main():
@@ -195,9 +215,11 @@ def main():
     parser.add_argument("report", type=Path, help="the app-updates output folder")
     parser.add_argument("--repo", type=Path, default=Path("."))
     parser.add_argument("--comment", metavar="SHA", help="comment on the bumped apps' issues instead")
+    parser.add_argument("--release", metavar="TAG", help="with --comment: the dev pre-release that includes "
+                        "the bump; closes the issues")
     args = parser.parse_args()
     if args.comment:
-        comment(args.report, args.comment)
+        comment(args.report, args.comment, args.release)
     else:
         bump(args.report, args.repo)
 

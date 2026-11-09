@@ -12,7 +12,10 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x113CCF,
         targets = listOf(
-            AppTarget("26.20.0+rc2-2026.10.28"),
+            // Only the phone build is listed, so an Android TV build with the same
+            // version name is not accepted on a phone. Every APKMirror download of
+            // this version is this build.
+            AppTarget(version = "26.20.0+rc2-2026.10.28", versionCode = 179321403, description = "Phone build"),
             // The Android TV builds of this version share its name (1793662190 and
             // 1803662190) and crash on a phone, so only the phone build is listed.
             AppTarget(

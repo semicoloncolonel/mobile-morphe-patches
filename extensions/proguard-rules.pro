@@ -248,3 +248,23 @@
 # Tubi — "Highest quality". Called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.tubi.TubiQuality { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.hbomax.HboQuality { public static *; }
+
+# SiriusXM — "Hide content". filter is called only from injected smali via
+# invoke-static, and the patch overwrites terms and hideMentions, so R8
+# must not fold them. HiddenNamesActivity is named only in the manifest.
+-keep class semicoloncolonel.mobilestream.extension.siriusxm.ContentFilter {
+    public static java.lang.String filter(java.lang.String);
+    private static java.lang.String terms();
+    private static boolean hideMentions();
+}
+-keep class semicoloncolonel.mobilestream.extension.siriusxm.HiddenNamesActivity { *; }
+
+# SiriusXM — "Mask live ad breaks". Called only from injected smali via
+# invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.siriusxm.LiveAdMute {
+    public static void setMetadata(android.media.session.MediaSession, android.media.MediaMetadata);
+    public static float volume(java.lang.Object, float);
+    public static void track(java.lang.Object);
+    public static java.lang.String filterJson(java.lang.String);
+    private static boolean mutePromos();
+}

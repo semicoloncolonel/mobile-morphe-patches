@@ -90,7 +90,7 @@ jobs:
         run: |
           mkdir -p "$HOME/bin" tools
           # gh downloads through the API, which keeps working when direct release links do not.
-          gh release download 1.0.0 -R EFForg/apkeep -p apkeep-x86_64-unknown-linux-gnu -O "$HOME/bin/apkeep"
+          gh release download 1.1.0 -R EFForg/apkeep -p apkeep-x86_64-unknown-linux-gnu -O "$HOME/bin/apkeep"
           chmod +x "$HOME/bin/apkeep"
           echo "$HOME/bin" >> "$GITHUB_PATH"
           gh release download -R MorpheApp/morphe-cli -p '*-all.jar' -D tools

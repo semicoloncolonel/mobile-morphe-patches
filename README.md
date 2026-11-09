@@ -58,6 +58,8 @@ On a TV, patch the Android TV build of the app. [Android TV](docs/android-tv.md)
 | [🔧 Needed for the app to run](docs/patches.md#-needed-for-the-app-to-run) | Disable Pairip license check, Disable signature check |
 | [✨ Extra features](docs/patches.md#-extra-features) | Show release times, Watchlist filters, Save videos, Show poll results |
 
+The patches do not currently remove paywalls or unlock paid content.
+
 ## Disclaimer
 
 This project is not affiliated with, endorsed by, or sponsored by any of the companies whose apps it patches. All app names and trademarks belong to their owners and are used here only to identify the apps.

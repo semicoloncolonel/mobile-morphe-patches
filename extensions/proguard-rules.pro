@@ -248,3 +248,7 @@
 # Tubi — "Highest quality". Called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.tubi.TubiQuality { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.hbomax.HboQuality { public static *; }
+
+# Shared "Hide rating prompt". launchReviewFlow() replaces Google Play's
+# ReviewManager.launchReviewFlow at app call sites via injected invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.shared.misc.RatingPromptBlocker { public static *; }

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-09T02:09:57",
-  "description": "## [1.0.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.17...v1.0.18) (2026-11-09)\n\n\n### Bug Fixes\n\n* accept the Google Play build of JustWatch for Android TV, and support Disney+ 26.20.0+rc3-2026.11.02 ([4ac0e49](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4ac0e49848b6a5fc187d76a61245303e54015fdc))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.18/patches-1.0.18.mpp",
+  "created_at": "2026-11-09T02:22:07",
+  "description": "## [1.0.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.18...v1.0.19) (2026-11-09)\n\n\n### Bug Fixes\n\n* accept only the phone build of Disney+ 26.20.0+rc3-2026.11.02, and offer the Android TV build of HBO Max on Android 11 TVs ([1ef60e9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ef60e920c9d22b634cd93118cf54da6204c6863))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.19/patches-1.0.19.mpp",
   "signature_download_url": "",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -9,9 +9,9 @@ For each app in the patch bundle, this script:
 3. Asks Google Play which version it serves to an ordinary phone, using a
    throwaway account (PLAY_EMAIL, PLAY_AAS_TOKEN) or, without one, an
    anonymous login from Aurora Store's token dispenser. A newer APKPure
-   version that Play does not serve yet, such as a staged rollout, is
-   reported as not public on Play and is not downloaded or patched.
-4. When APKPure has a newer version that Play serves, downloads it and checks its signing
+   version that Play does not serve yet is a staged rollout. It is still
+   tested, because dev is for testing, and the issue says it is a rollout.
+4. When APKPure has a newer version, downloads it and checks its signing
    certificate against the app's known-good certificate in
    .github/app-certs.json. APKPure has been found modifying apps, and a
    modified app cannot carry the developer's certificate, so a download
@@ -401,22 +401,11 @@ def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, ke
             record["status"] = "up to date"
             record["latest"] = max(public, key=version_order)
         else:
-            # Only a version Google Play serves to an ordinary phone is public.
-            # A newer one on APKPure is a staged rollout or not released yet,
-            # so it is not downloaded or patched.
-            served = play.version(package)
-            record["play"] = served
-            if served is None:
-                record["status"] = "Play version unknown"
-                record["latest"] = candidates[0]
-                candidates = []
-            elif not [v for v in candidates if not newer(v, served)]:
-                record["status"] = "not public on Play"
-                record["latest"] = candidates[0]
-                candidates = []
-            else:
-                candidates = [v for v in candidates if not newer(v, served)]
-                record["status"] = "up to date"
+            # Google Play's version for an ordinary phone shows whether the newer
+            # APKPure version is out to everyone or still a staged rollout. Dev is
+            # for testing, so a rollout is still tested and can be bumped there;
+            # the issue and the dev commit say it is a rollout.
+            record["play"] = play.version(package)
         if candidates:
             # Some apps share a package with their Android TV app, whose version
             # numbers can sort above the phone app's (Tubi's TV build is 10.44.5000).
@@ -431,7 +420,10 @@ def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, ke
                     continue
                 # APKPure can shorten the name (Disney+'s "rc1-2026.11.20"), so the
                 # report uses the version name inside the APK, which the pin needs.
-                record.update(outcome, status="update", latest=outcome.get("version_name") or version)
+                latest = outcome.get("version_name") or version
+                served = record.get("play")
+                record.update(outcome, status="update", latest=latest,
+                              rollout=served is not None and newer(latest, served))
                 break
             else:
                 # APKPure has only the Android TV build of the newer versions, as it
@@ -505,18 +497,11 @@ def render(results):
         if r["status"] != "update":
             continue
         build = " (Android TV build)" if r.get("tv_build") else ""
+        build += " (staged rollout)" if r.get("rollout") else ""
         flag = "needs review" if review_reasons(r) else "ready to bump"
         lines.append(f"| {r['name']} | `{r['pinned']}` | `{r['latest']}`{build} | {summary_cell(r)} | {flag} |")
     if len(lines) == 4:
         lines.append("| Every app is up to date. | | | | |")
-    held = [f"{r['name']} `{r['latest']}` (Play serves `{r['play']}`)" for r in results
-            if r["status"] == "not public on Play"]
-    if held:
-        lines += ["", "Newer on APKPure but not public on Google Play, so not patched: " + ", ".join(held) + "."]
-    unknown = [r["name"] for r in results if r["status"] == "Play version unknown"]
-    if unknown:
-        lines += ["", "Google Play's version could not be read, so these were not patched: "
-                  + ", ".join(unknown) + "."]
     missing = [r["name"] for r in results if r["status"] == "not on APKPure"]
     if missing:
         lines += ["", "Not on APKPure: " + ", ".join(missing) + "."]
@@ -556,6 +541,15 @@ def review_reasons(r):
     return reasons
 
 
+def play_note(r):
+    if r.get("play") is None:
+        return "its version could not be read"
+    if r.get("rollout"):
+        return (f"serves `{r['play']}` to an ordinary phone, so `{r['latest']}` is a staged rollout "
+                "that has not reached everyone yet")
+    return f"serves `{r['play']}` to an ordinary phone, so this version is out to everyone"
+
+
 def issue_body(r):
     build = "Android TV build" if r.get("tv_build") else "phone build" if r.get("tv_build") is False else "not checked"
     lines = [
@@ -564,6 +558,7 @@ def issue_body(r):
         f"- Package: `{r['package']}`",
         f"- Targeted by the patches: {', '.join(f'`{v}`' for v in r['targets'])}",
         f"- On APKPure: `{r['latest']}` ({build})",
+        f"- Google Play: {play_note(r)}.",
     ]
     if r.get("cert"):
         cert = {
@@ -621,13 +616,6 @@ def sync_issues(results, owner):
             if r["pinned"] and not newer(version, r["pinned"]):
                 gh("issue", "close", str(issue["number"]), "--comment",
                    f"The patches now target {r['name']} `{r['pinned']}`, so this is closed.")
-        if r["status"] == "not public on Play":
-            for issue in mine:
-                version = issue["title"][len(prefix):]
-                if r["pinned"] is None or newer(version, r["pinned"]):
-                    gh("issue", "close", str(issue["number"]), "--reason", "not planned", "--comment",
-                       f"Google Play serves {r['name']} `{r['play']}` to an ordinary phone, so `{version}` "
-                       "is not public yet. A new issue opens when Play serves a newer version.")
         if r["status"] != "update":
             continue
         title = prefix + r["latest"]

@@ -1,3 +1,11 @@
+## [1.0.20-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.2...v1.0.20-dev.3) (2026-11-09)
+
+
+### Bug Fixes
+
+* accept only the phone build of Disney+ 26.20.0+rc2-2026.10.28 ([851a29e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/851a29e2229af2f1c3b4569a40d9f9516b607832))
+* say that Hide marketing pop-ups does not remove The Washington Post or WSJ paywalls ([8420d87](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8420d87b82da0f4ae104413e4a92e3b999fc4535))
+
 ## [1.0.20-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.1...v1.0.20-dev.2) (2026-11-09)
 
 

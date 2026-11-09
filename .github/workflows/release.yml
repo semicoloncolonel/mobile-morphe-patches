@@ -55,7 +55,7 @@ jobs:
       # MORPHE_SIGNING_KEY. A separate build before it would leave a second .mpp
       # with the old version number in patches/build/libs.
       - name: Release
-        uses: cycjimmy/semantic-release-action@v6
+        uses: cycjimmy/semantic-release-action@v8
         id: release
         # The action installs semantic-release itself instead of using the
         # lockfile's copy, so the major version is pinned here.

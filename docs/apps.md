@@ -29,7 +29,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Kanopy | Hide rating prompt 🧪<br>Hide survey 🧪<br>Block analytics & tracking 🧪⚙️ | `6.32.0` 🧪 | 11/09/26 |
 | MGM+ | Remove social sign-in<br>Skip ads 🧪<br>Skip lion intro<br>Skip pre-roll promo 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable MGM+ AI ⚙️ | `240.0.2026240000` | 10/30/26 |
 | MLB | Hide surveys and rating prompt<br>Skip ads<br>Block analytics & tracking ⚙️<br>GmsCore support ⚙️<br>Hide betting odds ⚙️<br>Mask live ad breaks 🧪⚙️ | `26.21.0.49` | 11/05/26 |
-| Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking ⚙️ | `7.7.0` | 11/02/26 |
+| Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking ⚙️ | `7.7.1`<br>`7.7.0` | 11/10/26 |
 | NBA | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable Ask NBA AI 🧪⚙️<br>Hide League Pass upsells 🧪⚙️ | `1.3.0` | 11/09/26 |
 | NFL | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `61.0.19` | 11/07/26 |
 | Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `17.3.0` | 11/04/26 |
@@ -37,7 +37,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `7.10.30` | 11/06/26 |
 | Plex 📺 | Hide sponsored content<br>Skip ads<br>Block analytics & tracking ⚙️ | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV 📺 | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
-| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `3.0.480.747` | 11/10/26 |
+| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
 | Shudder | Block analytics & tracking ⚙️ | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking ⚙️<br>Hide content 🧪⚙️<br>Hide Howard tab ⚙️<br>Mask live ad breaks 🧪⚙️ | `2610.4.0` | 11/08/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo 🧪<br>Block analytics & tracking 🧪⚙️ | `6.11.0` | 10/31/26 |
@@ -64,12 +64,12 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | NewsNation | Skip ads (phone)<br>Block analytics & tracking ⚙️ | `510.3.0` | 11/05/26 |
 | NewsNation (Android TV) 📺 | Hide rating prompt (Android TV)<br>Skip ads (Android TV)<br>Block analytics & tracking ⚙️ | `4.94` | 11/06/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking ⚙️<br>Route traffic through a proxy ⚙️ | `7.10.0` | 11/05/26 |
-| Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking ⚙️ | `3.12.0` | 11/05/26 |
+| Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking ⚙️ | `3.13.1`<br>`3.12.0` | 11/10/26 |
 | The Daily Wire | Skip ads<br>Block analytics & tracking ⚙️<br>GmsCore support ⚙️ | `3.5.21` | 11/05/26 |
-| The New York Times | Hide upsell pop-ups 🧪<br>Remove social sign-in<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `11.98.0` | 10/30/26 |
-| theScore | Block analytics & tracking ⚙️ | `26.16.0` | 11/05/26 |
+| The New York Times | Hide upsell pop-ups 🧪<br>Remove social sign-in<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `11.98.2`<br>`11.98.0` | 11/10/26 |
+| theScore | Block analytics & tracking ⚙️ | `26.16.0`<br>`26.15.0` | 11/05/26 |
 | The Wall Street Journal | Hide marketing pop-ups 🧪<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `15.12.0.42675` | 10/30/26 |
-| The Washington Post | Hide marketing pop-ups 🧪<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `7.18.1` | 10/30/26 |
+| The Washington Post | Hide marketing pop-ups 🧪<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/10/26 |
 | USA TODAY | Hide rating prompt<br>Hide subscription prompts<br>Skip ads<br>Block analytics & tracking ⚙️ | `8.15.0` | 11/06/26 |
 
 ## 💬 Social
@@ -93,13 +93,13 @@ Each table lists an app's patches and the versions they were tested on. [What th
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| Amazon Shopping | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `32.19.0.100` | 11/01/26 |
+| Amazon Shopping | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `32.20.0.100`<br>`32.19.0.100` | 11/10/26 |
 | Best Buy | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `26.10.10` | 11/01/26 |
 | Costco | Hide sponsored products 🧪<br>Block analytics & tracking 🧪⚙️ | `26.10.2.2` | 11/08/26 |
 | CVS | Disable AI 🧪⚙️ | `26.10.50` | 11/01/26 |
 | DealSeek | Disable Pairip license check<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking 🧪⚙️ | `1.64.0` | 11/05/26 |
 | Target | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `2026.44.0` | 11/09/26 |
-| The Home Depot | Disable AI 🧪⚙️ | `8.2.5` | 11/01/26 |
+| The Home Depot | Disable AI 🧪⚙️ | `8.2.6`<br>`8.2.5` | 11/10/26 |
 | Walgreens | The shared privacy patches only | `118.0` | 11/01/26 |
 | Walmart | Disable AI 🧪⚙️ | `26.42.1`<br>`26.42.2` 🧪 | 11/08/26 |
 
@@ -111,6 +111,6 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | myAT&T | Block background network reports 🧪<br>Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI ⚙️ | `2026.10.2` | 11/07/26 |
 | My Verizon | Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI 🧪⚙️ | `22.2.5` | 11/02/26 |
 | T-Life | Block location tracking<br>Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI ⚙️ | `12.3.1` | 11/01/26 |
-| T-Mobile Play | Block ads<br>Block analytics & tracking ⚙️<br>Block TV discovery ⚙️<br>Hide stories ⚙️ | `19.4.4` | 11/01/26 |
+| T-Mobile Play | Block ads<br>Block analytics & tracking ⚙️<br>Block TV discovery ⚙️<br>Hide stories ⚙️ | `19.5.2` 🧪<br>`19.4.4` | 11/10/26 |
 | Visible | Block ads<br>Block session recording<br>Block analytics & tracking ⚙️ | `3.0.5` | 11/01/26 |
 | Xfinity | Block Advanced Security telemetry ⚙️<br>Block analytics & tracking ⚙️<br>Disable AI ⚙️ | `6.14.0-2` | 11/01/26 |

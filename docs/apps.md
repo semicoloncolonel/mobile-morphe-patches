@@ -26,7 +26,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | HBO Max 📺 | Remove social sign-in (phone)<br>Skip ads<br>Block analytics & tracking 🧪⚙️<br>Video quality 🧪⚙️ | `22.0.0.321`<br>Android TV `22.0.0.36` | 11/07/26 |
 | Hulu | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `6.34.0+18552420-google` | 10/31/26 |
 | JustWatch 📺 | Block ads<br>Hide sponsored titles<br>Block analytics & tracking ⚙️<br>GmsCore support 🧪⚙️<br>Hide unavailable titles 🧪⚙️<br>Hide watched titles 🧪⚙️<br>Streaming titles only 🧪⚙️ | `26.44.2`<br>Android TV `26.43.8` | 11/08/26 |
-| Kanopy | Hide rating prompt 🧪<br>Hide survey 🧪<br>Block analytics & tracking 🧪⚙️ | `6.32.0` 🧪 | 11/09/26 |
+| Kanopy | Hide rating prompt 🧪<br>Hide survey 🧪<br>Block analytics & tracking 🧪⚙️ | `6.32.0` | 11/09/26 |
 | MGM+ | Remove social sign-in<br>Skip ads 🧪<br>Skip lion intro<br>Skip pre-roll promo 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable MGM+ AI ⚙️ | `240.0.2026240000` | 10/30/26 |
 | MLB | Hide surveys and rating prompt<br>Skip ads<br>Block analytics & tracking ⚙️<br>GmsCore support ⚙️<br>Hide betting odds ⚙️<br>Mask live ad breaks 🧪⚙️ | `26.21.0.49` | 11/05/26 |
 | Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking ⚙️ | `7.7.1`<br>`7.7.0` | 11/10/26 |

@@ -171,6 +171,8 @@ public final class TrackerBlocker {
             // SiriusXM (2610.4.0)
             "evergage.com", // Salesforce Personalization (Evergage)
             "zc.adswizz.com", // AdsWizz SDK setup, which turns on its listening measurement
+            // Kanopy (6.32.0)
+            "sentry-tmp.kanopy.com", // Kanopy's Sentry server, which receives screenshots
     };
 
     /**

@@ -152,6 +152,17 @@ class CommentTest(unittest.TestCase):
                                           "refs": {"dev"}})
         self.assertEqual(line, "- `26.45.0`: experimental, in the dev pre-releases only")
 
+    def test_dev_reports(self):
+        self.assertTrue(t.is_dev_report({"Patches release": "Dev pre-release"}))
+        self.assertTrue(t.is_dev_report({"Patches version": "1.0.20-dev.4", "Patches release": "Not sure"}))
+        self.assertFalse(t.is_dev_report({"Patches version": "1.0.19", "Patches release": "Main release"}))
+        self.assertFalse(t.is_dev_report({}))
+
+    def test_dev_comment_links_the_testing_issue(self):
+        text = t.dev_comment("NPS", [{"title": "App update: NPS 2.16.0", "url": "https://example.com/27"}])
+        self.assertIn("- [App update: NPS 2.16.0](https://example.com/27)", text)
+        self.assertIn("critical problem", text)
+
 
 if __name__ == "__main__":
     unittest.main()

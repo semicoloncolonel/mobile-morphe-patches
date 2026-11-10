@@ -1,3 +1,10 @@
+## [1.0.20-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.4...v1.0.20-dev.5) (2026-11-10)
+
+
+### Bug Fixes
+
+* testing Prime Video 3.0.480.747 ([1ca95c8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ca95c88b14522953e5531f77f274f3559873b64))
+
 ## [1.0.20-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.3...v1.0.20-dev.4) (2026-11-09)
 
 

@@ -1,3 +1,16 @@
+## [1.0.20-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.6...v1.0.20-dev.7) (2026-11-10)
+
+
+### Bug Fixes
+
+* list Disney+ 26.20.0+rc3-2026.11.02 as a regular supported version, so Morphe Manager stops offering rc2 as an update ([f8acbe1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f8acbe15868b3314ec0b4f099892c3bca4a7b4fe))
+* support the current public versions of Amazon Shopping, Moviebase, The New York Times, Prime Video, Substack, The Home Depot, and The Washington Post, and T-Mobile Play 19.5.2 as experimental ([cfba7a5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfba7a55a1d40ea6abaf5548ae200350f02c9fe3))
+
+
+### Features
+
+* add Kanopy ([0ed4374](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0ed4374d47dc21faf6dd18d5dad6ae1c85b9ecc9))
+
 ## [1.0.20-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.5...v1.0.20-dev.6) (2026-11-10)
 
 

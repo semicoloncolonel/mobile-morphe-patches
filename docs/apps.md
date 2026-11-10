@@ -101,7 +101,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Target | Hide sponsored listings 🧪<br>Disable AI 🧪⚙️ | `2026.44.0` | 11/09/26 |
 | The Home Depot | Disable AI 🧪⚙️ | `8.2.6`<br>`8.2.5` | 11/10/26 |
 | Walgreens | The shared privacy patches only | `118.0` | 11/01/26 |
-| Walmart | Disable AI 🧪⚙️ | `26.42.1`<br>`26.42.2` 🧪 | 11/08/26 |
+| Walmart | Disable AI 🧪⚙️ | `26.42.2`<br>`26.42.1` | 11/10/26 |
 
 ## 📶 Carriers
 

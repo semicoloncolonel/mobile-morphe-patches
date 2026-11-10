@@ -25,7 +25,7 @@ If the version and version code both match and Morphe Manager still does not acc
 
 ## Why does my version code have an extra digit?
 
-Some apps publish several builds of the same version, one for each kind of device. The builds share a version name but have different version codes. For example, Disney+ 26.20.0+rc3-2026.11.02 has these builds:
+Some apps publish several builds of the same version, one for each kind of device. The builds share a version name but have different version codes. For example, Disney+ 26.20.0+rc3-2026.11.02 had these builds:
 
 | Build | Version code | Where to get it |
 |-------|--------------|-----------------|

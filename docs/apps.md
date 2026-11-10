@@ -34,7 +34,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | NFL | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `61.0.19` | 11/07/26 |
 | Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `17.3.0` | 11/04/26 |
 | PBS | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `5.27.0` | 10/30/26 |
-| Peacock | Disable Xfinity auto sign-in<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `7.10.30` | 11/06/26 |
+| Peacock | Disable Xfinity auto sign-in<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `7.11.11` | 11/10/26 |
 | Plex 📺 | Hide sponsored content<br>Skip ads<br>Block analytics & tracking ⚙️ | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV 📺 | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
 | Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
@@ -109,7 +109,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 |-----|---------|----------------|--------------|
 | Mint Mobile | Block analytics & tracking ⚙️ | `2.3.42` | 11/06/26 |
 | myAT&T | Block background network reports 🧪<br>Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI ⚙️ | `2026.10.2` | 11/07/26 |
-| My Verizon | Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI 🧪⚙️ | `22.2.5` | 11/02/26 |
+| My Verizon | Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI 🧪⚙️ | `22.3.5` | 11/10/26 |
 | T-Life | Block location tracking<br>Block session recording<br>Block analytics & tracking ⚙️<br>Disable AI ⚙️ | `12.3.1` | 11/01/26 |
 | T-Mobile Play | Block ads<br>Block analytics & tracking ⚙️<br>Block TV discovery ⚙️<br>Hide stories ⚙️ | `19.5.2` 🧪<br>`19.4.4` | 11/10/26 |
 | Visible | Block ads<br>Block session recording<br>Block analytics & tracking ⚙️ | `3.0.5` | 11/01/26 |

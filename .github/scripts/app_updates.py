@@ -52,6 +52,7 @@ ISSUE_LABEL = "app update"
 REVIEW_LABEL = "needs review"
 READY_LABEL = "ready to bump"
 TESTING_LABEL = "testing on dev"
+RELEASED_LABEL = "released"
 TITLE_PREFIX = "App update: "
 
 
@@ -665,14 +666,9 @@ def sync_issues(results, owner, stable=None):
     targets. An issue closes only when a main release targets its version, so
     a version bumped on dev stays open, labeled "testing on dev", for people
     to report how the pre-release works."""
-    gh("label", "create", ISSUE_LABEL, "--force", "--color", "FBCA04",
-       "--description", "A newer app version is available")
-    gh("label", "create", REVIEW_LABEL, "--force", "--color", "D93F0B",
-       "--description", "An app update needs a manual check or patch edit")
-    gh("label", "create", READY_LABEL, "--force", "--color", "0E8A16",
-       "--description", "Every patch applied to the new version")
-    gh("label", "create", TESTING_LABEL, "--force", "--color", "1D76DB",
-       "--description", "In a dev pre-release; comment with how it works on your device")
+    # Colors and descriptions come from .github/labels.json; this only fills in a missing label.
+    for label in (ISSUE_LABEL, REVIEW_LABEL, READY_LABEL, TESTING_LABEL, RELEASED_LABEL):
+        subprocess.run(["gh", "label", "create", label], capture_output=True, text=True)
     issues = json.loads(gh("issue", "list", "--label", ISSUE_LABEL, "--state", "open", "--limit", "500",
                            "--json", "number,title") or "[]")
     for r in results:
@@ -682,6 +678,8 @@ def sync_issues(results, owner, stable=None):
         for issue in mine:
             version = issue["title"][len(prefix):]
             if released and not newer(version, released):
+                gh("issue", "edit", str(issue["number"]), "--add-label", RELEASED_LABEL,
+                   "--remove-label", TESTING_LABEL)
                 gh("issue", "close", str(issue["number"]), "--reason", "completed", "--comment",
                    f"The latest main release targets {r['name']} `{released}`, so this is closed.")
         tv_only = [v for v in r.get("tv_builds_skipped", []) if r["status"] != "update" or v != r.get("latest")]

@@ -206,9 +206,8 @@ def comment(report, sha, release=None):
                     f"and it has not been tested on a device yet.\n\n"
                     f"If you try it, please comment here with what works and what does not, along with your "
                     f"device and Android version. This issue closes when a main release includes this version.\n")
-            subprocess.run(["gh", "label", "create", TESTING_LABEL, "--force", "--color", "1D76DB",
-                            "--description", "In a dev pre-release; comment with how it works on your device"],
-                           capture_output=True, text=True)
+            # Colors and descriptions come from .github/labels.json; this only fills in a missing label.
+            subprocess.run(["gh", "label", "create", TESTING_LABEL], capture_output=True, text=True)
             subprocess.run(["gh", "issue", "edit", str(match["number"]), "--add-label", TESTING_LABEL,
                             "--remove-label", READY_LABEL], capture_output=True, text=True)
             subprocess.run(["gh", "issue", "comment", str(match["number"]), "--body-file", "-"],

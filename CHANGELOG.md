@@ -1,3 +1,10 @@
+## [1.0.21-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20...v1.0.21-dev.1) (2026-11-10)
+
+
+### Bug Fixes
+
+* testing My Verizon 22.3.5, Peacock 7.11.11 ([5354bb7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5354bb7747ba2f97cecc86a8b18870fae118dbe5))
+
 ## [1.0.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.19...v1.0.20) (2026-11-10)
 
 

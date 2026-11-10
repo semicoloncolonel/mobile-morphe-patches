@@ -36,7 +36,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `7.10.30` | 11/06/26 |
 | Plex 📺 | Hide sponsored content<br>Skip ads<br>Block analytics & tracking ⚙️ | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV 📺 | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
-| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `3.0.480.647` | 11/08/26 |
+| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking 🧪⚙️<br>Disable AI 🧪⚙️ | `3.0.480.747` | 11/10/26 |
 | Shudder | Block analytics & tracking ⚙️ | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking ⚙️<br>Hide content 🧪⚙️<br>Hide Howard tab ⚙️<br>Mask live ad breaks 🧪⚙️ | `2610.4.0` | 11/08/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo 🧪<br>Block analytics & tracking 🧪⚙️ | `6.11.0` | 10/31/26 |

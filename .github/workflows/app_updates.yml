@@ -96,6 +96,9 @@ jobs:
           gh release download -R MorpheApp/morphe-cli -p '*-all.jar' -D tools
           tag=$(gh release list -R "$GITHUB_REPOSITORY" --limit 1 --json tagName --jq '.[0].tagName')
           gh release download "$tag" -R "$GITHUB_REPOSITORY" -p '*.mpp' -D tools
+          # Issues close only when a main release targets the version.
+          stable=$(gh release list -R "$GITHUB_REPOSITORY" --exclude-pre-releases --limit 1 --json tagName --jq '.[0].tagName')
+          gh release download "$stable" -R "$GITHUB_REPOSITORY" -p '*.mpp' -D tools/stable
           echo "AAPT2=$(ls -d "$ANDROID_HOME"/build-tools/*/aapt2 | sort -V | tail -1)" >> "$GITHUB_ENV"
           echo "APKSIGNER=$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)" >> "$GITHUB_ENV"
 
@@ -110,7 +113,7 @@ jobs:
         run: |
           python .github/scripts/app_updates.py \
             --cli tools/*-all.jar --mpp tools/*.mpp --aapt2 "$AAPT2" --apksigner "$APKSIGNER" \
-            --only "$ONLY" --out app-updates --issues
+            --only "$ONLY" --out app-updates --issues --stable-mpp tools/stable/*.mpp
 
       - name: Summary
         if: always()
@@ -232,7 +235,7 @@ jobs:
           # A push made with GITHUB_TOKEN does not start other workflows.
           sha=$(git rev-parse HEAD)
           gh workflow run release.yml --ref dev
-          # Wait for that Release run, then close the issues if it published the pre-release.
+          # Wait for that Release run, then label the issues if it published the pre-release.
           release=""
           run_id=""
           for attempt in $(seq 1 12); do

@@ -27,9 +27,9 @@ follows any dev pre-release published by hand.
     python3 .github/scripts/auto_bump.py app-updates --comment <commit sha> [--release <tag>]
 
 The workflow waits for the Release run. When it succeeds, each bumped app's
-issue is closed with a link to the pre-release. Otherwise the issue gets a
-comment and stays open, and the next update check closes it once a release
-pins the new version.
+issue is labeled "testing on dev" and gets a comment that links the
+pre-release and asks people to report how it works. The update check closes
+the issue once a main release targets the version.
 """
 
 import argparse
@@ -42,6 +42,8 @@ from pathlib import Path
 
 TITLE_PREFIX = "App update: "
 ISSUE_LABEL = "app update"
+READY_LABEL = "ready to bump"
+TESTING_LABEL = "testing on dev"
 DEV_TARGET_IMPORT = "import semicoloncolonel.mobilestream.patches.shared.misc.devTarget"
 
 
@@ -186,7 +188,8 @@ def bump(report, repo):
 
 def comment(report, sha, release=None):
     """Comments on each bumped app's issue. With the tag of the dev pre-release
-    that includes the bump, the issue is closed as resolved."""
+    that includes the bump, the issue is labeled "testing on dev" and asks for
+    reports. It stays open until a main release targets the version."""
     bumped = json.loads((report / "bumped.json").read_text())
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     for b in bumped:
@@ -198,11 +201,18 @@ def comment(report, sha, release=None):
         if not match:
             continue
         if release:
-            text = (f"Bumped to `{b['to']}` on dev in {repo}@{sha[:7]} and released in pre-release "
-                    f"[{release}](https://github.com/{repo}/releases/tag/{release}), marked experimental. "
-                    f"Check it on a device before it goes to main.\n")
-            subprocess.run(["gh", "issue", "close", str(match["number"]), "--reason", "completed",
-                            "--comment", text], capture_output=True, text=True)
+            text = (f"Bumped to `{b['to']}` on dev in {repo}@{sha[:7]}. It is in the pre-release "
+                    f"[{release}](https://github.com/{repo}/releases/tag/{release}), marked experimental, "
+                    f"and it has not been tested on a device yet.\n\n"
+                    f"If you try it, please comment here with what works and what does not, along with your "
+                    f"device and Android version. This issue closes when a main release includes this version.\n")
+            subprocess.run(["gh", "label", "create", TESTING_LABEL, "--force", "--color", "1D76DB",
+                            "--description", "In a dev pre-release; comment with how it works on your device"],
+                           capture_output=True, text=True)
+            subprocess.run(["gh", "issue", "edit", str(match["number"]), "--add-label", TESTING_LABEL,
+                            "--remove-label", READY_LABEL], capture_output=True, text=True)
+            subprocess.run(["gh", "issue", "comment", str(match["number"]), "--body-file", "-"],
+                           input=text, capture_output=True, text=True)
         else:
             text = (f"Bumped to `{b['to']}` on dev in {repo}@{sha[:7]}. The dev pre-release did not finish, "
                     f"so this stays open until a dev pre-release includes it.\n")

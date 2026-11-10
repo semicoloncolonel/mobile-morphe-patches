@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-09T02:44:07",
-  "description": "## [1.0.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.18...v1.0.19) (2026-11-09)\n\n\n### Bug Fixes\n\n* accept only the phone build of Disney+ 26.20.0+rc3-2026.11.02, and offer the Android TV build of HBO Max on Android 11 TVs ([1ef60e9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ef60e920c9d22b634cd93118cf54da6204c6863))\n* offer the Android TV build of HBO Max under the Play Store package name ([6d37589](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6d375899930a21cc780f6b586d446dac63222eff))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.19/patches-1.0.19.mpp",
+  "created_at": "2026-11-10T08:50:38",
+  "description": "## [1.0.20-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.6...v1.0.20-dev.7) (2026-11-10)\n\n\n### Bug Fixes\n\n* list Disney+ 26.20.0+rc3-2026.11.02 as a regular supported version, so Morphe Manager stops offering rc2 as an update ([f8acbe1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f8acbe15868b3314ec0b4f099892c3bca4a7b4fe))\n* support the current public versions of Amazon Shopping, Moviebase, The New York Times, Prime Video, Substack, The Home Depot, and The Washington Post, and T-Mobile Play 19.5.2 as experimental ([cfba7a5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfba7a55a1d40ea6abaf5548ae200350f02c9fe3))\n\n\n### Features\n\n* add Kanopy ([0ed4374](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0ed4374d47dc21faf6dd18d5dad6ae1c85b9ecc9))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.20-dev.7/patches-1.0.20-dev.7.mpp",
   "signature_download_url": "",
-  "version": "1.0.19",
+  "version": "1.0.20-dev.7",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

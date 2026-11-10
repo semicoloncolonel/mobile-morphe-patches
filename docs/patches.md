@@ -16,6 +16,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - AP News: ad and sponsored rows in the feed and articles, the sticky banner, "Sponsored by" rows, and ads before videos.
 - Apple TV: ad interstitials in on-demand videos, and promos delivered the same way.
 - CBS News: banner ads, ads in videos and recordings, and Taboola recommendations under articles.
+- CNBC: banner and in-feed ads, the ad slots in articles, and the ad breaks in on-demand videos, which are skipped as each one starts. Ads in the live TV stream are part of the broadcast and still play.
 - CNN: banner and sponsored-content ads, and ads in videos and clips. All Access streaming is not changed.
 - C-SPAN Now: the pre-roll before archive and on-demand videos. Ads in the live channels are stitched into the stream and still play.
 - ESPN: scheduled breaks and on-demand mid-rolls.
@@ -48,6 +49,8 @@ Everything runs on the device, inside the patched app. The patches do not send d
 
 **Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
 
+On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels during each commercial that SiriusXM labels as an ad, and the player shows "Ad - 🔇 Commercial break" in place of the advertiser's name. The sound comes back when the show returns. Its **Also mute promos and PSAs** option, off by default, also mutes SiriusXM's own channel promos and public service announcements, which SiriusXM does not label as ads. They show as "🔇 Announcement". Ads in podcasts are part of each episode's audio file, so they still play.
+
 > [!TIP]
 > To turn off Mask live ad breaks on Pluto TV without patching again, create a file named `slate_off` in `Android/data/tv.pluto.android/files`. A file named `pluto_slate_mode` that contains `black` or `mute` keeps only the cover or only the muting.
 
@@ -57,6 +60,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 |-------|-----|--------------|
 | Hide sponsored content | Plex | Removes sponsored titles from the rows on Home and Discover, the large sponsored card at the top of each screen, and promoted "Watch Now on" cards. The items are removed from the feed, so no empty space is left behind. |
 | Hide sponsored listings | Amazon Shopping, Best Buy, Target | Removes sponsored products from search results, and on Amazon, from product pages. Best Buy's "Featured products" row still shows. |
+| Hide sponsored products | Costco | Removes the sponsored products and ad placements from the home page, search results, and category pages. The app no longer asks Costco's server for them, so no empty space is left behind. |
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |
 | Strip affiliate links | DealSeek | Opens each deal at the store's own page, without DealSeek's click tracker or affiliate tags. Covers Amazon, Walmart, Best Buy, eBay, Wayfair, and Target. |
 
@@ -64,10 +68,16 @@ Everything runs on the device, inside the patched app. The patches do not send d
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
+| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
 | Hide donate button | AP News | The Donate link on Top Stories and the "Donate now" card on the account screen. Your account is not changed. |
 | Hide rating prompt | Apple TV | The "Enjoying Apple TV?" prompt that asks for a review. |
 | Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |
 | Hide surveys | CBS News | Qualtrics surveys and the rate-the-app prompt they can lead to. |
+| Hide newsletter pop-ups | CNBC | The newsletter sign-up bars that slide in over articles and ask for your email address. |
+| Hide premium promotions | CNBC | The "Premium Content" subscription card and its "Latest Episodes" heading on show pages, so a show's page starts with its free clips. The card to sign in with a TV provider stays. |
+| Hide rating prompt | CNBC | The Play Store rating request. |
+| Hide rating prompt | Kanopy | The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. |
+| Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
@@ -130,7 +140,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 
 ## 🛡️ Privacy
 
-**Block analytics & tracking** stops each app's analytics, ad measurement, and marketing services. Sign-in and playback are left alone, and so is crash reporting, except on Recreation.gov and T-Life. In every app except Apple TV, it also stops Firebase and Google Analytics, Meta app events and the Meta Pixel, Google Ads conversion tracking, Optimizely events, Bitmovin player analytics, and Mixpanel. Facebook sign-in and sharing keep working.
+**Block analytics & tracking** stops each app's analytics, ad measurement, and marketing services. Sign-in and playback are left alone, and so is crash reporting, except on Kanopy, Recreation.gov, and T-Life. In every app except Apple TV, it also stops Firebase and Google Analytics, Meta app events and the Meta Pixel, Google Ads conversion tracking, Optimizely events, Bitmovin player analytics, and Mixpanel. Facebook sign-in and sharing keep working.
 
 <details>
 <summary>What else it stops in each app</summary>
@@ -140,7 +150,9 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - AP News: Adjust, Branch, Amplitude, Segment, comScore, Parse.ly, LiveRamp, Iterable, Permutive, Quantcast, and AP's BlueConic customer-data platform.
 - Apple TV: Apple's usage metrics, such as the pages you view and what you tap, play, and search for. On Android TV, this is a separate, experimental patch, Block analytics & tracking (Android TV). It turns off Apple's usage metrics in the app and stops the player's playback reports. [Known issues](known-issues.md) lists what it does not cover yet. The Android TV app then stops downloading updates to its screens between app updates, because those updates would bring the metrics back.
 - CBS News: Adobe Analytics, comScore, Nielsen, Mux, New Relic, Flurry, Kochava, and Moat.
+- CNBC: Adobe, Amplitude, AppsFlyer, CleverTap, comScore, Kochava, Nielsen, and Airship analytics.
 - CNN: Adobe, AppsFlyer, Chartbeat, comScore, and CNN's own data collection.
+- Costco: Adobe Analytics, comScore, and Kochava.
 - C-SPAN Now: the Facebook SDK, Firebase/Google Analytics, and the Privacy Sandbox on-device ad-retargeting call. OneSignal push is left alone.
 - DealSeek: AppsFlyer, TikTok, and PostHog. The PostHog feature flags the app reads are left alone.
 - Disney+: Braze, Conviva, and Nielsen. Disney's own analytics share servers with sign-in and playback, so they are not blocked.
@@ -152,6 +164,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - HBO Max: Branch, Braze, comScore, AppsFlyer, and MediaMelon.
 - Hulu: AppsFlyer, Adobe Analytics, Conviva, and Nielsen.
 - JustWatch: JustWatch's own event tracking, AppsFlyer, Adjust, and Singular.
+- Kanopy: Mux, Mapbox map usage events, and Kanopy's Sentry crash reports, which include screenshots. Crashlytics is left alone.
 - MGM+: Braze, Kochava, Segment, and Nielsen.
 - Mint Mobile: Amplitude, Braze, Branch, and Optimizely, along with marketing notifications, in-app promotions, and referral links.
 - MLB: comScore, Conviva, Adobe Analytics, and Branch.
@@ -174,6 +187,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
 - Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.
+- SiriusXM: Datadog, Mux, Branch, Salesforce Marketing Cloud and Personalization, and AdsWizz listening measurement.
 - Starz: AppsFlyer, CleverTap, Leanplum, Braze, and Ethnio surveys.
 - Substack: Sentry, the Facebook SDK, and AppsFlyer. It also removes the Facebook Privacy Sandbox "Fledge" module that enrolls the device in on-device ad-retargeting audiences. Substack's own product analytics share servers with its content, so they are not blocked.
 - Sundance Now: AppsFlyer, Braze, New Relic, and Firebase Analytics.
@@ -239,6 +253,7 @@ These patches are off by default.
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
 | Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
+| Video quality | HBO Max | Plays the resolution you choose in its options: 480p, 720p, 1080p, or 2160p. When a title does not have it, the closest lower one plays, or the lowest one when every rendition is higher. HBO decides which resolutions it sends: in testing on a 4K plan, it sent at most 1080p to an NVIDIA Shield, even for titles marked 4K. Videos can buffer if your connection is too slow for the choice. |
 
 ## 🔑 Sign-in and startup
 
@@ -248,6 +263,7 @@ These patches are off by default.
 | Disable forced updates | Truth Social | Keeps the app open when Truth Social's server asks for a newer version. A patched app cannot update from the Play Store. |
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
 | Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
+| Fix launch with DNS blockers | CNBC | Opens the app when a DNS blocker blocks OneTrust, the app's privacy consent service. Without it, the app stays on its splash screen. |
 | GmsCore support | AP News, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, JustWatch, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 
@@ -264,6 +280,8 @@ These patches are off by default.
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
 
+**Dark mode** (CNBC) lets Android darken the app while the phone is in dark mode. CNBC has only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
+
 **Save content for offline use** (FEMA) keeps the Prepare guides, disaster declarations, FAQ, and the images you have viewed readable without a connection. Long-press the app icon for **Save all**, which downloads every guide in English and Spanish (about 150 MB), or **Refresh**, which updates the saved pages. Saved content is replaced only after the new copy downloads completely.
 
 **Enable developer menu** (Fox News) opens the hidden developer menu with a long-press on the Fox logo at the bottom of Settings. Reopen the app after you change a feature flag. Some of its settings point the app at test servers.
@@ -271,6 +289,10 @@ These patches are off by default.
 **Streaming titles only**, **Hide unavailable titles**, and **Hide watched titles** (JustWatch) change what the Watchlist shows, on phones and Android TV, using JustWatch's own data for each title. Streaming titles only shows titles you can stream on a subscription or for free, and hides titles you can only rent or buy. Picking a Types filter in the app overrides it. Hide unavailable titles hides titles that are not on the services you picked in the service bar. With All picked, it hides titles that no service offers, except titles that are not released yet. Hide watched titles hides movies you marked as seen and shows you are caught up on. The Seen, Likes, and Dislikes tabs and your other lists are not changed, and the title count at the top of the Watchlist still includes hidden titles.
 
 **Show hidden details** (Recreation.gov) shows details the app receives but does not display: the ticket-lottery application and award counts and the per-account limit (in a dialog you dismiss, since that screen has no text to add them to), when each ticket time slot stops selling, booking window rules, the deadline to confirm a lottery win, and when venue booking opens or closes. The lottery's results date is left out because the app already shows it.
+
+**Hide content** (SiriusXM) hides the people, shows, podcasts, and channels you list. A person's own channels, shows, and page are hidden, along with every episode of a hidden show and the episodes that name them as a host or guest, such as "with Name", "featuring Name", or "Name joins". Episodes that only talk about someone stay. Its **Also hide mentions** option hides everything that mentions a name. Long-press the app icon and choose **Hidden names** to edit the list in the app. Saving restarts SiriusXM. The patch options set the list it starts with. A guest that SiriusXM does not name in the text is not hidden.
+
+**Hide Howard tab** (SiriusXM) removes the Howard tab from the top of Discover.
 
 **Disable screenshot detection** (Substack) stops the app from reacting when you take a screenshot. Substack registers Android's screenshot callback on its reader and other screens and then runs its own handler; with this on, a screenshot does nothing.
 

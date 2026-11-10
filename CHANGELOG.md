@@ -1,3 +1,10 @@
+## [1.0.20-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.5...v1.0.20-dev.6) (2026-11-10)
+
+
+### Bug Fixes
+
+* testing NBA 1.3.0, NewsBreak 26.45.1 ([23521ad](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/23521adaf09d09f00001dc5d06a2b3dad08e8aae))
+
 ## [1.0.20-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20-dev.4...v1.0.20-dev.5) (2026-11-10)
 
 

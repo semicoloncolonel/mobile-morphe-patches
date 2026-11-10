@@ -2,9 +2,9 @@
 
 Everything runs on the device, inside the patched app. The patches do not send data anywhere. [Supported apps](apps.md) lists which patches each app has, and [Known issues](known-issues.md) lists what does not work yet.
 
-**Contents:** [Ads](#-ads) · [Pop-ups and prompts](#-pop-ups-and-prompts) · [AI features](#-ai-features) · [Privacy](#️-privacy) · [Playback](#️-playback) · [Sign-in and startup](#-sign-in-and-startup) · [Needed for the app to run](#-needed-for-the-app-to-run) · [Extra features](#-extra-features)
+**Contents:** [Ads](#ads) · [Pop-ups and prompts](#pop-ups-and-prompts) · [AI features](#ai-features) · [Privacy](#privacy) · [Playback](#playback) · [Sign-in and startup](#sign-in-and-startup) · [Needed for the app to run](#needed-for-the-app-to-run) · [Extra features](#extra-features)
 
-## 🚫 Ads
+## Ads
 
 **Skip ads** removes the ads in videos and in the app. Ads that are part of a live broadcast still play, except on NBA.
 
@@ -64,7 +64,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |
 | Strip affiliate links | DealSeek | Opens each deal at the store's own page, without DealSeek's click tracker or affiliate tags. Covers Amazon, Walmart, Best Buy, eBay, Wayfair, and Target. |
 
-## 🔕 Pop-ups and prompts
+## Pop-ups and prompts
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
@@ -80,7 +80,10 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
+| Hide prediction markets | Fox News | Kalshi and Polymarket market widgets in articles and live blogs. |
+| Hide prediction markets | The Wall Street Journal | Polymarket odds in story cards. |
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
+| Hide betting | ESPN | Betting odds, My Bets, the ESPN BET section of the More tab, sportsbook promotions, and DraftKings account linking. |
 | Hide betting odds | MLB | The betting-odds section on the scores sheet, its toggle, and its legal disclaimer. |
 | Hide surveys and rating prompt | MLB | The Qualtrics surveys and the Play Store rating pop-up they lead to. |
 | Hide Premium upsell | Moviebase | The Premium screen that opens on its own at launch and after sign-in. Premium still opens from Settings and the app's buttons. |
@@ -112,7 +115,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 >
 > The White House patches let you remove only the parts of the app you do not want. With every option turned on, almost nothing of the app is left.
 
-## 🤖 AI features
+## AI features
 
 **Disable AI** turns off the app's AI assistant and AI features.
 
@@ -138,7 +141,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 </details>
 
-## 🛡️ Privacy
+## Privacy
 
 **Block analytics & tracking** stops each app's analytics, ad measurement, and marketing services. Sign-in and playback are left alone, and so is crash reporting, except on Kanopy, Recreation.gov, and T-Life. In every app except Apple TV, it also stops Firebase and Google Analytics, Meta app events and the Meta Pixel, Google Ads conversion tracking, Optimizely events, Bitmovin player analytics, and Mixpanel. Facebook sign-in and sharing keep working.
 
@@ -230,17 +233,17 @@ These patches are off by default.
 
 | Patch | Works on | What it does |
 |-------|----------|--------------|
-| Hide device identifiers | Every app except YouTube TV, MyTSA, and National Forests & Grasslands | Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. On Truth Social, the Adjust ID the app sends to Truth Social's own server is also replaced with a random one. |
-| Spoof carrier | Every app except YouTube TV, theScore, the carrier apps, MyTSA, and FEMA | Hides your carrier, or shows a name you type. Carrier deals, such as League Pass with a phone plan, stop working. |
-| Report Wi-Fi connection | Streaming and news apps, except Apple TV, JustWatch, theScore, and YouTube TV | Shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data. |
-| Hide VPN connection | Streaming and news apps, except Apple TV, JustWatch, theScore, and YouTube TV | Hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address. |
-| Hide Wi-Fi networks | Shopping apps and T-Life | Hides nearby Wi-Fi networks and the name of yours. Store detection, smart-home setup, and checkout fraud checks can be affected. On T-Life, leave it off if you use Secure Wi-Fi or T-Mobile Home Internet. |
-| Block Bluetooth scanning | Shopping apps, T-Life, and NPS | Stops scans for devices and beacons. In-store maps, CVS kiosk check-in, Amazon smart-home setup, park beacon content, and accessory pairing stop working. |
-| Hide cell tower info | Shopping apps | Hides the cell towers your phone sees, which can place you within a few blocks. |
-| Block background location | Shopping apps and T-Life | Removes background location access. Store-arrival features and pickup check-in can stop working. |
-| Disable auto-updates | Every app except The Washington Post, White House, Mint Mobile, T-Mobile Play, and YouTube TV | Stops the Play Store from replacing the patched app with the official one. To update, patch the newer version. It is always on with Tubi's Skip ads. |
+| Hide device identifiers | Every app except CNBC, Costco, Kanopy, MyTSA, National Forests & Grasslands, Plex, SiriusXM, and YouTube TV | Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. On Truth Social, the Adjust ID the app sends to Truth Social's own server is also replaced with a random one. |
+| Spoof carrier | Every app except the carrier apps, C-SPAN Now, CNBC, Costco, FEMA, Kanopy, MyTSA, NewsNation, Plex, SiriusXM, Substack, The Daily Wire, theScore, Truth Social, USA TODAY, and YouTube TV | Hides your carrier, or shows a name you type. Carrier deals, such as League Pass with a phone plan, stop working. |
+| Report Wi-Fi connection | Streaming and news apps, except Apple TV, C-SPAN Now, CNBC, JustWatch, Kanopy, Moviebase, NewsNation, Plex, SiriusXM, Substack, The Daily Wire, theScore, USA TODAY, and YouTube TV | Shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data. |
+| Hide VPN connection | Streaming and news apps, except Apple TV, C-SPAN Now, CNBC, JustWatch, Kanopy, Moviebase, NewsNation, Plex, SiriusXM, Substack, The Daily Wire, theScore, USA TODAY, and YouTube TV | Hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address. |
+| Hide Wi-Fi networks | Shopping apps except Costco, and T-Life | Hides nearby Wi-Fi networks and the name of yours. Store detection, smart-home setup, and checkout fraud checks can be affected. On T-Life, leave it off if you use Secure Wi-Fi or T-Mobile Home Internet. |
+| Block Bluetooth scanning | Shopping apps except Costco, T-Life, and NPS | Stops scans for devices and beacons. In-store maps, CVS kiosk check-in, Amazon smart-home setup, park beacon content, and accessory pairing stop working. |
+| Hide cell tower info | Shopping apps except Costco | Hides the cell towers your phone sees, which can place you within a few blocks. |
+| Block background location | Shopping apps except Costco, and T-Life | Removes background location access. Store-arrival features and pickup check-in can stop working. |
+| Disable auto-updates | Every app except CNBC, Costco, Kanopy, Mint Mobile, Plex, SiriusXM, T-Mobile Play, The Washington Post, Truth Social, White House, and YouTube TV | Stops the Play Store from replacing the patched app with the official one. To update, patch the newer version. It is always on with Tubi's Skip ads. |
 
-## 🎞️ Playback
+## Playback
 
 | Patch | App | What it does |
 |-------|-----|--------------|
@@ -255,7 +258,7 @@ These patches are off by default.
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
 | Video quality | HBO Max | Plays the resolution you choose in its options: 480p, 720p, 1080p, or 2160p. When a title does not have it, the closest lower one plays, or the lowest one when every rendition is higher. HBO decides which resolutions it sends: in testing on a 4K plan, it sent at most 1080p to an NVIDIA Shield, even for titles marked 4K. Videos can buffer if your connection is too slow for the choice. |
 
-## 🔑 Sign-in and startup
+## Sign-in and startup
 
 | Patch | App | What it does |
 |-------|-----|--------------|
@@ -267,7 +270,7 @@ These patches are off by default.
 | GmsCore support | AP News, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, JustWatch, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 
-## 🔧 Needed for the app to run
+## Needed for the app to run
 
 | Patch | App | Why |
 |-----|-----|-----|
@@ -276,7 +279,7 @@ These patches are off by default.
 | Fix media connection crash | NPR | NPR closes when Android Auto, the Google app, or another approved player connects with a signature the app does not expect. The connection is refused or allowed instead. |
 | Rename shared permissions | Prime Video | Lets Amazon Shopping and other Amazon apps install beside the patched Prime Video. |
 
-## ✨ Extra features
+## Extra features
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
 

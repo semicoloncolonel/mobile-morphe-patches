@@ -6,7 +6,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 - **Off by default** means the patch is applied only if you select it in Morphe Manager when you patch.
 - **Also on Android TV** means the patches also work on the app's Android TV build. [Android TV](android-tv.md) explains how to get it.
 
-**Which file to download.** Use the `.apkm` bundle from APKMirror for most apps. Use the `.apk` for CBS News, ESPN, Fandango at Home, Hulu, Kanopy, MyTSA, Prime Video, The Wall Street Journal, and T-Mobile Play. For Fox One, T-Life, NPS, National Forests & Grasslands, and Recreation.gov, install the app from the Play Store and patch the installed copy. Do the same for Disney+ 26.20.0+rc3-2026.11.02, because APKMirror does not have its Google Play phone build. APKMirror's newest Disney+ phone build is 26.20.0+rc2-2026.10.28. The [FAQ](faq.md) explains how to check that you have the right file. The Play Store installs the HBO Max phone app as `com.wbd.stream`, and APKMirror lists it as `com.wbd.hbomax`. The patches support both package names.
+**Which file to download.** The most reliable source is Google Play or Aurora Store. Install the app, then patch the installed copy with "Use installed app" in Morphe Manager. That gives you the phone build Google Play currently serves. If you are in the app's beta program, Google Play can give you a newer version than the patches support. If you download from APKMirror instead, use the `.apkm` bundle when there is one, and check that the version and version code match the table. The [FAQ](faq.md) explains how.
 
 **Contents:** [Streaming](#streaming) · [News](#news) · [Social](#social) · [Government](#government) · [Shopping](#shopping) · [Carriers](#carriers)
 

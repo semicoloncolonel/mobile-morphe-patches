@@ -20,8 +20,9 @@ For each app in the patch bundle, this script:
    for the app. Downloads are only patched on the runner, never installed.
 5. Writes a Markdown and JSON report, and with --issues keeps one GitHub
    issue per app and version up to date: it opens "App update: <App>
-   <version>", updates it on later runs, and closes it once the bundle
-   targets that version.
+   <version>", updates it on later runs, and closes it once the latest
+   main release (--stable-mpp) targets that version. A version bumped on
+   dev stays open for people to report how the pre-release works.
 
 The design follows hxreborn's app update check
 (https://github.com/hxreborn/morphe-patches, GPL-3.0). It does not bypass
@@ -45,6 +46,7 @@ from pathlib import Path
 ISSUE_LABEL = "app update"
 REVIEW_LABEL = "needs review"
 READY_LABEL = "ready to bump"
+TESTING_LABEL = "testing on dev"
 TITLE_PREFIX = "App update: "
 
 
@@ -586,7 +588,7 @@ def issue_body(r):
         lines += [f"- [ ] {reason}" for reason in reasons]
     else:
         lines.append(f"- [ ] Every patch applied. Test it on a device, then move the pin to `{r['latest']}`.")
-    lines += ["", "This issue is updated by the daily app update check and closes when the patches target this version."]
+    lines += ["", "This issue is updated by the app update check and closes when a main release targets this version."]
     return "\n".join(lines) + "\n"
 
 
@@ -599,23 +601,30 @@ def set_review(number, needs_review, owner):
         gh("issue", "edit", str(number), "--add-label", READY_LABEL, "--remove-label", REVIEW_LABEL)
 
 
-def sync_issues(results, owner):
+def sync_issues(results, owner, stable=None):
+    """stable maps each package to the newest version the latest main release
+    targets. An issue closes only when a main release targets its version, so
+    a version bumped on dev stays open, labeled "testing on dev", for people
+    to report how the pre-release works."""
     gh("label", "create", ISSUE_LABEL, "--force", "--color", "FBCA04",
        "--description", "A newer app version is available")
     gh("label", "create", REVIEW_LABEL, "--force", "--color", "D93F0B",
        "--description", "An app update needs a manual check or patch edit")
     gh("label", "create", READY_LABEL, "--force", "--color", "0E8A16",
        "--description", "Every patch applied to the new version")
+    gh("label", "create", TESTING_LABEL, "--force", "--color", "1D76DB",
+       "--description", "In a dev pre-release; comment with how it works on your device")
     issues = json.loads(gh("issue", "list", "--label", ISSUE_LABEL, "--state", "open", "--limit", "500",
                            "--json", "number,title") or "[]")
     for r in results:
         prefix = f"{TITLE_PREFIX}{r['name']} "
         mine = [i for i in issues if i["title"].startswith(prefix)]
+        released = (stable or {}).get(r["package"], r["pinned"])
         for issue in mine:
             version = issue["title"][len(prefix):]
-            if r["pinned"] and not newer(version, r["pinned"]):
-                gh("issue", "close", str(issue["number"]), "--comment",
-                   f"The patches now target {r['name']} `{r['pinned']}`, so this is closed.")
+            if released and not newer(version, released):
+                gh("issue", "close", str(issue["number"]), "--reason", "completed", "--comment",
+                   f"The latest main release targets {r['name']} `{released}`, so this is closed.")
         if r["status"] != "update":
             continue
         title = prefix + r["latest"]
@@ -645,6 +654,8 @@ def main():
     parser.add_argument("--out", default="app-updates")
     parser.add_argument("--workdir", default=tempfile.mkdtemp(prefix="app-updates-"))
     parser.add_argument("--issues", action="store_true", help="open, update, and close GitHub issues")
+    parser.add_argument("--stable-mpp", help="the latest main release's bundle, which decides when issues close "
+                        "(default: --mpp)")
     args = parser.parse_args()
 
     only = {p.strip() for p in args.only.split(",") if p.strip()}
@@ -661,7 +672,9 @@ def main():
     (out / "app-updates.json").write_text(json.dumps(results, indent=2))
     (out / "app-updates.md").write_text(render(results))
     if args.issues:
-        sync_issues(results, os.environ.get("GITHUB_REPOSITORY_OWNER"))
+        stable_apps = bundle_apps(args.cli, args.stable_mpp) if args.stable_mpp else apps
+        stable = {p: max(a["versions"], key=version_order) for p, a in stable_apps.items() if a["versions"]}
+        sync_issues(results, os.environ.get("GITHUB_REPOSITORY_OWNER"), stable)
 
 
 if __name__ == "__main__":

@@ -512,9 +512,20 @@ def inspect_apk(package, apk, patch_input, app, certs, cli_path, mpp, workdir, a
                 keep_dir.mkdir(parents=True, exist_ok=True)
                 shutil.move(str(patched), keep_dir / f"{package}.apk")
                 outcome["patched_apk"] = f"{package}.apk"
-    for leftover in Path(workdir).glob(patch_input.stem + "-*"):
-        leftover.unlink(missing_ok=True)
+    remove_patch_outputs(workdir, patch_input.stem)
     return outcome
+
+
+def remove_patch_outputs(workdir, stem):
+    """Deletes what patch_check wrote for stem: the result file and the patched APK
+    with its temporary files. A download folder named <package>-<version> is left
+    alone, because the patch input can be Play's <package>.apk."""
+    leftovers = [Path(workdir, stem + "-result.json"), *Path(workdir).glob(stem + "-patched*")]
+    for leftover in leftovers:
+        if leftover.is_dir():
+            shutil.rmtree(leftover, ignore_errors=True)
+        else:
+            leftover.unlink(missing_ok=True)
 
 
 def fully_patched(record):

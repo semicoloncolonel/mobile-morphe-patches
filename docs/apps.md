@@ -19,7 +19,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | AMC+ | Skip ads 🧪<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `1.8.62.1` | 10/31/26 |
 | Apple TV | Auto-skip 🧪<br>Hide rating prompt 🧪<br>Show release times 🧪<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable up next 🧪⚙️<br>Hide player overlays 🧪⚙️ | `3.0.0` | 11/08/26 |
 | Apple TV (Android TV) 📺 | Auto-skip (Android TV) 🧪<br>Hide rating prompt (Android TV) 🧪<br>Show release times (Android TV) 🧪<br>Block analytics & tracking (Android TV) 🧪⚙️ | `17.0.2` | 11/08/26 |
-| Disney+ | Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `26.20.0+rc2-2026.10.28`<br>`26.20.0+rc3-2026.11.02` 🧪 | 11/08/26 |
+| Disney+ | Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
 | ESPN | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads<br>Block analytics & tracking ⚙️ | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Disable Pairip license check<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `1.25.1` | 11/06/26 |

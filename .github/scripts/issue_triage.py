@@ -9,6 +9,11 @@ version code, or the build is not one the patches support, it labels the issue
 fixes that, it removes the label. Reports for apps it does not know, such as
 "Other", are left alone.
 
+A report for a dev pre-release, by the Patches release field or a "-dev"
+patches version, is labeled "dev pre-release". When the app has an open
+issue labeled "testing on dev", the report gets a comment that asks for the
+problem there instead, unless it is critical.
+
 Run from the repository root with GITHUB_EVENT_PATH set. DRY_RUN=true prints
 what it would do instead of doing it.
 """
@@ -26,6 +31,11 @@ REFS = ["origin/main", "origin/dev"]
 SOURCE = "patches/src/main/kotlin"
 DEV_TARGET_HELPER = "shared/misc/DevTarget.kt"
 NO_RESPONSE = "_No response_"
+DEV_LABEL = "dev pre-release"
+DEV_LABEL_COLOR = "BFD4F2"
+DEV_LABEL_DESCRIPTION = "A report for a dev pre-release of the patches"
+TESTING_LABEL = "testing on dev"
+APP_UPDATE_PREFIX = "App update: "
 
 
 # ── The form ────────────────────────────────────────────────────────────────
@@ -223,6 +233,29 @@ def comment(problem):
             f"An issue with this label closes after 7 days without an update.")
 
 
+def is_dev_report(fields):
+    release = fields.get("Patches release") or ""
+    version = fields.get("Patches version") or ""
+    return release == "Dev pre-release" or "-dev" in version.lower()
+
+
+def dev_comment(app, testing):
+    links = "\n".join(f"- [{i['title']}]({i['url']})" for i in testing)
+    return (f"This report is for a dev pre-release. Dev pre-releases are for testing, and each new "
+            f"{app} version in testing has an open issue that collects reports:\n\n{links}\n\n"
+            f"Please post this problem as a comment there, along with your device and Android version, "
+            f"and close this issue. Keep this issue open only for a critical problem, such as a patched app "
+            f"that will not install or open. Please report a security problem privately, as the "
+            f"[security policy](https://github.com/{os.environ.get('GH_REPO', '')}/blob/main/SECURITY.md) describes.")
+
+
+def testing_issues(app):
+    out = subprocess.run(["gh", "issue", "list", "--label", TESTING_LABEL, "--state", "open", "--limit", "100",
+                          "--json", "number,title,url"], capture_output=True, text=True).stdout
+    prefix = f"{APP_UPDATE_PREFIX}{app} "
+    return [i for i in json.loads(out or "[]") if i["title"].startswith(prefix)]
+
+
 # ── Acting on the issue ─────────────────────────────────────────────────────
 
 def gh(*args):
@@ -237,7 +270,21 @@ def main():
     issue = event["issue"]
     number = str(issue["number"])
     labels = {label["name"] for label in issue.get("labels", [])}
-    problem = evaluate(parse_form(issue.get("body")), load_targets())
+    fields = parse_form(issue.get("body"))
+    if is_dev_report(fields) and DEV_LABEL not in labels:
+        app = fields.get("App")
+        testing = testing_issues(app) if app else []
+        print(f"#{number}: dev pre-release report for {app}, {len(testing)} testing issue(s)")
+        gh("label", "create", DEV_LABEL, "--force", "--color", DEV_LABEL_COLOR,
+           "--description", DEV_LABEL_DESCRIPTION)
+        gh("issue", "edit", number, "--add-label", DEV_LABEL)
+        if testing:
+            if os.environ.get("DRY_RUN") == "true":
+                print("would comment:\n" + dev_comment(app, testing))
+            else:
+                subprocess.run(["gh", "issue", "comment", number, "--body-file", "-"],
+                               input=dev_comment(app, testing), text=True, check=True)
+    problem = evaluate(fields, load_targets())
     if problem:
         print(f"#{number}: {problem['kind']} problem for {problem['app']} {problem['version']}")
         if LABEL in labels:

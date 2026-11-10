@@ -9,6 +9,8 @@ body:
         Thank you for reporting a problem. The required fields are the basics needed to find the cause, and every other field helps find it faster. A report without them cannot be looked into.
 
         Before you start, please check the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) for the same problem.
+
+        **Using a dev pre-release?** Please comment on the app's open issue labeled [testing on dev](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue+is%3Aopen+label%3A%22testing+on+dev%22) instead of opening a report here. Open a report only for a critical problem, such as a patched app that will not install or open. Report a security problem privately, as the [security policy](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/SECURITY.md) describes.
   - type: checkboxes
     id: before
     attributes:
@@ -144,6 +146,17 @@ body:
       label: Patches version
       description: The version of these patches, shown under Sources in Morphe Manager.
       placeholder: "1.0.19"
+    validations:
+      required: true
+  - type: dropdown
+    id: patches-release
+    attributes:
+      label: Patches release
+      description: Dev pre-releases have "-dev" in the version, such as 1.0.20-dev.4.
+      options:
+        - Main release
+        - Dev pre-release
+        - Not sure
     validations:
       required: true
   - type: input

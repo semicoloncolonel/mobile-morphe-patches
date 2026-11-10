@@ -68,7 +68,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
-| Hide rating prompt | Every app except Apple TV, CNBC, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
+| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
 | Hide donate button | AP News | The Donate link on Top Stories and the "Donate now" card on the account screen. Your account is not changed. |
 | Hide rating prompt | Apple TV | The "Enjoying Apple TV?" prompt that asks for a review. |
 | Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |
@@ -76,6 +76,8 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide newsletter pop-ups | CNBC | The newsletter sign-up bars that slide in over articles and ask for your email address. |
 | Hide premium promotions | CNBC | The "Premium Content" subscription card and its "Latest Episodes" heading on show pages, so a show's page starts with its free clips. The card to sign in with a TV provider stays. |
 | Hide rating prompt | CNBC | The Play Store rating request. |
+| Hide rating prompt | Kanopy | The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. |
+| Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
@@ -138,7 +140,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 ## 🛡️ Privacy
 
-**Block analytics & tracking** stops each app's analytics, ad measurement, and marketing services. Sign-in and playback are left alone, and so is crash reporting, except on Recreation.gov and T-Life. In every app except Apple TV, it also stops Firebase and Google Analytics, Meta app events and the Meta Pixel, Google Ads conversion tracking, Optimizely events, Bitmovin player analytics, and Mixpanel. Facebook sign-in and sharing keep working.
+**Block analytics & tracking** stops each app's analytics, ad measurement, and marketing services. Sign-in and playback are left alone, and so is crash reporting, except on Kanopy, Recreation.gov, and T-Life. In every app except Apple TV, it also stops Firebase and Google Analytics, Meta app events and the Meta Pixel, Google Ads conversion tracking, Optimizely events, Bitmovin player analytics, and Mixpanel. Facebook sign-in and sharing keep working.
 
 <details>
 <summary>What else it stops in each app</summary>
@@ -162,6 +164,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - HBO Max: Branch, Braze, comScore, AppsFlyer, and MediaMelon.
 - Hulu: AppsFlyer, Adobe Analytics, Conviva, and Nielsen.
 - JustWatch: JustWatch's own event tracking, AppsFlyer, Adjust, and Singular.
+- Kanopy: Mux, Mapbox map usage events, and Kanopy's Sentry crash reports, which include screenshots. Crashlytics is left alone.
 - MGM+: Braze, Kochava, Segment, and Nielsen.
 - Mint Mobile: Amplitude, Braze, Branch, and Optimizely, along with marketing notifications, in-app promotions, and referral links.
 - MLB: comScore, Conviva, Adobe Analytics, and Branch.

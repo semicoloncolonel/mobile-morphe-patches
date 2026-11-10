@@ -82,6 +82,12 @@
     public static java.util.List filterMenu(java.util.List);
 }
 
+# NBA — "Hide League Pass upsells". filterFeed() is called only from injected
+# smali in the feed card mapper.
+-keep class semicoloncolonel.mobilestream.extension.nba.misc.NbaLeaguePassFilter {
+    public static java.util.List filterFeed(java.util.List);
+}
+
 # Shared "Spoof carrier" (opt-in). Every public static method replaces a
 # framework call at app call sites via injected invoke-static, and
 # carrierName() is overwritten by the patch, so R8 must keep them as they are.

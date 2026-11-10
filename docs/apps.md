@@ -29,7 +29,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | MGM+ | Remove social sign-in<br>Skip ads 🧪<br>Skip lion intro<br>Skip pre-roll promo 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable MGM+ AI ⚙️ | `240.0.2026240000` | 10/30/26 |
 | MLB | Hide surveys and rating prompt<br>Skip ads<br>Block analytics & tracking ⚙️<br>GmsCore support ⚙️<br>Hide betting odds ⚙️<br>Mask live ad breaks 🧪⚙️ | `26.21.0.49` | 11/05/26 |
 | Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking ⚙️ | `7.7.0` | 11/02/26 |
-| NBA | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable Ask NBA AI 🧪⚙️ | `1.2.0` | 10/31/26 |
+| NBA | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Disable Ask NBA AI 🧪⚙️<br>Hide League Pass upsells 🧪⚙️ | `1.3.0` | 11/09/26 |
 | NFL | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `61.0.19` | 11/07/26 |
 | Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking 🧪⚙️ | `17.3.0` | 11/04/26 |
 | PBS | Skip ads 🧪<br>Block analytics & tracking 🧪⚙️ | `5.27.0` | 10/30/26 |
@@ -59,7 +59,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Fox News | Opt out of data sale & sharing<br>Skip ads 🧪<br>Block analytics & tracking 🧪⚙️<br>Enable developer menu ⚙️ | `5.49.2` | 10/31/26 |
 | MS NOW | Opt out of data sale & sharing<br>Block analytics & tracking 🧪⚙️ | `14.6.0` | 10/31/26 |
 | NBC News | Hide surveys and rating prompt<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking ⚙️ | `15.0.1` | 11/02/26 |
-| NewsBreak | Block installed-app scan<br>Disable NewsBreak AI<br>Hide My Town intro<br>Hide Premium upsells<br>Hide rating prompt<br>Skip ads<br>Block analytics & tracking ⚙️<br>GmsCore support ⚙️<br>Hide AI summaries ⚙️<br>Route traffic through a proxy ⚙️ | `26.44.1` | 11/05/26 |
+| NewsBreak | Block installed-app scan<br>Disable NewsBreak AI<br>Hide My Town intro<br>Hide Premium upsells<br>Hide rating prompt<br>Skip ads<br>Block analytics & tracking ⚙️<br>GmsCore support ⚙️<br>Hide AI summaries ⚙️<br>Route traffic through a proxy ⚙️ | `26.45.1` | 11/09/26 |
 | NewsNation | Skip ads (phone)<br>Block analytics & tracking ⚙️ | `510.3.0` | 11/05/26 |
 | NewsNation (Android TV) 📺 | Hide rating prompt (Android TV)<br>Skip ads (Android TV)<br>Block analytics & tracking ⚙️ | `4.94` | 11/06/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking ⚙️<br>Route traffic through a proxy ⚙️ | `7.10.0` | 11/05/26 |

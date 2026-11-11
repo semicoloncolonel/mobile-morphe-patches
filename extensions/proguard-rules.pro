@@ -295,3 +295,7 @@
 # Shared "Hide rating prompt". launchReviewFlow() replaces Google Play's
 # ReviewManager.launchReviewFlow at app call sites via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.shared.misc.RatingPromptBlocker { public static *; }
+
+# RetailMeNot — "Remove location access". Called only from injected smali in
+# Expo's PermissionsService.
+-keep class semicoloncolonel.mobilestream.extension.retailmenot.privacy.LocationBlocker { public static *; }

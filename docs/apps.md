@@ -35,12 +35,12 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.11` | 11/10/26 |
 | Plex (also on Android TV) | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
-| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
+| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2610.4.0` | 11/08/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.11.0` | 10/31/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
-| Tubi | Hide sign-in prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.2` | 11/07/26 |
+| Tubi | Hide sign-in prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3` | 11/10/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |
 | YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
 
@@ -64,7 +64,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default)<br>Route traffic through a proxy (off by default) | `7.10.0` | 11/05/26 |
 | Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default) | `3.13.1`<br>`3.12.0` | 11/10/26 |
 | The Daily Wire | Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.21` | 11/05/26 |
-| The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `11.98.2`<br>`11.98.0` | 11/10/26 |
+| The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | 11/10/26 |
 | theScore | Block analytics & tracking (off by default) | `26.16.0`<br>`26.15.0` | 11/05/26 |
 | The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.12.0.42675` | 10/30/26 |
 | The Washington Post | Hide marketing pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/10/26 |
@@ -85,7 +85,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | National Forests & Grasslands | Disable Pairip license check<br>Block analytics & tracking (off by default) | `1.3.0` | 11/02/26 |
 | NPS | Block analytics & tracking (off by default)<br>Block Bluetooth scanning (off by default) | `2.16.0` | 11/09/26 |
 | Recreation.gov | Hide rating prompt<br>Skip location on open<br>Block analytics & tracking (off by default)<br>Show hidden details (off by default) | `2.2.67.1` | 11/07/26 |
-| White House | Disable Pairip license check<br>Remove microphone access<br>Skip launch video<br>Block analytics & tracking (off by default)<br>Hide promotions (off by default)<br>Hide social feeds (off by default)<br>Route traffic through a proxy (off by default) | `47.7.8` | 11/05/26 |
+| White House | Disable Pairip license check<br>Remove microphone access<br>Skip launch video<br>Block analytics & tracking (off by default)<br>Hide promotions (off by default)<br>Hide social feeds (off by default)<br>Route traffic through a proxy (off by default) | `47.7.11` | 11/10/26 |
 
 ## Shopping
 

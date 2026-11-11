@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-10T21:03:50",
-  "description": "## [1.0.21-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20...v1.0.21-dev.1) (2026-11-10)\n\n\n### Bug Fixes\n\n* testing My Verizon 22.3.5, Peacock 7.11.11 ([5354bb7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5354bb7747ba2f97cecc86a8b18870fae118dbe5))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.1/patches-1.0.21-dev.1.mpp",
+  "created_at": "2026-11-11T01:21:47",
+  "description": "## [1.0.21-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.1...v1.0.21-dev.2) (2026-11-11)\n\n\n### Features\n\n* **justwatch:** add Unlock JustWatch Pro patch ([f10d0b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f10d0b75adda7922835945b83899b279641225cd))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.2/patches-1.0.21-dev.2.mpp",
   "signature_download_url": "",
-  "version": "1.0.21-dev.1",
+  "version": "1.0.21-dev.2",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -1,3 +1,10 @@
+## [1.0.21-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.4...v1.0.21-dev.5) (2026-11-11)
+
+
+### Features
+
+* add RetailMeNot ([9063375](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/90633753d6d7456b98a4120c170ac7bf8181424f))
+
 ## [1.0.21-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.3...v1.0.21-dev.4) (2026-11-11)
 
 

@@ -1,3 +1,10 @@
+## [1.0.21-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.5...v1.0.21-dev.6) (2026-11-11)
+
+
+### Features
+
+* **retailmenot:** add Hide VPN connection ([98c3a6e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/98c3a6e93ebe51880ea57aa0270de8fb993ed65e))
+
 ## [1.0.21-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.4...v1.0.21-dev.5) (2026-11-11)
 
 

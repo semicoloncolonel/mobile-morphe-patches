@@ -2,19 +2,15 @@ package semicoloncolonel.mobilestream.patches.justwatch.pro
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.justwatch.shared.Constants
 
 private const val EXT = "Lsemicoloncolonel/mobilestream/extension/justwatch/ProEntitlement;"
 
-@Suppress("unused")
 val unlockProPatch = bytecodePatch(
     name = "Unlock JustWatch Pro",
-    description = "Spoofs an active Pro/Plus entitlement so the app unlocks premium filters, lists and layouts. (Ads are handled by a separate patch.)",
-    default = true,
+    description = "Forces JustWatch Pro entitlements.",
 ) {
-    compatibleWith(Constants.COMPATIBILITY)
-
-    extendWith("extensions/justwatch/build/libs/extension.mpe")
+    compatibleWith(/* your JustWatch compatibility */)
+    extendWith("extensions/extension.mpe")
 
     execute {
         GetActiveFingerprint.method.addInstructions(

@@ -1,3 +1,10 @@
+## [1.0.21-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.7...v1.0.21-dev.8) (2026-11-11)
+
+
+### Features
+
+* **retailmenot:** add Dark mode ([62e48c2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/62e48c29f08fb192fc5b5a9f7d1f0013bc336985))
+
 ## [1.0.21-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.6...v1.0.21-dev.7) (2026-11-11)
 
 

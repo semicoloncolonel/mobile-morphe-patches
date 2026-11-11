@@ -8,6 +8,7 @@ import semicoloncolonel.mobilestream.patches.dealseek.shared.Constants as DealSe
 import semicoloncolonel.mobilestream.patches.flipp.shared.Constants as Flipp
 import semicoloncolonel.mobilestream.patches.homedepot.shared.Constants as HomeDepot
 import semicoloncolonel.mobilestream.patches.lowes.shared.Constants as Lowes
+import semicoloncolonel.mobilestream.patches.retailmenot.shared.Constants as RetailMeNot
 import semicoloncolonel.mobilestream.patches.slickdeals.shared.Constants as Slickdeals
 import semicoloncolonel.mobilestream.patches.target.shared.Constants as Target
 import semicoloncolonel.mobilestream.patches.walgreens.shared.Constants as Walgreens
@@ -19,6 +20,7 @@ internal val SHOPPING_APPS = arrayOf(
     DealSeek.COMPATIBILITY,
     DealNews.COMPATIBILITY,
     Slickdeals.COMPATIBILITY,
+    RetailMeNot.COMPATIBILITY,
     Walmart.COMPATIBILITY,
     BestBuy.COMPATIBILITY,
     Amazon.COMPATIBILITY,

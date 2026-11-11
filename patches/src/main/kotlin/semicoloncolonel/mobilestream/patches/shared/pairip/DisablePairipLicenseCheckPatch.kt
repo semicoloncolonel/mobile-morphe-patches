@@ -20,6 +20,7 @@ import semicoloncolonel.mobilestream.patches.foxone.shared.Constants as FoxOne
 import semicoloncolonel.mobilestream.patches.moviebase.shared.Constants as Moviebase
 import semicoloncolonel.mobilestream.patches.whitehouse.shared.Constants as WhiteHouse
 import semicoloncolonel.mobilestream.patches.nfg.shared.Constants as Nfg
+import semicoloncolonel.mobilestream.patches.retailmenot.shared.Constants as RetailMeNot
 
 // Google's Pairip licensing (com.pairip.licensecheck) asks the Play Store
 // whether this install came from Play, and blocks the app when it did not.
@@ -51,6 +52,7 @@ val disablePairipLicenseCheckPatch = bytecodePatch(
         FoxOne.COMPATIBILITY,
         DealSeek.COMPATIBILITY,
         DealNews.COMPATIBILITY,
+        RetailMeNot.COMPATIBILITY,
         WhiteHouse.COMPATIBILITY,
         Nfg.COMPATIBILITY,
         Moviebase.COMPATIBILITY,

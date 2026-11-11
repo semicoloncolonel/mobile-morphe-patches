@@ -1,3 +1,11 @@
+## [1.0.21-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.3...v1.0.21-dev.4) (2026-11-11)
+
+
+### Features
+
+* add Flipp, with Block ads and Skip tutorials ([28e6b7c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/28e6b7ce5028f73134756c9c92389fcb2f80af99))
+* add Slickdeals and DealNews ([c42295c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c42295c27047c251a6bc09ab9b44b9b1f5922b6a))
+
 ## [1.0.21-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.2...v1.0.21-dev.3) (2026-11-11)
 
 

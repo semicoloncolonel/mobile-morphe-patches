@@ -171,6 +171,11 @@ public final class TrackerBlocker {
             // SiriusXM (2610.4.0)
             "evergage.com", // Salesforce Personalization (Evergage)
             "zc.adswizz.com", // AdsWizz SDK setup, which turns on its listening measurement
+            // Slickdeals (6.36.0)
+            "getblueshift.com", // Blueshift marketing
+            "cwogzftn.usw.stape.io", // Slickdeals' server-side Tag Manager
+            "l7ox5un97g.execute-api.us-west-2.amazonaws.com", // Slickdeals' impression collector
+            "prod.cm.publishers.advertising.a2z.com", // Amazon ad metrics
             // Kanopy (6.32.0)
             "sentry-tmp.kanopy.com", // Kanopy's Sentry server, which receives screenshots
     };

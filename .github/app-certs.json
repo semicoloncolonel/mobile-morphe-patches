@@ -50,6 +50,9 @@
   "com.dailywire.thedailywire": [
     "98e73dc48e0b1fa4ec3da4d6064680814f1d3a513a689c881c77ae7082e5116e"
   ],
+  "com.dealnews.android.ui": [
+    "b966df4a62572a436e2cf87fcb40e4c38f3680d90e1c0e197a06bf5fe5cee449"
+  ],
   "com.dealseekorg.dealseek": [
     "900a9f5a31d565493a6e3114287a224c111d2c1f7a21c0d79d6152f380ea087d"
   ],
@@ -211,6 +214,9 @@
   ],
   "mnn.Android": [
     "a6df84568e029df799db7fd691d648eca9893a5ff40aa582bbd87843b35dae17"
+  ],
+  "net.slickdeals.android": [
+    "89c896de12e7d1695df14376e4e6d1f7fba4fd37959e29970f84d232eec7b4fd"
   ],
   "org.cspan.app": [
     "13de4bc662cbc3ee954941c038aec0b0b8bdf6ca46bffcc35eb78d0721d643bb"

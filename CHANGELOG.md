@@ -1,3 +1,10 @@
+## [1.0.21-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.8...v1.0.21-dev.9) (2026-11-11)
+
+
+### Bug Fixes
+
+* testing ABC News 8.100.0, Fox News 5.50.0 ([cd29a65](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cd29a6504b4c41dff42aec6d9b5e1c0fc51d2f75))
+
 ## [1.0.21-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.7...v1.0.21-dev.8) (2026-11-11)
 
 

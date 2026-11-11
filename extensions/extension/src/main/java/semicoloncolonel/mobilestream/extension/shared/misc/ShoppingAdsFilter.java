@@ -345,4 +345,55 @@ public final class ShoppingAdsFilter {
             return exclusions;
         }
     }
+
+    // ── Flipp ───────────────────────────────────────────────────────────────
+
+    /**
+     * Flipp: called with the slots of the home feed as the server's response is read. A slot
+     * whose component is a Google native ad, an AdAdapted ad, or a unified web ad is left out
+     * of the list that is returned. When anything is unexpected, the list is returned as it
+     * came.
+     */
+    public static java.util.List<?> flippFeedSlots(java.util.List<?> slots) {
+        if (slots == null || slots.isEmpty()) {
+            return slots;
+        }
+        try {
+            java.util.ArrayList<Object> kept = new java.util.ArrayList<>(slots.size());
+            for (Object slot : slots) {
+                Object component = get(slot, "getComponent");
+                String type = component == null ? "" : component.getClass().getName();
+                boolean ad = type.equals("maestro.components.GoogleNativeAd")
+                        || type.equals("maestro.components.AdAdaptedAd")
+                        || type.equals("maestro.components.UnifiedAd");
+                if (!ad) {
+                    kept.add(slot);
+                }
+            }
+            if (kept.size() == slots.size()) {
+                return slots;
+            }
+            Log.i(TAG, "left out " + (slots.size() - kept.size()) + " ad slots from the feed");
+            return kept;
+        } catch (Throwable t) {
+            return slots;
+        }
+    }
+
+    /**
+     * Flipp: the preference keys that record a tutorial, spotlight, or education sheet as
+     * shown. "Skip tutorials" reads them as true.
+     */
+    public static boolean isFlippTutorialKey(String key) {
+        if (key == null) {
+            return false;
+        }
+        if (key.startsWith("tutorial_showed_")
+                || key.equals("TUTORIAL_SHOWED_FAVOURITES_KEY")
+                || key.equals("post_onboarding_educational_bottom_sheet")) {
+            return true;
+        }
+        return key.endsWith("_SHOWN")
+                && (key.contains("TUTORIAL") || key.contains("SPOTLIGHT") || key.contains("EDUCATION"));
+    }
 }

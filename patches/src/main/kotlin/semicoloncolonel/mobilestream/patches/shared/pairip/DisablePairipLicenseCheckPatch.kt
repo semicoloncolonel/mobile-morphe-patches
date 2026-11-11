@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import semicoloncolonel.mobilestream.patches.dealnews.shared.Constants as DealNews
 import semicoloncolonel.mobilestream.patches.dealseek.shared.Constants as DealSeek
 import semicoloncolonel.mobilestream.patches.foxone.shared.Constants as FoxOne
 import semicoloncolonel.mobilestream.patches.moviebase.shared.Constants as Moviebase
@@ -49,6 +50,7 @@ val disablePairipLicenseCheckPatch = bytecodePatch(
     compatibleWith(
         FoxOne.COMPATIBILITY,
         DealSeek.COMPATIBILITY,
+        DealNews.COMPATIBILITY,
         WhiteHouse.COMPATIBILITY,
         Nfg.COMPATIBILITY,
         Moviebase.COMPATIBILITY,

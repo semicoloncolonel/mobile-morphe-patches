@@ -45,7 +45,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 
 </details>
 
-**Block ads** (Flipp, JustWatch, Moviebase, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
+**Block ads** (DealNews, Flipp, JustWatch, Moviebase, Slickdeals, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On DealNews, it removes the ad banner from deal pages. On Slickdeals, it removes the ads in every feed and on deal pages, sponsored carousels, and deals marked Promoted. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
 
 **Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
 
@@ -81,6 +81,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide editor articles | DealSeek | The "From our editors" card on deal pages, which links to DealSeek's own articles about the product. |
+| Hide pop-ups | DealNews | The rating card and the walkthrough on first launch. The welcome screen that offers sign-in still appears once. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide prediction markets | Fox News | Kalshi and Polymarket market widgets in articles and live blogs. |
 | Hide prediction markets | The Wall Street Journal | Polymarket odds in story cards. |
@@ -92,6 +93,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide surveys and rating prompt | NBC News | Iterate surveys and the rate-the-app prompt. |
 | Hide surveys and rating prompt | Walgreens | Medallia surveys and the rate-the-app dialog on the home screen. |
 | Skip tutorials | Flipp | The sheet after setup, the spotlights on the search bar, the save button, and the Lists tab, and the tutorials in flyers, coupons, and the shopping list. |
+| Hide sign-up prompts | Slickdeals | The sign-up flow on first launch, the notification prompt screen, the image tooltip, the "Log in / Sign up" nudges after a number of sessions, deal views, and searches, and the rating prompt. Prompts that answer something you tapped, such as voting on a deal, still appear. |
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |
 | Hide Premium upsells | NewsBreak | The "Ad-free Reading" banner and Upgrade button on the Me tab, the Premium button on profiles, the promo on Home, the bottom-bar badge, and the Premium offers in pop-ups and ad dialogs. If you pay for NewsBreak Premium, leave it off: the app stops refreshing your subscription status. |
 | Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
@@ -162,6 +164,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - CNN: Adobe, AppsFlyer, Chartbeat, comScore, and CNN's own data collection.
 - Costco: Adobe Analytics, comScore, and Kochava.
 - C-SPAN Now: the Facebook SDK, Firebase/Google Analytics, and the Privacy Sandbox on-device ad-retargeting call. OneSignal push is left alone.
+- DealNews: Firebase Analytics and Google ad measurement.
 - DealSeek: AppsFlyer, TikTok, and PostHog. The PostHog feature flags the app reads are left alone.
 - Disney+: Braze, Conviva, and Nielsen. Disney's own analytics share servers with sign-in and playback, so they are not blocked.
 - ESPN: Braze, New Relic, Conviva, Nielsen, comScore, Kochava, and Adobe Analytics.
@@ -196,6 +199,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
 - Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.
 - SiriusXM: Datadog, Mux, Branch, Salesforce Marketing Cloud and Personalization, and AdsWizz listening measurement.
+- Slickdeals: AppsFlyer, Blueshift, Google Tag Manager, Amazon ad metrics, and Slickdeals' own event collectors.
 - Starz: AppsFlyer, CleverTap, Leanplum, Braze, and Ethnio surveys.
 - Substack: Sentry, the Facebook SDK, and AppsFlyer. It also removes the Facebook Privacy Sandbox "Fledge" module that enrolls the device in on-device ad-retargeting audiences. Substack's own product analytics share servers with its content, so they are not blocked.
 - Sundance Now: AppsFlyer, Braze, New Relic, and Firebase Analytics.
@@ -279,7 +283,7 @@ These patches are off by default.
 
 | Patch | App | Why |
 |-----|-----|-----|
-| Disable Pairip license check | DealSeek, Fox One, Moviebase, National Forests & Grasslands, White House | Google's Pairip check blocks any copy not installed from the Play Store, which includes every patched app. |
+| Disable Pairip license check | DealNews, DealSeek, Fox One, Moviebase, National Forests & Grasslands, White House | Google's Pairip check blocks any copy not installed from the Play Store, which includes every patched app. |
 | Disable signature check | CBS News | CBS News erases its data and closes when it is not signed by CBS. This also skips its block on rooted phones. |
 | Fix media connection crash | NPR | NPR closes when Android Auto, the Google app, or another approved player connects with a signature the app does not expect. The connection is refused or allowed instead. |
 | Rename shared permissions | Prime Video | Lets Amazon Shopping and other Amazon apps install beside the patched Prime Video. |

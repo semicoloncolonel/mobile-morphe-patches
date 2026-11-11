@@ -396,4 +396,129 @@ public final class ShoppingAdsFilter {
         return key.endsWith("_SHOWN")
                 && (key.contains("TUTORIAL") || key.contains("SPOTLIGHT") || key.contains("EDUCATION"));
     }
+
+    // ── Slickdeals ──────────────────────────────────────────────────────────
+
+    /**
+     * Slickdeals: called with the segments of each feed as it is built. The app's classes are
+     * renamed in every release, but its data classes keep their toString text, which names
+     * every field. A segment is left out when it is an ad segment ("adSegment=" is set) or a
+     * sponsored carousel ("isSponsored=true" in its CarouselDetail). Inside the segments that
+     * remain, list items that are ads ("adItem=" is set) or deals flagged PROMOTED are left
+     * out. When anything is unexpected, the feed is returned as it came.
+     */
+    public static java.util.List<?> slickdealsFeedSegments(java.util.List<?> segments) {
+        if (segments == null || segments.isEmpty()) {
+            return segments;
+        }
+        try {
+            java.util.ArrayList<Object> kept = new java.util.ArrayList<>(segments.size());
+            int dropped = 0;
+            for (Object segment : segments) {
+                String text = String.valueOf(segment);
+                if (isSet(text, ", adSegment=") || isSponsoredCarousel(text)) {
+                    dropped++;
+                    continue;
+                }
+                dropped += dropSlickdealsItems(segment);
+                kept.add(segment);
+            }
+            if (dropped > 0) {
+                Log.i(TAG, "left out " + dropped + " ads and promoted deals from the feed");
+            }
+            return kept;
+        } catch (Throwable t) {
+            return segments;
+        }
+    }
+
+    /** The field after [label] in a data class's toString text has a value other than null. */
+    private static boolean isSet(String text, String label) {
+        int at = text.indexOf(label);
+        return at >= 0 && !text.startsWith("null", at + label.length());
+    }
+
+    private static boolean isSponsoredCarousel(String text) {
+        int at = text.indexOf("CarouselDetail(id=");
+        while (at >= 0) {
+            int flag = text.indexOf(", isSponsored=", at);
+            if (flag < 0) {
+                return false;
+            }
+            if (text.startsWith("true", flag + ", isSponsored=".length())) {
+                return true;
+            }
+            at = text.indexOf("CarouselDetail(id=", flag);
+        }
+        return false;
+    }
+
+    private static boolean isSlickdealsAdOrPromoted(Object item) {
+        String text = String.valueOf(item);
+        return (text.startsWith("Item(") && isSet(text, ", adItem="))
+                || text.contains(", flag=PROMOTED,") || text.contains(", flag=PROMOTED)");
+    }
+
+    /**
+     * Removes ad items and promoted deals from the lists one level inside a segment: the
+     * segment holds one typed part (deals, carousel, comments, ...), and that part holds the
+     * list. Returns how many items were removed.
+     */
+    private static int dropSlickdealsItems(Object segment) throws IllegalAccessException {
+        int dropped = 0;
+        for (java.lang.reflect.Field part : segment.getClass().getDeclaredFields()) {
+            if (java.lang.reflect.Modifier.isStatic(part.getModifiers()) || part.getType().isPrimitive()) {
+                continue;
+            }
+            part.setAccessible(true);
+            Object value = part.get(segment);
+            if (value == null || value instanceof CharSequence || value instanceof Enum) {
+                continue;
+            }
+            for (java.lang.reflect.Field field : value.getClass().getDeclaredFields()) {
+                if (java.lang.reflect.Modifier.isStatic(field.getModifiers())
+                        || !java.util.List.class.isAssignableFrom(field.getType())) {
+                    continue;
+                }
+                field.setAccessible(true);
+                Object list = field.get(value);
+                if (!(list instanceof java.util.List)) {
+                    continue;
+                }
+                java.util.List<?> items = (java.util.List<?>) list;
+                java.util.ArrayList<Object> kept = new java.util.ArrayList<>(items.size());
+                for (Object item : items) {
+                    if (!isSlickdealsAdOrPromoted(item)) {
+                        kept.add(item);
+                    }
+                }
+                if (kept.size() != items.size()) {
+                    dropped += items.size() - kept.size();
+                    field.set(value, kept);
+                }
+            }
+        }
+        return dropped;
+    }
+
+    private static final java.util.Set<String> SLICKDEALS_DONE_KEYS = new java.util.HashSet<>(java.util.Arrays.asList(
+            "has_seen_initial_onboarding",
+            "has_seen_notification_prompt",
+            "has_seen_image_tooltip",
+            "never_prompt_again_key"));
+
+    /**
+     * Slickdeals: called with each DataStore preference key and the value just read for it.
+     * The keys that record the sign-up flow, the notification prompt, the image tooltip, and
+     * the rating prompt as done read as true. A preference key's toString is its name.
+     */
+    public static Object slickdealsPreference(Object key, Object value) {
+        try {
+            if (key != null && SLICKDEALS_DONE_KEYS.contains(key.toString())) {
+                return Boolean.TRUE;
+            }
+        } catch (Throwable ignored) {
+        }
+        return value;
+    }
 }

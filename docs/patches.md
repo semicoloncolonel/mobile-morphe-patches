@@ -74,6 +74,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide rating prompt | Apple TV | The "Enjoying Apple TV?" prompt that asks for a review. |
 | Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |
 | Hide surveys | CBS News | Qualtrics surveys and the rate-the-app prompt they can lead to. |
+| Hide surveys | RetailMeNot | The in-app survey card. |
 | Hide newsletter pop-ups | CNBC | The newsletter sign-up bars that slide in over articles and ask for your email address. |
 | Hide premium promotions | CNBC | The "Premium Content" subscription card and its "Latest Episodes" heading on show pages, so a show's page starts with its free clips. The card to sign in with a TV provider stays. |
 | Hide rating prompt | CNBC | The Play Store rating request. |
@@ -197,6 +198,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Pluto TV: Kochava, comScore, Nielsen, Adobe Analytics, Conviva, New Relic, and Salesforce Marketing Cloud. The Blocking level option chooses what happens to Pluto's own playback tracking, which also saves your place. Relaxed, the default, leaves it on, so Continue Watching keeps working. Aggressive blocks it too, so Pluto TV does not remember where you stopped.
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
+- RetailMeNot: AppsFlyer, Snowplow, Datadog, and Firebase Analytics.
 - Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.
 - SiriusXM: Datadog, Mux, Branch, Salesforce Marketing Cloud and Personalization, and AdsWizz listening measurement.
 - Slickdeals: AppsFlyer, Blueshift, Google Tag Manager, Amazon ad metrics, and Slickdeals' own event collectors.
@@ -283,7 +285,7 @@ These patches are off by default.
 
 | Patch | App | Why |
 |-----|-----|-----|
-| Disable Pairip license check | DealNews, DealSeek, Fox One, Moviebase, National Forests & Grasslands, White House | Google's Pairip check blocks any copy not installed from the Play Store, which includes every patched app. |
+| Disable Pairip license check | DealNews, DealSeek, Fox One, Moviebase, National Forests & Grasslands, RetailMeNot, White House | Google's Pairip check blocks any copy not installed from the Play Store, which includes every patched app. |
 | Disable signature check | CBS News | CBS News erases its data and closes when it is not signed by CBS. This also skips its block on rooted phones. |
 | Fix media connection crash | NPR | NPR closes when Android Auto, the Google app, or another approved player connects with a signature the app does not expect. The connection is refused or allowed instead. |
 | Rename shared permissions | Prime Video | Lets Amazon Shopping and other Amazon apps install beside the patched Prime Video. |

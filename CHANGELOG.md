@@ -3,6 +3,14 @@
 
 ### Features
 
+* **justwatch:** add Unlock JustWatch Pro patch ([f6ea4ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f6ea4ac2cd6493084bc35e8bfbbdefa16b92f0be))
+* **justwatch:** add Unlock JustWatch Pro patch ([f10d0b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f10d0b75adda7922835945b83899b279641225cd))
+
+## [1.0.21-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.1...v1.0.21-dev.2) (2026-11-11)
+
+
+### Features
+
 * **justwatch:** add Unlock JustWatch Pro patch ([f10d0b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f10d0b75adda7922835945b83899b279641225cd))
 
 ## [1.0.21-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.1...v1.0.21-dev.2) (2026-11-11)

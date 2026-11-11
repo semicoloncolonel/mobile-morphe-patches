@@ -94,12 +94,13 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Amazon Shopping | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `32.20.0.100`<br>`32.19.0.100` | 11/10/26 |
 | Best Buy | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.10` | 11/01/26 |
 | Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.2.2` | 11/08/26 |
-| CVS | Disable AI (experimental, off by default) | `26.10.50` | 11/01/26 |
-| DealSeek | Disable Pairip license check<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default) | `1.64.0` | 11/05/26 |
+| CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.30` (experimental)<br>`26.10.50` | 11/10/26 |
+| DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default) | `1.64.0` | 11/10/26 |
+| Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | 11/10/26 |
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0` | 11/09/26 |
-| The Home Depot | Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |
-| Walgreens | The shared privacy patches only | `118.0` | 11/01/26 |
-| Walmart | Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1` | 11/10/26 |
+| The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |
+| Walgreens | Hide sponsored products (experimental)<br>Hide surveys and rating prompt (experimental) | `118.0` | 11/10/26 |
+| Walmart | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1` | 11/10/26 |
 
 ## Carriers
 

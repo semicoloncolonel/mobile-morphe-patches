@@ -1,4 +1,5 @@
 package semicoloncolonel.mobilestream.patches.justwatch.pro
+import semicoloncolonel.mobilestream.patches.justwatch.shared.Constants
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
@@ -9,7 +10,7 @@ val unlockProPatch = bytecodePatch(
     name = "Unlock JustWatch Pro",
     description = "Forces JustWatch Pro entitlements.",
 ) {
-    compatibleWith(/* your JustWatch compatibility */)
+    compatibleWith(Constants.COMPATIBILITY)
     extendWith("extensions/extension.mpe")
 
     execute {

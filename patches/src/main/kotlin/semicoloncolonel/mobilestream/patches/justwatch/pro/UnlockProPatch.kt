@@ -14,7 +14,7 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 
-    extendWith("extensions/justwatch/build/libs/extension.mpe")
+    extendWith("extensions/extension.mpe")
 
     execute {
         GetActiveFingerprint.method.addInstructions(

@@ -1,3 +1,23 @@
+## [1.0.21-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.2...v1.0.21-dev.3) (2026-11-11)
+
+
+### Bug Fixes
+
+* testing Prime Video 3.0.480.847, White House 47.7.11, Tubi 10.44.3, The New York Times 11.99.0 ([2e36fc2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2e36fc293145579dd3bf98521c45c3ae2c18e60b))
+
+
+### Features
+
+* add Hide editor articles and Dark mode to DealSeek ([dab8d4b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dab8d4b3378c6355410530d9b78e0156dd8d93ab))
+* add Hide sponsored listings to Walmart, The Home Depot, and CVS ([04b4334](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/04b4334467167c04b67b8beeb5867c1a3a7ff9a6))
+* add Hide sponsored products and Hide surveys and rating prompt to Walgreens ([af4f975](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/af4f975985b5183cd435544cbd79c1d52bff0ec7))
+* add Lowe's, with Hide sponsored listings and Disable AI ([bcb52ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bcb52ac936925ac10ff52dcf93eebf4a68479fe5))
+
+
+### Reverts
+
+* **justwatch:** remove the Unlock JustWatch Pro patch ([9d6e761](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9d6e761d978b00c2fd990b8bcc9efa72de0c152a))
+
 ## [1.0.21-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.1...v1.0.21-dev.2) (2026-11-11)
 
 

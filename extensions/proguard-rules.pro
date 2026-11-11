@@ -301,3 +301,9 @@
     public static *** patchActive(...);
     public static *** patchAll(...);
 }
+
+# Keep ProEntitlement so Smali-injected calls survive R8
+-keep class semicoloncolonel.mobilestream.extension.justwatch.ProEntitlement {
+    public static *** patchActive(...);
+    public static *** patchAll(...);
+}

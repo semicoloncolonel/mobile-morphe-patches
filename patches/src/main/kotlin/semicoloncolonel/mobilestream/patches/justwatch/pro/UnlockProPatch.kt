@@ -9,7 +9,7 @@ val unlockProPatch = bytecodePatch(
     name = "Unlock JustWatch Pro",
     description = "Forces JustWatch Pro entitlements.",
 ) {
-    compatibleWith(/* your JustWatch compatibility */)
+    compatibleWith("com.justwatch.justwatch")
     extendWith("extensions/extension.mpe")
 
     execute {

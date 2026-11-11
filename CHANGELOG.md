@@ -1,3 +1,10 @@
+## [1.0.21-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.6...v1.0.21-dev.7) (2026-11-11)
+
+
+### Features
+
+* **retailmenot:** add Remove location access ([fc82afe](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fc82afe5aa21072d13600f94edcfe60a8160d2a9))
+
 ## [1.0.21-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.5...v1.0.21-dev.6) (2026-11-11)
 
 

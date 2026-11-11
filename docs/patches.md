@@ -59,8 +59,9 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Patch | App | What it does |
 |-------|-----|--------------|
 | Hide sponsored content | Plex | Removes sponsored titles from the rows on Home and Discover, the large sponsored card at the top of each screen, and promoted "Watch Now on" cards. The items are removed from the feed, so no empty space is left behind. |
-| Hide sponsored listings | Amazon Shopping, Best Buy, Target | Removes sponsored products from search results, and on Amazon, from product pages. Best Buy's "Featured products" row still shows. |
+| Hide sponsored listings | Amazon Shopping, Best Buy, CVS, Lowe's, Target, The Home Depot, Walmart | Removes sponsored products from search results, and on Amazon, CVS, and Lowe's, from product pages. On Walmart, it also turns off sponsored carousels, banners, and video. Best Buy's "Featured products" row and The Home Depot's home page still show sponsored products. |
 | Hide sponsored products | Costco | Removes the sponsored products and ad placements from the home page, search results, and category pages. The app no longer asks Costco's server for them, so no empty space is left behind. |
+| Hide sponsored products | Walgreens | Turns off the sponsored product carousels, the ad banners, and the partner offers after checkout. |
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |
 | Strip affiliate links | DealSeek | Opens each deal at the store's own page, without DealSeek's click tracker or affiliate tags. Covers Amazon, Walmart, Best Buy, eBay, Wayfair, and Target. |
 
@@ -79,6 +80,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide rating prompt | Kanopy | The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. |
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
+| Hide editor articles | DealSeek | The "From our editors" card on deal pages, which links to DealSeek's own articles about the product. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide prediction markets | Fox News | Kalshi and Polymarket market widgets in articles and live blogs. |
 | Hide prediction markets | The Wall Street Journal | Polymarket odds in story cards. |
@@ -88,6 +90,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide surveys and rating prompt | MLB | The Qualtrics surveys and the Play Store rating pop-up they lead to. |
 | Hide Premium upsell | Moviebase | The Premium screen that opens on its own at launch and after sign-in. Premium still opens from Settings and the app's buttons. |
 | Hide surveys and rating prompt | NBC News | Iterate surveys and the rate-the-app prompt. |
+| Hide surveys and rating prompt | Walgreens | Medallia surveys and the rate-the-app dialog on the home screen. |
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |
 | Hide Premium upsells | NewsBreak | The "Ad-free Reading" banner and Upgrade button on the Me tab, the Premium button on profiles, the promo on Home, the bottom-bar badge, and the Premium offers in pop-ups and ad dialogs. If you pay for NewsBreak Premium, leave it off: the app stops refreshing your subscription status. |
 | Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
@@ -125,6 +128,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Amazon Shopping: the shopping assistant (Rufus, now "Alexa for shopping") in the tabs, search, and camera lens, and the assistant in Amazon Pay. Prompts on Amazon's web pages inside the app can still appear.
 - Best Buy: the AI-written review summaries. Ask Blue, Best Buy's assistant, is not covered.
 - CVS: AI search in the help center, which also stops the download of Google's on-device AI model, AI insights, AI summaries of visits, lab results, and claims, and proactive AI on pharmacy orders.
+- Lowe's: Mylow, the assistant, with its button in the top bar, its store mode, and its dictation, the AI overview above search results, and the AI summary of reviews. Customer service chat is not affected.
 - MGM+ (Disable MGM+ AI): the "MGM+ AI" assistant, its "Get Personalized Pick" and "Not sure what to watch?" prompts, and the AI-picks rows on Home.
 - myAT&T: Andi, the assistant, and its Fusion AI features: chat history, voice to text, AI search suggestions, citations, and AI cards. The round Andi button and the "Ask Andi" card on Home are removed, and in-app chat with an agent stops too. Phone support is not affected.
 - My Verizon: the assistant, its voice mode, and its floating button.
@@ -283,7 +287,7 @@ These patches are off by default.
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
 
-**Dark mode** (CNBC) lets Android darken the app while the phone is in dark mode. CNBC has only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
+**Dark mode** (CNBC, DealSeek) lets Android darken the app while the phone is in dark mode. Both apps have only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
 
 **Save content for offline use** (FEMA) keeps the Prepare guides, disaster declarations, FAQ, and the images you have viewed readable without a connection. Long-press the app icon for **Save all**, which downloads every guide in English and Spanish (about 150 MB), or **Refresh**, which updates the saved pages. Saved content is replaced only after the new copy downloads completely.
 

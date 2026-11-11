@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.abcnews.shared
 
 import app.morphe.patcher.patch.ApkFileType
-import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -11,6 +11,6 @@ object Constants {
         description = "The ABC News app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x0A0A0A,
-        targets = listOf(AppTarget("8.98.2"))
+        targets = listOf(devTarget("8.100.0", versionCode = 53500728))
     )
 }

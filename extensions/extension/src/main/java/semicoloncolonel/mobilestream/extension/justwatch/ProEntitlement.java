@@ -1,4 +1,3 @@
-cat > extensions/justwatch/src/main/java/semicoloncolonel/mobilestream/extension/justwatch/ProEntitlement.java << 'EOF'
 package semicoloncolonel.mobilestream.extension.justwatch;
 
 import com.revenuecat.purchases.EntitlementInfo;
@@ -20,40 +19,51 @@ public final class ProEntitlement {
     private ProEntitlement() {}
 
     public static Map<String, EntitlementInfo> patchActive(Map<String, EntitlementInfo> real) {
-        Map<String, EntitlementInfo> out = new LinkedHashMap<>(real != null ? real : Map.of());
+        return patch(real);
+    }
+
+    public static Map<String, EntitlementInfo> patchAll(Map<String, EntitlementInfo> real) {
+        return patch(real);
+    }
+
+    private static Map<String, EntitlementInfo> patch(Map<String, EntitlementInfo> real) {
+        Map<String, EntitlementInfo> out = new LinkedHashMap<>();
+        if (real != null) {
+            out.putAll(real);
+        }
         for (String id : IDS) {
-            if (!out.containsKey(id)) {
-                out.put(id, build(id));
-            }
+            out.put(id, fakeEntitlement(id));
         }
         return out;
     }
 
-    public static Map<String, EntitlementInfo> patchAll(Map<String, EntitlementInfo> real) {
-        return patchActive(real);
-    }
-
-    private static EntitlementInfo build(String id) {
-        Date now = new Date();
-        Date farFuture = new Date(now.getTime() + 100L * 365 * 24 * 60 * 60 * 1000);
+    private static EntitlementInfo fakeEntitlement(String id) {
+        // Minimal fake EntitlementInfo that reports as active/pro.
+        // Adjust constructor args if your RevenueCat version differs.
+        JSONObject json = new JSONObject();
+        try {
+            json.put("identifier", id);
+            json.put("isActive", true);
+            json.put("willRenew", true);
+            json.put("periodType", "NORMAL");
+            json.put("latestPurchaseDate", new Date().getTime());
+            json.put("originalPurchaseDate", new Date().getTime());
+            json.put("expirationDate", (Object) null);
+            json.put("store", "PLAY_STORE");
+            json.put("ownershipType", "PURCHASED");
+        } catch (Exception ignored) {}
 
         return new EntitlementInfo(
             id,
-            true,
-            true,
+            true,               // isActive
+            true,               // willRenew
             PeriodType.NORMAL,
-            now,
-            now,
-            farFuture,
+            new Date(),         // latestPurchaseDate
+            new Date(),         // originalPurchaseDate
+            null,               // expirationDate
             Store.PLAY_STORE,
-            id,
-            null,
-            false,
-            null,
-            null,
             OwnershipType.PURCHASED,
-            new JSONObject()
+            json
         );
     }
 }
-EOF

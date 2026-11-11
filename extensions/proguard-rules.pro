@@ -295,15 +295,3 @@
 # Shared "Hide rating prompt". launchReviewFlow() replaces Google Play's
 # ReviewManager.launchReviewFlow at app call sites via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.shared.misc.RatingPromptBlocker { public static *; }
-
-# Keep ProEntitlement so Smali-injected calls survive R8
--keep class semicoloncolonel.mobilestream.extension.justwatch.ProEntitlement {
-    public static *** patchActive(...);
-    public static *** patchAll(...);
-}
-
-# Keep ProEntitlement so Smali-injected calls survive R8
--keep class semicoloncolonel.mobilestream.extension.justwatch.ProEntitlement {
-    public static *** patchActive(...);
-    public static *** patchAll(...);
-}

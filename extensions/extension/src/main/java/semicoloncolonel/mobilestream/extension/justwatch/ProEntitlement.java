@@ -38,8 +38,6 @@ public final class ProEntitlement {
     }
 
     private static EntitlementInfo fakeEntitlement(String id) {
-        // Minimal fake EntitlementInfo that reports as active/pro.
-        // Adjust constructor args if your RevenueCat version differs.
         JSONObject json = new JSONObject();
         try {
             json.put("identifier", id);
@@ -50,18 +48,24 @@ public final class ProEntitlement {
             json.put("originalPurchaseDate", new Date().getTime());
             json.put("expirationDate", (Object) null);
             json.put("store", "PLAY_STORE");
+            json.put("productIdentifier", id);
             json.put("ownershipType", "PURCHASED");
         } catch (Exception ignored) {}
 
         return new EntitlementInfo(
-            id,
-            true,               // isActive
-            true,               // willRenew
+            id,                     // identifier
+            true,                   // isActive
+            true,                   // willRenew
             PeriodType.NORMAL,
-            new Date(),         // latestPurchaseDate
-            new Date(),         // originalPurchaseDate
-            null,               // expirationDate
+            new Date(),             // latestPurchaseDate
+            new Date(),             // originalPurchaseDate
+            null,                   // expirationDate
             Store.PLAY_STORE,
+            id,                     // productIdentifier
+            null,                   // productPlanIdentifier
+            false,                  // isSandbox
+            null,                   // unsubscribeDetectedAt
+            null,                   // billingIssueDetectedAt
             OwnershipType.PURCHASED,
             json
         );

@@ -295,7 +295,7 @@ These patches are off by default.
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
 
-**Dark mode** (CNBC, DealSeek) lets Android darken the app while the phone is in dark mode. Both apps have only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
+**Dark mode** (CNBC, DealSeek, RetailMeNot) lets Android darken the app while the phone is in dark mode. These apps have only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
 
 **Save content for offline use** (FEMA) keeps the Prepare guides, disaster declarations, FAQ, and the images you have viewed readable without a connection. Long-press the app icon for **Save all**, which downloads every guide in English and Spanish (about 150 MB), or **Refresh**, which updates the saved pages. Saved content is replaced only after the new copy downloads completely.
 

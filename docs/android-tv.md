@@ -16,6 +16,12 @@ Starz and Disney+ also have Android TV builds with the same version names as the
 
 [Known issues](known-issues.md) includes the problems that happen only on a TV.
 
+## Running a phone app on a TV
+
+Some streaming apps ship only a phone build, with no Android TV build to patch. For those, the **Run on Android TV** patch makes the phone build install and open on an Android TV device and adds it to the TV home screen. It is available on Disney+, ESPN, Hulu, Kanopy, MGM+, MLB, NBA, NFL, Paramount+, Peacock, Prime Video, Shudder, Starz, Sundance Now, and Xumo Play.
+
+This is not the same as the apps above, which have their own Android TV builds. Run on Android TV only changes the manifest of the phone build: it marks the leanback and touchscreen features as optional, so a TV no longer filters the app out, and it adds a leanback launcher entry, so the app appears on the home screen. The app's own screens are still drawn for a phone, so a remote may not reach every control, and some parts may still expect a touchscreen. For that reason the patch is experimental and off by default. Turn it on in Morphe Manager when you patch.
+
 ## Getting the Android TV build
 
 APKMirror lists the Android TV build separately, with "Android TV" in its name. Morphe Manager's download link searches by package name and version, so it can lead to the phone build instead. When the phone and Android TV builds share a version, as Pluto TV's do, check the version code on the download page.

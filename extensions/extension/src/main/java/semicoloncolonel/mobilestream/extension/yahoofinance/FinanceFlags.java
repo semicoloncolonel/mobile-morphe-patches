@@ -30,7 +30,7 @@ public final class FinanceFlags {
             "inceptionAlphaspaceEntry", "inceptionAlphaspaceBannerQsp", "stockPicksPromoBanner",
             "inceptionAccountUpsell", "smartAssetPortfolioUpsell", "portfolioAnalyticsUpsellBottomSheet",
             "portfolioAnalyticsBanner", "notificationsSubscriptionUpsell", "insightEdgeOnboardingCard",
-            "coinbaseTradeNow");
+            "coinbaseTradeNow", "premiumPerksHub");
 
     /** Hide pop-ups: rating and feedback prompts, the widget prompt, tooltips, and the beta invitation. */
     private static final Set<String> POPUPS = set(

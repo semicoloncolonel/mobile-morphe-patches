@@ -10,6 +10,7 @@ These apps have patches for their Android TV builds. On a TV, patch the Android 
 | NewsNation (Android TV) | A separate app from the phone build, with its own patches. |
 | Plex | |
 | Pluto TV | The phone and Android TV builds have the same version. The Android TV build's version code is `520000991`, and the phone build's is `420000991`. |
+| Tubi | The Android TV build has its own version, `10.44.5001`. The phone build is `10.44.3`. |
 
 Starz and Disney+ also have Android TV builds with the same version names as their phone builds, but their patches support only the phone builds. Their version codes tell them apart. For example, the phone build of Disney+ 26.20.0+rc3-2026.11.02 has the version code `179366219`, and its Android TV build has `1793662190`.
 

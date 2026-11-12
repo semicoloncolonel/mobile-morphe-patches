@@ -63,7 +63,7 @@ private val removeFoursquareComponentsPatch = resourcePatch {
 val blockLocationTrackingPatch = bytecodePatch(
     name = "Block location tracking",
     description = "Stops Foursquare's Movement SDK, which records the places you visit in the background " +
-        "and reports them with your user ID, gender, and birthday. The gas map still works.",
+        "and reports them with your user ID, gender, and birthday.",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
 

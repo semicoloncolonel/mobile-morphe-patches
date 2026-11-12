@@ -2,6 +2,11 @@ package semicoloncolonel.mobilestream.patches.yahoofinance.ads
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.patch.PatchException
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.Constants
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
@@ -40,6 +45,10 @@ import semicoloncolonel.mobilestream.patches.yahoofinance.shared.onArticlePageFi
 // ad slot (inception/ads/compose/b: b, c, and d, the 300x250 and banner slots on
 // Home, News, and quote pages), and the Home pencil ad (home/ad/compose/h: a
 // and b).
+//
+// With the ad gone, the 45dp spacer above "Your most actives" (the section
+// header after the ad, home/news/compose/j) left a wide empty band. It is now
+// 12dp.
 //
 // Articles are finance.yahoo.com pages in a WebView, with their own ad slots.
 // When a Yahoo page finishes loading, ArticleCleanup.hideAds adds a style that
@@ -208,6 +217,21 @@ internal object GamAdPlaceholderFingerprint : Fingerprint(
     returnType = "V",
 )
 
+internal object MostActivesHeaderFingerprint : Fingerprint(
+    definingClass = "Lcom/yahoo/mobile/client/android/finance/home/news/compose/j;",
+    name = "invoke",
+    returnType = "Ljava/lang/Object;",
+    custom = { method, _ ->
+        method.implementation?.instructions?.any {
+            it.opcode == Opcode.CONST_HIGH16 && (it as NarrowLiteralInstruction).narrowLiteral == HEADER_SPACER
+        } == true
+    },
+)
+
+/** 45.0f and 12.0f as float bits. */
+private const val HEADER_SPACER = 0x42340000
+private const val TIGHT_SPACER = 0x41400000
+
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
@@ -273,6 +297,15 @@ val skipAdsPatch = bytecodePatch(
             GamAdRowFingerprint,
             GamAdPlaceholderFingerprint,
         ).forEach { it.method.addInstructions(0, "return-void") }
+
+        MostActivesHeaderFingerprint.method.apply {
+            val index = implementation!!.instructions.indexOfFirst {
+                it.opcode == Opcode.CONST_HIGH16 && (it as NarrowLiteralInstruction).narrowLiteral == HEADER_SPACER
+            }
+            if (index < 0) throw PatchException("Your most actives spacer not found")
+            val register = (implementation!!.instructions.elementAt(index) as OneRegisterInstruction).registerA
+            replaceInstruction(index, "const/high16 v$register, $TIGHT_SPACER")
+        }
 
         offFlags("adsOff")
         onArticlePageFinished("hideAds")

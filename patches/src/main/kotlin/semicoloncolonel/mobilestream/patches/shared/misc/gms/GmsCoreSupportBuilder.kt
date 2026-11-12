@@ -75,6 +75,17 @@ internal object NamedPlayServicesAvailableFingerprint : Fingerprint(
     parameters = listOf("Landroid/content/Context;", "I"),
 )
 
+// The same method in builds where R8 moved the manifest-check strings into a
+// helper (Yahoo News 100.1.1): it still logs this message itself.
+internal object ResourcesPlayServicesAvailableFingerprint : Fingerprint(
+    returnType = "I",
+    parameters = listOf("Landroid/content/Context;", "I"),
+    strings = listOf(
+        "The Google Play services resources were not found. Check your project configuration to " +
+            "ensure that the resources are included.",
+    ),
+)
+
 // androidx.credentials' CredentialProviderFactory.getBestAvailableProvider.
 internal object AnyCredentialProviderFactoryFingerprint : Fingerprint(
     strings = listOf("androidx.credentials.TYPE_CLEAR_RESTORE_CREDENTIAL", "android.software.leanback"),
@@ -251,6 +262,7 @@ internal fun gmsCoreSupportPatch(
         execute {
             val available = AnyPlayServicesAvailableFingerprint.methodOrNull
                 ?: NamedPlayServicesAvailableFingerprint.methodOrNull
+                ?: ResourcesPlayServicesAvailableFingerprint.methodOrNull
                 ?: throw PatchException("Play services availability check not found")
             available.returnEarly(0)
 

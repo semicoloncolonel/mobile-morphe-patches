@@ -117,6 +117,7 @@ body:
         - "White House"
         - "Xfinity"
         - "Xumo Play"
+        - "Yahoo News"
         - "YouTube TV"
         - "Other (name it in the description)"
     validations:

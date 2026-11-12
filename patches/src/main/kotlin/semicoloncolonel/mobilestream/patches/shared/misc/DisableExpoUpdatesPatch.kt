@@ -1,4 +1,4 @@
-package semicoloncolonel.mobilestream.patches.dealseek.shared
+package semicoloncolonel.mobilestream.patches.shared.misc
 
 import app.morphe.patcher.patch.resourcePatch
 import org.w3c.dom.Element

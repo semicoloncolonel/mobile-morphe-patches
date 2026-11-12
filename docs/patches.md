@@ -116,6 +116,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide crypto and prediction markets | Truth Social | Truth Predict, the prediction market run with Crypto.com's US derivatives exchange, and Gems, the rewards that convert to Crypto.com's CRO token. |
 | Hide Truth+ | Truth Social | The Truth+ button at the top of the home feeds, the Watch tab, the strip of live Truth+ streams, the live shows row, and the Truth+ banners in the feeds and the side menu. The "+" badges on subscribers' names stay. |
 | Hide sign-in prompts | Tubi | The request to sign in when you pause or leave a title. |
+| Hide update prompts | Tubi | The request to update the app, which Tubi shows from its own server settings or when Google Play has a newer version. A patched app cannot be updated through Google Play, and the Android TV build asks even when it is current. |
 | Hide rating prompt | USA TODAY | The Play Store rating request. |
 | Hide subscription prompts | USA TODAY | The "Sale" bar pinned to the bottom of articles, the Subscribe links above Top Stories and in the article toolbar, and the subscription offers that pop up on launch, such as the $1 trial. Sign In stays. |
 | Hide promotions | White House | The buttons you choose: "Text President Trump" and "Get in Touch". |

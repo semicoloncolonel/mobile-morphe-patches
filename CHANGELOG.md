@@ -1,3 +1,10 @@
+## [1.0.21-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.17...v1.0.21-dev.18) (2026-11-12)
+
+
+### Bug Fixes
+
+* testing Visible 3.0.6 ([a9234d2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a9234d21503ae44dc8f76bb972888743451240c9))
+
 ## [1.0.21-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.16...v1.0.21-dev.17) (2026-11-12)
 
 

@@ -16,7 +16,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 |-----|---------|----------------|--------------|
 | AMC+ | Skip ads (experimental)<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `1.8.62.1` | 10/31/26 |
 | Apple TV | Auto-skip (experimental)<br>Hide rating prompt (experimental)<br>Show release times (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable up next (experimental, off by default)<br>Hide player overlays (experimental, off by default) | `3.0.0` | 11/08/26 |
-| Apple TV (Android TV) | Auto-skip (Android TV, experimental)<br>Hide rating prompt (Android TV, experimental)<br>Show release times (Android TV, experimental)<br>Block analytics & tracking (Android TV, experimental, off by default) | `17.0.2` | 11/08/26 |
+| Apple TV (Android TV) | Auto-skip (Android TV, experimental)<br>Hide rating prompt (Android TV, experimental)<br>Show release times (Android TV, experimental)<br>Block analytics & tracking (Android TV, experimental, off by default) | `17.0.3`<br>`17.0.2` | 11/12/26 |
 | Disney+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
 | ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |

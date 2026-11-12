@@ -5,6 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.Constants
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
+import semicoloncolonel.mobilestream.patches.yahoofinance.shared.onArticlePageFinished
 
 // Yahoo Finance 26.22.2 — Hide Plus upsells. The flags behind the Yahoo
 // Finance Plus (AlphaSpace) banners and sheets, Stock Picks, the sidebar,
@@ -15,6 +16,9 @@ import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
 //
 // The "Upgrade to Yahoo Finance Premium" card on Account has no flag. Its
 // composable (account/v2/compose/f.m, R8-renamed) returns before drawing.
+//
+// In articles, the "Trade on Coinbase" referral link and its trading
+// disclosure are hidden by ArticleCleanup.hideReferrals.
 
 internal object AccountUpgradeCardFingerprint : Fingerprint(
     definingClass = "Lcom/yahoo/mobile/client/android/finance/account/v2/compose/f;",
@@ -41,6 +45,7 @@ val hidePlusUpsellsPatch = bytecodePatch(
 
     execute {
         offFlags("upsellOff")
+        onArticlePageFinished("hideReferrals")
         AccountUpgradeCardFingerprint.method.addInstructions(0, "return-void")
     }
 }

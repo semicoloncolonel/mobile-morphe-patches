@@ -103,6 +103,7 @@ val hidePopupsPatch = bytecodePatch(
     description = "Removes the sign-up sheet, the welcome walkthrough, the notification and Instant Offers " +
         "prompts, the location notice, marketing messages, and the card that asks you to rate the app.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(fixStuckDialogPatch)

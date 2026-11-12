@@ -35,6 +35,7 @@ val hideSurveysPatch = resourcePatch(
     name = "Hide surveys",
     description = "Removes the in-app survey card.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(hideSurveysInBundlePatch, disableExpoUpdatesPatch)

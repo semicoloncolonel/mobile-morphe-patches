@@ -45,6 +45,7 @@ val hidePopupsPatch = resourcePatch(
     name = "Hide pop-ups",
     description = "Removes the review requests, the daily spin-the-wheel pop-up, and the survey after opening a deal.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(hidePopupsInBundlePatch, disableExpoUpdatesPatch)

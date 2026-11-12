@@ -76,6 +76,7 @@ val blockAdsPatch = bytecodePatch(
     name = "Block ads",
     description = "Removes the banner, native, full-screen, and video ads.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

@@ -35,6 +35,7 @@ val hidePopupsPatch = resourcePatch(
     name = "Hide pop-ups",
     description = "Removes the rating card and the first-launch walkthrough.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(hidePopupsInBundlePatch)

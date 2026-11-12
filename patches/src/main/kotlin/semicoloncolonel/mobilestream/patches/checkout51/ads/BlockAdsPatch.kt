@@ -53,6 +53,7 @@ val blockAdsPatch = bytecodePatch(
     name = "Block ads",
     description = "Removes the ad shown on launch and the ads in the offer list and highlights.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(fixStuckDialogPatch)

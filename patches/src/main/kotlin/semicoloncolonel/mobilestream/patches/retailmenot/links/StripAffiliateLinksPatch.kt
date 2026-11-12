@@ -6,6 +6,7 @@ import semicoloncolonel.mobilestream.patches.shared.links.stripAffiliateLinksPat
 @Suppress("unused")
 val stripAffiliateLinksPatch = stripAffiliateLinksPatch(
     Constants.COMPATIBILITY,
+    category = "Privacy",
     description = "Opens store links without affiliate tags or click tracking. RetailMeNot cash back needs those, so cash back stops working.",
     use = false,
 )

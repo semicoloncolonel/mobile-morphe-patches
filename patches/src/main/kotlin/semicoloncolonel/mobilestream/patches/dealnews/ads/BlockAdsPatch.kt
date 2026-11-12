@@ -31,6 +31,7 @@ val blockAdsPatch = resourcePatch(
     name = "Block ads",
     description = "Removes the ad banner from deal pages.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(blockAdsInBundlePatch)

@@ -1,5 +1,7 @@
 package semicoloncolonel.mobilestream.patches.yahoofinance.misc
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.Constants
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
@@ -8,7 +10,24 @@ import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
 // Finance Plus (AlphaSpace) banners and sheets, Stock Picks, the sidebar,
 // Smart Asset and Portfolio Analytics upsells, the Insights Edge card, and the
 // Coinbase "Trade Now" referral button read as off. Paid features stay locked.
+// The "Premium perks" row on Account reads its flag (premiumPerksHub) too.
 // The list is in FinanceFlags.UPSELLS.
+//
+// The "Upgrade to Yahoo Finance Premium" card on Account has no flag. Its
+// composable (account/v2/compose/f.m, R8-renamed) returns before drawing.
+
+internal object AccountUpgradeCardFingerprint : Fingerprint(
+    definingClass = "Lcom/yahoo/mobile/client/android/finance/account/v2/compose/f;",
+    name = "m",
+    parameters = listOf(
+        "I",
+        "I",
+        "Landroidx/compose/runtime/l;",
+        "Landroidx/compose/ui/s;",
+        "Lkotlin/jvm/functions/Function0;",
+    ),
+    returnType = "V",
+)
 
 @Suppress("unused")
 val hidePlusUpsellsPatch = bytecodePatch(
@@ -22,5 +41,6 @@ val hidePlusUpsellsPatch = bytecodePatch(
 
     execute {
         offFlags("upsellOff")
+        AccountUpgradeCardFingerprint.method.addInstructions(0, "return-void")
     }
 }

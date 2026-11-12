@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.yahoonews.misc
 
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.HERMES_BUNDLE
@@ -23,6 +24,11 @@ import semicoloncolonel.mobilestream.patches.yahoonews.shared.videoOptOutPatch
 // The "Get answers with Yahoo Scout" announcement is a separate pop-up that
 // does not read those flags. startAskScoutAnnouncement and
 // recheckAskScoutAnnouncement, which schedule it, now return at once.
+//
+// Listen on articles reads them with Scout's AI voice. Its getter
+// (isArticleTtsEnabled) now answers false; it is already off for regular
+// accounts. The Listen option of Show unreleased features turns it on, so
+// the two cannot be combined, and whichever runs second fails.
 // ─────────────────────────────────────────────────────────────────────────────
 
 private val disableAiInBundlePatch = rawResourcePatch {
@@ -34,6 +40,10 @@ private val disableAiInBundlePatch = rawResourcePatch {
         bundle.returnAtStart("get areCommentSummariesEnabled", HermesBundle.Value.FALSE)
         bundle.returnAtStart("startAskScoutAnnouncement", HermesBundle.Value.UNDEFINED)
         bundle.returnAtStart("recheckAskScoutAnnouncement", HermesBundle.Value.UNDEFINED)
+        if (bundle.returnedAtStart(ARTICLE_TTS_GETTER) == HermesBundle.Value.TRUE) {
+            throw PatchException(LISTEN_AI_CONFLICT)
+        }
+        bundle.returnAtStart(ARTICLE_TTS_GETTER, HermesBundle.Value.FALSE)
         file.writeBytes(bundle.toByteArray())
     }
 }

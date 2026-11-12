@@ -67,7 +67,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | 11/10/26 |
 | theScore | Block analytics & tracking (off by default) | `26.16.1`<br>`26.16.0` | 11/12/26 |
 | The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.12.0.42675` | 10/30/26 |
-| The Washington Post | Hide marketing pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/10/26 |
+| The Washington Post | Hide marketing pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `7.19.0`<br>`7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/12/26 |
 | USA TODAY | Hide rating prompt<br>Hide subscription prompts<br>Skip ads<br>Block analytics & tracking (off by default) | `8.15.0` | 11/06/26 |
 
 ## Social

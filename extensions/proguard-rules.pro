@@ -299,3 +299,9 @@
 # RetailMeNot — "Remove location access". Called only from injected smali in
 # Expo's PermissionsService.
 -keep class semicoloncolonel.mobilestream.extension.retailmenot.privacy.LocationBlocker { public static *; }
+
+# Shared "Strip affiliate links". Every public static method replaces a
+# startActivity / loadUrl call at app call sites via injected invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.shared.links.AffiliateLinkCleaner {
+    public static *;
+}

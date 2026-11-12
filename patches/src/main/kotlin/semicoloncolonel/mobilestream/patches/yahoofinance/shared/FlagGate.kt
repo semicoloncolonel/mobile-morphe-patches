@@ -2,6 +2,9 @@ package semicoloncolonel.mobilestream.patches.yahoofinance.shared
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.BytecodePatchContext
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
+import semicoloncolonel.mobilestream.patches.shared.misc.hasSignature
 import semicoloncolonel.mobilestream.patches.shared.misc.prependGate
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -42,4 +45,36 @@ internal fun BytecodePatchContext.offFlags(check: String) {
             """,
         )
     }
+}
+
+internal const val ARTICLE_CLEANUP = "Lsemicoloncolonel/mobilestream/extension/yahoofinance/ArticleCleanup;"
+
+/**
+ * Article pages are finance.yahoo.com pages in a WebView, hosted in Compose.
+ * Every WebView client (a class that extends WebViewClient, directly or not,
+ * and has its own onPageFinished) now calls ArticleCleanup.<method>(view, url) first, which adds
+ * a script to Yahoo pages. Returns how many clients were changed.
+ */
+internal fun BytecodePatchContext.onArticlePageFinished(method: String): Int {
+    // Every class that extends WebViewClient, directly or through another
+    // client class, from the app or a library. ArticleCleanup only acts on
+    // yahoo.com pages.
+    val clients = mutableSetOf("Landroid/webkit/WebViewClient;", "Landroidx/webkit/WebViewClientCompat;")
+    val parents = mutableMapOf<String, String?>()
+    classDefForEach { parents[it.type] = it.superclass }
+    var grew = true
+    while (grew) {
+        grew = false
+        parents.forEach { (type, parent) ->
+            if (parent != null && parent in clients && clients.add(type)) grew = true
+        }
+    }
+    val count = forEachMatchingMethod(
+        classFilter = { it.type in clients && !it.type.startsWith("Lsemicoloncolonel/") },
+        methodFilter = { it.name == "onPageFinished" && it.hasSignature("V", "Landroid/webkit/WebView;", "Ljava/lang/String;") },
+    ) {
+        it.addInstructions(0, "invoke-static { p1, p2 }, $ARTICLE_CLEANUP->$method(Landroid/webkit/WebView;Ljava/lang/String;)V")
+    }
+    if (count == 0) throw app.morphe.patcher.patch.PatchException("No WebView client with onPageFinished")
+    return count
 }

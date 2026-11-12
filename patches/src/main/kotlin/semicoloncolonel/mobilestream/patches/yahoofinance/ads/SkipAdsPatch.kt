@@ -5,6 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.Constants
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
+import semicoloncolonel.mobilestream.patches.yahoofinance.shared.onArticlePageFinished
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Yahoo Finance 26.22.2 — Skip ads.
@@ -27,6 +28,22 @@ import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
 // sends dnt=true and no device ID, and its ad-break addresses point at an
 // address that does not resolve. The flag inceptionQspNewsListAds reads as off,
 // so More News on quote pages has no ad rows.
+//
+// A failed ad still leaves its row in the Home news list ("Your latest"): a
+// card labelled AD with nothing in it. The two composables that draw that row
+// (home/news/compose/d0.h and d0.i, which take the stream ad's parameters) now
+// return before drawing, and so do the Google Ad Manager slot in the same list
+// (d0.b, which takes GamAdParams) and its 300x250 placeholder (d0.n).
+//
+// The other ad slots draw a pulsing placeholder while they wait for an ad, and
+// some keep waiting. Their composables now return before drawing: the Inception
+// ad slot (inception/ads/compose/b: b, c, and d, the 300x250 and banner slots on
+// Home, News, and quote pages), and the Home pencil ad (home/ad/compose/h: a
+// and b).
+//
+// Articles are finance.yahoo.com pages in a WebView, with their own ad slots.
+// When a Yahoo page finishes loading, ArticleCleanup.hideAds adds a style that
+// hides every element Yahoo marks as an ad container, with the space it keeps.
 //
 // The ad-free entitlement of Yahoo Finance Plus is not touched.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -101,6 +118,96 @@ internal object AdsEndpointFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
 )
 
+private const val NEWS_COMPOSE = "Lcom/yahoo/mobile/client/android/finance/home/news/compose/d0;"
+private val STREAM_AD_ROW_PARAMETERS = listOf(
+    "Lcom/yahoo/mobile/client/android/finance/home/news/model/f;",
+    "Lcom/yahoo/mobile/client/android/finance/home/news/model/e;",
+    "Lkotlin/jvm/functions/Function0;",
+    "Lkotlin/jvm/functions/Function0;",
+    "Lkotlin/jvm/functions/Function0;",
+    "Landroidx/compose/ui/s;",
+    "Landroidx/compose/runtime/l;",
+    "I",
+)
+
+internal object StreamAdRowFingerprint : Fingerprint(
+    definingClass = NEWS_COMPOSE,
+    name = "h",
+    parameters = STREAM_AD_ROW_PARAMETERS,
+    returnType = "V",
+)
+
+internal object StreamAdCardFingerprint : Fingerprint(
+    definingClass = NEWS_COMPOSE,
+    name = "i",
+    parameters = STREAM_AD_ROW_PARAMETERS,
+    returnType = "V",
+)
+
+private const val INCEPTION_AD = "Lcom/yahoo/mobile/client/android/finance/inception/ads/compose/b;"
+private const val PENCIL_AD = "Lcom/yahoo/mobile/client/android/finance/home/ad/compose/h;"
+private const val COMPOSER = "Landroidx/compose/runtime/l;"
+private const val MODIFIER = "Landroidx/compose/ui/s;"
+private const val FUNCTION0 = "Lkotlin/jvm/functions/Function0;"
+private const val FUNCTION1 = "Lkotlin/jvm/functions/Function1;"
+private const val CONTROLLER = "Lcom/yahoo/mobile/client/android/finance/inception/ads/e0;"
+
+internal object InceptionAdSlotFingerprint : Fingerprint(
+    definingClass = INCEPTION_AD,
+    name = "b",
+    parameters = listOf(
+        "Lcom/yahoo/mobile/client/android/finance/inception/ads/compose/a;",
+        "Lcom/yahoo/mobile/client/android/finance/inception/ads/u;",
+        FUNCTION0, MODIFIER, "Landroidx/compose/runtime/internal/d;", COMPOSER, "I", "I",
+    ),
+    returnType = "V",
+)
+
+internal object InceptionAdFingerprint : Fingerprint(
+    definingClass = INCEPTION_AD,
+    name = "c",
+    parameters = listOf(CONTROLLER, FUNCTION1, FUNCTION0, FUNCTION0, MODIFIER, COMPOSER, "I", "I"),
+    returnType = "V",
+)
+
+internal object InceptionAdContentFingerprint : Fingerprint(
+    definingClass = INCEPTION_AD,
+    name = "d",
+    parameters = listOf(CONTROLLER, FUNCTION1, FUNCTION0, FUNCTION0, MODIFIER, COMPOSER, "I"),
+    returnType = "V",
+)
+
+internal object PencilAdFingerprint : Fingerprint(
+    definingClass = PENCIL_AD,
+    name = "a",
+    parameters = listOf(FUNCTION1, FUNCTION0, FUNCTION0, "Lcom/yahoo/mobile/client/android/finance/home/ad/a;", COMPOSER, "I"),
+    returnType = "V",
+)
+
+internal object PencilAdSlotFingerprint : Fingerprint(
+    definingClass = PENCIL_AD,
+    name = "b",
+    parameters = listOf(FUNCTION1, FUNCTION0, FUNCTION0, MODIFIER, "Lcom/yahoo/mobile/client/android/finance/home/ad/a;", COMPOSER, "I"),
+    returnType = "V",
+)
+
+internal object GamAdRowFingerprint : Fingerprint(
+    definingClass = NEWS_COMPOSE,
+    name = "b",
+    parameters = listOf(
+        "Lcom/yahoo/mobile/client/android/finance/home/news/model/a;",
+        FUNCTION0, FUNCTION0, FUNCTION0, MODIFIER, "Z", COMPOSER, "I", "I",
+    ),
+    returnType = "V",
+)
+
+internal object GamAdPlaceholderFingerprint : Fingerprint(
+    definingClass = NEWS_COMPOSE,
+    name = "n",
+    parameters = listOf(COMPOSER, "I"),
+    returnType = "V",
+)
+
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
@@ -155,6 +262,19 @@ val skipAdsPatch = bytecodePatch(
             )
         }
 
+        StreamAdRowFingerprint.method.addInstructions(0, "return-void")
+        StreamAdCardFingerprint.method.addInstructions(0, "return-void")
+        listOf(
+            InceptionAdSlotFingerprint,
+            InceptionAdFingerprint,
+            InceptionAdContentFingerprint,
+            PencilAdFingerprint,
+            PencilAdSlotFingerprint,
+            GamAdRowFingerprint,
+            GamAdPlaceholderFingerprint,
+        ).forEach { it.method.addInstructions(0, "return-void") }
+
         offFlags("adsOff")
+        onArticlePageFinished("hideAds")
     }
 }

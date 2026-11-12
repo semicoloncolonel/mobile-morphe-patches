@@ -316,3 +316,6 @@
 -keep class semicoloncolonel.mobilestream.extension.yahoofinance.FinanceFlags {
     public static *;
 }
+-keep class semicoloncolonel.mobilestream.extension.yahoofinance.ArticleCleanup {
+    public static *;
+}

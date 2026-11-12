@@ -3,11 +3,8 @@ package semicoloncolonel.mobilestream.patches.shared.misc
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.resourcePatch
 import org.w3c.dom.Element
-import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
 import semicoloncolonel.mobilestream.patches.espn.shared.Constants as Espn
-import semicoloncolonel.mobilestream.patches.fandango.shared.Constants as Fandango
-import semicoloncolonel.mobilestream.patches.foxone.shared.Constants as FoxOne
 import semicoloncolonel.mobilestream.patches.hulu.shared.Constants as Hulu
 import semicoloncolonel.mobilestream.patches.kanopy.shared.Constants as Kanopy
 import semicoloncolonel.mobilestream.patches.mgm.shared.Constants as Mgm
@@ -15,7 +12,6 @@ import semicoloncolonel.mobilestream.patches.mlb.shared.Constants as Mlb
 import semicoloncolonel.mobilestream.patches.nba.shared.Constants as Nba
 import semicoloncolonel.mobilestream.patches.nfl.shared.Constants as Nfl
 import semicoloncolonel.mobilestream.patches.paramount.shared.Constants as Paramount
-import semicoloncolonel.mobilestream.patches.pbs.shared.Constants as Pbs
 import semicoloncolonel.mobilestream.patches.peacock.shared.Constants as Peacock
 import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as PrimeVideo
 import semicoloncolonel.mobilestream.patches.shudder.shared.Constants as Shudder
@@ -66,12 +62,10 @@ val runOnAndroidTvPatch = resourcePatch(
     category("Setup")
 
     compatibleWith(
-        Amc.COMPATIBILITY,
         Starz.COMPATIBILITY,
         Disney.COMPATIBILITY,
         Peacock.COMPATIBILITY,
         Paramount.COMPATIBILITY,
-        Pbs.COMPATIBILITY,
         Mgm.COMPATIBILITY,
         Shudder.COMPATIBILITY,
         SundanceNow.COMPATIBILITY,
@@ -79,8 +73,6 @@ val runOnAndroidTvPatch = resourcePatch(
         Kanopy.COMPATIBILITY,
         Hulu.COMPATIBILITY,
         PrimeVideo.COMPATIBILITY,
-        Fandango.COMPATIBILITY,
-        FoxOne.COMPATIBILITY,
         Espn.COMPATIBILITY,
         Mlb.COMPATIBILITY,
         Nba.COMPATIBILITY,

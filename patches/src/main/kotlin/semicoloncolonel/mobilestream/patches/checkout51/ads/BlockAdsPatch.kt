@@ -15,6 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import semicoloncolonel.mobilestream.patches.checkout51.shared.Constants
 import semicoloncolonel.mobilestream.patches.checkout51.shared.GetListItemsFromOfferModelsFingerprint
 import semicoloncolonel.mobilestream.patches.checkout51.shared.SHOPPING_ADS_FILTER
+import semicoloncolonel.mobilestream.patches.checkout51.shared.fixStuckDialogPatch
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Block ads.
@@ -53,6 +54,8 @@ val blockAdsPatch = bytecodePatch(
     description = "Removes the ad shown on launch and the ads in the offer list and highlights.",
 ) {
     compatibleWith(Constants.COMPATIBILITY)
+
+    dependsOn(fixStuckDialogPatch)
 
     extendWith("extensions/extension.mpe")
 

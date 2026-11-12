@@ -309,4 +309,5 @@
 # Checkout 51 — "List gas offers". onMarkers is called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.checkout51.GasOfferList {
     public static void onMarkers(java.lang.Object, java.lang.Object);
+    public static void onDetailsView(java.lang.Object, android.view.View);
 }

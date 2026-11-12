@@ -93,15 +93,15 @@ Each table lists an app's patches and the versions they were tested on. [What th
 |-----|---------|----------------|--------------|
 | Amazon Shopping | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `32.20.0.100`<br>`32.19.0.100` | 11/10/26 |
 | Best Buy | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.10` | 11/01/26 |
-| Checkout 51 | Block ads (experimental)<br>Hide pop-ups (experimental)<br>Dark mode (experimental, off by default)<br>GmsCore support (off by default) | `9.22.10` | 11/11/26 |
+| Checkout 51 | Block ads (experimental)<br>Hide pop-ups (experimental)<br>Dark mode (experimental, off by default)<br>GmsCore support (off by default)<br>Strip affiliate links (experimental, off by default) | `9.22.10` | 11/11/26 |
 | Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.2.2` | 11/08/26 |
 | CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.30` (experimental)<br>`26.10.50` | 11/10/26 |
-| DealNews | Disable Pairip license check<br>Block ads<br>Hide pop-ups<br>Block analytics & tracking (off by default) | `10.7.2` (experimental)<br>`10.7.1` | 11/11/26 |
+| DealNews | Disable Pairip license check<br>Block ads<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (off by default) | `10.7.2` (experimental)<br>`10.7.1` | 11/11/26 |
 | DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default) | `1.64.0` | 11/10/26 |
-| Flipp | Block ads (experimental)<br>Skip tutorials (experimental) | `115.0.0` | 11/10/26 |
+| Flipp | Block ads (experimental)<br>Skip tutorials (experimental)<br>Strip affiliate links (experimental) | `115.0.0` | 11/10/26 |
 | Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | 11/10/26 |
-| RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.0.6` | 11/11/26 |
-| Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.36.0` | 11/11/26 |
+| RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.0.6` | 11/11/26 |
+| Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.36.0` | 11/11/26 |
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0` | 11/09/26 |
 | The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |
 | Walgreens | Hide sponsored products (experimental)<br>Hide surveys and rating prompt (experimental) | `118.0` | 11/10/26 |

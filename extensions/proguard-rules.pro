@@ -311,3 +311,8 @@
     public static void onMarkers(java.lang.Object, java.lang.Object);
     public static void onDetailsView(java.lang.Object, android.view.View);
 }
+
+# Yahoo Finance — the flag lists and prompt steps, read from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.yahoofinance.FinanceFlags {
+    public static *;
+}

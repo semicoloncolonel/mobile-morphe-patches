@@ -260,11 +260,14 @@ internal fun gmsCoreSupportPatch(
         extendWith("extensions/extension.mpe")
 
         execute {
-            val available = AnyPlayServicesAvailableFingerprint.methodOrNull
-                ?: NamedPlayServicesAvailableFingerprint.methodOrNull
-                ?: ResourcesPlayServicesAvailableFingerprint.methodOrNull
-                ?: throw PatchException("Play services availability check not found")
-            available.returnEarly(0)
+            // Some builds have no availability check left: R8 removes it when
+            // nothing calls it (Yahoo Finance 26.22.2), and there is then
+            // nothing to bypass.
+            (
+                AnyPlayServicesAvailableFingerprint.methodOrNull
+                    ?: NamedPlayServicesAvailableFingerprint.methodOrNull
+                    ?: ResourcesPlayServicesAvailableFingerprint.methodOrNull
+            )?.returnEarly(0)
 
             fun replaceStrings(from: String, to: String) {
                 string(from).matchAllMethodIndicesForEach(requireMatches = false) { index ->

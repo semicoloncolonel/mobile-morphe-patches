@@ -29,7 +29,7 @@ import java.util.Locale;
  * receives them as a Resource of (GupOffer, marker) pairs. {@link #onMarkers}
  * runs first in that observer and draws one row per offer inside the MapView,
  * so the app's own controls and its bottom details bar stay on top. Tapping a
- * row calls the fragment's onNewSelectedOffer, the same as tapping a pin.
+ * row sets the view model's selected offer, the same as tapping a pin.
  *
  * Everything is read with reflection from Checkout 51's unobfuscated model
  * classes, and nothing leaves the device. Any failure leaves the screen as it
@@ -108,6 +108,7 @@ public final class GasOfferList {
 
         map.addView(scroll, new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        map.post(scroll::bringToFront);
         Log.i(TAG, "listed " + offers.size() + " gas offers");
     }
 
@@ -153,14 +154,102 @@ public final class GasOfferList {
         return row;
     }
 
-    /** The same as tapping the offer's pin: the details bar opens. */
+    /**
+     * The same as tapping the offer's pin: the offer goes into the view
+     * model's selectedOffer, which opens the details bar and which the
+     * Details screen reads.
+     */
     private static void select(Object fragment, Object offer) {
         try {
-            Method method = fragment.getClass().getDeclaredMethod("onNewSelectedOffer", offer.getClass());
-            method.setAccessible(true);
-            method.invoke(fragment, offer);
+            Field field = fragment.getClass().getDeclaredField("viewModel");
+            field.setAccessible(true);
+            Object selected = call(field.get(fragment), "getSelectedOffer");
+            selected.getClass().getMethod("setValue", Object.class).invoke(selected, offer);
         } catch (Throwable t) {
             Log.w(TAG, "could not select offer: " + t);
+        }
+    }
+
+    // ── Details screen ─────────────────────────────────────────────────────
+
+    /**
+     * Called at the start of GupDetailsFragment.onViewCreated. The Details
+     * screen's map is blank for the same reason, so a button over it opens
+     * the station in the maps app you choose. Nothing is sent until you tap.
+     */
+    public static void onDetailsView(Object fragment, View root) {
+        try {
+            int mapId = root.getResources().getIdentifier("mapView", "id", root.getContext().getPackageName());
+            View map = mapId == 0 ? null : root.findViewById(mapId);
+            if (!(map instanceof FrameLayout)) {
+                Log.w(TAG, "no details map to cover (id " + mapId + ", view " + map + ")");
+                return;
+            }
+            Context context = map.getContext();
+            FrameLayout cover = new FrameLayout(context);
+            cover.setBackgroundColor(0xFFF2F2F2);
+            cover.setClickable(true);
+            TextView button = text(context, "Directions", 16, true, Color.WHITE);
+            button.setGravity(Gravity.CENTER);
+            android.graphics.drawable.GradientDrawable pill = new android.graphics.drawable.GradientDrawable();
+            pill.setColor(GREEN);
+            pill.setCornerRadius(dp(context, 24));
+            button.setBackground(pill);
+            button.setPadding(dp(context, 28), dp(context, 12), dp(context, 28), dp(context, 12));
+            button.setOnClickListener(v -> openDirections(fragment, context));
+            cover.addView(button, new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+            FrameLayout frame = (FrameLayout) map;
+            frame.addView(cover, new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            // The Maps SDK clears the MapView and adds its own views
+            // afterwards; keep the cover in it and in front.
+            frame.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
+                @Override
+                public void onChildViewAdded(View parent, View child) {
+                    if (child != cover) {
+                        frame.post(cover::bringToFront);
+                    }
+                }
+
+                @Override
+                public void onChildViewRemoved(View parent, View child) {
+                    // MapView.onCreate clears its children; put the cover back.
+                    if (child == cover) {
+                        frame.post(() -> {
+                            if (cover.getParent() == null) {
+                                frame.addView(cover, new FrameLayout.LayoutParams(
+                                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                            }
+                        });
+                    }
+                }
+            });
+            frame.post(cover::bringToFront);
+        } catch (Throwable t) {
+            Log.w(TAG, "could not cover the details map: " + t);
+        }
+    }
+
+    private static void openDirections(Object fragment, Context context) {
+        try {
+            Field field = fragment.getClass().getDeclaredField("savedLocation");
+            field.setAccessible(true);
+            Object site = field.get(fragment);
+            Object lat = call(site, "getLatitude");
+            Object lng = call(site, "getLongitude");
+            if (!(lat instanceof Double) || !(lng instanceof Double)) {
+                return;
+            }
+            String place = String.format(Locale.US, "%f,%f", (Double) lat, (Double) lng);
+            String address = string(call(site, "getAddress1"));
+            String label = address == null ? "" : "(" + android.net.Uri.encode(address) + ")";
+            android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_VIEW,
+                    android.net.Uri.parse("geo:" + place + "?q=" + place + label));
+            intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(android.content.Intent.createChooser(intent, "Directions"));
+        } catch (Throwable t) {
+            Log.w(TAG, "could not open directions: " + t);
         }
     }
 

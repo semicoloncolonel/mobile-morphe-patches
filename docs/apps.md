@@ -69,7 +69,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.12.0.42675` | 10/30/26 |
 | The Washington Post | Hide marketing pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `7.19.0`<br>`7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/12/26 |
 | USA TODAY | Hide rating prompt<br>Hide subscription prompts<br>Skip ads<br>Block analytics & tracking (off by default) | `8.15.0` | 11/06/26 |
-| Yahoo News | Disable AI<br>Disable video autoplay<br>Hide pop-ups (experimental)<br>Hide reading streaks<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `100.1.1` | 11/12/26 |
+| Yahoo News | Disable AI<br>Disable video autoplay<br>Hide pop-ups (experimental)<br>Hide reading streaks<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Show Follow and Local (experimental, off by default) | `100.1.1` | 11/12/26 |
 
 ## Social
 

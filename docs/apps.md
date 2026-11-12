@@ -17,7 +17,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | AMC+ | Skip ads (experimental)<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `1.8.62.1` | 10/31/26 |
 | Apple TV | Auto-skip (experimental)<br>Hide rating prompt (experimental)<br>Show release times (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable up next (experimental, off by default)<br>Hide player overlays (experimental, off by default) | `3.0.0` | 11/08/26 |
 | Apple TV (Android TV) | Auto-skip (Android TV, experimental)<br>Hide rating prompt (Android TV, experimental)<br>Show release times (Android TV, experimental)<br>Block analytics & tracking (Android TV, experimental, off by default) | `17.0.3`<br>`17.0.2` | 11/12/26 |
-| Disney+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
+| Disney+ (also on Android TV) | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
 | ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `8.29.0` | 11/04/26 |
 | Fandango at Home | Mask ads<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1` | 11/06/26 |
@@ -38,7 +38,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2610.4.0` | 11/08/26 |
-| Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |
+| Starz (also on Android TV) | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
 | Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-12T00:34:53",
-  "description": "## [1.0.21-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.9...v1.0.21-dev.10) (2026-11-12)\n\n\n### Features\n\n* add Checkout 51 ([d93fb98](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d93fb98fb184ac525b802e0a8f94d4146a202499))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.10/patches-1.0.21-dev.10.mpp",
+  "created_at": "2026-11-12T00:45:10",
+  "description": "## [1.0.21-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.10...v1.0.21-dev.11) (2026-11-12)\n\n\n### Features\n\n* **checkout51:** add GmsCore support and hide more pop-ups ([7de7ded](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7de7ded53fbc34260d38d2e0ce044ffcc4abbaec))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.11/patches-1.0.21-dev.11.mpp",
   "signature_download_url": "",
-  "version": "1.0.21-dev.10",
+  "version": "1.0.21-dev.11",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

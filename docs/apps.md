@@ -96,7 +96,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Checkout 51 | Block ads (experimental)<br>Hide pop-ups (experimental)<br>Dark mode (experimental, off by default)<br>GmsCore support (off by default) | `9.22.10` | 11/11/26 |
 | Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.2.2` | 11/08/26 |
 | CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.30` (experimental)<br>`26.10.50` | 11/10/26 |
-| DealNews | Disable Pairip license check<br>Block ads (experimental)<br>Hide pop-ups (experimental)<br>Block analytics & tracking (experimental, off by default) | `10.7.2` (experimental) | 11/11/26 |
+| DealNews | Disable Pairip license check<br>Block ads<br>Hide pop-ups<br>Block analytics & tracking (off by default) | `10.7.2` (experimental)<br>`10.7.1` | 11/11/26 |
 | DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default) | `1.64.0` | 11/10/26 |
 | Flipp | Block ads (experimental)<br>Skip tutorials (experimental) | `115.0.0` | 11/10/26 |
 | Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | 11/10/26 |

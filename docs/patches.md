@@ -83,7 +83,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide editor articles | DealSeek | The "From our editors" card on deal pages, which links to DealSeek's own articles about the product. |
-| Hide pop-ups | Checkout 51 | The "Want to see more offers?" sign-up sheet shown to guests, the welcome walkthrough after sign-up, the notification and Instant Offers prompts, the "turn on notifications" banner, Braze marketing messages, and the card in the offer list that asks you to rate the app. The country picker and the offline banner still show. |
+| Hide pop-ups | Checkout 51 | The "Want to see more offers?" sign-up sheet shown to guests, the welcome walkthrough after sign-up, the notification and Instant Offers prompts, the "turn on notifications" banner, the notice about location data shown before it asks for location again, Braze marketing messages, and the card in the offer list that asks you to rate the app. The country picker and the offline banner still show. |
 | Hide pop-ups | DealNews | The rating card and the walkthrough on first launch. The welcome screen that offers sign-in still appears once. |
 | Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
 | Hide prediction markets | Fox News | Kalshi and Polymarket market widgets in articles and live blogs. |

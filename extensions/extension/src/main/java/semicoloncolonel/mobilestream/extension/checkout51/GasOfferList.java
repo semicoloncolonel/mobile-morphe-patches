@@ -242,15 +242,37 @@ public final class GasOfferList {
                 return;
             }
             String place = String.format(Locale.US, "%f,%f", (Double) lat, (Double) lng);
-            String address = string(call(site, "getAddress1"));
-            String label = address == null ? "" : "(" + android.net.Uri.encode(address) + ")";
+            // The full address, as the Details screen shows it: "500 El Camino
+            // Real, San Carlos, CA 94070". Maps apps search it; the
+            // coordinates are the fallback when there is no address.
+            String address = fullAddress(site);
+            String query = address == null ? place : android.net.Uri.encode(address);
             android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_VIEW,
-                    android.net.Uri.parse("geo:" + place + "?q=" + place + label));
+                    android.net.Uri.parse("geo:" + place + "?q=" + query));
+            Log.i(TAG, "directions: " + intent.getData());
             intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(android.content.Intent.createChooser(intent, "Directions"));
         } catch (Throwable t) {
             Log.w(TAG, "could not open directions: " + t);
         }
+    }
+
+    private static String fullAddress(Object site) {
+        String street = string(call(site, "getAddress1"));
+        if (street == null) {
+            return null;
+        }
+        StringBuilder out = new StringBuilder(street);
+        String city = string(call(site, "getLocality"));
+        if (city != null) out.append(", ").append(city);
+        String region = string(call(site, "getRegion"));
+        String postCode = string(call(site, "getPostCode"));
+        if (region != null || postCode != null) {
+            out.append(", ");
+            if (region != null) out.append(region);
+            if (postCode != null) out.append(region != null ? " " : "").append(postCode);
+        }
+        return out.toString();
     }
 
     // ── Model reading ──────────────────────────────────────────────────────

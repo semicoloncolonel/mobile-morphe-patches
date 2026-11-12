@@ -1,3 +1,19 @@
+## [1.0.21-dev.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.14...v1.0.21-dev.15) (2026-11-12)
+
+
+### Bug Fixes
+
+* **appletv:** support the Android TV build 17.0.3, and find the MetricsKit chunk by its contents ([82f6880](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/82f6880e02a58692fa3f826cfe97a8bd6fb7f7fe))
+* testing AP News 6.32, Costco 26.10.3, theScore 26.16.1, and T-Mobile Play 19.5.2 as a standard target ([6a80146](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6a80146ee2d0bc79a309b0dff3ea703492647395))
+* **tlife:** support 12.4.0, where Radar, Adobe, Amplitude, and Luciq classes are renamed ([3ff6486](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3ff6486c0b98fb1b278e44c55b4c6c25444e03d1))
+* **washingtonpost:** support 7.19.0, and find the summary flag without a fixed field name ([f70fe4f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f70fe4f3f2a9a690d6139466e9aaffcfef537517))
+
+
+### Features
+
+* sort the patches of apps with five or more into folders in Morphe Manager ([85b2005](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/85b2005e0c5cc6db995b0826c49090611a18bd59))
+* **tubi:** add Hide update prompts ([e4632c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4632c505b9d153a921d1163ccb1c2d608022817))
+
 ## [1.0.21-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.13...v1.0.21-dev.14) (2026-11-12)
 
 

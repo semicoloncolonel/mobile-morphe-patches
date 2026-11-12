@@ -24,7 +24,9 @@ import java.util.Locale;
  * Checkout 51: lists the gas offers over the map.
  *
  * Google Maps draws nothing in a patched Checkout 51, because the app's Maps
- * key accepts only Checkout 51's own signature. The offers still arrive: the
+ * key accepts only Checkout 51's own signature. {@link OsmMapView} draws an
+ * OpenStreetMap map in its place, above a list of the offers. The offers
+ * still arrive: the
  * gas map fragment's markers observer (GupMapFragment.onViewCreated$lambda$2)
  * receives them as a Resource of (GupOffer, marker) pairs. {@link #onMarkers}
  * runs first in that observer and draws one row per offer inside the MapView,
@@ -85,16 +87,37 @@ public final class GasOfferList {
 
         Collections.sort(offers, (a, b) -> Double.compare(distance(a), distance(b)));
 
+        LinearLayout panel = new LinearLayout(context);
+        panel.setTag(LIST_TAG);
+        panel.setOrientation(LinearLayout.VERTICAL);
+        panel.setBackgroundColor(Color.WHITE);
+        panel.setClickable(true);
+
+        // The OpenStreetMap view on top, with a pin per offer showing its
+        // cash back in cents. Tapping a pin selects the offer, as in the app.
+        OsmMapView osm = new OsmMapView(context);
+        List<OsmMapView.Pin> pins = new ArrayList<>();
+        for (Object offer : offers) {
+            Object site = call(offer, "getSiteLocation");
+            Object lat = site == null ? null : call(site, "getLatitude");
+            Object lon = site == null ? null : call(site, "getLongitude");
+            if (lat instanceof Double && lon instanceof Double) {
+                int cents = regularCashBackCents(offer);
+                pins.add(new OsmMapView.Pin((Double) lat, (Double) lon, cents > 0 ? cents + "¢" : null, offer));
+            }
+        }
+        osm.setPins(pins);
+        osm.setOnPinClick(tag -> select(fragment, tag));
+        panel.addView(osm, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+
         ScrollView scroll = new ScrollView(context);
-        scroll.setTag(LIST_TAG);
-        scroll.setBackgroundColor(Color.WHITE);
-        scroll.setClickable(true);
         LinearLayout column = new LinearLayout(context);
         column.setOrientation(LinearLayout.VERTICAL);
         int pad = dp(context, 16);
         // Room at the bottom for the details bar, which opens over the list.
-        column.setPadding(0, dp(context, 72), 0, dp(context, 160));
+        column.setPadding(0, dp(context, 12), 0, dp(context, 160));
         scroll.addView(column);
+        panel.addView(scroll, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
         TextView heading = text(context, offers.isEmpty()
                 ? "No gas offers in this area."
@@ -103,16 +126,16 @@ public final class GasOfferList {
         column.addView(heading);
 
         for (Object offer : offers) {
-            column.addView(row(context, fragment, offer, pad));
+            column.addView(row(context, fragment, offer, pad, osm));
         }
 
-        map.addView(scroll, new FrameLayout.LayoutParams(
+        map.addView(panel, new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        map.post(scroll::bringToFront);
+        map.post(panel::bringToFront);
         Log.i(TAG, "listed " + offers.size() + " gas offers");
     }
 
-    private static View row(Context context, Object fragment, Object offer, int pad) {
+    private static View row(Context context, Object fragment, Object offer, int pad, OsmMapView osm) {
         LinearLayout row = new LinearLayout(context);
         row.setOrientation(LinearLayout.VERTICAL);
         row.setPadding(pad, dp(context, 12), pad, dp(context, 12));
@@ -150,7 +173,10 @@ public final class GasOfferList {
             row.addView(text(context, deal.toString(), 14, true, GREEN));
         }
 
-        row.setOnClickListener(v -> select(fragment, offer));
+        row.setOnClickListener(v -> {
+            osm.setSelected(offer);
+            select(fragment, offer);
+        });
         return row;
     }
 
@@ -174,8 +200,9 @@ public final class GasOfferList {
 
     /**
      * Called at the start of GupDetailsFragment.onViewCreated. The Details
-     * screen's map is blank for the same reason, so a button over it opens
-     * the station in the maps app you choose. Nothing is sent until you tap.
+     * screen's Google map is blank for the same reason, so an OpenStreetMap
+     * view with the station takes its place, with a Directions button that
+     * opens the station in the maps app you choose.
      */
     public static void onDetailsView(Object fragment, View root) {
         try {
@@ -187,18 +214,26 @@ public final class GasOfferList {
             }
             Context context = map.getContext();
             FrameLayout cover = new FrameLayout(context);
-            cover.setBackgroundColor(0xFFF2F2F2);
             cover.setClickable(true);
-            TextView button = text(context, "Directions", 16, true, Color.WHITE);
+            // The station on an OpenStreetMap view. Its location is bound a
+            // moment after the screen is created, so it is read once it is set.
+            OsmMapView osm = new OsmMapView(context);
+            cover.addView(osm, new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            showStation(fragment, osm, 0);
+            TextView button = text(context, "Directions", 14, true, Color.WHITE);
             button.setGravity(Gravity.CENTER);
             android.graphics.drawable.GradientDrawable pill = new android.graphics.drawable.GradientDrawable();
             pill.setColor(GREEN);
-            pill.setCornerRadius(dp(context, 24));
+            pill.setCornerRadius(dp(context, 20));
             button.setBackground(pill);
-            button.setPadding(dp(context, 28), dp(context, 12), dp(context, 28), dp(context, 12));
+            button.setElevation(dp(context, 2));
+            button.setPadding(dp(context, 18), dp(context, 8), dp(context, 18), dp(context, 8));
             button.setOnClickListener(v -> openDirections(fragment, context));
-            cover.addView(button, new FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+            FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.END);
+            buttonParams.setMargins(0, dp(context, 12), dp(context, 12), 0);
+            cover.addView(button, buttonParams);
             FrameLayout frame = (FrameLayout) map;
             frame.addView(cover, new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -228,6 +263,28 @@ public final class GasOfferList {
             frame.post(cover::bringToFront);
         } catch (Throwable t) {
             Log.w(TAG, "could not cover the details map: " + t);
+        }
+    }
+
+    private static void showStation(Object fragment, OsmMapView osm, int attempt) {
+        try {
+            Field field = fragment.getClass().getDeclaredField("savedLocation");
+            field.setAccessible(true);
+            Object site = field.get(fragment);
+            Object lat = call(site, "getLatitude");
+            Object lon = call(site, "getLongitude");
+            if (lat instanceof Double && lon instanceof Double) {
+                List<OsmMapView.Pin> pins = new ArrayList<>();
+                pins.add(new OsmMapView.Pin((Double) lat, (Double) lon, null, site));
+                osm.setPins(pins);
+                return;
+            }
+        } catch (Throwable t) {
+            Log.w(TAG, "could not read the station location: " + t);
+            return;
+        }
+        if (attempt < 20) {
+            osm.postDelayed(() -> showStation(fragment, osm, attempt + 1), 250);
         }
     }
 

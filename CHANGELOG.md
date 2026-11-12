@@ -1,3 +1,11 @@
+## [1.0.21-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.11...v1.0.21-dev.12) (2026-11-12)
+
+
+### Features
+
+* **tubi:** support the Android TV build 10.44.5001 ([cc03dd7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cc03dd716fc17875c95c0a63ebde0446d5be1918)), closes [#43](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/43)
+* **walmart:** hide card offers, Walmart+ promotions, creator videos, and pop-ups ([96bd978](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/96bd9784b45b8d05b70250de1f702e34d1d73345))
+
 ## [1.0.21-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.10...v1.0.21-dev.11) (2026-11-12)
 
 

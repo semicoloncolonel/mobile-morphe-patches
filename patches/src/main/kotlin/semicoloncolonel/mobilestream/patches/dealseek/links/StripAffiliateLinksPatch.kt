@@ -62,6 +62,7 @@ val stripAffiliateLinksPatch = bytecodePatch(
     name = "Strip affiliate links",
     description = "Opens each deal at the store's own page, without click tracking or affiliate tags.",
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

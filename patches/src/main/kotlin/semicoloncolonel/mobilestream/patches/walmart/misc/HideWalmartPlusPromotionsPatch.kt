@@ -30,6 +30,7 @@ val hideWalmartPlusPromotionsPatch = bytecodePatch(
     name = "Hide Walmart+ promotions",
     description = "Removes Walmart+ sign-up banners, free-trial offers, splashes, and the auto-playing membership video.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

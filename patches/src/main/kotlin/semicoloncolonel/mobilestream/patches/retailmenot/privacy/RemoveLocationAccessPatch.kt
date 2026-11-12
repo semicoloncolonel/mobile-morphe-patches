@@ -42,6 +42,7 @@ val removeLocationAccessPatch = bytecodePatch(
     description = "Keeps the app from reading your location, even when location access is allowed.",
     default = false,
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

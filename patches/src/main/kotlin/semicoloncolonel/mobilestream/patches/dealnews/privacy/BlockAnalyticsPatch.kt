@@ -26,6 +26,7 @@ val blockAnalyticsPatch = bytecodePatch(
     description = "Stops Firebase Analytics and Google ad measurement.",
     default = false,
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(analyticsKillSwitchesPatch)

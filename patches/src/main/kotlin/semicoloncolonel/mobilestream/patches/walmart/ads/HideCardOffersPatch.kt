@@ -31,6 +31,7 @@ val hideCardOffersPatch = bytecodePatch(
     name = "Hide card offers",
     description = "Removes Walmart's banners and prompts for the OnePay debit card, its credit cards, and OnePay Later.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

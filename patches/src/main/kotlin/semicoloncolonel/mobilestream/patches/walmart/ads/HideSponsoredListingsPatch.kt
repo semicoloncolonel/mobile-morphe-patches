@@ -75,6 +75,7 @@ val hideSponsoredListingsPatch = bytecodePatch(
     description = "Removes sponsored products from Walmart's search results and category pages, " +
         "and turns off sponsored carousels, banners, and video.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

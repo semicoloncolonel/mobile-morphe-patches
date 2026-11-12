@@ -19,6 +19,7 @@ val hideCreatorVideosPatch = bytecodePatch(
     name = "Hide creator videos",
     description = "Removes the \"Featured in videos\" creator sections and video carousels.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

@@ -36,6 +36,7 @@ val hideUpdatePromptsPatch = bytecodePatch(
     name = "Hide update prompts",
     description = "Stops the app from asking you to update. A patched app cannot be updated through Google Play.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

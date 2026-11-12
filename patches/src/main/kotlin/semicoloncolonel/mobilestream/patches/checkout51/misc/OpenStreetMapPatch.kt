@@ -45,6 +45,7 @@ val listGasOffersPatch = bytecodePatch(
     description = "Replaces the gas maps, which are blank in a patched app because Google Maps rejects its key, " +
         "with OpenStreetMap maps and a list of the offers. The details screen gets a Directions button.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

@@ -43,6 +43,7 @@ val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
     description = "Removes the banner and sponsored-content ads, and the ads in videos and clips.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

@@ -65,6 +65,7 @@ val blockLocationTrackingPatch = bytecodePatch(
     description = "Stops Foursquare's Movement SDK, which records the places you visit in the background " +
         "and reports them with your user ID, gender, and birthday.",
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(removeFoursquareComponentsPatch)

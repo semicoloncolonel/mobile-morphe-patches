@@ -32,6 +32,7 @@ val hideEditorArticlesPatch = resourcePatch(
     name = "Hide editor articles",
     description = "Removes the \"From our editors\" card from deal pages.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(hideEditorArticlesInBundlePatch, disableExpoUpdatesPatch)

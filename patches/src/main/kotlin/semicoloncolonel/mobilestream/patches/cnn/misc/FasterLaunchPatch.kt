@@ -32,6 +32,7 @@ val fasterLaunchPatch = bytecodePatch(
     name = "Faster launch",
     description = "Opens the app without waiting to download its feature settings.",
 ) {
+    category("Setup")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

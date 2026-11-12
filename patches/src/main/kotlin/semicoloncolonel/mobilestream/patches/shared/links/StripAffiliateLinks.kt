@@ -136,12 +136,14 @@ internal fun stripAffiliateLinksPatch(
     compatibility: Compatibility,
     description: String,
     use: Boolean = true,
+    category: String? = null,
 ) = bytecodePatch(
     name = "Strip affiliate links",
     description = description,
     default = use,
 ) {
     compatibleWith(compatibility)
+    category?.let { category(it) }
     extendWith("extensions/extension.mpe")
     execute { routeLinksThroughCleaner() }
 }

@@ -36,6 +36,7 @@ val hidePopupsPatch = bytecodePatch(
     name = "Hide pop-ups",
     description = "Removes surveys, review and feedback requests, tooltips, nudges, and the holiday splash.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

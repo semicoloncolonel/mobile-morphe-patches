@@ -305,3 +305,8 @@
 -keep class semicoloncolonel.mobilestream.extension.shared.links.AffiliateLinkCleaner {
     public static *;
 }
+
+# Checkout 51 — "List gas offers". onMarkers is called only from injected smali.
+-keep class semicoloncolonel.mobilestream.extension.checkout51.GasOfferList {
+    public static void onMarkers(java.lang.Object, java.lang.Object);
+}

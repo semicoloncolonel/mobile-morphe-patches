@@ -1,3 +1,16 @@
+## [1.0.21-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.16...v1.0.21-dev.17) (2026-11-12)
+
+
+### Features
+
+* support the Disney+ and Starz Android TV builds ([4ee3aaf](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4ee3aafd82be861e3c6b0de3da32ccf8b282308c))
+
+
+### Reverts
+
+* Revert "feat: add Run on Android TV to streaming apps without a TV build" ([b151b68](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b151b68100669a08834f45c68d4265b2de5e7b76))
+* Revert "feat: extend Run on Android TV to AMC+, Fox One, PBS, and Fandango at Home" ([5647117](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5647117868a7da3e1e94675cf8a7438cad6b31bb))
+
 ## [1.0.21-dev.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.15...v1.0.21-dev.16) (2026-11-12)
 
 

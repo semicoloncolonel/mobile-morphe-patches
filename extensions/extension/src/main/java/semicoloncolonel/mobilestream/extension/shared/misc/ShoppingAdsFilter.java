@@ -521,4 +521,59 @@ public final class ShoppingAdsFilter {
         }
         return value;
     }
+
+    /** Checkout 51: what {@link #checkout51Offers} drops. */
+    public static final int CHECKOUT51_ADS = 1;
+    public static final int CHECKOUT51_REVIEW_PROMPT = 2;
+
+    /**
+     * Checkout 51: called with the offer models before they become list rows, in the offer list
+     * and in search. CHECKOUT51_ADS drops Google ad rows (isDfpAd) and highlight-carousel ads (a
+     * highlight whose meta names an ad unit). CHECKOUT51_REVIEW_PROMPT drops the rate-the-app row,
+     * an offer model carrying the "_app_review_prompt_" label. Returns the list unchanged on error.
+     */
+    public static java.util.List checkout51Offers(java.util.List offers, int drop) {
+        if (offers == null || offers.isEmpty()) {
+            return offers;
+        }
+        try {
+            java.util.ArrayList kept = new java.util.ArrayList(offers.size());
+            int dropped = 0;
+            for (Object offer : offers) {
+                if (offer != null && isCheckout51Dropped(offer, drop)) {
+                    dropped++;
+                } else {
+                    kept.add(offer);
+                }
+            }
+            if (dropped == 0) {
+                return offers;
+            }
+            Log.i(TAG, "Checkout 51: left out " + dropped + (drop == CHECKOUT51_ADS ? " ads" : " review prompts"));
+            return kept;
+        } catch (Throwable t) {
+            Log.w(TAG, "Checkout 51 filter failed: " + t);
+            return offers;
+        }
+    }
+
+    private static boolean isCheckout51Dropped(Object offer, int drop) throws Exception {
+        Class<?> type = offer.getClass();
+        if (drop == CHECKOUT51_ADS) {
+            if (Boolean.TRUE.equals(type.getMethod("isDfpAd").invoke(offer))) {
+                return true;
+            }
+            if (Boolean.TRUE.equals(type.getMethod("isHighlight").invoke(offer))) {
+                Object meta = type.getMethod("getMeta").invoke(offer);
+                return meta != null && meta.getClass().getMethod("getHighlightAdId").invoke(meta) != null;
+            }
+            return false;
+        }
+        if (drop == CHECKOUT51_REVIEW_PROMPT) {
+            Object labels = type.getMethod("getLabels").invoke(offer);
+            return labels instanceof java.util.Collection
+                    && ((java.util.Collection<?>) labels).contains("_app_review_prompt_");
+        }
+        return false;
+    }
 }

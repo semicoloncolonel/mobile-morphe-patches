@@ -1,3 +1,10 @@
+## [1.0.21-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.10...v1.0.21-dev.11) (2026-11-12)
+
+
+### Features
+
+* **checkout51:** add GmsCore support and hide more pop-ups ([7de7ded](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7de7ded53fbc34260d38d2e0ce044ffcc4abbaec))
+
 ## [1.0.21-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.9...v1.0.21-dev.10) (2026-11-12)
 
 

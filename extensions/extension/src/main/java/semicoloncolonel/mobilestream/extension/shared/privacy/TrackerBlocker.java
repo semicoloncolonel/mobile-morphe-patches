@@ -172,6 +172,8 @@ public final class TrackerBlocker {
             "signal-service.pbs.yahoo.com", "bats.video.yahoo.com", "log.adaptv.advertising.com",
             "metrics.brightcove.com", "tracking.taboola.com", "beacon.taboola.com",
             "adsafeprotected.com", "wvsignal.com",
+            // Yahoo Finance (26.22.2): Embrace, the sGTM collector, and ad verification.
+            "data.emb-api.com", "config.emb-api.com", "doubleverify.com",
             // NPR (7.10.0), AP News (6.31.2), and NewsBreak (26.44.1)
             "quantserve.com", "quantcount.com", // Quantcast measurement
             "tahoe-analytics.publishers.advertising.a2z.com", // Amazon publisher ad analytics

@@ -44,6 +44,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - YouTube TV: ads inserted into on-demand videos and DVR recordings, and overlay and pause ads. With Mask live ad breaks, the ads YouTube TV inserts into live breaks are covered instead.
 
 - Yahoo News: the Taboola ad rows in the feeds, the ad slots in articles, and the ads before videos. The video player is also told that you opt out of ads, so it stops sending your device ID.
+- Yahoo Finance: the ads on Home, Markets, quote pages, and in news, including the Taboola stream ads, and the ads in videos. Each ad slot is told its ad failed, so it shows nothing. The video player is also told that you opt out of ads, so it stops sending your device ID. Ads inside article web pages are not covered.
 </details>
 
 **Block ads** (Checkout 51, DealNews, Flipp, JustWatch, Moviebase, Slickdeals, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On Checkout 51, it removes the full-screen ad shown on launch and the Google ads in the offer list, search, and highlights. On DealNews, it removes the ad banner from deal pages. On Slickdeals, it removes the ads in every feed and on deal pages, sponsored carousels, and deals marked Promoted. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
@@ -99,7 +100,9 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide surveys and rating prompt | Walgreens | Medallia surveys and the rate-the-app dialog on the home screen. |
 | Hide creator videos | Walmart | The "Featured in videos" sections from content creators on item pages and the video carousels on the home and membership pages. |
 | Hide pop-ups | Walmart | Surveys and review requests after checkout, the "Give feedback" row, tooltips and coach marks, update nudges, sign-in and survey nudges, and the full-screen event splash. |
+| Hide pop-ups | Yahoo Finance | The "Enjoying Yahoo Finance?" drawer and the review request after it, the feedback prompts on new screens, announcement sheets, tours and coach marks, tooltips, the widget prompt, and the beta program invitation. Privacy and consent screens still show. |
 | Hide pop-ups | Yahoo News | The "rate the app" screen, the banners and cards that ask you to turn on notifications, and the Ask Scout and You tab tooltips. |
+| Hide Plus upsells | Yahoo Finance | The Yahoo Finance Plus banners, sheets, and cards, and the Coinbase "Trade Now" referral button. Features that need Plus stay locked and still show the paywall when tapped. |
 | Hide reading streaks | Yahoo News | The reading level and day streak on Home and Profile, and the pop-ups that celebrate a new level or a longer streak. Yahoo still counts your reads on its server. |
 | Customize bottom bar | Yahoo News (off by default) | Hides the bottom tabs you choose in its options: Trending, Games, Notifications, or Search. Home always stays. |
 | Show unreleased features | Yahoo News (off by default) | Turns on the features you choose in its options, which Yahoo has not released to everyone: Follow buttons with a Following feed, the Local news tab (it shows only after you allow the app to use your location), a Video tab, picture-in-picture that keeps playing while you move around the app, and Listen on articles. Listen reads articles with Yahoo Scout's AI voice, so it cannot be used with Disable AI; patching stops with a message if both are on. |
@@ -160,6 +163,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Xfinity: the Xfinity Assistant. Support steps that open it can stop working.
 
 - Yahoo News: Ask Scout, Yahoo's AI answer engine, with its tab, button, prompts, and announcement, the AI "Key takeaways" on stories, and the AI comment summaries.
+- Yahoo Finance: Yahoo Scout, with its chat, tab, search entry, and onboarding, Ask AI on selected text, Article Dig Deeper chat, the AI Analyst on quote pages, and the AI insight cards.
 </details>
 
 ## Privacy
@@ -234,6 +238,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Xumo Play: Xumo's own viewing and impression beacons, Adobe Analytics, Braze, and Kochava.
 
 - Yahoo News: Firebase/Google Analytics, AppsFlyer, Datadog, comScore, Yahoo's own analytics and ID sync, and Taboola and ad-verification beacons.
+- Yahoo Finance: AppsFlyer, comScore, Chartbeat, Embrace, Google Analytics and Yahoo's server-side forwarding, and Yahoo's own beacons.
 </details>
 
 ### App-specific privacy patches
@@ -295,7 +300,7 @@ These patches are off by default.
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
 | Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
 | Fix launch with DNS blockers | CNBC | Opens the app when a DNS blocker blocks OneTrust, the app's privacy consent service. Without it, the app stays on its splash screen. |
-| GmsCore support | AP News, Checkout 51, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, Yahoo News, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, JustWatch, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. On Yahoo News it is off by default and moves only push notifications and Firebase, because Yahoo sign-in does not use Google. |
+| GmsCore support | AP News, Checkout 51, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, Yahoo Finance, Yahoo News, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, JustWatch, MLB, NewsBreak, The Daily Wire, and Yahoo Finance it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. On Yahoo News it is off by default and moves only push notifications and Firebase, because Yahoo sign-in does not use Google. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 
 ## Needed for the app to run

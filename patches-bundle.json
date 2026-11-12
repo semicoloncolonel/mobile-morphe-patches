@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-12T00:45:10",
-  "description": "## [1.0.21-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.10...v1.0.21-dev.11) (2026-11-12)\n\n\n### Features\n\n* **checkout51:** add GmsCore support and hide more pop-ups ([7de7ded](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7de7ded53fbc34260d38d2e0ce044ffcc4abbaec))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.11/patches-1.0.21-dev.11.mpp",
+  "created_at": "2026-11-12T01:27:00",
+  "description": "## [1.0.21-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.11...v1.0.21-dev.12) (2026-11-12)\n\n\n### Features\n\n* **tubi:** support the Android TV build 10.44.5001 ([cc03dd7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cc03dd716fc17875c95c0a63ebde0446d5be1918)), closes [#43](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/43)\n* **walmart:** hide card offers, Walmart+ promotions, creator videos, and pop-ups ([96bd978](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/96bd9784b45b8d05b70250de1f702e34d1d73345))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.12/patches-1.0.21-dev.12.mpp",
   "signature_download_url": "",
-  "version": "1.0.21-dev.11",
+  "version": "1.0.21-dev.12",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

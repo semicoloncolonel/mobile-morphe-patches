@@ -89,6 +89,23 @@ internal object AnyPlayServicesGetCredentialFingerprint : Fingerprint(
     custom = { method, _ -> method.isAvailableOnDeviceCall() >= 0 },
 )
 
+// CredentialProviderFrameworkImpl.isAvailableOnDevice, the system Credential
+// Manager provider. Its class keeps its log text even where R8 renamed it.
+internal object FrameworkCredentialProviderAvailableFingerprint : Fingerprint(
+    name = "isAvailableOnDevice",
+    returnType = "Z",
+    parameters = listOf(),
+    custom = { _, classDef ->
+        classDef.methods.any { method ->
+            method.implementation?.instructions?.any { insn ->
+                insn.opcode == Opcode.CONST_STRING &&
+                    ((insn as ReferenceInstruction).reference as StringReference).string
+                        .startsWith("In CredentialProviderFrameworkImpl")
+            } == true
+        }
+    },
+)
+
 private fun com.android.tools.smali.dexlib2.iface.Method.isAvailableOnDeviceCall() =
     implementation?.instructions?.indexOfFirst {
         it.opcode == Opcode.INVOKE_VIRTUAL &&
@@ -311,6 +328,11 @@ internal fun gmsCoreSupportPatch(
                     """,
                 )
             }
+            // Older androidx.credentials versions, where neither of the above
+            // matches: the system provider reports itself unavailable, so the
+            // factory falls back to the Play services provider.
+            FrameworkCredentialProviderAvailableFingerprint.methodOrNull?.returnEarly(false)
+
             AnyPlayServicesGetCredentialFingerprint.methodOrNull?.apply {
                 val call = isAvailableOnDeviceCall()
                 if (instructions[call + 1].opcode != Opcode.MOVE_RESULT) {

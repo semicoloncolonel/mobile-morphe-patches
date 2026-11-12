@@ -38,7 +38,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2610.4.0` | 11/08/26 |
-| Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.11.0` | 10/31/26 |
+| Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
 | Tubi | Hide sign-in prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |

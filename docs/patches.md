@@ -63,6 +63,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide sponsored products | Costco | Removes the sponsored products and ad placements from the home page, search results, and category pages. The app no longer asks Costco's server for them, so no empty space is left behind. |
 | Hide sponsored products | Walgreens | Turns off the sponsored product carousels, the ad banners, and the partner offers after checkout. |
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |
+| Hide card offers | Walmart | Removes the banners and prompts for the OnePay debit card, the OnePay and Capital One credit cards, and OnePay Later: on item pages, in the cart and checkout, on the thank-you page, in the wallet, and in the department chips. Paying with OnePay or a linked card is unchanged. |
 | Strip affiliate links | DealSeek | Opens each deal at the store's own page, without DealSeek's click tracker or affiliate tags. Covers Amazon, Walmart, Best Buy, eBay, Wayfair, and Target. |
 
 ## Pop-ups and prompts
@@ -94,6 +95,9 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide Premium upsell | Moviebase | The Premium screen that opens on its own at launch and after sign-in. Premium still opens from Settings and the app's buttons. |
 | Hide surveys and rating prompt | NBC News | Iterate surveys and the rate-the-app prompt. |
 | Hide surveys and rating prompt | Walgreens | Medallia surveys and the rate-the-app dialog on the home screen. |
+| Hide creator videos | Walmart | The "Featured in videos" sections from content creators on item pages and the video carousels on the home and membership pages. |
+| Hide pop-ups | Walmart | Surveys and review requests after checkout, the "Give feedback" row, tooltips and coach marks, update nudges, sign-in and survey nudges, and the full-screen event splash. |
+| Hide Walmart+ promotions | Walmart | Walmart+ sign-up banners and their slides in the home carousel, the early-access countdown, free-trial offers, splashes, and the auto-playing membership video. Member benefits and account pages are unchanged. |
 | Skip tutorials | Flipp | The sheet after setup, the spotlights on the search bar, the save button, and the Lists tab, and the tutorials in flyers, coupons, and the shopping list. |
 | Hide sign-up prompts | Slickdeals | The sign-up flow on first launch, the notification prompt screen, the image tooltip, the "Log in / Sign up" nudges after a number of sessions, deal views, and searches, and the rating prompt. Prompts that answer something you tapped, such as voting on a deal, still appear. |
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |

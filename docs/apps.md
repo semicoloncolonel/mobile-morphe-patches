@@ -105,7 +105,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0` | 11/09/26 |
 | The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |
 | Walgreens | Hide sponsored products (experimental)<br>Hide surveys and rating prompt (experimental) | `118.0` | 11/10/26 |
-| Walmart | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1` | 11/10/26 |
+| Walmart | Hide card offers (experimental)<br>Hide creator videos (experimental)<br>Hide pop-ups (experimental)<br>Hide sponsored listings (experimental)<br>Hide Walmart+ promotions (experimental)<br>Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1` | 11/10/26 |
 
 ## Carriers
 

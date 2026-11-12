@@ -576,4 +576,255 @@ public final class ShoppingAdsFilter {
         }
         return false;
     }
+
+    /** Walmart: flags that turn on credit and debit card promotions. Paying with a card is unaffected. */
+    private static final java.util.Set<String> WALMART_CARD_OFFER_KEYS = new java.util.HashSet<>(java.util.Arrays.asList(
+            "item.enableOneDebitCardBanner.enabled",
+            "feature.item.onePayCCp13n.enabled",
+            "feature.item.onepayprequal.enabled",
+            "feature.capitalone.preApproval.enabled",
+            "cart.onePayLater.prequal.enabled",
+            "checkout.onePayLater.prequal.enabled",
+            "checkout.buyNow.onePayLater.prequal.enabled",
+            "checkout.buyNow.onePayCreditCardBanner.enabled",
+            "checkout.thankYou.oneBanner.enabled",
+            "checkout.thankYou.capOneBanner.enabled",
+            "paymentTransaction.oneCreditCardBanner.enabled",
+            "ac.oneCreditCardBanner.enabled",
+            "account.oneCreditCard.splashScreen.enabled",
+            "account.wallet.oneCreditCardBanner.enabled",
+            "services.onedebitcard.landingTabSplashEnabled"));
+
+    /** Walmart: true for a config key that turns on a card promotion. */
+    public static boolean isWalmartCardOfferKey(String key) {
+        return key != null && WALMART_CARD_OFFER_KEYS.contains(key);
+    }
+
+    private static java.util.Set<String> setOf(String... values) {
+        return new java.util.HashSet<>(java.util.Arrays.asList(values));
+    }
+
+    /** Walmart: Tempo module types for card promotions. */
+    private static final java.util.Set<String> WALMART_CARD_OFFER_MODULES = setOf(
+            "OneDebitCardBanner", "OneCreditCardBanner", "CapitalOneBanner", "OnePayLaterBanner",
+            "SynchronyCreditBanner", "ThankYouOneBanner");
+
+    /** Walmart: Tempo module types that advertise Walmart+ to non-members. */
+    private static final java.util.Set<String> WALMART_PLUS_MODULES = setOf(
+            "WalmartPlusBanner", "WalmartPlusEarlyAccessBeforeEvent", "WalmartPlusEarlyAccessDuringEvent",
+            "FreeTrialModule", "PrismWalmartPlusEventBanner", "WalmartPlusSignupSharedBanner",
+            "WalmartPlusAcquisitionBanner", "WalmartPlusAcquisitionBottomsheet", "MembershipUpgradeBanner",
+            "WalmartPlusMPSInterstitialModule", "PrismEvergreenBanner");
+
+    /** Walmart: Tempo module types for creator and social video sections. */
+    private static final java.util.Set<String> WALMART_CREATOR_VIDEO_MODULES = setOf(
+            "MobileSocialContent", "VideoCarousel");
+
+    /** Walmart: Tempo module types that nag: sign-in, review, and survey prompts. */
+    private static final java.util.Set<String> WALMART_NAG_MODULES = setOf(
+            "SignInNudge", "SignInNudgeV1", "WriteAReviewBanner", "SurveyNudge", "EventSplashScreen");
+
+    /** Walmart: promo banners that carry one asset; dropped when that asset names a marker. */
+    private static final java.util.Set<String> WALMART_SINGLE_PROMO_MODULES = setOf(
+            "PrismTimerBanner", "PrismAdjustableBanner", "PrismEvergreenBanner", "PrismBanner",
+            "PrismHeroBanner", "PrismImageBanner");
+
+    /** Text that marks a Walmart+ promotion inside a module: asset names, titles, and links. */
+    private static final String[] WALMART_PLUS_MARKERS = {
+            "-WPL-", "WalmartPlusNonMember", "WalmartPlusNevermember", "title=Walmart+,", "title=Walmart+)",
+            "text=Join Walmart+"};
+
+    /** Text that marks a card promotion inside a module. */
+    private static final String[] WALMART_CARD_MARKERS = {
+            "title=Credit Card,", "title=Credit Card)", "OnePay", "CapitalOne", "Capital One"};
+
+    /** Walmart: a Tempo page's modules without the card promotions. */
+    public static java.util.List walmartCardOfferModules(java.util.List modules) {
+        return withoutWalmartModules(modules, WALMART_CARD_OFFER_MODULES, WALMART_CARD_MARKERS, "card offers");
+    }
+
+    /** Walmart: a Tempo page's modules without the Walmart+ promotions. */
+    public static java.util.List walmartPlusModules(java.util.List modules) {
+        return withoutWalmartModules(modules, WALMART_PLUS_MODULES, WALMART_PLUS_MARKERS, "Walmart+ promotions");
+    }
+
+    /** Walmart: a Tempo page's modules without creator videos. */
+    public static java.util.List walmartCreatorVideoModules(java.util.List modules) {
+        return withoutWalmartModules(modules, WALMART_CREATOR_VIDEO_MODULES, null, "creator video sections");
+    }
+
+    /** Walmart: a Tempo page's modules without nudges and event splash screens. */
+    public static java.util.List walmartNagModules(java.util.List modules) {
+        return withoutWalmartModules(modules, WALMART_NAG_MODULES, null, "nudges");
+    }
+
+    /**
+     * Leaves out every module whose Tempo type (getType()) is in {@code types}. With
+     * {@code markers}, a single-asset promo banner whose content names a marker is left out too,
+     * and inside every other module the list items that name a marker are removed: a carousel
+     * keeps its other slides and a navigation row its other chips.
+     */
+    private static java.util.List withoutWalmartModules(java.util.List modules, java.util.Set<String> types,
+            String[] markers, String what) {
+        if (modules == null || modules.isEmpty()) {
+            return modules;
+        }
+        try {
+            java.util.ArrayList kept = new java.util.ArrayList(modules.size());
+            int dropped = 0;
+            int[] pruned = {0};
+            for (Object module : modules) {
+                Object type = module == null ? null : get(module, "getType");
+                String name = type == null ? "" : type.toString();
+                if (types.contains(name)) {
+                    dropped++;
+                    continue;
+                }
+                if (markers != null && module != null) {
+                    String text = String.valueOf(module);
+                    if (containsAny(text, markers)) {
+                        if (WALMART_SINGLE_PROMO_MODULES.contains(name)) {
+                            dropped++;
+                            continue;
+                        }
+                        pruneMarked(module, markers, 4, pruned);
+                    }
+                }
+                kept.add(module);
+            }
+            if (dropped > 0 || pruned[0] > 0) {
+                Log.i(TAG, "Walmart: left out " + dropped + " " + what + " and " + pruned[0] + " items inside others");
+            }
+            return dropped == 0 ? modules : kept;
+        } catch (Throwable t) {
+            Log.w(TAG, "Walmart module filter failed: " + t);
+            return modules;
+        }
+    }
+
+    private static boolean containsAny(String text, String[] markers) {
+        for (String marker : markers) {
+            if (text.contains(marker)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Walks the object's fields. In a list where some items name a marker and some do not, the
+     * marked items are removed. A list whose items all name a marker is a wrapper: the walk
+     * goes into its items instead.
+     */
+    private static void pruneMarked(Object target, String[] markers, int depth, int[] pruned) {
+        if (target == null || depth <= 0) {
+            return;
+        }
+        for (Class<?> type = target.getClass(); type != null && type != Object.class; type = type.getSuperclass()) {
+            String typeName = type.getName();
+            if (typeName.startsWith("java.") || typeName.startsWith("kotlin.") || typeName.startsWith("android.")) {
+                return;
+            }
+            for (java.lang.reflect.Field field : type.getDeclaredFields()) {
+                if (java.lang.reflect.Modifier.isStatic(field.getModifiers()) || field.getType().isPrimitive()) {
+                    continue;
+                }
+                try {
+                    field.setAccessible(true);
+                    Object value = field.get(target);
+                    if (value instanceof java.util.List) {
+                        java.util.List list = (java.util.List) value;
+                        java.util.ArrayList keep = new java.util.ArrayList(list.size());
+                        java.util.ArrayList marked = new java.util.ArrayList();
+                        for (Object item : list) {
+                            if (item != null && containsAny(String.valueOf(item), markers)) {
+                                marked.add(item);
+                            } else {
+                                keep.add(item);
+                            }
+                        }
+                        if (marked.isEmpty()) {
+                            continue;
+                        }
+                        if (keep.isEmpty()) {
+                            for (Object item : marked) {
+                                pruneMarked(item, markers, depth - 1, pruned);
+                            }
+                        } else {
+                            field.set(target, keep);
+                            pruned[0] += marked.size();
+                        }
+                    } else if (value != null && !(value instanceof CharSequence) && !(value instanceof Number)
+                            && !(value instanceof Boolean) && containsAny(String.valueOf(value), markers)) {
+                        pruneMarked(value, markers, depth - 1, pruned);
+                    }
+                } catch (Throwable ignored) {
+                }
+            }
+        }
+    }
+
+    /** Walmart: flags that turn on Walmart+ promotions to non-members. Member features are unaffected. */
+    private static final java.util.Set<String> WALMART_PLUS_KEYS = setOf(
+            "membership.autoLaunchFullScreenVideoOnMLP.enabled",
+            "feature.membership.splashPage.autoLaunchEnabled",
+            "feature.membership.hub.isAutoLaunchEnabled",
+            "feature.membership.screentakeover.enabled",
+            "feature.membership.contextualSplash.enabled",
+            "feature.membership.eaAcquisitionBottomSheetV2.enabled",
+            "feature.membership.eaMemberAcquisitionBottomSheetV2.enabled",
+            "item.earlyAccess.wPlusSplashPage.enabled",
+            "item.showUpgradeToPlus.enabled",
+            "item.wPlusFulfillmentBottomSheet.enabled",
+            "item.freeTrialAddOnBundles.enabled",
+            "feature.search.shop.wPlusEarlyAccess.banner.enabled",
+            "feature.search.shop.wPlusEarlyAccess.timer.enabled",
+            "cart.walmartPlus.signUpBanner.enabled",
+            "cart.walmartPlus.newSignUpBanner.enabled",
+            "cart.walmartPlus.guestBanner.enabled",
+            "cart.shared.walmartPlusSignUpOfferBanner.enabled",
+            "cart.postCartLoad.wplusBanners.enabled",
+            "cart.walmartPlus.30DayTrial.enabled",
+            "cart.walmartPlus.earlyAccess.enabled",
+            "checkout.walmartPlus.signupSplash.enabled",
+            "checkout.walmartPlus.cxoOptInSplash.enabled",
+            "checkout.walmartPlus.30DayTrial.enabled",
+            "checkout.walmartPlus.earlyAccess.enabled",
+            "checkout.guestMembershipBanner.enabled",
+            "checkout.thankYou.evergreenWplus.enabled",
+            "feature.pay.wPlusAcquisitionBanner.enabled",
+            "feature.returns.lmd.wplusAcquisition.enabled",
+            "account.nonMemberWPlusBanner.enabled",
+            "cxo.walmartPlus.eaOffer.signUpBanner.enabled",
+            "bookSlot.walmartPlusIntegratedSignUp.enabled",
+            "feature.membership.plusUpsCancellationSurvey.enabled");
+
+    /** Walmart: true for a config key that turns on a Walmart+ promotion. */
+    public static boolean isWalmartPlusKey(String key) {
+        return key != null && WALMART_PLUS_KEYS.contains(key);
+    }
+
+    /** Walmart: flags for surveys, review requests, notification banners, tooltips, and splashes. */
+    private static final java.util.Set<String> WALMART_POPUP_KEYS = setOf(
+            "checkout.thankYou.launchSurveyWhenTYPStarts.enabled",
+            "checkout.thankYou.isThankYouPageDynamicSurveyEnabled.enabled",
+            "checkout.thankYou.typReviewSolicitation.enabled",
+            "checkout.thankYou.pushNotificationBanner.enabled",
+            "platform.app.nudgeUpgrade.enabled",
+            "platform.feature.nudgeUpgrade.enabled",
+            "tooltip.homepage.amends",
+            "tooltip.homepage.quickadd",
+            "tooltip.myitems.nav",
+            "tooltip.homepage.storeselector",
+            "cart.onboardingTooltip.enabled",
+            "search.feature.instoreFilterCoachmark.enabled",
+            "feature.search.onBoarding",
+            "platform.event.holiday.splash.isEnabled",
+            "help.feedbackSurvey.enabled",
+            "feature.qualtrics.feedback.isEnabled");
+
+    /** Walmart: true for a config key that turns on a survey, prompt, tooltip, or splash. */
+    public static boolean isWalmartPopupKey(String key) {
+        return key != null && WALMART_POPUP_KEYS.contains(key);
+    }
 }

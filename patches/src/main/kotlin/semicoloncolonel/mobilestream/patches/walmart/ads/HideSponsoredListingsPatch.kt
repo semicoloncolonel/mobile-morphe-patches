@@ -4,11 +4,8 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
-import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
-import semicoloncolonel.mobilestream.patches.shared.misc.hasSignature
-import semicoloncolonel.mobilestream.patches.shared.misc.prependGate
 import semicoloncolonel.mobilestream.patches.walmart.shared.Constants
+import semicoloncolonel.mobilestream.patches.walmart.shared.forceWalmartFlagsOff
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Hide sponsored listings.
@@ -37,7 +34,6 @@ import semicoloncolonel.mobilestream.patches.walmart.shared.Constants
 // ─────────────────────────────────────────────────────────────────────────────
 
 private const val ADS_FILTER = "Lsemicoloncolonel/mobilestream/extension/shared/misc/ShoppingAdsFilter;"
-private const val CONFIG_PACKAGE = "Lglass/platform/config/"
 private const val SEARCH_RESULT =
     "Lcom/walmart/glass/featuresearchitemstackcommon/orchestration/graphql/generated/fragment/SearchResultFragment"
 
@@ -84,37 +80,7 @@ val hideSponsoredListingsPatch = bytecodePatch(
     extendWith("extensions/extension.mpe")
 
     execute {
-        // The config API interface: the one in glass.platform.config.api with getBoolean(String, Z).
-        val interfaces = mutableSetOf<String>()
-        classDefForEach { classDef ->
-            if (classDef.type.startsWith("${CONFIG_PACKAGE}api/") &&
-                AccessFlags.INTERFACE.isSet(classDef.accessFlags) &&
-                classDef.methods.any { it.name == "getBoolean" && it.hasSignature("Z", "Ljava/lang/String;", "Z") }
-            ) {
-                interfaces += classDef.type
-            }
-        }
-        if (interfaces.isEmpty()) throw PatchException("Walmart config API interface not found")
-
-        val gated = forEachMatchingMethod(
-            { classDef ->
-                classDef.type.startsWith(CONFIG_PACKAGE) &&
-                    !AccessFlags.INTERFACE.isSet(classDef.accessFlags) &&
-                    classDef.interfaces.any { it in interfaces }
-            },
-            { it.name == "getBoolean" && it.hasSignature("Z", "Ljava/lang/String;", "Z") },
-        ) { method ->
-            method.prependGate(
-                """
-                    invoke-static/range { p1 .. p1 }, $ADS_FILTER->isWalmartAdKey(Ljava/lang/String;)Z
-                    move-result v0
-                    if-eqz v0, :msp_orig
-                    const/4 v0, 0x0
-                    return v0
-                """.trimIndent(),
-            )
-        }
-        if (gated == 0) throw PatchException("Walmart config getBoolean not found")
+        forceWalmartFlagsOff("isWalmartAdKey")
 
         PrimaryAdConfigFingerprint.method.addInstructions(
             0,

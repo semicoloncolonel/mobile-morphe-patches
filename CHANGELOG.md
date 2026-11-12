@@ -1,3 +1,21 @@
+## [1.0.21-dev.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.12...v1.0.21-dev.13) (2026-11-12)
+
+
+### Bug Fixes
+
+* **checkout51:** open gas offer details from the list, and add Directions in place of the blank details map ([f68e9b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f68e9b71479a2a76ab212ad3c4b32bccfb0abd0a))
+* **checkout51:** send the full station address to the maps app ([0de3e78](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0de3e7860f350f552ac61320704970e1e02ee479))
+
+
+### Features
+
+* add Strip affiliate links to every deal app, and clean shared and copied links ([5a1e267](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5a1e26775fe8fb26787ba6729f6732136c0b5d8a))
+* **checkout51:** add Block location tracking, which stops Foursquare's Movement SDK ([cded9d8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cded9d880db2ad420aea1d893dfc82f41a55a544))
+* **checkout51:** hide the location data notice ([d29d200](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d29d200b53d4f5b20df037871bdc06970d38d71c))
+* **checkout51:** list gas offers over the blank gas map ([7d8af2b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7d8af2b0b02387caf368c39c442f4291193057c7))
+* **checkout51:** show gas offers on OpenStreetMap in place of the blank Google maps ([95a7400](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/95a7400cf551baec87b7b81fdef70c7d1f553141))
+* **dealnews:** support the public Play version 10.7.1 ([de96eb2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/de96eb217bf833198050f17e2a776bd01ecc545e))
+
 ## [1.0.21-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.11...v1.0.21-dev.12) (2026-11-12)
 
 

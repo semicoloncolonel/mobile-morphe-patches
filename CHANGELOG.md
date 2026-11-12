@@ -1,3 +1,10 @@
+## [1.0.21-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.13...v1.0.21-dev.14) (2026-11-12)
+
+
+### Bug Fixes
+
+* testing Starz 6.12.0 ([111cf80](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/111cf80680d8d6ae7eb50b7f61a05317d3c9cdd1))
+
 ## [1.0.21-dev.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.12...v1.0.21-dev.13) (2026-11-12)
 
 

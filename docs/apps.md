@@ -40,7 +40,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2610.4.0` | 11/08/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
-| Tubi | Hide sign-in prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
+| Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |
 | YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
 
@@ -49,7 +49,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | ABC News | Mask live ad breaks<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `8.100.0` | 11/11/26 |
-| AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.31.2` | 11/05/26 |
+| AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32` | 11/12/26 |
 | CBS News | Disable signature check<br>Hide surveys<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default) | `5.20` | 11/02/26 |
 | CNBC | Fix launch with DNS blockers<br>Hide newsletter pop-ups<br>Hide rating prompt<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Dark mode (experimental, off by default)<br>Hide premium promotions (off by default) | `8.8.2` | 11/08/26 |
 | CNN | Faster launch<br>Opt out of data sale & sharing<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.21.0` | 11/05/26 |
@@ -65,7 +65,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default) | `3.13.1`<br>`3.12.0` | 11/10/26 |
 | The Daily Wire | Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.21` | 11/05/26 |
 | The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | 11/10/26 |
-| theScore | Block analytics & tracking (off by default) | `26.16.0`<br>`26.15.0` | 11/05/26 |
+| theScore | Block analytics & tracking (off by default) | `26.16.1`<br>`26.16.0` | 11/12/26 |
 | The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.12.0.42675` | 10/30/26 |
 | The Washington Post | Hide marketing pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/10/26 |
 | USA TODAY | Hide rating prompt<br>Hide subscription prompts<br>Skip ads<br>Block analytics & tracking (off by default) | `8.15.0` | 11/06/26 |
@@ -94,7 +94,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Amazon Shopping | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `32.20.0.100`<br>`32.19.0.100` | 11/10/26 |
 | Best Buy | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.10` | 11/01/26 |
 | Checkout 51 | Block ads (experimental)<br>Block location tracking (experimental)<br>Hide pop-ups (experimental)<br>Show gas offers on OpenStreetMap (experimental)<br>Dark mode (experimental, off by default)<br>GmsCore support (off by default)<br>Strip affiliate links (experimental, off by default) | `9.22.10` | 11/11/26 |
-| Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.2.2` | 11/08/26 |
+| Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.3` | 11/12/26 |
 | CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.30` (experimental)<br>`26.10.50` | 11/10/26 |
 | DealNews | Disable Pairip license check<br>Block ads<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (off by default) | `10.7.2` (experimental)<br>`10.7.1` | 11/11/26 |
 | DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default) | `1.64.0` | 11/10/26 |
@@ -115,6 +115,6 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | myAT&T | Block background network reports (experimental)<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `2026.10.2` | 11/07/26 |
 | My Verizon | Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (experimental, off by default) | `22.3.5` | 11/10/26 |
 | T-Life | Block location tracking<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `12.3.1` | 11/01/26 |
-| T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2` (experimental)<br>`19.4.4` | 11/10/26 |
+| T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | 11/10/26 |
 | Visible | Block ads<br>Block session recording<br>Block analytics & tracking (off by default) | `3.0.5` | 11/01/26 |
 | Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.14.0-2` | 11/01/26 |

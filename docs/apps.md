@@ -114,7 +114,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Mint Mobile | Block analytics & tracking (off by default) | `2.3.42` | 11/06/26 |
 | myAT&T | Block background network reports (experimental)<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `2026.10.2` | 11/07/26 |
 | My Verizon | Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (experimental, off by default) | `22.3.5` | 11/10/26 |
-| T-Life | Block location tracking<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `12.3.1` | 11/01/26 |
+| T-Life | Block location tracking<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `12.4.0`<br>`12.3.1` | 11/12/26 |
 | T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | 11/10/26 |
 | Visible | Block ads<br>Block session recording<br>Block analytics & tracking (off by default) | `3.0.5` | 11/01/26 |
 | Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.14.0-2` | 11/01/26 |

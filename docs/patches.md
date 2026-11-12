@@ -43,6 +43,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Xumo Play: pre-roll and mid-roll ads in on-demand videos. Live breaks are covered by Mask live ad breaks.
 - YouTube TV: ads inserted into on-demand videos and DVR recordings, and overlay and pause ads. With Mask live ad breaks, the ads YouTube TV inserts into live breaks are covered instead.
 
+- Yahoo News: the Taboola ad rows in the feeds, the ad slots in articles, and the ads before videos. The video player is also told that you opt out of ads, so it stops sending your device ID.
 </details>
 
 **Block ads** (Checkout 51, DealNews, Flipp, JustWatch, Moviebase, Slickdeals, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On Checkout 51, it removes the full-screen ad shown on launch and the Google ads in the offer list, search, and highlights. On DealNews, it removes the ad banner from deal pages. On Slickdeals, it removes the ads in every feed and on deal pages, sponsored carousels, and deals marked Promoted. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
@@ -98,6 +99,8 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide surveys and rating prompt | Walgreens | Medallia surveys and the rate-the-app dialog on the home screen. |
 | Hide creator videos | Walmart | The "Featured in videos" sections from content creators on item pages and the video carousels on the home and membership pages. |
 | Hide pop-ups | Walmart | Surveys and review requests after checkout, the "Give feedback" row, tooltips and coach marks, update nudges, sign-in and survey nudges, and the full-screen event splash. |
+| Hide pop-ups | Yahoo News | The "rate the app" screen, the banners and cards that ask you to turn on notifications, and the Ask Scout and You tab tooltips. |
+| Hide reading streaks | Yahoo News | The reading level and day streak on Home and Profile, and the pop-ups that celebrate a new level or a longer streak. Yahoo still counts your reads on its server. |
 | Hide Walmart+ promotions | Walmart | Walmart+ sign-up banners and their slides in the home carousel, the early-access countdown, free-trial offers, splashes, and the auto-playing membership video. Member benefits and account pages are unchanged. |
 | Skip tutorials | Flipp | The sheet after setup, the spotlights on the search bar, the save button, and the Lists tab, and the tutorials in flyers, coupons, and the shopping list. |
 | Hide sign-up prompts | Slickdeals | The sign-up flow on first launch, the notification prompt screen, the image tooltip, the "Log in / Sign up" nudges after a number of sessions, deal views, and searches, and the rating prompt. Prompts that answer something you tapped, such as voting on a deal, still appear. |
@@ -154,6 +157,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Walmart: the Sparky assistant and the AI features on item and search pages. Customer care chat falls back to the regular help pages.
 - Xfinity: the Xfinity Assistant. Support steps that open it can stop working.
 
+- Yahoo News: Ask Scout, Yahoo's AI answer engine, with its tab, button, prompts, and announcement, the AI "Key takeaways" on stories, and the AI comment summaries.
 </details>
 
 ## Privacy
@@ -227,6 +231,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Xfinity: Comcast's own event tracking, Datadog, Medallia surveys, and Branch.
 - Xumo Play: Xumo's own viewing and impression beacons, Adobe Analytics, Braze, and Kochava.
 
+- Yahoo News: Firebase/Google Analytics, AppsFlyer, Datadog, comScore, Yahoo's own analytics and ID sync, and Taboola and ad-verification beacons.
 </details>
 
 ### App-specific privacy patches
@@ -267,6 +272,7 @@ These patches are off by default.
 
 | Patch | App | What it does |
 |-------|-----|--------------|
+| Disable video autoplay | Yahoo News | Videos play only when you tap them. The video rails stop moving to the next video, and image carousels stop turning on their own. |
 | Auto-skip | Apple TV, Apple TV (Android TV) | Skips the parts you choose in its options: Apple's promos for other titles, which are on by default, and recaps and intros, which are off by default. Other buttons, such as Add, are left alone. Recaps and intros are recognized by their English button labels, "Skip Recap" and "Skip Intro". Each recap and intro is skipped once per title, so rewinding into one plays it. On a phone, the app's button then shows "Watch Recap" or "Watch Intro" for a few seconds where the skipped part ends, and goes back to its start. |
 | Disable up next | Apple TV | Lets the credits play full screen, instead of shrinking the video into a corner to show the next episode or a recommendation. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
@@ -287,7 +293,7 @@ These patches are off by default.
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
 | Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
 | Fix launch with DNS blockers | CNBC | Opens the app when a DNS blocker blocks OneTrust, the app's privacy consent service. Without it, the app stays on its splash screen. |
-| GmsCore support | AP News, Checkout 51, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, JustWatch, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. |
+| GmsCore support | AP News, Checkout 51, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, Yahoo News, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, JustWatch, MLB, NewsBreak, and The Daily Wire it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. On Yahoo News it is off by default and moves only push notifications and Firebase, because Yahoo sign-in does not use Google. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 
 ## Needed for the app to run

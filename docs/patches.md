@@ -235,6 +235,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Block background network reports | myAT&T | Stops Ookla's background reports of your signal and location. The speed test you start still works. |
 | Block installed-app scan | NewsBreak | Stops the app from checking which of about 500 other apps you have, including sportsbooks, prediction markets, period trackers, and payment apps, and sending that list to NewsBreak. |
 | Block location tracking | T-Life | Stops Radar, which sends your location every 30 seconds while the app runs. Store check-in and location-based offers can be affected. |
+| Block location tracking | Checkout 51 | Stops Foursquare's Movement SDK, which records the places you visit in the background and reports them with your user ID, gender, and birthday. Its background services and boot receivers are removed too. The gas map still gets your location from Android, and Checkout 51's own server still receives it to find nearby stations. |
 | Block session recording | myAT&T, My Verizon, T-Life, Visible | Stops Quantum Metric, which records what you do in the app with details such as your phone number, email, or login ID. |
 | Block telemetry | YouTube TV | Stops quality reports, interaction logging, view tracking, and ad measurement. Watch history, resume points, location checks, and DRM licenses are left alone. |
 | Block TV discovery | T-Mobile Play | Stops Vizbee, which scans your home network for TVs. Sending video to a TV from the app stops working. |

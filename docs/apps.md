@@ -14,13 +14,13 @@ Each table lists an app's patches and the versions they were tested on. [What th
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| AMC+ | Skip ads (experimental)<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `1.8.62.1` | 10/31/26 |
+| AMC+ | Skip ads (experimental)<br>Skip launch video<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `1.8.62.1` | 10/31/26 |
 | Apple TV | Auto-skip (experimental)<br>Hide rating prompt (experimental)<br>Show release times (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable up next (experimental, off by default)<br>Hide player overlays (experimental, off by default) | `3.0.0` | 11/08/26 |
 | Apple TV (Android TV) | Auto-skip (Android TV, experimental)<br>Hide rating prompt (Android TV, experimental)<br>Show release times (Android TV, experimental)<br>Block analytics & tracking (Android TV, experimental, off by default) | `17.0.3`<br>`17.0.2` | 11/12/26 |
 | Disney+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
 | ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `8.29.0` | 11/04/26 |
-| Fandango at Home | Mask ads<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |
-| Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1` | 11/06/26 |
+| Fandango at Home | Mask ads<br>Block analytics & tracking (off by default)<br>Run on Android TV (experimental, off by default) | `10.24.r009.179279954` | 11/02/26 |
+| Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `1.25.1` | 11/06/26 |
 | HBO Max (also on Android TV) | Remove social sign-in (phone)<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default) | `22.0.0.321`<br>Android TV `22.0.0.36` | 11/07/26 |
 | Hulu | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `6.34.0+18552420-google` | 10/31/26 |
 | JustWatch (also on Android TV) | Block ads<br>Hide sponsored titles<br>Block analytics & tracking (off by default)<br>GmsCore support (experimental, off by default)<br>Hide unavailable titles (experimental, off by default)<br>Hide watched titles (experimental, off by default)<br>Streaming titles only (experimental, off by default) | `26.44.2`<br>Android TV `26.43.8` | 11/08/26 |
@@ -31,7 +31,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | NBA | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable Ask NBA AI (experimental, off by default)<br>Hide League Pass upsells (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `1.3.0` | 11/09/26 |
 | NFL | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `61.0.19` | 11/07/26 |
 | Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `17.3.0` | 11/04/26 |
-| PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `5.27.0` | 10/30/26 |
+| PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `5.27.0` | 10/30/26 |
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `7.11.11` | 11/10/26 |
 | Plex (also on Android TV) | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
@@ -40,7 +40,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2610.4.0` | 11/08/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `6.12.0` | 11/12/26 |
 | Sundance Now | Block analytics & tracking (off by default)<br>Run on Android TV (experimental, off by default) | `5.0.25.2` | 11/05/26 |
-| Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
+| Tubi (also on Android TV) | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>Android TV `10.44.5001` | 11/11/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Run on Android TV (experimental, off by default) | `4.6.21` | 11/04/26 |
 | YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
 

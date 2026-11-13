@@ -54,7 +54,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32` | 11/12/26 |
 | CBS News | Disable signature check<br>Hide surveys<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default) | `5.20` | 11/02/26 |
 | CNBC | Fix launch with DNS blockers<br>Hide newsletter pop-ups<br>Hide rating prompt<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Dark mode (experimental, off by default)<br>Hide premium promotions (off by default) | `8.8.2` | 11/08/26 |
-| CNN | Faster launch<br>Opt out of data sale & sharing<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.23.0` | 11/12/26 |
+| CNN | Faster launch<br>Opt out of data sale & sharing<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.21.0`, `26.23.0` | 11/13/26 |
 | C-SPAN Now | Hide promo banners<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `1.25.0` | 11/05/26 |
 | Fox Local | Hide pop-ups and rating prompts<br>Opt out of data sale & sharing<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `7.22.0` | 11/02/26 |
 | Fox News | Hide prediction markets<br>Opt out of data sale & sharing<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Enable developer menu (off by default) | `5.50.0` | 11/11/26 |
@@ -108,7 +108,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.36.0` | 11/11/26 |
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0` | 11/09/26 |
 | The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |
-| Walgreens | Hide sponsored products (experimental)<br>Hide surveys and rating prompt (experimental) | `118.0` | 11/10/26 |
+| Walgreens | Hide sponsored products (experimental)<br>Hide surveys and rating prompt (experimental) | `118.1` | 11/13/26 |
 | Walmart | Hide card offers (experimental)<br>Hide creator videos (experimental)<br>Hide pop-ups (experimental)<br>Hide sponsored listings (experimental)<br>Hide Walmart+ promotions (experimental)<br>Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1` | 11/10/26 |
 
 ## Carriers
@@ -122,3 +122,9 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | 11/10/26 |
 | Visible | Block ads<br>Block session recording<br>Block analytics & tracking (off by default) | `3.0.6` | 11/12/26 |
 | Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.14.0-2` | 11/01/26 |
+
+## Utilities
+
+| App | Patches | Tested version | Last updated |
+|-----|---------|----------------|--------------|
+| Settings Home | Block ads<br>Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default)<br>Spoof carrier (off by default) | `1.6.4` | 11/13/26 |

@@ -11,6 +11,11 @@ object Constants {
         description = "The DailyWire+ app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xC8102E,
-        targets = listOf(devTarget("3.5.22", versionCode = 485)),
+        // Multiple public Play versions are supported so users who cannot
+        // update still get patches. The patches verified on both builds.
+        targets = listOf(
+            devTarget("3.5.22", versionCode = 485),
+            devTarget("3.5.21", versionCode = 484),
+        ),
     )
 }

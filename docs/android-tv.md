@@ -13,6 +13,7 @@ These apps have patches for their Android TV builds. On a TV, patch the Android 
 | Pluto TV | The phone and Android TV builds have the same version. The Android TV build's version code is `520000991`, and the phone build's is `420000991`. |
 | Starz | The phone and Android TV builds share the version, `6.12.0`. The Android TV build's version code is `9510`, and the phone build's is `4518`. Skip launch video does not apply to the Android TV build, which opens straight to its landing screen. |
 | Tubi | The Android TV build has its own version, `10.44.5001`. The phone build is `10.44.3`. |
+| YouTube TV (Android TV) | Not the YouTube TV app itself, which runs on an engine that cannot be patched. This patches **YouTube for Android TV** (`com.google.android.youtube.tv`, version `7.32.300`) and turns it into a separate, ad-free YouTube TV app named "YT TV+". It installs alongside the original, loads the YouTube TV live and DVR service, and removes the ads YouTube injects into it. Sign in with an activation code at tv.youtube.com/start. Live broadcast commercials are part of the broadcast and still play. |
 
 [Known issues](known-issues.md) includes the problems that happen only on a TV.
 

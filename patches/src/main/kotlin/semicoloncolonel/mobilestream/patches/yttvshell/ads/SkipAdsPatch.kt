@@ -61,10 +61,12 @@ internal object StartupGuardRedirectNavigationFingerprint : Fingerprint(
 
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
-    name = "Skip ads",
-    description = "Removes YouTube's server-inserted ads from on-demand videos and DVR " +
-        "recordings, and blocks ad and analytics tracking, by injecting scripts into the " +
-        "YouTube TV web app. Live broadcast commercials are part of the broadcast and still play.",
+    name = "Skip injected ads",
+    description = "Turns YouTube for Android TV into the standalone ad-free YouTube TV app " +
+        "\"YT TV+\" (see this app's description), and removes the ads YouTube injects into " +
+        "YouTube TV on-demand videos and DVR recordings, plus ad and analytics tracking. It does " +
+        "not patch regular YouTube. Live broadcast commercials are part of the broadcast and " +
+        "still play. Sign in with an activation code at tv.youtube.com/start.",
 ) {
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)

@@ -1,3 +1,10 @@
+## [1.0.21-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.30...v1.0.21-dev.31) (2026-11-13)
+
+
+### Bug Fixes
+
+* **hulutv:** harden tracker hook to preserve 64-bit curl options ([6d94358](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6d94358dc522532960921dc39acd908c88ff40fe))
+
 ## [1.0.21-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.29...v1.0.21-dev.30) (2026-11-13)
 
 

@@ -107,6 +107,13 @@
     public static android.net.Uri parse(java.lang.String);
 }
 
+# DealSeek — "Stop behavioral tracking". filterJsRequestUrl is called only from
+# injected smali via invoke-static, so R8 must keep both overloads as they are.
+-keep class semicoloncolonel.mobilestream.extension.dealseek.privacy.BehaviorBlocker {
+    public static java.lang.String filterJsRequestUrl(java.lang.String);
+    public static java.net.URL filterJsRequestUrl(java.net.URL);
+}
+
 # Shared "Hide Wi-Fi networks" / "Block Bluetooth scanning" / "Hide cell
 # tower info" (opt-in). Every public static method replaces a framework call
 # at app call sites via injected invoke-static, so R8 must keep them as they are.

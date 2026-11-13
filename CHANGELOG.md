@@ -1,3 +1,10 @@
+## [1.0.21-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.24...v1.0.21-dev.25) (2026-11-13)
+
+
+### Bug Fixes
+
+* testing Walgreens 118.1 ([3cb334b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3cb334b443d14ff5e17d86e47abe0bb7390086e3))
+
 ## [1.0.21-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.23...v1.0.21-dev.24) (2026-11-13)
 
 

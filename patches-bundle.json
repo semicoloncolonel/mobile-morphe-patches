@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-13T09:03:22",
-  "description": "## [1.0.21-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.23...v1.0.21-dev.24) (2026-11-13)\n\n\n### Bug Fixes\n\n* **settingshome:** disable the Pairip license check ([544de09](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/544de0979acb3ccbbada52e9bc827e2f623380fe))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.24/patches-1.0.21-dev.24.mpp",
+  "created_at": "2026-11-13T13:59:52",
+  "description": "## [1.0.21-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.24...v1.0.21-dev.25) (2026-11-13)\n\n\n### Bug Fixes\n\n* testing Walgreens 118.1 ([3cb334b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3cb334b443d14ff5e17d86e47abe0bb7390086e3))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.25/patches-1.0.21-dev.25.mpp",
   "signature_download_url": "",
-  "version": "1.0.21-dev.24",
+  "version": "1.0.21-dev.25",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

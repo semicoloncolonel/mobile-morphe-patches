@@ -1,3 +1,10 @@
+## [1.0.21-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.22...v1.0.21-dev.23) (2026-11-13)
+
+
+### Features
+
+* add Settings Home launcher ([03afa6c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03afa6c6bcc6d45e2613f75fff71220a1857167c))
+
 ## [1.0.21-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.21...v1.0.21-dev.22) (2026-11-13)
 
 

@@ -328,3 +328,7 @@
 -keep class semicoloncolonel.mobilestream.extension.hulutv.nativehook.NativeHookLoader {
     public static void load();
 }
+
+-keep class semicoloncolonel.mobilestream.extension.hulutv.privacy.NativeTrackerLoader {
+    public static void load();
+}

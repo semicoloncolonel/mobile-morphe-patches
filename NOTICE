@@ -79,3 +79,18 @@ Credits:
   Source: https://github.com/hoo-dles/morphe-patches
 
 All original authors retain credit for their contributions.
+
+- farotv-patches (jair1c/farotv-patches), GPL-3.0
+  Author: Gabriel Jair (github.com/jair1c)
+  The YouTube TV (Android TV) shell patch's script injection (TvScripts, the
+  Cobalt StartupGuardNavigationObserver hook reaching
+  WebContents.evaluateJavaScript) and the ad-strip rules are ported from
+  FaroTV. This project re-targets them at the YouTube TV living-room web app.
+
+- morphe-patches (ysamjo/morphe-patches), GPL-3.0
+  Author: ysamjo (github.com/ysamjo)
+  The Cobalt start-URL change and the script-injection approach (CobaltScriptInjector).
+
+- utv-runtime (DylanDuff/utv-runtime), MIT
+  Author: Dylan Duff
+  The injection runtime's JSON.parse InnerTube response hook and the adblock rules.

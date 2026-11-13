@@ -20,6 +20,11 @@
     public static java.net.URL filterJsRequestUrl(java.net.URL);
 }
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker$BlockInterceptor { *; }
+-keep class semicoloncolonel.mobilestream.extension.yttvshell.TvScripts {
+    public static void setWebContents(java.lang.Object);
+    public static void onPageEvent(java.lang.String);
+    public static void onTitle(java.lang.String);
+}
 
 # Pluto TV — "Skip ads". filter is called only from
 # injected smali via invoke-static.

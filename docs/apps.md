@@ -126,4 +126,4 @@ Each table lists an app's patches and the versions they were tested on. [What th
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| Settings Home | Block ads<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default)<br>Spoof carrier (off by default) | `1.6.4` | 11/13/26 |
+| Settings Home | Block ads<br>Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default)<br>Spoof carrier (off by default) | `1.6.4` | 11/13/26 |

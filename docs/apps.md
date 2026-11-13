@@ -121,3 +121,9 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | 11/10/26 |
 | Visible | Block ads<br>Block session recording<br>Block analytics & tracking (off by default) | `3.0.6` | 11/12/26 |
 | Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.14.0-2` | 11/01/26 |
+
+## Utilities
+
+| App | Patches | Tested version | Last updated |
+|-----|---------|----------------|--------------|
+| Settings Home | Block ads<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default)<br>Spoof carrier (off by default) | `1.6.4` | 11/13/26 |

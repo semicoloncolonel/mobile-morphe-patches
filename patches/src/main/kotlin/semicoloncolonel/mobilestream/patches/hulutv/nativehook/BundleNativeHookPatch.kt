@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.hulutv.nativehook
 
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.resourceFile
 import app.morphe.patcher.patch.resourcePatch
 import org.w3c.dom.Element
@@ -20,6 +21,25 @@ private val LIBS = listOf("libhuluhook.so", "libshadowhook.so", "libshadowhook_n
 
 val bundleNativeHookPatch = resourcePatch {
     execute {
+        // Hulu TV keeps its own native libraries (libwkf_*.so) in the
+        // armeabi_v7a split APK, not in base.apk. Patching base.apk alone — e.g.
+        // Morphe Manager's "Use installed app" on a Play (split) install — drops
+        // them, and the app then crashes at launch (System.loadLibrary("wkf_fs")
+        // -> UnsatisfiedLinkError). Refuse with a clear message instead.
+        val appLibPresent = try {
+            get("lib/$ABI/libwkf_support.so", true).exists()
+        } catch (e: Exception) {
+            false
+        }
+        if (!appLibPresent) {
+            throw PatchException(
+                "Hulu TV's native libraries are missing from this input. Patch the " +
+                "full APKM bundle (base plus the armeabi_v7a split) from APKMirror. " +
+                "Do not use \"Use installed app\" or a base.apk alone — the native " +
+                "libraries live in the split and the patched app would crash.",
+            )
+        }
+
         for (lib in LIBS) {
             val bytes = object {}.javaClass.getResourceAsStream("/native/$ABI/$lib")
                 ?.use { it.readBytes() }

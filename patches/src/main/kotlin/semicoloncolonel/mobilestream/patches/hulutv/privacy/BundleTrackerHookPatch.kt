@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.hulutv.privacy
 
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.resourceFile
 import app.morphe.patcher.patch.resourcePatch
 import org.w3c.dom.Element
@@ -13,6 +14,22 @@ private val LIBS = listOf("libhulutrack.so", "libshadowhook.so", "libshadowhook_
 
 val bundleTrackerHookPatch = resourcePatch {
     execute {
+        // See BundleNativeHookPatch: Hulu TV's own native libs live in the
+        // armeabi_v7a split, so a base-only input (e.g. "Use installed app")
+        // drops them and crashes. Refuse with a clear message.
+        val appLibPresent = try {
+            get("lib/$ABI/libwkf_support.so", true).exists()
+        } catch (e: Exception) {
+            false
+        }
+        if (!appLibPresent) {
+            throw PatchException(
+                "Hulu TV's native libraries are missing from this input. Patch the " +
+                "full APKM bundle (base plus the armeabi_v7a split) from APKMirror. " +
+                "Do not use \"Use installed app\" or a base.apk alone.",
+            )
+        }
+
         for (lib in LIBS) {
             val bytes = object {}.javaClass.getResourceAsStream("/native/$ABI/$lib")
                 ?.use { it.readBytes() }

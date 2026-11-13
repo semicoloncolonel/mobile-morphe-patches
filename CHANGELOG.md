@@ -1,3 +1,17 @@
+## [1.0.21-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.28...v1.0.21-dev.29) (2026-11-13)
+
+
+### Bug Fixes
+
+* testing DealSeek 1.65.0, The Daily Wire 3.5.22 ([414a81a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/414a81a6dce4af0562d0e286817c17c4d1b5d7a2))
+
+## [1.0.21-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.27...v1.0.21-dev.28) (2026-11-13)
+
+
+### Features
+
+* **hulutv:** opt-in analytics/tracking blocker for Hulu on Android TV ([8c47e1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8c47e1b35bb9b2863031252724991ee8342ab2b8))
+
 ## [1.0.21-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.26...v1.0.21-dev.27) (2026-11-13)
 
 

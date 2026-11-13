@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.dailywire.shared
 
 import app.morphe.patcher.patch.ApkFileType
-import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -11,6 +11,6 @@ object Constants {
         description = "The DailyWire+ app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xC8102E,
-        targets = listOf(AppTarget("3.5.21")),
+        targets = listOf(devTarget("3.5.22", versionCode = 485)),
     )
 }

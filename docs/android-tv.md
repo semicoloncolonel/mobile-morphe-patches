@@ -4,7 +4,7 @@ These apps have patches for their Android TV builds. On a TV, patch the Android 
 
 | App | Notes |
 |-----|-------|
-| Apple TV (Android TV) | A separate app from the phone build, with its own patches. |
+| Apple TV (Android TV) | A separate app from the phone build, with its own patches. It needs the full bundle; see [Apps that need the full bundle](#apps-that-need-the-full-bundle). |
 | Disney+ | The phone and Android TV builds share the version name, `26.20.0+rc3-2026.11.02`. The Android TV build's version code is `1793662190`, and the phone build's is `179366219`. |
 | HBO Max | |
 | Hulu (Android TV) | A separate app from the phone build (`com.hulu.livingroomplus`, version `C59F39CFP3.10.33`), on a native WebKit engine that cannot be dex-patched. See [Installing Hulu on Android TV](#installing-hulu-on-android-tv) for the download, patch, and install steps. Skip ads is **experimental**: it bundles a native library that hooks `inflate` inside `libwkf_support.so` and strips the stitched ad periods from the DASH manifest in-process, with no root. It is not yet verified against a real ad break, so it may not remove every ad; it is conservative and does not affect ad-free content. |
@@ -23,6 +23,10 @@ These apps have patches for their Android TV builds. On a TV, patch the Android 
 APKMirror lists the Android TV build separately, with "Android TV" in its name. Morphe Manager's download link searches by package name and version, so it can lead to the phone build instead. When the phone and Android TV builds share a version, as Pluto TV's do, check the version code on the download page.
 
 To download the Android TV build directly, use [Aurora Store](https://auroraoss.com/) with a spoofed Android TV device. Aurora's [config generator](https://auroraoss.com/config-generator) creates the device config for spoofing.
+
+## Apps that need the full bundle
+
+Some apps keep their native libraries in a separate split, not in the base APK. Patch the full bundle, with every split, not a single base APK and not Morphe Manager's "Use installed app" on a Play Store copy. Either of those drops the split that holds the native library, and the patched app closes the moment it opens, with a missing-library error. Apple TV (Android TV) and Hulu (Android TV) both need the full bundle. On APKMirror, download the bundle, which it offers as an APKM. On APKPure or Aurora Store, keep every split. [Installing Hulu on Android TV](#installing-hulu-on-android-tv) covers Hulu's extra install step.
 
 ## Installing Hulu on Android TV
 

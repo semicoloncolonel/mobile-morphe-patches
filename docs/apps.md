@@ -38,7 +38,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
 | Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
-| SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2610.4.0` | 11/08/26 |
+| SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2611.2.1`, `2610.4.0` | 11/13/26 |
 | Starz (also on Android TV) | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
 | Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
@@ -65,7 +65,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | NewsNation (Android TV) | Hide rating prompt (Android TV)<br>Skip ads (Android TV)<br>Block analytics & tracking (off by default) | `4.94` | 11/06/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default)<br>Route traffic through a proxy (off by default) | `7.10.0` | 11/05/26 |
 | Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default) | `3.13.1`<br>`3.12.0` | 11/10/26 |
-| The Daily Wire | Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.22` | 11/13/26 |
+| The Daily Wire | Skip ads<br>Hide promo banners<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.22`, `3.5.21` | 11/13/26 |
 | The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | 11/10/26 |
 | theScore | Block analytics & tracking (off by default) | `26.16.1`<br>`26.16.0` | 11/12/26 |
 | The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.12.0.42675` | 10/30/26 |
@@ -101,7 +101,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.3` | 11/12/26 |
 | CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.30` (experimental)<br>`26.10.50` | 11/10/26 |
 | DealNews | Disable Pairip license check<br>Block ads<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (off by default) | `10.7.2` (experimental)<br>`10.7.1` | 11/11/26 |
-| DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default) | `1.65.0` | 11/13/26 |
+| DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Stop behavioral tracking (off by default)<br>Dark mode (experimental, off by default) | `1.65.0` | 11/13/26 |
 | Flipp | Block ads (experimental)<br>Skip tutorials (experimental)<br>Strip affiliate links (experimental) | `115.0.0` | 11/10/26 |
 | Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | 11/10/26 |
 | RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.0.6` | 11/11/26 |

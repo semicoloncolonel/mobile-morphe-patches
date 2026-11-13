@@ -324,3 +324,7 @@
 -keep class semicoloncolonel.mobilestream.extension.yahoofinance.ArticleCleanup {
     public static *;
 }
+
+-keep class semicoloncolonel.mobilestream.extension.hulutv.nativehook.NativeHookLoader {
+    public static void load();
+}

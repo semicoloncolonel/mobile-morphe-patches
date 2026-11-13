@@ -12,6 +12,9 @@ object Constants {
         description = "The Costco Wholesale shopping app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x005DAB,
-        targets = listOf(devTarget("26.10.3", versionCode = 84394)),
+        targets = listOf(
+            devTarget("26.10.3", versionCode = 84394),
+            AppTarget("26.10.2.2"),
+        ),
     )
 }

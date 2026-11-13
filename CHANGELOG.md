@@ -1,3 +1,10 @@
+## [1.0.21-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.21...v1.0.21-dev.22) (2026-11-13)
+
+
+### Bug Fixes
+
+* **justwatch:** block the 26.45.1 free-streaming pre-roll ads ([78a7d39](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/78a7d392044fc96cdc6b57da8945b2a25191e8e7))
+
 ## [1.0.21-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.20...v1.0.21-dev.21) (2026-11-13)
 
 

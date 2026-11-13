@@ -15,6 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import semicoloncolonel.mobilestream.patches.yttvshell.misc.changeStartUrlPatch
+import semicoloncolonel.mobilestream.patches.yttvshell.misc.renamePatch
 import semicoloncolonel.mobilestream.patches.yttvshell.shared.Constants
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -67,7 +68,7 @@ val skipAdsPatch = bytecodePatch(
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
-    dependsOn(changeStartUrlPatch)
+    dependsOn(changeStartUrlPatch, renamePatch)
 
     extendWith("extensions/extension.mpe")
 

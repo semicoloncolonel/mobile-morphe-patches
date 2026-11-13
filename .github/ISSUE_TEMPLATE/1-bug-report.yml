@@ -131,6 +131,7 @@ body:
         - "Yahoo Finance"
         - "Yahoo News"
         - "YouTube TV"
+        - "YouTube TV (Android TV)"
         - "Other (name it in the description)"
     validations:
       required: true

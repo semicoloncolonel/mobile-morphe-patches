@@ -1,3 +1,10 @@
+## [1.0.21-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.20...v1.0.21-dev.21) (2026-11-13)
+
+
+### Bug Fixes
+
+* **cnn:** keep the patches working on 26.23.0 and 26.21.0 ([f0a8af8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f0a8af8b02348b4a0849d42788bb8f8a1abc9df6))
+
 ## [1.0.21-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.19...v1.0.21-dev.20) (2026-11-13)
 
 

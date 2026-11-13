@@ -1,3 +1,60 @@
+## [1.0.21-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.24...v1.0.21-dev.25) (2026-11-13)
+
+
+### Bug Fixes
+
+* testing Walgreens 118.1 ([3cb334b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3cb334b443d14ff5e17d86e47abe0bb7390086e3))
+
+## [1.0.21-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.23...v1.0.21-dev.24) (2026-11-13)
+
+
+### Bug Fixes
+
+* **settingshome:** disable the Pairip license check ([544de09](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/544de0979acb3ccbbada52e9bc827e2f623380fe))
+
+## [1.0.21-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.22...v1.0.21-dev.23) (2026-11-13)
+
+
+### Features
+
+* add Settings Home launcher ([03afa6c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03afa6c6bcc6d45e2613f75fff71220a1857167c))
+
+## [1.0.21-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.21...v1.0.21-dev.22) (2026-11-13)
+
+
+### Bug Fixes
+
+* **justwatch:** block the 26.45.1 free-streaming pre-roll ads ([78a7d39](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/78a7d392044fc96cdc6b57da8945b2a25191e8e7))
+
+## [1.0.21-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.20...v1.0.21-dev.21) (2026-11-13)
+
+
+### Bug Fixes
+
+* **cnn:** keep the patches working on 26.23.0 and 26.21.0 ([f0a8af8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f0a8af8b02348b4a0849d42788bb8f8a1abc9df6))
+
+## [1.0.21-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.19...v1.0.21-dev.20) (2026-11-13)
+
+
+### Bug Fixes
+
+* testing CNN 26.23.0, JustWatch 26.45.1, NewsBreak 26.46.0 ([36d798d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/36d798d7c584623574c86186cfa33735cf067ab6))
+
+## [1.0.21-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.18...v1.0.21-dev.19) (2026-11-13)
+
+
+### Bug Fixes
+
+* **issue-forms:** list YouTube TV (Android TV) in the app dropdowns ([1491c2d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1491c2dbd0469ea8c29c23c16129623dd2492e26))
+
+
+### Features
+
+* add ad-free YouTube TV on Android TV via the Chromium-Cobalt shell ([e471d8c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e471d8c93f12e2a5b94d59a150d1e23ccedb0714))
+* **yttvshell:** install YouTube TV as a standalone "YT TV+" app ([39e5bbb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/39e5bbb73a894a0828de6778c5ad2e6208429211))
+* **yttvshell:** make the YouTube TV conversion explicit in Morphe Manager ([964c724](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/964c724d177e8c91a1dd74e06f047a48df00e09b))
+* **yttvshell:** use YouTube TV's icon and banner for YT TV+ ([d56d4ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d56d4ca3b1ab1b5bbc6324f51f6424738b123a8b))
+
 ## [1.0.21-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.17...v1.0.21-dev.18) (2026-11-12)
 
 

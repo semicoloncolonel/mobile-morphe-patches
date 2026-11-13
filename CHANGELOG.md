@@ -1,3 +1,10 @@
+## [1.0.21-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.29...v1.0.21-dev.30) (2026-11-13)
+
+
+### Bug Fixes
+
+* **hulutv:** refuse a base-only input that drops Hulu's native libs ([e4ecef7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4ecef764fb2d1122a984f3c736d648b78b097c4))
+
 ## [1.0.21-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.28...v1.0.21-dev.29) (2026-11-13)
 
 

@@ -1,3 +1,18 @@
+## [1.0.21-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.18...v1.0.21-dev.19) (2026-11-13)
+
+
+### Bug Fixes
+
+* **issue-forms:** list YouTube TV (Android TV) in the app dropdowns ([1491c2d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1491c2dbd0469ea8c29c23c16129623dd2492e26))
+
+
+### Features
+
+* add ad-free YouTube TV on Android TV via the Chromium-Cobalt shell ([e471d8c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e471d8c93f12e2a5b94d59a150d1e23ccedb0714))
+* **yttvshell:** install YouTube TV as a standalone "YT TV+" app ([39e5bbb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/39e5bbb73a894a0828de6778c5ad2e6208429211))
+* **yttvshell:** make the YouTube TV conversion explicit in Morphe Manager ([964c724](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/964c724d177e8c91a1dd74e06f047a48df00e09b))
+* **yttvshell:** use YouTube TV's icon and banner for YT TV+ ([d56d4ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d56d4ca3b1ab1b5bbc6324f51f6424738b123a8b))
+
 ## [1.0.21-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.17...v1.0.21-dev.18) (2026-11-12)
 
 

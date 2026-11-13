@@ -1,3 +1,10 @@
+## [1.0.21-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.23...v1.0.21-dev.24) (2026-11-13)
+
+
+### Bug Fixes
+
+* **settingshome:** disable the Pairip license check ([544de09](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/544de0979acb3ccbbada52e9bc827e2f623380fe))
+
 ## [1.0.21-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.22...v1.0.21-dev.23) (2026-11-13)
 
 

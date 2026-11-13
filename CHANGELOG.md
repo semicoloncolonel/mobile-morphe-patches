@@ -1,3 +1,10 @@
+## [1.0.21-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.19...v1.0.21-dev.20) (2026-11-13)
+
+
+### Bug Fixes
+
+* testing CNN 26.23.0, JustWatch 26.45.1, NewsBreak 26.46.0 ([36d798d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/36d798d7c584623574c86186cfa33735cf067ab6))
+
 ## [1.0.21-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.18...v1.0.21-dev.19) (2026-11-13)
 
 

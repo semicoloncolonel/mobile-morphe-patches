@@ -1,3 +1,10 @@
+## [1.0.21-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.26...v1.0.21-dev.27) (2026-11-13)
+
+
+### Bug Fixes
+
+* **issue-forms:** list Hulu (Android TV) and Settings Home in the app dropdowns ([a60f886](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a60f886a323cf3950b96fc86b9fbbc747e766036))
+
 ## [1.0.21-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.25...v1.0.21-dev.26) (2026-11-13)
 
 

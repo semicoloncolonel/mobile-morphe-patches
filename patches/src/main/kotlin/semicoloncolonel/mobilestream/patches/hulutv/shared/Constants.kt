@@ -25,7 +25,10 @@ object Constants {
         description = "The Android TV app, not the phone app. Removes the ads " +
             "Hulu stitches into its on-demand manifests, through an in-process " +
             "native hook, with no root. Live broadcast commercials are part of " +
-            "the broadcast and still play.",
+            "the broadcast and still play. Patch the full APKM bundle, and " +
+            "install the patched file as a single app. If it is saved with a " +
+            "bundle extension such as .apkm or .apks, rename it to end in .apk " +
+            "first.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x1CE783,
         targets = listOf(

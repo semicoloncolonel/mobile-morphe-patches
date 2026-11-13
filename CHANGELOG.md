@@ -1,3 +1,10 @@
+## [1.0.21-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.25...v1.0.21-dev.26) (2026-11-13)
+
+
+### Features
+
+* **hulutv:** experimental ad-strip for Hulu on Android TV via a native inflate hook ([507d6f7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/507d6f7c580737cafa171e70612a30979f5ea3a0))
+
 ## [1.0.21-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.24...v1.0.21-dev.25) (2026-11-13)
 
 

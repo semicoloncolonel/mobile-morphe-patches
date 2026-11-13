@@ -94,3 +94,20 @@ All original authors retain credit for their contributions.
 - utv-runtime (DylanDuff/utv-runtime), MIT
   Author: Dylan Duff
   The injection runtime's JSON.parse InnerTube response hook and the adblock rules.
+
+- native-adstrip-toolkit (ajstrick81/morphe-androidtv-patches), GPL-3.0
+  Author: ajstrick81 (github.com/ajstrick81)
+  The Hulu (Android TV) native ad-strip follows ajstrick81's native-adstrip-toolkit:
+  the in-process inflate/SSL_read interception methodology, the bundle/load native
+  hook patch scaffolding, and the manifest-filter + reassembly design. The DASH
+  period-stripping rules follow HuluMpdFilter, itself after ajstrick81's
+  PlutoDashManifestProbe.
+  Source: https://github.com/ajstrick81/morphe-androidtv-patches
+
+- ShadowHook (bytedance/android-inline-hook), MIT
+  The Hulu (Android TV) native hook uses ShadowHook as its ARM inline-hook engine.
+  Source: https://github.com/bytedance/android-inline-hook
+
+- TinyXML-2 (leethomason/tinyxml2), zlib
+  The Hulu (Android TV) native ad-strip parses the DASH manifest with TinyXML-2.
+  Source: https://github.com/leethomason/tinyxml2

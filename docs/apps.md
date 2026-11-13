@@ -23,6 +23,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1` | 11/06/26 |
 | HBO Max (also on Android TV) | Remove social sign-in (phone)<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default) | `22.0.0.321`<br>Android TV `22.0.0.36` | 11/07/26 |
 | Hulu | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.34.0+18552420-google` | 10/31/26 |
+| Hulu (Android TV) | Skip ads (experimental) | `C59F39CFP3.10.33` | 11/13/26 |
 | JustWatch (also on Android TV) | Block ads<br>Hide sponsored titles<br>Block analytics & tracking (off by default)<br>GmsCore support (experimental, off by default)<br>Hide unavailable titles (experimental, off by default)<br>Hide watched titles (experimental, off by default)<br>Streaming titles only (experimental, off by default) | `26.45.1`<br>Android TV `26.43.8` | 11/12/26 |
 | Kanopy | Hide rating prompt (experimental)<br>Hide survey (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.32.0` | 11/09/26 |
 | MGM+ | Remove social sign-in<br>Skip ads (experimental)<br>Skip lion intro<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable MGM+ AI (off by default) | `240.0.2026240000` | 10/30/26 |

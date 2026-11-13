@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-13T08:52:20",
-  "description": "## [1.0.21-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.22...v1.0.21-dev.23) (2026-11-13)\n\n\n### Features\n\n* add Settings Home launcher ([03afa6c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03afa6c6bcc6d45e2613f75fff71220a1857167c))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.23/patches-1.0.21-dev.23.mpp",
+  "created_at": "2026-11-13T09:03:22",
+  "description": "## [1.0.21-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.23...v1.0.21-dev.24) (2026-11-13)\n\n\n### Bug Fixes\n\n* **settingshome:** disable the Pairip license check ([544de09](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/544de0979acb3ccbbada52e9bc827e2f623380fe))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.0.21-dev.24/patches-1.0.21-dev.24.mpp",
   "signature_download_url": "",
-  "version": "1.0.21-dev.23",
+  "version": "1.0.21-dev.24",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

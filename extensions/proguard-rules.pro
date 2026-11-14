@@ -342,9 +342,10 @@
     public static void load();
 }
 
-# Netflix — "Browse hidden categories". The activity is referenced only from
-# the manifest, so R8 must keep it.
+# Netflix — "Browse hidden categories" / "Surprise me". The activities are
+# referenced only from the manifest, so R8 must keep them.
 -keep class semicoloncolonel.mobilestream.extension.netflix.categories.HiddenCategoriesActivity { *; }
+-keep class semicoloncolonel.mobilestream.extension.netflix.categories.SurpriseMeActivity { *; }
 
 -keep class semicoloncolonel.mobilestream.extension.hulutv.privacy.NativeTrackerLoader {
     public static void load();

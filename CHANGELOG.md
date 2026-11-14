@@ -1,3 +1,10 @@
+# [1.1.0-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.4...v1.1.0-dev.5) (2026-11-14)
+
+
+### Bug Fixes
+
+* Don't fail CNN Faster launch when the splash gate is already instant ([adae2db](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/adae2dbcfdceb54276d371abf5963329ea057c28))
+
 # [1.1.0-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2026-11-14)
 
 

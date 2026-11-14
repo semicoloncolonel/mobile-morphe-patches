@@ -1,3 +1,11 @@
+# [1.1.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-11-14)
+
+
+### Features
+
+* Add Netflix with a non-root tamper-protection bypass ([d6d9777](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6d977774510d4f31816cf78c30f253a43fd7a3d))
+* Offer the shared privacy patches on Netflix ([cfe4f5d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfe4f5dbc2b5da951129ed778bd8fb5acbdc5fb2))
+
 # [1.1.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.31...v1.1.0-dev.1) (2026-11-14)
 
 

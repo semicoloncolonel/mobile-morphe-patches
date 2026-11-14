@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-14T01:12:25",
-  "description": "# [1.1.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.31...v1.1.0-dev.1) (2026-11-14)\n\n\n### Bug Fixes\n\n* keep the previous version supported when bumping to a newer one ([923f3f8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/923f3f88cc742642b760b8b9ceba28dadd7599c2))\n\n\n### Features\n\n* **dealseek:** add Stop behavioral tracking patch ([5fb3738](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5fb3738ee6ed394c6ccae05c74def4b4b0cd14f5))\n* Hide promo banners for The Daily Wire, and widen version support ([976bed3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/976bed38d2e4af8ba15128d62ad17449ed22d5e8))\n* **release:** begin the 1.1.0 dev line ([54c8399](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/54c839915273430e2e078fcd218cb274be370259))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.1/patches-1.1.0-dev.1.mpp",
+  "created_at": "2026-11-14T03:06:09",
+  "description": "# [1.1.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-11-14)\n\n\n### Features\n\n* Add Netflix with a non-root tamper-protection bypass ([d6d9777](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6d977774510d4f31816cf78c30f253a43fd7a3d))\n* Offer the shared privacy patches on Netflix ([cfe4f5d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfe4f5dbc2b5da951129ed778bd8fb5acbdc5fb2))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.2/patches-1.1.0-dev.2.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.1",
+  "version": "1.1.0-dev.2",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

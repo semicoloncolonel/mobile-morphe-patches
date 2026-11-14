@@ -104,7 +104,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Stop behavioral tracking (off by default)<br>Dark mode (experimental, off by default) | `1.65.0` | 11/13/26 |
 | Flipp | Block ads (experimental)<br>Skip tutorials (experimental)<br>Strip affiliate links (experimental) | `115.0.0` | 11/10/26 |
 | Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | 11/10/26 |
-| RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.0.6` | 11/11/26 |
+| RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.1.0` | 11/14/26 |
 | Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.36.0` | 11/11/26 |
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0` | 11/09/26 |
 | The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |

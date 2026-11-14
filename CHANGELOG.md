@@ -1,3 +1,10 @@
+# [1.1.0-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.5...v1.1.0-dev.6) (2026-11-14)
+
+
+### Bug Fixes
+
+* testing RetailMeNot 10.1.0 ([2659c84](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2659c84b67756ab483d976d5017ca97e648a1c02))
+
 # [1.1.0-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.4...v1.1.0-dev.5) (2026-11-14)
 
 

@@ -3,10 +3,6 @@ group = "app.morphe"
 // Patches kept in the tree but excluded from the public bundle, so Morphe
 // Manager never offers them to an unrooted user.
 //
-//   netflix  — mount-only, rooted devices only. A re-signed Netflix self-kills
-//              via a native signature check, so it cannot be sideloaded; it
-//              works only by bind-mounting the patched base.apk over a Play
-//              install on a rooted device.
 //   hallmark — unpatchable. The app ships Pairip's native anti-tamper VM and
 //              crashes (SIGSEGV) on any re-signed or mounted build, so the
 //              recovered patches do not produce a working app on any device.
@@ -22,7 +18,6 @@ group = "app.morphe"
 sourceSets {
     named("main") {
         kotlin.exclude(
-            "**/patches/netflix/**",
             "**/patches/hallmark/**",
             "**/patches/moviebase/misc/LoadCommunityTabsPatch.kt",
         )

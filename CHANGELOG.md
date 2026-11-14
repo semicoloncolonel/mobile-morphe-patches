@@ -1,3 +1,17 @@
+# [1.1.0-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2026-11-14)
+
+
+### Bug Fixes
+
+* Keep CNN's Faster launch working on the 26.23.0 splash gate ([5bfe4e7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5bfe4e732cea77418d82eda1fbd47e6a1607444f))
+
+
+### Features
+
+* Add a Netflix Keep screen brightness patch ([5964b19](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5964b19852ee114b1a8a23b1461b5f73872c6fae))
+* Add a Netflix Remove bottom tabs patch ([13d0176](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/13d0176a574c9459182cfefe031492d10f2e2443))
+* Add entry-point options and Surprise me to Netflix hidden categories ([f4fa872](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f4fa872ab027804b41c0bad4ad3207ec3bc71859))
+
 # [1.1.0-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-11-14)
 
 

@@ -1,3 +1,17 @@
+# [1.1.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.31...v1.1.0-dev.1) (2026-11-14)
+
+
+### Bug Fixes
+
+* keep the previous version supported when bumping to a newer one ([923f3f8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/923f3f88cc742642b760b8b9ceba28dadd7599c2))
+
+
+### Features
+
+* **dealseek:** add Stop behavioral tracking patch ([5fb3738](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5fb3738ee6ed394c6ccae05c74def4b4b0cd14f5))
+* Hide promo banners for The Daily Wire, and widen version support ([976bed3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/976bed38d2e4af8ba15128d62ad17449ed22d5e8))
+* **release:** begin the 1.1.0 dev line ([54c8399](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/54c839915273430e2e078fcd218cb274be370259))
+
 ## [1.0.21-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.30...v1.0.21-dev.31) (2026-11-13)
 
 

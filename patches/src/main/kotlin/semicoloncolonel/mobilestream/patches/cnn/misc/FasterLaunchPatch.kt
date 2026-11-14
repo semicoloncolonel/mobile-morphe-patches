@@ -96,23 +96,28 @@ val fasterLaunchPatch = bytecodePatch(
 
         // 26.23.0: make the splash's wait on the startup-config flag return at
         // once by forcing its predicate to accept the first value.
-        var splashGatePatched = false
+        var splashGateFound = false
         if (classDefByOrNull(STARTUP_GATE_PREDICATE) != null) {
+            splashGateFound = true
             val predicate = mutableClassDefBy(STARTUP_GATE_PREDICATE)
             val invokeSuspend = predicate.methods.single { it.name == "invokeSuspend" }
             val instructions = invokeSuspend.implementation?.instructions?.toList()
                 ?: throw PatchException("Startup-config predicate has no body")
-            // invokeSuspend loads the emitted Boolean with a single iget-boolean
-            // and returns Boolean.valueOf of it. Set that register to 1 so it
-            // always returns true.
+            // Where the predicate reads the emitted Boolean (a single
+            // iget-boolean) and returns Boolean.valueOf of it, set that register
+            // to 1 so it always returns true. Some 26.23.0 builds already
+            // short-circuit it to a constant true (first { true } on the isReady
+            // StateFlow is instant and does not hang), so there is no boolean
+            // read and nothing to do — leave it rather than failing.
             val index = instructions.indexOfFirst { it.opcode == Opcode.IGET_BOOLEAN }
-            if (index < 0) throw PatchException("Startup-config predicate: no boolean read to override")
-            val register = (instructions[index] as OneRegisterInstruction).registerA
-            invokeSuspend.replaceInstruction(index, "const/16 v$register, 0x1")
-            splashGatePatched = true
+            if (index >= 0) {
+                val register = (instructions[index] as OneRegisterInstruction).registerA
+                invokeSuspend.replaceInstruction(index, "const/16 v$register, 0x1")
+            }
         }
 
-        if (replaced == 0 && !splashGatePatched) {
+        // Fail only on a build where neither surface is recognizable at all.
+        if (replaced == 0 && !splashGateFound) {
             throw PatchException("Faster launch found neither the Optimizely call nor the startup-config gate")
         }
     }

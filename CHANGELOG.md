@@ -7,9 +7,6 @@
 * **checkout51:** open gas offer details from the list, and add Directions in place of the blank details map ([f68e9b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f68e9b71479a2a76ab212ad3c4b32bccfb0abd0a))
 * **checkout51:** send the full station address to the maps app ([0de3e78](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0de3e7860f350f552ac61320704970e1e02ee479))
 * **cnn:** keep the patches working on 26.23.0 and 26.21.0 ([f0a8af8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f0a8af8b02348b4a0849d42788bb8f8a1abc9df6))
-* **hulutv:** harden tracker hook to preserve 64-bit curl options ([6d94358](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6d94358dc522532960921dc39acd908c88ff40fe))
-* **hulutv:** refuse a base-only input that drops Hulu's native libs ([e4ecef7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4ecef764fb2d1122a984f3c736d648b78b097c4))
-* **issue-forms:** list Hulu (Android TV) and Settings Home in the app dropdowns ([a60f886](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a60f886a323cf3950b96fc86b9fbbc747e766036))
 * **issue-forms:** list YouTube TV (Android TV) in the app dropdowns ([1491c2d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1491c2dbd0469ea8c29c23c16129623dd2492e26))
 * **justwatch:** block the 26.45.1 free-streaming pre-roll ads ([78a7d39](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/78a7d392044fc96cdc6b57da8945b2a25191e8e7))
 * keep the previous version supported when bumping to a newer one ([f666674](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f666674b6957d4bddf26b7bdd1d9c7e085222f57))
@@ -53,8 +50,6 @@
 * **dealnews:** support the public Play version 10.7.1 ([de96eb2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/de96eb217bf833198050f17e2a776bd01ecc545e))
 * **dealseek:** add Stop behavioral tracking patch ([d6f2591](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6f25919fe62477515a5c6344d49ece96132daf3))
 * Hide promo banners for The Daily Wire, and widen version support ([0d64d16](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0d64d16fe9c3457bc6c2203b47a23adf8b8b1334))
-* **hulutv:** experimental ad-strip for Hulu on Android TV via a native inflate hook ([507d6f7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/507d6f7c580737cafa171e70612a30979f5ea3a0))
-* **hulutv:** opt-in analytics/tracking blocker for Hulu on Android TV ([8c47e1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8c47e1b35bb9b2863031252724991ee8342ab2b8))
 * **justwatch:** add Unlock JustWatch Pro patch ([f6ea4ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f6ea4ac2cd6493084bc35e8bfbbdefa16b92f0be))
 * **justwatch:** add Unlock JustWatch Pro patch ([f10d0b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f10d0b75adda7922835945b83899b279641225cd))
 * **retailmenot:** add Dark mode ([62e48c2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/62e48c29f08fb192fc5b5a9f7d1f0013bc336985))
@@ -81,14 +76,12 @@
 
 ### Bug Fixes
 
-* **hulutv:** harden tracker hook to preserve 64-bit curl options ([6d94358](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6d94358dc522532960921dc39acd908c88ff40fe))
 
 ## [1.0.21-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.29...v1.0.21-dev.30) (2026-11-13)
 
 
 ### Bug Fixes
 
-* **hulutv:** refuse a base-only input that drops Hulu's native libs ([e4ecef7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4ecef764fb2d1122a984f3c736d648b78b097c4))
 
 ## [1.0.21-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.28...v1.0.21-dev.29) (2026-11-13)
 
@@ -102,21 +95,18 @@
 
 ### Features
 
-* **hulutv:** opt-in analytics/tracking blocker for Hulu on Android TV ([8c47e1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8c47e1b35bb9b2863031252724991ee8342ab2b8))
 
 ## [1.0.21-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.26...v1.0.21-dev.27) (2026-11-13)
 
 
 ### Bug Fixes
 
-* **issue-forms:** list Hulu (Android TV) and Settings Home in the app dropdowns ([a60f886](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a60f886a323cf3950b96fc86b9fbbc747e766036))
 
 ## [1.0.21-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.25...v1.0.21-dev.26) (2026-11-13)
 
 
 ### Features
 
-* **hulutv:** experimental ad-strip for Hulu on Android TV via a native inflate hook ([507d6f7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/507d6f7c580737cafa171e70612a30979f5ea3a0))
 
 ## [1.0.21-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.24...v1.0.21-dev.25) (2026-11-13)
 

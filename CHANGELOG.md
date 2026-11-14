@@ -1,3 +1,11 @@
+# [1.1.0-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-11-14)
+
+
+### Features
+
+* Add a Netflix Browse hidden categories patch ([884ee8e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/884ee8e901de2758c8daeadbd23977861a76545e))
+* Add a Netflix Disable autoplay patch ([85d41ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/85d41ca6cd629574524ca0f280758ae7c8b5f225))
+
 # [1.1.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-11-14)
 
 

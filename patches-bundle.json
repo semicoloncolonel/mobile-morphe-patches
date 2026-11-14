@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-14T03:06:09",
-  "description": "# [1.1.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-11-14)\n\n\n### Features\n\n* Add Netflix with a non-root tamper-protection bypass ([d6d9777](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6d977774510d4f31816cf78c30f253a43fd7a3d))\n* Offer the shared privacy patches on Netflix ([cfe4f5d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfe4f5dbc2b5da951129ed778bd8fb5acbdc5fb2))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.2/patches-1.1.0-dev.2.mpp",
+  "created_at": "2026-11-14T04:41:08",
+  "description": "# [1.1.0-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-11-14)\n\n\n### Features\n\n* Add a Netflix Browse hidden categories patch ([884ee8e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/884ee8e901de2758c8daeadbd23977861a76545e))\n* Add a Netflix Disable autoplay patch ([85d41ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/85d41ca6cd629574524ca0f280758ae7c8b5f225))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.3/patches-1.1.0-dev.3.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.2",
+  "version": "1.1.0-dev.3",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

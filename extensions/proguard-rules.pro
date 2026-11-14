@@ -336,6 +336,12 @@
     public static void load();
 }
 
+# Netflix — "Bypass tamper protection". load() is called only from injected
+# smali at the top of the Application's attachBaseContext.
+-keep class semicoloncolonel.mobilestream.extension.netflix.bypass.NetflixBypassLoader {
+    public static void load();
+}
+
 -keep class semicoloncolonel.mobilestream.extension.hulutv.privacy.NativeTrackerLoader {
     public static void load();
 }

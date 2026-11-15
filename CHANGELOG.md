@@ -1,3 +1,11 @@
+# [1.1.0-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.19...v1.1.0-dev.20) (2026-11-15)
+
+
+### Bug Fixes
+
+* Keep Paramount+ device and server caps in quality and PiP patches ([4ed658f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4ed658f9b057fa4daf574f3e54a9fb5e29c625a8))
+* Remove Paramount+ Hide upsell prompts, which crashed the app ([c043ad0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c043ad08720a90830806fc841d45207315b26910))
+
 # [1.1.0-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.18...v1.1.0-dev.19) (2026-11-15)
 
 

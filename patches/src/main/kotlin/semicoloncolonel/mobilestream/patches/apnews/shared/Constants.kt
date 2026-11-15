@@ -13,6 +13,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xE11B22,
         targets = listOf(
+            devTarget("6.32.1 PROD", versionCode = 10464),
             devTarget("6.32 PROD", versionCode = 10459),
             AppTarget("6.31.2 PROD"),
         )

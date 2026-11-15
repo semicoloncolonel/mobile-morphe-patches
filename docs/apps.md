@@ -52,7 +52,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | ABC News | Mask live ad breaks<br>Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default) | `8.100.0` | 11/11/26 |
-| AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32` | 11/12/26 |
+| AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32.1` (experimental)<br>`6.32` | 11/15/26 |
 | CBS News | Disable signature check<br>Hide surveys<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default) | `5.20` | 11/02/26 |
 | CNBC | Fix launch with DNS blockers<br>Hide newsletter pop-ups<br>Hide rating prompt<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Dark mode (experimental, off by default)<br>Hide premium promotions (off by default) | `8.8.2` | 11/08/26 |
 | CNN | Faster launch (26.21.0 only)<br>Opt out of data sale & sharing<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.23.0`<br>`26.21.0` | 11/14/26 |

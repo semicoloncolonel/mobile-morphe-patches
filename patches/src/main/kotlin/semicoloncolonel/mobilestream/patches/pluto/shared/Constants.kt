@@ -9,8 +9,8 @@ object Constants {
         name = "Pluto TV",
         packageName = "tv.pluto.android",
         description = "The Pluto TV app, for phones and Android TV. The phone and TV builds " +
-            "share a version name but have different version codes: 4200xxxxx for the phone " +
-            "build, 5200xxxxx for the Android TV build. On a TV, patch the Android TV build.",
+            "share a version name. Phone builds have version codes that start with 4, and " +
+            "Android TV builds have version codes that start with 5. On a TV, patch the Android TV build.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xB8B004,
         targets = listOf(

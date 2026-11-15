@@ -357,9 +357,3 @@
     public static void load();
 }
 
-# The Washington Post — "Subscribe on the web". open() is called only from
-# injected smali at the start of the paywall's purchase methods.
--keep class semicoloncolonel.mobilestream.extension.washingtonpost.WebSubscribe {
-    public static void open(android.app.Activity);
-    public static void open(android.app.Activity, java.lang.Object);
-}

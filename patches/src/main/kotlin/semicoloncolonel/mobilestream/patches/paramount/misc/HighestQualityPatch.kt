@@ -5,15 +5,13 @@ import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.paramount.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
-// Paramount+ 17.3.0. The Avia player's AviaAdaptiveTrackSelection wraps
-// ExoPlayer's AdaptiveTrackSelection. Two methods gate quality:
-//
-// 1. shouldInclude: rejects tracks above the Config's max bitrate, max
-//    resolution, max frame rate, or when H.265 is disabled. Returning true
-//    removes all of those caps.
-// 2. canSelectFormat: inherited from AdaptiveTrackSelection, gates which
-//    renditions the bandwidth estimator considers. Returning true lets the
-//    player pick the highest rendition regardless of measured bandwidth.
+// Paramount+ 17.3.0. Avia's AviaAdaptiveTrackSelection.canSelectFormat decides
+// whether a rendition fits the measured bandwidth, so a slow estimate drops the
+// player to a lower rendition. canSelectFormat now answers only with
+// shouldInclude, Avia's own check of the device and server caps: UHD only on
+// UHD-capable devices, no HEVC when it is disabled, and the max size, bitrate,
+// and frame rate in the player config. Bandwidth is ignored; the caps are not.
+// Avia's decoder-error fallbacks lower those caps, so they keep working.
 
 private const val AVIA_TRACK =
     "Lcom/paramount/android/avia/player/player/core/network/AviaAdaptiveTrackSelection;"
@@ -21,7 +19,7 @@ private const val AVIA_TRACK =
 internal object ShouldIncludeFingerprint : Fingerprint(
     returnType = "Z",
     custom = { method, classDef ->
-        classDef.type == AVIA_TRACK && method.name == "shouldInclude"
+        classDef.type == AVIA_TRACK && method.name == "shouldInclude" && method.parameterTypes.size == 1
     }
 )
 
@@ -35,24 +33,19 @@ internal object CanSelectFormatFingerprint : Fingerprint(
 @Suppress("unused")
 val highestQualityPatch = bytecodePatch(
     name = "Force highest quality",
-    description = "Removes bitrate, resolution, and codec caps so the player always picks the highest " +
-        "available quality. Turn it off if videos buffer.",
+    description = "Plays the highest quality your device and plan allow, instead of lowering it to match " +
+        "the measured connection speed. Turn it off if videos buffer.",
 ) {
     category("Playback")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        ShouldIncludeFingerprint.method.returnEarly(
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
-
+        val format = ShouldIncludeFingerprint.method.parameterTypes.single()
         CanSelectFormatFingerprint.method.returnEarly(
             """
-                const/4 v0, 0x1
-                return v0
+                invoke-direct/range { p0 .. p1 }, $AVIA_TRACK->shouldInclude($format)Z
+                move-result p1
+                return p1
             """,
         )
     }

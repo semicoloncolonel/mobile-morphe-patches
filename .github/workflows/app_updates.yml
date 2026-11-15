@@ -170,6 +170,13 @@ jobs:
           # phones; the ps16k images would flag 16 KB page devices only.
           api-level: '37.0'
           arch: x86_64
+          # Android 17 did not finish booting in 10 minutes on the default 2
+          # cores. GitHub's Linux runners have 4 cores and 16 GB.
+          cores: 4
+          ram-size: 4096M
+          disk-size: 8G
+          emulator-boot-timeout: 1200
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -no-metrics
           target: google_apis
           disable-animations: true
           script: python3 .github/scripts/launch_check.py app-updates --issues

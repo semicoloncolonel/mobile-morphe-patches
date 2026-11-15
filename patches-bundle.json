@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-15T00:40:51",
-  "description": "# [1.1.0-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.7...v1.1.0-dev.8) (2026-11-15)\n\n\n### Bug Fixes\n\n* Keep WSJ Skip ads working on 15.13.0 ([565ea1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/565ea1b8d99f1ab6c7effedb9dc56224b28a1f22))\n* Stop CNN 26.23.0 hanging on the splash screen ([4d1f5dd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4d1f5dd27b3be3deb52eea4368860d4b9e18229c))\n* Stop RetailMeNot 10.1.0 loading to a blank screen ([cfaca31](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfaca31047aafc5b59c55ab910b9687efee40b92))\n\n\n### Features\n\n* Target Netflix 9.92.0, the version Google Play serves to everyone ([9fd037d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9fd037d8ab9541968dd3ca2cdc5e09cf40c134d8))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.8/patches-1.1.0-dev.8.mpp",
+  "created_at": "2026-11-15T00:45:33",
+  "description": "# [1.1.0-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.8...v1.1.0-dev.9) (2026-11-15)\n\n\n### Bug Fixes\n\n* Keep older app versions targeted when the update bot bumps one ([77772ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/77772ca8a9944a57d85069a9257f084207c84fab))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.9/patches-1.1.0-dev.9.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.8",
+  "version": "1.1.0-dev.9",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -1,3 +1,10 @@
+# [1.1.0-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.8...v1.1.0-dev.9) (2026-11-15)
+
+
+### Bug Fixes
+
+* Keep older app versions targeted when the update bot bumps one ([77772ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/77772ca8a9944a57d85069a9257f084207c84fab))
+
 # [1.1.0-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.7...v1.1.0-dev.8) (2026-11-15)
 
 

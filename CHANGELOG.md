@@ -1,3 +1,10 @@
+# [1.1.0-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.17...v1.1.0-dev.18) (2026-11-15)
+
+
+### Features
+
+* Add Paramount+ live mask, quality, upsell, PiP; fix Pluto duplicate targets ([8465d3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8465d3f8797577723868f7ef168bdc5001980426))
+
 # [1.1.0-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.16...v1.1.0-dev.17) (2026-11-15)
 
 

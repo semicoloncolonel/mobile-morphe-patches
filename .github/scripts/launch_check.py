@@ -92,7 +92,7 @@ def main():
             needs_review = result.startswith(("crashed", "closed", "did not install"))
             note = "\n\nThis needs a manual check: open the patched app on a device." if needs_review else ""
             comment(r["name"], r["latest"],
-                    f"Launch check on an Android 14 emulator: the patched {r['name']} `{r['latest']}` {result}{note}\n",
+                    f"Launch check on an Android 17 emulator: the patched {r['name']} `{r['latest']}` {result}{note}\n",
                     needs_review)
     (args.report / "launch.json").write_text(json.dumps(launches, indent=2))
     if len(lines) > 5:

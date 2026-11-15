@@ -88,7 +88,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | FEMA | Save content for offline use<br>Block analytics & tracking (off by default) | `3.2.1` | 11/02/26 |
 | MyTSA | Block analytics & tracking (off by default) | `5.1.0` | 11/02/26 |
 | National Forests & Grasslands | Disable Pairip license check<br>Block analytics & tracking (off by default) | `1.3.0` | 11/02/26 |
-| NPS | Block analytics & tracking (off by default)<br>Block Bluetooth scanning (off by default) | `2.16.0`<br>`2.15.0` | 11/14/26 |
+| NPS | Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `2.16.0`<br>`2.15.0` | 11/14/26 |
 | Recreation.gov | Hide rating prompt<br>Skip location on open<br>Block analytics & tracking (off by default)<br>Show hidden details (off by default) | `2.2.67.1` | 11/07/26 |
 | White House | Disable Pairip license check<br>Remove microphone access<br>Skip launch video<br>Block analytics & tracking (off by default)<br>Hide promotions (off by default)<br>Hide social feeds (off by default)<br>Route traffic through a proxy (off by default) | `47.7.11` | 11/10/26 |
 
@@ -128,4 +128,4 @@ Each table lists an app's patches and the versions they were tested on. [What th
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| Settings Home | Block ads<br>Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default)<br>Spoof carrier (off by default) | `1.6.4` | 11/13/26 |
+| Settings Home | Block ads<br>Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `1.6.4` | 11/13/26 |

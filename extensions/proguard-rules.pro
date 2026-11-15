@@ -33,7 +33,7 @@
     public static java.io.InputStream filter(java.io.InputStream);
 }
 
-# Shared "Hide device identifiers" (opt-in). getSecureString replaces
+# Shared "Hide device identifiers" (opt-in), Android ID option. getSecureString replaces
 # Settings.Secure.getString at app call sites via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.DeviceIdSpoofer {
     public static java.lang.String getSecureString(android.content.ContentResolver, java.lang.String);
@@ -60,10 +60,10 @@
     public static void maybeSkipAux(java.lang.Object, java.util.List);
 }
 
-# Shared "Report Wi-Fi connection" / "Hide VPN connection" (opt-in). Every
+# "Hide device identifiers", Report Wi-Fi connection / VPN connection options. Every
 # public static method replaces a framework call at app call sites via
 # injected invoke-static, and reportWifi / hideVpn are overwritten by the
-# patches, so R8 must keep them as they are and not fold their result.
+# options, so R8 must keep them as they are and not fold their result.
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.NetworkStateSpoofer {
     public static *;
 }
@@ -94,9 +94,9 @@
     public static java.util.List filterFeed(java.util.List);
 }
 
-# Shared "Spoof carrier" (opt-in). Every public static method replaces a
+# "Hide device identifiers", Carrier option. Every public static method replaces a
 # framework call at app call sites via injected invoke-static, and
-# carrierName() is overwritten by the patch, so R8 must keep them as they are.
+# carrierName() is overwritten by the option, so R8 must keep them as they are.
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.CarrierSpoofer {
     public static *;
 }
@@ -115,8 +115,8 @@
     public static java.net.URL filterJsRequestUrl(java.net.URL);
 }
 
-# Shared "Hide Wi-Fi networks" / "Block Bluetooth scanning" / "Hide cell
-# tower info" (opt-in). Every public static method replaces a framework call
+# "Hide device identifiers", Nearby Wi-Fi networks / Bluetooth scanning / Cell
+# tower info options. Every public static method replaces a framework call
 # at app call sites via injected invoke-static, so R8 must keep them as they are.
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.NearbyHider {
     public static *;

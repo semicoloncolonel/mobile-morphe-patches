@@ -45,6 +45,12 @@ class NewerTest(unittest.TestCase):
         self.assertNewer("26.21.0+rc1-2026.11.20", "26.20.0+rc3-2026.11.02")
         self.assertNewer("26.20.0+rc3-2026.11.02", "26.20.0+rc2-2026.10.28")
 
+    def test_hulu_tv_build_hash_is_not_a_version_number(self):
+        # Issue 64: 6344DFC8P3.9.606 is older than the pinned C59F39CFP3.10.33.
+        self.assertNewer("C59F39CFP3.10.33", "6344DFC8P3.9.606")
+        self.assertNewer("0A1B2C3DP3.10.40", "C59F39CFP3.10.33")
+        self.assertNotNewer("6344DFC8P3.10.33", "C59F39CFP3.10.33")
+
     def test_sorting_newest_first(self):
         listed = ["rc6-2026.07.30", "rc1-2026.11.20", "3.5.0-rc4", "rc3-2026.11.02", "rc5-2026.10.05"]
         ordered = sorted(listed, key=app_updates.version_order, reverse=True)
@@ -254,6 +260,81 @@ class TvTrackTest(unittest.TestCase):
             app_updates.sync_issues([phone], None, {"com.apple.atve.androidtv.appletv": "3.0.0",
                                                     "com.apple.atve.androidtv.appletv#tv": "17.0.2"})
         self.assertFalse([c for c in calls if c[:2] in (("issue", "close"), ("issue", "edit"))])
+
+
+class OlderApkTest(unittest.TestCase):
+    """Issues 65 and 68: APKPure listed a version above the Netflix pin, but the
+    APK it served was 9.92.0, below the 9.93.0 pin."""
+
+    PINNED = "9.93.0 build 7 74878"
+    APPS = {"com.netflix.mediaclient": {"versions": [PINNED], "patches": ["Disable autoplay"]}}
+
+    def run_phone(self, apk_version, served):
+        outcome = {"tv_build": False, "cert": "matches", "version_name": apk_version,
+                   "patches": {"applied": ["Disable autoplay"], "failed": []}}
+        with mock.patch.object(app_updates, "apkpure_versions", return_value=["9.94.0 build 1 75000"]), \
+                mock.patch.object(app_updates, "check_version", return_value=outcome), \
+                mock.patch.object(app_updates, "inspect_apk", return_value={}) as inspect:
+            results = app_updates.check(self.APPS, {"com.netflix.mediaclient": "Netflix"}, {}, "cli", "mpp",
+                                        "work", "aapt2", "apksigner", None, Path("keep"), FakePlay(served))
+        return results[0], inspect
+
+    def test_older_apk_is_not_reported(self):
+        record, inspect = self.run_phone("9.92.0 build 9 74772", "9.92.0 build 9 74772")
+        self.assertEqual(record["status"], "up to date")
+        self.assertEqual(record["not_newer"], ["9.94.0 build 1 75000 (APK is 9.92.0 build 9 74772)"])
+        inspect.assert_not_called()
+
+    def test_older_apk_with_unknown_play_version_is_up_to_date(self):
+        record, _ = self.run_phone("9.92.0 build 9 74772", None)
+        self.assertEqual((record["status"], record["latest"]), ("up to date", self.PINNED))
+
+    def test_newer_apk_is_still_reported(self):
+        record, _ = self.run_phone("9.94.0 build 1 75000", "9.94.0 build 1 75000")
+        self.assertEqual((record["status"], record["latest"]), ("update", "9.94.0 build 1 75000"))
+
+    def test_older_tv_apk_is_not_reported(self):
+        apps = {"com.hulu.livingroomplus": {"versions": ["C59F39CFP3.10.33"], "patches": ["Skip ads"]}}
+        tv = {"tv_build": True, "cert": "matches", "version_name": "6344DFC8P3.9.606"}
+        with mock.patch.object(app_updates, "apkpure_versions", return_value=["FFFFFFFFP3.11.0"]), \
+                mock.patch.object(app_updates, "check_version", return_value=tv):
+            record = app_updates.check_tv("com.hulu.livingroomplus", "Hulu (Android TV)",
+                                          apps["com.hulu.livingroomplus"], {}, "cli", "mpp", "work", "aapt2",
+                                          "apksigner", Path("keep"), FakePlay(None))
+        self.assertEqual(record["status"], "up to date")
+
+
+class DevOnlyCloseTest(unittest.TestCase):
+    """An app no main release has yet must not be closed as "released"."""
+
+    def run_sync(self, stable):
+        record = {"package": "com.netflix.mediaclient", "name": "Netflix", "pinned": "9.93.0 build 7 74878",
+                  "status": "up to date"}
+        calls = []
+
+        def gh(*args, stdin=None):
+            calls.append(args)
+            if args[:2] == ("issue", "list"):
+                return '[{"number": 68, "title": "App update: Netflix 9.92.0 build 9 74772"}]'
+            return ""
+
+        with mock.patch.object(app_updates, "gh", side_effect=gh):
+            app_updates.sync_issues([record], None, stable)
+        edits = [c for c in calls if c[:2] == ("issue", "edit")]
+        closes = [c for c in calls if c[:2] == ("issue", "close")]
+        return edits, closes
+
+    def test_dev_only_app_closes_without_claiming_a_release(self):
+        edits, closes = self.run_sync({"com.other.app": "1.0"})
+        self.assertEqual(len(closes), 1)
+        self.assertIn("which no main release includes yet", closes[0][-1])
+        self.assertNotIn("main release targets", closes[0][-1])
+        self.assertNotIn(app_updates.RELEASED_LABEL, edits[0])
+
+    def test_released_app_still_says_main_release(self):
+        edits, closes = self.run_sync({"com.netflix.mediaclient": "9.93.0 build 7 74878"})
+        self.assertIn("The latest main release targets Netflix", closes[0][-1])
+        self.assertIn(app_updates.RELEASED_LABEL, edits[0])
 
 
 if __name__ == "__main__":

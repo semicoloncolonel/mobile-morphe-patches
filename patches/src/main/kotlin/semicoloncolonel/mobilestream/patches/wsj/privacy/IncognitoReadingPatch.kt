@@ -44,7 +44,7 @@ private object CxenseRecommendationsFingerprint : Fingerprint(
 @Suppress("unused")
 val incognitoReadingPatch = bytecodePatch(
     name = "Incognito reading",
-    description = "Stops the app from sending which articles you read to the Journal's recommendation and offer services. Includes Block analytics & tracking.",
+    description = "Experimental. Stops the app from sending which articles you read to the Journal's recommendation and offer services. Includes Block analytics & tracking.",
     default = false,
 ) {
     category("Privacy")

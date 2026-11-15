@@ -30,7 +30,7 @@ private const val WEB_SUBSCRIBE = "Lsemicoloncolonel/mobilestream/extension/wash
 @Suppress("unused")
 val subscribeOnWebPatch = bytecodePatch(
     name = "Subscribe on the web",
-    description = "Makes the paywall's Subscribe button open the Post's subscription page in your browser, since a patched app cannot buy through Google Play.",
+    description = "Experimental. Makes the paywall's Subscribe button open the Post's subscription page in your browser, since a patched app cannot buy through Google Play.",
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)

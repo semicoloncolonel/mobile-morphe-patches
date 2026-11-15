@@ -55,7 +55,7 @@ private fun ClassDef.primaryConstructor(parameters: Int) =
 @Suppress("unused")
 val incognitoReadingPatch = bytecodePatch(
     name = "Incognito reading",
-    description = "Stops the app and the Post from recording which articles you read. Includes Block analytics & tracking.",
+    description = "Experimental. Stops the app and the Post from recording which articles you read. Includes Block analytics & tracking.",
     default = false,
 ) {
     category("Privacy")

@@ -7,6 +7,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import semicoloncolonel.mobilestream.patches.nytimes.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
+import semicoloncolonel.mobilestream.patches.shared.misc.returnUnitSmali
 import semicoloncolonel.mobilestream.patches.shared.privacy.enableIncognitoReading
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -82,11 +83,7 @@ val incognitoReadingPatch = bytecodePatch(
         RecordViewFingerprint.methodOrNull?.returnEarly("return-void")
             ?: throw PatchException("Recently viewed: the method that records an article was not found")
 
-        SyncHistoryFingerprint.methodOrNull?.returnEarly(
-            """
-                sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-                return-object v0
-            """.trimIndent(),
-        ) ?: throw PatchException("Recently viewed: the history sync was not found")
+        SyncHistoryFingerprint.methodOrNull?.returnEarly(returnUnitSmali())
+            ?: throw PatchException("Recently viewed: the history sync was not found")
     }
 }

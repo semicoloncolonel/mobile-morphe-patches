@@ -4,6 +4,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.rawResourcePatch
+import semicoloncolonel.mobilestream.patches.reuters.shared.ArticleRenderer
 import semicoloncolonel.mobilestream.patches.reuters.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.HERMES_BUNDLE
 import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
@@ -32,7 +33,9 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 //                                 now discards each message; Braze still
 //                                 delivers push alerts.
 //
-// The cards render nothing. Topic tags and Read next stay.
+// The cards render nothing, and in articles the preference, newsletter, and
+// topic-engagement elements are dropped from the renderer, so their empty
+// containers leave no gap (ArticleRenderer). Topic tags and Read next stay.
 
 private const val VERSION = 96
 
@@ -87,6 +90,9 @@ val hidePromotionsPatch = rawResourcePatch(
         bundle.returnAtStart("NewsletterArticleCard", HermesBundle.Value.NULL)
         bundle.returnAtStart("NewsletterCard", "SUBSCRIBE_TO_NEWSLETTERS", HermesBundle.Value.NULL)
         bundle.returnAtStart("parseArticleNotificationData", HermesBundle.Value.UNDEFINED)
+        ArticleRenderer.drop(bundle, "preference")
+        ArticleRenderer.drop(bundle, "newsletter")
+        ArticleRenderer.drop(bundle, "topic-engagement")
 
         val article = listOf("parseArticleNotificationData")
         // GetById r14, r10, "newsletters"; Neq r16, r14, r4 -> LoadConstFalse r16 (twice),

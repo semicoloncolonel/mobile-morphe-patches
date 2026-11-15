@@ -67,7 +67,7 @@ private object SyncHistoryFingerprint : Fingerprint(
 @Suppress("unused")
 val incognitoReadingPatch = bytecodePatch(
     name = "Incognito reading",
-    description = "Stops the app and NYT from recording which articles you read. Includes Block analytics & tracking.",
+    description = "Experimental. Stops the app and NYT from recording which articles you read. Includes Block analytics & tracking.",
     default = false,
 ) {
     category("Privacy")

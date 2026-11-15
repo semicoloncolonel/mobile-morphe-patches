@@ -3,7 +3,7 @@ package semicoloncolonel.mobilestream.patches.retailmenot.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
+
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -12,6 +12,6 @@ object Constants {
         description = "The RetailMeNot coupons and cash back app. Needs the Pairip license-check patch to run once re-signed.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x6A2C91,
-        targets = listOf(devTarget("10.1.0", versionCode = 100138), AppTarget("10.0.6", versionCode = 100129))
+        targets = listOf(AppTarget("10.1.0", versionCode = 100138), AppTarget("10.0.6", versionCode = 100129))
     )
 }

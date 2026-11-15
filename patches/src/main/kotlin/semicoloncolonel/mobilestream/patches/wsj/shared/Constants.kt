@@ -3,7 +3,7 @@ package semicoloncolonel.mobilestream.patches.wsj.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
+
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -12,6 +12,6 @@ object Constants {
         description = "The Wall Street Journal news app.",
         apkFileType = ApkFileType.APK,
         appIconColor = 0x111111,
-        targets = listOf(AppTarget("15.12.0.42675"), devTarget("15.13.0.44249", versionCode = 710044249))
+        targets = listOf(AppTarget("15.12.0.42675"), AppTarget("15.13.0.44249", versionCode = 710044249))
     )
 }

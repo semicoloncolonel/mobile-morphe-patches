@@ -19,7 +19,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Apple TV (Android TV) | Auto-skip (Android TV, experimental)<br>Hide rating prompt (Android TV, experimental)<br>Show release times (Android TV, experimental)<br>Block analytics & tracking (Android TV, experimental, off by default) | `17.0.3`<br>`17.0.2` | 11/12/26 |
 | Disney+ (also on Android TV) | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
 | ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `8.29.0`<br>`8.27.0` | 11/14/26 |
-| Fandango at Home | Mask ads<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |
+| Fandango at Home | Mask ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1`<br>`1.24.0` | 11/14/26 |
 | HBO Max (also on Android TV) | Remove social sign-in (phone)<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default) | `22.0.0.321`<br>`7.14.0.530`<br>Android TV `22.0.0.36` | 11/14/26 |
 | Hulu | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.34.0+18552420-google` | 10/31/26 |
@@ -27,7 +27,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | JustWatch (also on Android TV) | Block ads<br>Hide sponsored titles<br>Block analytics & tracking (off by default)<br>GmsCore support (experimental, off by default)<br>Hide unavailable titles (experimental, off by default)<br>Hide watched titles (experimental, off by default)<br>Streaming titles only (experimental, off by default) | `26.45.1`<br>`26.44.2`<br>`26.43.10`<br>Android TV `26.44.5`<br>Android TV `26.43.8` | 11/14/26 |
 | Kanopy | Hide rating prompt (experimental)<br>Hide survey (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.32.0` | 11/09/26 |
 | MGM+ | Remove social sign-in<br>Skip ads (experimental)<br>Skip lion intro<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable MGM+ AI (off by default) | `240.0.2026240000` | 10/30/26 |
-| MLB | Hide surveys and rating prompt<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide betting odds (off by default)<br>Mask live ad breaks (experimental, off by default) | `26.21.0.49` | 11/05/26 |
+| MLB | Hide surveys and rating prompt<br>Skip ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide betting odds (off by default)<br>Mask live ad breaks (experimental, off by default) | `26.21.0.49` | 11/05/26 |
 | Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking (off by default) | `7.7.1`<br>`7.7.0` | 11/10/26 |
 | NBA | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable Ask NBA AI (experimental, off by default)<br>Hide League Pass upsells (experimental, off by default) | `1.3.0`<br>`1.2.0` | 11/14/26 |
 | Netflix | Bypass tamper protection (experimental)<br>Browse hidden categories (experimental, off by default)<br>Disable autoplay (experimental, off by default)<br>Keep screen brightness (experimental, off by default)<br>Remove bottom tabs (experimental, off by default) | `9.93.0 build 7 74878`<br>`9.92.0 build 9 74772` | 11/14/26 |
@@ -36,22 +36,22 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `5.27.0` | 10/30/26 |
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.11` | 11/10/26 |
 | Plex (also on Android TV) | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
-| Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
+| Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Translate ad break screen (experimental)<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
 | Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.480.647`<br>`3.0.479.847`<br>`3.0.477.1447` | 11/14/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2611.2.1`, `2610.4.0` | 11/13/26 |
 | Starz (also on Android TV) | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0`<br>`6.11.0` | 11/14/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
 | Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.1`<br>`10.44.5001` (Android TV) | 11/14/26 |
-| Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |
-| YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
+| Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |
+| YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
 | YouTube TV (Android TV) | Skip injected ads | `7.32.300` | 11/12/26 |
 
 ## News
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
-| ABC News | Mask live ad breaks<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `8.100.0` | 11/11/26 |
+| ABC News | Mask live ad breaks<br>Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default) | `8.100.0` | 11/11/26 |
 | AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32` | 11/12/26 |
 | CBS News | Disable signature check<br>Hide surveys<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default) | `5.20` | 11/02/26 |
 | CNBC | Fix launch with DNS blockers<br>Hide newsletter pop-ups<br>Hide rating prompt<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Dark mode (experimental, off by default)<br>Hide premium promotions (off by default) | `8.8.2` | 11/08/26 |

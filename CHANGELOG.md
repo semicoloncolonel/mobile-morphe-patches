@@ -1,3 +1,12 @@
+# [1.1.0-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.11...v1.1.0-dev.12) (2026-11-15)
+
+
+### Bug Fixes
+
+* Restore 21 app versions the update bot dropped ([69a2cbb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/69a2cbb7d329bfa026924ce9d2df55296d1f0b01))
+* Stop the update check reading phone builds as Android TV builds ([1048cd2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1048cd2d91992b1f0c71f7815d0537e86f7576ab))
+* testing Prime Video 3.0.481.1947 ([a35d755](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a35d755ed15597c7621c99efe32dc405029de5d0))
+
 # [1.1.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.10...v1.1.0-dev.11) (2026-11-15)
 
 

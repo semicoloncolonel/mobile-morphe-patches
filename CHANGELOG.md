@@ -1,3 +1,10 @@
+# [1.1.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.9...v1.1.0-dev.10) (2026-11-15)
+
+
+### Bug Fixes
+
+* List Netflix in the issue forms ([a6c5bce](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a6c5bce91e1eb04e32d912a91f55755fcfc56c9a))
+
 # [1.1.0-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.8...v1.1.0-dev.9) (2026-11-15)
 
 

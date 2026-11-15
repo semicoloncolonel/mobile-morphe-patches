@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-15T00:48:26",
-  "description": "# [1.1.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.9...v1.1.0-dev.10) (2026-11-15)\n\n\n### Bug Fixes\n\n* List Netflix in the issue forms ([a6c5bce](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a6c5bce91e1eb04e32d912a91f55755fcfc56c9a))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.10/patches-1.1.0-dev.10.mpp",
+  "created_at": "2026-11-15T00:55:03",
+  "description": "# [1.1.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.10...v1.1.0-dev.11) (2026-11-15)\n\n\n### Bug Fixes\n\n* testing JustWatch (Android TV) 26.44.5 ([72b7e3d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/72b7e3da37d4b5bf6e7eb27a5b5160df79b5dbad))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.11/patches-1.1.0-dev.11.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.10",
+  "version": "1.1.0-dev.11",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

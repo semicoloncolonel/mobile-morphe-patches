@@ -1,3 +1,10 @@
+# [1.1.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.10...v1.1.0-dev.11) (2026-11-15)
+
+
+### Bug Fixes
+
+* testing JustWatch (Android TV) 26.44.5 ([72b7e3d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/72b7e3da37d4b5bf6e7eb27a5b5160df79b5dbad))
+
 # [1.1.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.9...v1.1.0-dev.10) (2026-11-15)
 
 

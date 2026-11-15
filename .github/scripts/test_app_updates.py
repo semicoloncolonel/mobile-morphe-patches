@@ -337,6 +337,37 @@ class DevOnlyCloseTest(unittest.TestCase):
         self.assertIn(app_updates.RELEASED_LABEL, edits[0])
 
 
+class CoveredVersionTest(unittest.TestCase):
+    """An "update" the release already covers must not open an issue the next run closes."""
+
+    def run_sync(self, latest, stable):
+        record = {"package": "com.netflix.mediaclient", "name": "Netflix", "pinned": "9.93.0 build 7 74878",
+                  "status": "update", "latest": latest, "targets": [], "patches": None}
+        calls = []
+
+        def gh(*args, stdin=None):
+            calls.append(args)
+            if args[:2] == ("issue", "list"):
+                return "[]"
+            return "https://github.com/o/r/issues/99" if args[:2] == ("issue", "create") else ""
+
+        with mock.patch.object(app_updates, "gh", side_effect=gh):
+            app_updates.sync_issues([record], None, stable)
+        return [c for c in calls if c[:2] == ("issue", "create")]
+
+    def test_older_than_main_release_opens_nothing(self):
+        stable = {"com.netflix.mediaclient": "9.93.0 build 7 74878"}
+        self.assertEqual(self.run_sync("9.92.0 build 9 74772", stable), [])
+
+    def test_same_as_main_release_opens_nothing(self):
+        stable = {"com.netflix.mediaclient": "9.93.0 build 7 74878"}
+        self.assertEqual(self.run_sync("9.93.0 build 7 74878", stable), [])
+
+    def test_newer_than_main_release_opens_an_issue(self):
+        stable = {"com.netflix.mediaclient": "9.93.0 build 7 74878"}
+        self.assertEqual(len(self.run_sync("9.94.0 build 2 75100", stable)), 1)
+
+
 class IsTvBuildTest(unittest.TestCase):
     """A phone build that lists Android TV as optional is not a TV build."""
 

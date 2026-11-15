@@ -1,3 +1,18 @@
+# [1.1.0-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.13...v1.1.0-dev.14) (2026-11-15)
+
+
+### Bug Fixes
+
+* Wait for the emulator's package service before installing ([642dbf8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/642dbf834c0cb63f43d24705faac79aa6717966c))
+
+
+### Features
+
+* Add Incognito reading and Subscribe on the web for WaPo ([15332b5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/15332b5ea80edd95ac2d7cee3be689066c010f57))
+* Add Incognito reading for NYT, and block more trackers in every app ([1ff5e4b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ff5e4ba9ad761fd4b0665ae20e8da468e061525))
+* Add Incognito reading for WSJ ([dfc6cfc](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dfc6cfcd021e5f0c9dadf7a5f6bf1cc252987462))
+* Mark Incognito reading and Subscribe on the web as experimental ([41e0826](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/41e0826454a8684c9014b9ba76a9b837312ff362))
+
 # [1.1.0-dev.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.12...v1.1.0-dev.13) (2026-11-15)
 
 

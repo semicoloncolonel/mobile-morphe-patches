@@ -169,6 +169,33 @@ internal class HermesBundle(private val bytes: ByteArray) {
     }
 
     /**
+     * Like [replaceInstructions], when several functions named [name] load
+     * every string in [using]: [find] must occur exactly once across all of
+     * them, and that occurrence is replaced.
+     */
+    fun replaceInstructionsInAny(
+        name: String,
+        using: List<String>,
+        forVersion: Int,
+        find: ByteArray,
+        replace: ByteArray,
+    ) {
+        if (version != forVersion) throw PatchException("Expected Hermes bytecode version $forVersion, found $version")
+        if (find.size != replace.size) throw PatchException("Replacement must keep the instruction length")
+        val ids = using.map { stringId(it) }
+        val hits = functions.filter { function -> function.name == name && ids.all { function.mentions(it) } }
+            .flatMap { function ->
+                (function.offset..function.offset + function.size - find.size).filter { at ->
+                    find.indices.all { bytes[at + it] == find[it] }
+                }
+            }
+        if (hits.size != 1) {
+            throw PatchException("Hermes functions \"$name\" using $using: expected the instructions once, found ${hits.size}")
+        }
+        replace.copyInto(bytes, hits.single())
+    }
+
+    /**
      * Makes the one function named [name] return [value] at once: its first
      * four bytes become "LoadConst<value> r0; Ret r0". The function must have
      * a frame of at least one register, and the rest of its body is left

@@ -26,6 +26,9 @@ object Constants {
                 ),
                 description = "Android TV build",
             ),
+            // Matched by version name alone, so both the APKMirror bundle and the
+            // copy Google Play gives a Shield are accepted.
+            devTarget("26.44.5", description = "Android TV build"),
         )
     )
 }

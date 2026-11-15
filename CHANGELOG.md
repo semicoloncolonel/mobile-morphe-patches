@@ -1,3 +1,10 @@
+# [1.1.0-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.23...v1.1.0-dev.24) (2026-11-15)
+
+
+### Bug Fixes
+
+* List Reuters in the issue forms and the README News count ([dde40b0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dde40b000cd43eb0e3ddef56d58d296efcaae093))
+
 # [1.1.0-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.22...v1.1.0-dev.23) (2026-11-15)
 
 

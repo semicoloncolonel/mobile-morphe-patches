@@ -1,6 +1,7 @@
 package semicoloncolonel.mobilestream.patches.tubi.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
@@ -14,6 +15,7 @@ object Constants {
         appIconColor = 0xE9181C,
         targets = listOf(
             devTarget("10.44.3", versionCode = 1066, description = "Phone build"),
+            AppTarget("10.44.1", versionCode = 1063, description = "Phone build"),
             devTarget("10.44.5001", versionCode = 1067, description = "Android TV build"),
         )
     )

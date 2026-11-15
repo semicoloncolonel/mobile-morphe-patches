@@ -17,6 +17,8 @@ object Constants {
             devTarget("3.0.480.847", versionCode = 480000847),
             AppTarget("3.0.480.747", versionCode = 480000747),
             AppTarget("3.0.479.847"),
+            AppTarget("3.0.480.647", versionCode = 480000647),
+            AppTarget("3.0.477.1447", versionCode = 477001447),
         )
     )
 }

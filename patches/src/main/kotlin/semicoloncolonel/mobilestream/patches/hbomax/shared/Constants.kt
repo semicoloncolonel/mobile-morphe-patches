@@ -24,6 +24,7 @@ object Constants {
         targets = listOf(
             AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
             AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
+            AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"),
         )
     )
 
@@ -35,7 +36,7 @@ object Constants {
         description = "The HBO Max phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"))
+        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"), AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"))
     )
 
     // The package name the Play Store installs. Google Play delivers both the

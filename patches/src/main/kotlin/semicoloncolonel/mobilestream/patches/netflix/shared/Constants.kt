@@ -8,8 +8,9 @@ object Constants {
     // Netflix ships its own native tamper guard, so every Netflix patch is
     // experimental: it only applies to a build that has been re-signed, and
     // the guard's self-kill is blocked in-process by the bundled native hook.
-    // The target is pinned to the build the bypass was developed against; the
-    // Application class and the guard's kill path are re-located per version.
+    // The targets are the builds the patches were checked against. The
+    // Application class is read from the manifest, so it needs no update per
+    // version.
     val COMPATIBILITY = Compatibility(
         name = "Netflix",
         packageName = "com.netflix.mediaclient",
@@ -18,7 +19,10 @@ object Constants {
         appIconColor = 0xE50914,
         // Netflix embeds the build number and version code in its version
         // name, so the full string must match exactly: "9.93.0 build 7 74878".
+        // 9.92.0 is the version Google Play serves to everyone; 9.93.0 is a
+        // beta, which the bypass was first developed against.
         targets = listOf(
+            devTarget("9.92.0 build 9 74772", versionCode = 74772),
             devTarget("9.93.0 build 7 74878", versionCode = 74878),
         ),
     )

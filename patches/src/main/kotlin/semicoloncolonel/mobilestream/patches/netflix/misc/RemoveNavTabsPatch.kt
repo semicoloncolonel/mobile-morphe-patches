@@ -14,11 +14,15 @@ import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 //
 // Each tab is a class that implements BottomTab and holds its identity as a
 // BottomTab.Name field (Games -> BottomTab$Name$Games, Clips -> ...$Name$
-// VerticalVideoFeed). The nav bar decides whether to show a tab by calling the
-// tab's a() method (BottomTab.a()Z, the interface's own visibility gate; the
-// nav already hides tabs whose a() is false). Forcing the chosen tab's a() to
-// return false drops it from the bar. The tabs are matched by their Name field,
-// not the obfuscated class name, so this survives version bumps.
+// VerticalVideoFeed). The nav bar decides whether to show a tab by calling its
+// visibility gate, the one no-argument boolean method BottomTab declares
+// abstract (the nav already hides tabs whose gate returns false). Forcing the
+// chosen tab's gate to return false drops it from the bar.
+//
+// R8 renames the gate between builds: a()Z on 9.93.0, b()Z on 9.92.0. On
+// 9.92.0 BottomTab also has j()Z, a default method that only sets the nav-bar
+// scrim, so the gate is found as the abstract one rather than by name. The
+// tabs are matched by their Name field, not the obfuscated class name.
 
 private const val BOTTOM_TAB = "Lcom/netflix/android/widgetry/widget/tabs/BottomTab;"
 private const val GAMES = "Lcom/netflix/android/widgetry/widget/tabs/BottomTab\$Name\$Games;"
@@ -28,10 +32,9 @@ private fun isTabWithName(nameType: String): (ClassDef) -> Boolean = { classDef 
     classDef.interfaces.contains(BOTTOM_TAB) && classDef.fields.any { it.type == nameType }
 }
 
-// BottomTab.a()Z — the visibility gate. The name is the interface contract, so
-// it is kept across obfuscated implementors.
-private val isVisibilityGate: (Method) -> Boolean = { method ->
-    method.name == "a" &&
+// A tab's override of the visibility gate named gateName.
+private fun isVisibilityGate(gateName: String): (Method) -> Boolean = { method ->
+    method.name == gateName &&
         method.returnType == "Z" &&
         method.parameterTypes.isEmpty() &&
         method.implementation != null
@@ -66,14 +69,22 @@ val removeNavTabsPatch = bytecodePatch(
         if (removeClips != true && removeGames != true) {
             throw PatchException("Enable at least one tab to remove (Clips and/or Games).")
         }
+        // The gate is the interface's only abstract ()Z method.
+        val bottomTab = classDefByOrNull(BOTTOM_TAB) ?: throw PatchException("BottomTab interface not found")
+        val gates = bottomTab.methods.filter {
+            it.returnType == "Z" && it.parameterTypes.isEmpty() && it.implementation == null
+        }
+        val gate = gates.singleOrNull()?.name
+            ?: throw PatchException("Expected one abstract boolean method on BottomTab, found ${gates.size}")
+
         if (removeClips == true) {
-            val count = forEachMatchingMethod(isTabWithName(CLIPS), isVisibilityGate) {
+            val count = forEachMatchingMethod(isTabWithName(CLIPS), isVisibilityGate(gate)) {
                 it.returnEarly("const/4 v0, 0x0\nreturn v0")
             }
             if (count == 0) throw PatchException("Clips (VerticalVideoFeed) tab not found")
         }
         if (removeGames == true) {
-            val count = forEachMatchingMethod(isTabWithName(GAMES), isVisibilityGate) {
+            val count = forEachMatchingMethod(isTabWithName(GAMES), isVisibilityGate(gate)) {
                 it.returnEarly("const/4 v0, 0x0\nreturn v0")
             }
             if (count == 0) throw PatchException("Games tab not found")

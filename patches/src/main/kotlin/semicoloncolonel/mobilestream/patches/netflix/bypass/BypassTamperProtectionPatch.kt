@@ -1,6 +1,7 @@
 package semicoloncolonel.mobilestream.patches.netflix.bypass
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.netflix.shared.Constants
 
@@ -17,6 +18,10 @@ import semicoloncolonel.mobilestream.patches.netflix.shared.Constants
 // The signing change is what the user does when they patch and install; this
 // patch only keeps the app alive afterwards. It must load before onCreate, so
 // the hook is armed before the guard first fires.
+//
+// The Application class is the one the manifest names; R8 renames it on every
+// build, so bundleTamperBypassPatch reads it from the manifest. Its
+// attachBaseContext(Context) runs before onCreate and before the guard arms.
 @Suppress("unused")
 val bypassTamperProtectionPatch = bytecodePatch(
     name = "Bypass tamper protection",
@@ -32,10 +37,20 @@ val bypassTamperProtectionPatch = bytecodePatch(
     extendWith("extensions/extension.mpe")
 
     execute {
-        ApplicationAttachBaseContextFingerprint.method.addInstructions(
-            0,
-            "invoke-static {}, " +
-                "Lsemicoloncolonel/mobilestream/extension/netflix/bypass/NetflixBypassLoader;->load()V",
-        )
+        if (classDefByOrNull(applicationClass) == null) {
+            throw PatchException("Application class $applicationClass not found")
+        }
+        val attachBaseContext = mutableClassDefBy(applicationClass).methods.firstOrNull { method ->
+            method.name == "attachBaseContext" &&
+                method.returnType == "V" &&
+                method.parameterTypes.map { it.toString() } == listOf("Landroid/content/Context;") &&
+                method.implementation != null
+        } ?: throw PatchException("$applicationClass does not override attachBaseContext")
+
+        attachBaseContext.addInstructions(
+                0,
+                "invoke-static {}, " +
+                    "Lsemicoloncolonel/mobilestream/extension/netflix/bypass/NetflixBypassLoader;->load()V",
+            )
     }
 }

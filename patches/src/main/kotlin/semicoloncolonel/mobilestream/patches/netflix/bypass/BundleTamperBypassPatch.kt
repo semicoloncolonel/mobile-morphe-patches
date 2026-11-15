@@ -15,6 +15,13 @@ import org.w3c.dom.Element
 private const val ABI = "arm64-v8a"
 private const val LIB = "libnfkill.so"
 
+// Netflix's Application class, as a type descriptor ("Lo/gIm;"), read from the
+// manifest's <application android:name>. R8 renames the class on every build
+// (o.gLY on 9.93.0, o.gIm on 9.92.0), so it is read here rather than written
+// into a fingerprint. Bypass tamper protection, which depends on this patch,
+// injects into its attachBaseContext.
+internal lateinit var applicationClass: String
+
 val bundleTamperBypassPatch = resourcePatch {
     execute {
         // Netflix keeps its own native libraries (libsqlcipher, libcronet, the
@@ -50,6 +57,16 @@ val bundleTamperBypassPatch = resourcePatch {
         document("AndroidManifest.xml").use { document ->
             val application = document.getElementsByTagName("application").item(0) as Element
             application.setAttribute("android:extractNativeLibs", "true")
+
+            val name = application.getAttribute("android:name")
+            if (name.isEmpty()) throw PatchException("The manifest names no Application class")
+            // A name starting with "." is relative to the package.
+            val className = if (name.startsWith(".")) {
+                document.documentElement.getAttribute("package") + name
+            } else {
+                name
+            }
+            applicationClass = "L" + className.replace('.', '/') + ";"
         }
     }
 }

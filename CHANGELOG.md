@@ -1,3 +1,15 @@
+# [1.1.0-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.22...v1.1.0-dev.23) (2026-11-15)
+
+
+### Bug Fixes
+
+* Leave no gap where Reuters ads and promo cards were ([bcef042](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bcef04202d6274a806f6fe50615d6f57e7f60eec))
+
+
+### Features
+
+* Add Reuters 7.51.0 ([8148c12](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8148c12dfd57df260aa26d6a595b79e97f801674)), closes [#75](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/75)
+
 # [1.1.0-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.21...v1.1.0-dev.22) (2026-11-15)
 
 

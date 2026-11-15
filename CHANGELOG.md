@@ -1,3 +1,11 @@
+# [1.1.0-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.16...v1.1.0-dev.17) (2026-11-15)
+
+
+### Features
+
+* Add Pluto TV 17.4.0, split phone/TV targets, more YTTV clone names ([2208149](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/220814985a6694c582fc163f236735390e4c2fe1))
+* Add Translate ad break screen (experimental) ([0e01425](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0e014258c5989d62814507484050be65585cdb00))
+
 # [1.1.0-dev.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.15...v1.1.0-dev.16) (2026-11-15)
 
 

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-15T23:04:21",
-  "description": "# [1.1.0-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.23...v1.1.0-dev.24) (2026-11-15)\n\n\n### Bug Fixes\n\n* List Reuters in the issue forms and the README News count ([dde40b0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dde40b000cd43eb0e3ddef56d58d296efcaae093))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.24/patches-1.1.0-dev.24.mpp",
+  "created_at": "2026-11-15T23:40:08",
+  "description": "# [1.1.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.24...v1.1.0-dev.25) (2026-11-15)\n\n\n### Bug Fixes\n\n* Hide the Reuters Menu subscribe offer ([c2254c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c2254c516176a7dafb8cb259dc3f1ed0a37cfcc8))\n* Remove the Reuters Settings subscription row and sign-in offer text ([815dc75](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/815dc75ce9f7cd319f79ee42fea3064bb7555ca4))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.25/patches-1.1.0-dev.25.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.24",
+  "version": "1.1.0-dev.25",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -1,3 +1,10 @@
+# [1.1.0-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.21...v1.1.0-dev.22) (2026-11-15)
+
+
+### Features
+
+* Merge shared privacy patches into Hide device identifiers ([6f9aa31](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6f9aa31f1e4ad88165a90da1de5a4614ddb2b5a1))
+
 # [1.1.0-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.20...v1.1.0-dev.21) (2026-11-15)
 
 

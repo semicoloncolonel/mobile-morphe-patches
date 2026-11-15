@@ -1,3 +1,10 @@
+# [1.1.0-dev.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.14...v1.1.0-dev.15) (2026-11-15)
+
+
+### Features
+
+* Remove Subscribe on the web for WaPo ([ada02de](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ada02de6ac206e581711faf9ab0c0e482d9deefb))
+
 # [1.1.0-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.13...v1.1.0-dev.14) (2026-11-15)
 
 

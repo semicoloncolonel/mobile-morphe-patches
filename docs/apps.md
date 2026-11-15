@@ -8,7 +8,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 
 **Which file to download.** The most reliable source is Google Play or Aurora Store. Install the app, then patch the installed copy with "Use installed app" in Morphe Manager. That gives you the phone build Google Play currently serves. If you are in the app's beta program, Google Play can give you a newer version than the patches support. If you download from APKMirror instead, use the `.apkm` bundle when there is one, and check that the version and version code match the table. The [FAQ](faq.md) explains how.
 
-**Contents:** [Streaming](#streaming) · [News](#news) · [Social](#social) · [Government](#government) · [Shopping](#shopping) · [Carriers](#carriers)
+**Contents:** [Streaming](#streaming) · [News](#news) · [Social](#social) · [Government](#government) · [Shopping](#shopping) · [Carriers](#carriers) · [Utilities](#utilities)
 
 ## Streaming
 
@@ -30,6 +30,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | MLB | Hide surveys and rating prompt<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide betting odds (off by default)<br>Mask live ad breaks (experimental, off by default) | `26.21.0.49` | 11/05/26 |
 | Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking (off by default) | `7.7.1`<br>`7.7.0` | 11/10/26 |
 | NBA | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable Ask NBA AI (experimental, off by default)<br>Hide League Pass upsells (experimental, off by default) | `1.3.0` | 11/09/26 |
+| Netflix | Bypass tamper protection (experimental)<br>Browse hidden categories (experimental, off by default)<br>Disable autoplay (experimental, off by default)<br>Keep screen brightness (experimental, off by default)<br>Remove bottom tabs (experimental, off by default) | `9.93.0 build 7 74878`<br>`9.92.0 build 9 74772` | 11/14/26 |
 | NFL | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `61.0.19` | 11/07/26 |
 | Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0` | 11/04/26 |
 | PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `5.27.0` | 10/30/26 |
@@ -54,7 +55,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32` | 11/12/26 |
 | CBS News | Disable signature check<br>Hide surveys<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default) | `5.20` | 11/02/26 |
 | CNBC | Fix launch with DNS blockers<br>Hide newsletter pop-ups<br>Hide rating prompt<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Dark mode (experimental, off by default)<br>Hide premium promotions (off by default) | `8.8.2` | 11/08/26 |
-| CNN | Faster launch<br>Opt out of data sale & sharing<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.21.0`, `26.23.0` | 11/13/26 |
+| CNN | Faster launch (26.21.0 only)<br>Opt out of data sale & sharing<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.23.0`<br>`26.21.0` | 11/14/26 |
 | C-SPAN Now | Hide promo banners<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `1.25.0` | 11/05/26 |
 | Fox Local | Hide pop-ups and rating prompts<br>Opt out of data sale & sharing<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `7.22.0` | 11/02/26 |
 | Fox News | Hide prediction markets<br>Opt out of data sale & sharing<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Enable developer menu (off by default) | `5.50.0` | 11/11/26 |

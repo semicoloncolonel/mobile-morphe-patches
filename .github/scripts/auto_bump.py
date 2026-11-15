@@ -140,7 +140,9 @@ def bump_constants(repo, package, old, new, code):
 
 
 def bump_readme(repo, name, old, new):
-    """Updates the app's row in docs/apps.md. Returns False when no row matched."""
+    """Adds the new version above the old one in the app's row in docs/apps.md,
+    and updates the date. The old version stays listed, as it stays targeted.
+    Returns False when no row matched."""
     readme = Path(repo, "docs", "apps.md")
     lines = readme.read_text().split("\n")
     today = datetime.date.today().strftime("%m/%d/%y")
@@ -148,7 +150,7 @@ def bump_readme(repo, name, old, new):
         if re.match(rf"\| {re.escape(name)}( [^|]*)? \|", line) and f"`{old}`" in line:
             cells = line.split("|")
             cells[-2] = f" {today} "
-            lines[i] = "|".join(cells).replace(f"`{old}`", f"`{new}`", 1)
+            lines[i] = "|".join(cells).replace(f"`{old}`", f"`{new}`<br>`{old}`", 1)
             readme.write_text("\n".join(lines))
             return True
     return False

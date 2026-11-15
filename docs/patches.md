@@ -37,6 +37,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Plex: ads in on-demand titles, and pause ads. Live TV is not changed.
 - Pluto TV: on-demand ads. Live breaks are covered by Mask live ad breaks.
 - Prime Video: every ad break. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
+- Reuters: the ad slots in the feeds and in articles, including the "Advertisement" blocks, the Dianomi sponsored content in articles, and the ads in videos.
 - The Daily Wire: the banner ads and their "Advertisement" slots, including the one pinned to the top of articles, and the pre-roll before videos. Members-only content stays locked.
 - Truth Social: sponsored Truths, boosted posts (paid promotions marked "Boosted"), the other ads placed in the feeds, Google ads, the top banner ad, and the ad on a post's detail page.
 - USA TODAY: the ads in the section fronts, articles, galleries, and videos, Taboola recommendations, and the ad-free upsells. It turns on the app's own ad-free mode, so premium articles stay locked and Settings may show you as ad-free.
@@ -105,7 +106,10 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide pop-ups | Yahoo Finance | The "Enjoying Yahoo Finance?" drawer and the review request after it, the feedback prompts on new screens, announcement sheets, tours and coach marks, tooltips, the widget prompt, and the beta program invitation. Privacy and consent screens still show. |
 | Hide pop-ups | Yahoo News | The "rate the app" screen, the banners and cards that ask you to turn on notifications, and the Ask Scout and You tab tooltips. |
 | Hide Plus upsells | Yahoo Finance | The Yahoo Finance Plus banners, sheets, and cards, the "Upgrade to Yahoo Finance Premium" card and the "Premium perks" row on Account, the Coinbase "Trade Now" referral button, and the Coinbase referral links in articles. Features that need Plus stay locked and still show the paywall when tapped. |
+| Hide promotions | Reuters | The Subscribe button, the Breakingviews promo banners, Braze marketing pop-ups, and the newsletter sign-ups, notification prompts, and topic cards in articles and feeds. Breaking-news alerts still arrive. |
 | Hide reading streaks | Yahoo News | The reading level and day streak on Home and Profile, and the pop-ups that celebrate a new level or a longer streak. Yahoo still counts your reads on its server. |
+| Customize bottom bar | Reuters (off by default) | Hides the bottom tabs you choose in its options: Markets, My News, or Media. Home and Menu always stay. Links that open a hidden tab, such as a stock quote from an alert, do nothing. |
+| Move Today section | Reuters (off by default) | Moves Today off the first page of Home, so the app opens on the first section in Your sections. Reorder your sections to choose where it opens. Its option puts Today on the last page, the default, or removes it. Today comes back only when you patch the app again. |
 | Customize bottom bar | Yahoo News (off by default) | Hides the bottom tabs you choose in its options: Trending, Games, Notifications, or Search. Home always stays. |
 | Show unreleased features | Yahoo News (off by default) | Turns on the features you choose in its options, which Yahoo has not released to everyone: Follow buttons with a Following feed, the Local news tab (it shows only after you allow the app to use your location), a Video tab, picture-in-picture that keeps playing while you move around the app, and Listen on articles. Listen reads articles with Yahoo Scout's AI voice, so it cannot be used with Disable AI; patching stops with a message if both are on. |
 | Hide Walmart+ promotions | Walmart | Walmart+ sign-up banners and their slides in the home carousel, the early-access countdown, free-trial offers, splashes, and the auto-playing membership video. Member benefits and account pages are unchanged. |
@@ -218,6 +222,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - Prime Video: Amazon's Minerva metrics.
 - Recreation.gov: the Firebase events that carry your reservation numbers and payment type, Crashlytics and Firebase Sessions, and Mapbox usage reports. It also keeps your account ID from LaunchDarkly, the app's feature-flag service.
 - RetailMeNot: AppsFlyer, Snowplow, Datadog, and Firebase Analytics.
+- Reuters: Segment, Firebase/Google Analytics, Chartbeat, Datadog, AppsFlyer, AB Tasty's event tracking, and the Permutive page views that carry each article. Braze, which sends the breaking-news alerts, is left alone. MetaRouter and ActionIQ read their servers from remote config and are not covered.
 - Shudder: mParticle, Braze, AppsFlyer, Amplitude, Conviva, and Google and Firebase Analytics.
 - SiriusXM: Datadog, Mux, Branch, Salesforce Marketing Cloud and Personalization, and AdsWizz listening measurement.
 - Slickdeals: AppsFlyer, Blueshift, Google Tag Manager, Amazon ad metrics, and Slickdeals' own event collectors.

@@ -69,7 +69,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | The Daily Wire | Skip ads<br>Hide promo banners<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.22`, `3.5.21` | 11/13/26 |
 | The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | 11/10/26 |
 | theScore | Block analytics & tracking (off by default) | `26.16.1`<br>`26.16.0` | 11/12/26 |
-| The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.12.0.42675` | 10/30/26 |
+| The Wall Street Journal | Hide marketing pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `15.13.0.44249`<br>`15.12.0.42675` | 11/15/26 |
 | The Washington Post | Hide marketing pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `7.19.0`<br>`7.18.4`<br>`7.18.3`<br>`7.18.1` | 11/12/26 |
 | USA TODAY | Hide rating prompt<br>Hide subscription prompts<br>Skip ads<br>Block analytics & tracking (off by default) | `8.15.0` | 11/06/26 |
 | Yahoo Finance | Disable AI (experimental)<br>Hide Plus upsells (experimental)<br>Hide pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `26.22.2` | 11/12/26 |

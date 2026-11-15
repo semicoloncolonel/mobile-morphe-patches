@@ -37,7 +37,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.11` | 11/10/26 |
 | Plex (also on Android TV) | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
-| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/10/26 |
+| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/14/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2611.2.1`, `2610.4.0` | 11/13/26 |
 | Starz (also on Android TV) | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |

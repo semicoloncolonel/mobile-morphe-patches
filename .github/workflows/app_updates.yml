@@ -68,8 +68,13 @@ jobs:
       contents: read
       issues: write
     steps:
-      - name: Checkout
+      # Scheduled runs start from main's copy of this file, but the scripts and
+      # certificates the bot works with are kept on dev. main's older copies
+      # reopened issues for versions dev already handled.
+      - name: Checkout dev
         uses: actions/checkout@v7
+        with:
+          ref: dev
 
       - name: Setup Java
         uses: actions/setup-java@v6
@@ -136,8 +141,10 @@ jobs:
       contents: read
       issues: write
     steps:
-      - name: Checkout
+      - name: Checkout dev
         uses: actions/checkout@v7
+        with:
+          ref: dev
 
       - name: Download report
         uses: actions/download-artifact@v8

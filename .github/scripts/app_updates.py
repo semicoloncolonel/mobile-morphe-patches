@@ -855,6 +855,13 @@ def sync_issues(results, owner, stable=None):
                    "so this is closed.")
         if r["status"] != "update":
             continue
+        # The close step above shuts issues for versions the release already
+        # covers. Opening one for such a version would be closed by the next
+        # run and opened again by the run after (Netflix 9.92.0, issues 65-77).
+        if released and not newer(r["latest"], released):
+            print(f"{r['name']}: not opening an issue for {r['latest']}, already covered by {released}",
+                  flush=True)
+            continue
         title = prefix + r["latest"]
         still_open = [i for i in mine if r["pinned"] is None or newer(i["title"][len(prefix):], r["pinned"])]
         if still_open:

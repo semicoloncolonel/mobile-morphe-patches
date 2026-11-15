@@ -205,6 +205,11 @@
 # the patch, so R8 must keep them as they are and not fold their result.
 -keep class semicoloncolonel.mobilestream.extension.xumo.XumoLiveMask { public static *; }
 
+# Shared "Translate ad break screen". translate() is overwritten by the patch,
+# so R8 must keep it and not fold its constant answer.
+-keep class semicoloncolonel.mobilestream.extension.shared.misc.AdBreakText {
+    private static boolean translate();
+}
 
 # YouTube TV — "Mask live ad breaks". cuepoints() is called only from injected
 # smali in the cue-point callback.

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-15T08:01:56",
-  "description": "# [1.1.0-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.16...v1.1.0-dev.17) (2026-11-15)\n\n\n### Features\n\n* Add Pluto TV 17.4.0, split phone/TV targets, more YTTV clone names ([2208149](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/220814985a6694c582fc163f236735390e4c2fe1))\n* Add Translate ad break screen (experimental) ([0e01425](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0e014258c5989d62814507484050be65585cdb00))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.17/patches-1.1.0-dev.17.mpp",
+  "created_at": "2026-11-15T08:23:30",
+  "description": "# [1.1.0-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.17...v1.1.0-dev.18) (2026-11-15)\n\n\n### Features\n\n* Add Paramount+ live mask, quality, upsell, PiP; fix Pluto duplicate targets ([8465d3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8465d3f8797577723868f7ef168bdc5001980426))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.18/patches-1.1.0-dev.18.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.17",
+  "version": "1.1.0-dev.18",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

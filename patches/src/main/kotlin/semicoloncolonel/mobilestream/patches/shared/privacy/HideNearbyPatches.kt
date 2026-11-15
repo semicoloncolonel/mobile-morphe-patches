@@ -220,13 +220,20 @@ val hideCellTowerInfoPatch = bytecodePatch(
 
 private const val BACKGROUND_LOCATION = "android.permission.ACCESS_BACKGROUND_LOCATION"
 
+// RetailMeNot is left out: its Expo permission module rejects calls about a
+// permission the manifest does not declare, and 10.1.0's root screen asks
+// about background location at startup, so removing it left a blank screen.
+// RetailMeNot has its own Block background location, which denies the
+// permission through Expo instead (retailmenot/privacy).
+private const val RETAILMENOT = "com.whaleshark.retailmenot"
+
 @Suppress("unused")
 val blockBackgroundLocationPatch = resourcePatch(
     name = "Block background location",
     description = "Removes the app's access to your location while it is closed or in the background.",
     default = false,
 ) {
-    compatibleWith(*SHOPPING_APPS)
+    compatibleWith(*SHOPPING_APPS.filter { it.packageName != RETAILMENOT }.toTypedArray())
 
     execute { removeBackgroundLocation() }
 }

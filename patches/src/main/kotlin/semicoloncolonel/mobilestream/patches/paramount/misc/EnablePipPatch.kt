@@ -1,18 +1,20 @@
 package semicoloncolonel.mobilestream.patches.paramount.misc
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import semicoloncolonel.mobilestream.patches.paramount.shared.Constants
-import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
-// Paramount+ 17.3.0. PiP is gated by two server-side feature flags, one for
-// VOD and one for live TV. A single obfuscated gate method checks whether the
-// device supports PiP (API 26+ with the system feature) AND whether the flag
-// for the requested content type is on.
-//
-// Returning true unconditionally from the gate method enables PiP for all
-// content. The player UI picks up the result and shows the PiP button; the
-// activity's onUserLeaveHint path also reads it for auto-PiP on home press.
+// Paramount+ 17.3.0. One obfuscated gate decides whether PiP is offered: the
+// device must have the picture_in_picture system feature, and a server flag
+// must be on (one flag for on-demand, one for live TV). Each flag is read as
+// Boolean.booleanValue(). The result of every such read is now overwritten
+// with true, so the server flags no longer matter and the device check stays.
 
 internal object PipGateFingerprint : Fingerprint(
     returnType = "Z",
@@ -23,18 +25,25 @@ internal object PipGateFingerprint : Fingerprint(
 @Suppress("unused")
 val enablePipPatch = bytecodePatch(
     name = "Enable picture-in-picture",
-    description = "Enables picture-in-picture for on-demand and live content, even when the server " +
-        "feature flag is off. The device must still support PiP (Android 8+).",
+    description = "Offers picture-in-picture for on-demand and live content on devices that support it.",
 ) {
     category("Playback")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {
-        PipGateFingerprint.method.returnEarly(
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        val method = PipGateFingerprint.method
+        val instructions = method.implementation!!.instructions.toList()
+        val flagResults = instructions.indices.filter { index ->
+            val reference = (instructions[index] as? ReferenceInstruction)?.reference as? MethodReference
+            instructions[index].opcode == Opcode.INVOKE_VIRTUAL &&
+                reference?.definingClass == "Ljava/lang/Boolean;" && reference.name == "booleanValue" &&
+                instructions.getOrNull(index + 1)?.opcode == Opcode.MOVE_RESULT
+        }.map { it + 1 }
+        if (flagResults.size != 2) throw PatchException("Expected 2 PiP flag reads, found ${flagResults.size}")
+
+        flagResults.asReversed().forEach { index ->
+            val register = (instructions[index] as OneRegisterInstruction).registerA
+            method.addInstruction(index + 1, "const/4 v$register, 0x1")
+        }
     }
 }

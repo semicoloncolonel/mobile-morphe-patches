@@ -1,3 +1,10 @@
+# [1.1.0-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.6...v1.1.0-dev.7) (2026-11-15)
+
+
+### Bug Fixes
+
+* Stop the app update check from reporting older versions as updates ([7d971c1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7d971c1ca36cae4d1ab1a09350d424ad001b8a32))
+
 # [1.1.0-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.5...v1.1.0-dev.6) (2026-11-14)
 
 

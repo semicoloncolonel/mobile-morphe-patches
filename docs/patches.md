@@ -51,6 +51,8 @@ Everything runs on the device, inside the patched app. The patches do not send d
 
 **Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
 
+**Translate ad break screen** (experimental) shows that screen in your device's language when it is Arabic, Chinese, French, German, Greek, Italian, Korean, Portuguese, Russian, Spanish, Tagalog, or Vietnamese. Other languages show English. The translations come from a translation service, so some may read awkwardly. Please submit corrections or rewrites through [GitHub issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/new/choose).
+
 On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels during each commercial that SiriusXM labels as an ad, and the player shows "Ad - 🔇 Commercial break" in place of the advertiser's name. The sound comes back when the show returns. Its **Also mute promos and PSAs** option, off by default, also mutes SiriusXM's own channel promos and public service announcements, which SiriusXM does not label as ads. They show as "🔇 Announcement". Ads in podcasts are part of each episode's audio file, so they still play.
 
 > [!TIP]

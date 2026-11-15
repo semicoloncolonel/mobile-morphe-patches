@@ -1,3 +1,10 @@
+# [1.1.0-dev.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.12...v1.1.0-dev.13) (2026-11-15)
+
+
+### Bug Fixes
+
+* testing The Wall Street Journal 15.13.0.44249 ([410940e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/410940ea1ace09038a0cd94ca0522aecefabdb00))
+
 # [1.1.0-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.11...v1.1.0-dev.12) (2026-11-15)
 
 

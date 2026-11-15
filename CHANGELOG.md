@@ -1,3 +1,10 @@
+# [1.1.0-dev.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.15...v1.1.0-dev.16) (2026-11-15)
+
+
+### Features
+
+* Promote Prime Video 3.0.481.1947, WSJ 15.13.0.44249, RetailMeNot 10.1.0 ([ef7ef56](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ef7ef5669968e745febcf30a1e2f1aa1bb561402))
+
 # [1.1.0-dev.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.14...v1.1.0-dev.15) (2026-11-15)
 
 

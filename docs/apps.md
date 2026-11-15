@@ -65,6 +65,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | NewsNation | Skip ads (phone)<br>Block analytics & tracking (off by default) | `510.3.0` | 11/05/26 |
 | NewsNation (Android TV) | Hide rating prompt (Android TV)<br>Skip ads (Android TV)<br>Block analytics & tracking (off by default) | `4.94`<br>`4.71` | 11/14/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default)<br>Route traffic through a proxy (off by default) | `7.10.0` | 11/05/26 |
+| Reuters | Hide promotions (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Customize bottom bar (off by default)<br>Move Today section (experimental, off by default) | `7.51.0` | 11/15/26 |
 | Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default) | `3.13.1`<br>`3.12.0` | 11/10/26 |
 | The Daily Wire | Skip ads<br>Hide promo banners<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.22`, `3.5.21` | 11/13/26 |
 | The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Incognito reading (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | 11/10/26 |

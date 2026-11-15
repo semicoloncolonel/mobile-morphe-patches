@@ -75,6 +75,9 @@ public final class TrackerBlocker {
             "litix.io", // Mux Data
             "nmrodam.com", // Nielsen SDK config
             "datadoghq.com", "datadoghq.eu", // Datadog session monitoring
+            // AB Tasty Flagship hit tracking (Reuters). decision.flagship.io serves
+            // the feature flags themselves and is left alone.
+            "events.flagship.io",
             // Datadog's browser and mobile intake hosts are separate domains, not
             // subdomains of datadoghq.com. NYT 12.0.0 sends RUM views, logs and
             // spans through browser-intake-datadoghq.com.

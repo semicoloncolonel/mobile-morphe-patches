@@ -118,6 +118,11 @@ internal class HermesBundle(private val bytes: ByteArray) {
         return false
     }
 
+    /** The id of string [text], for building instruction bytes that load it. */
+    fun stringId(text: String): Int =
+        (0 until stringCountField).firstOrNull { stringAt(it) == text }
+            ?: throw PatchException("Hermes string \"$text\" not found")
+
     /** The one function named [name] that loads every string in [using]. */
     private fun single(name: String, using: List<String>): Function {
         val ids = using.map { text ->
@@ -137,6 +142,11 @@ internal class HermesBundle(private val bytes: ByteArray) {
      */
     fun returnAtStart(name: String, using: String, value: Value) {
         patch(single(name, listOf(using)), name, value)
+    }
+
+    /** Like [returnAtStart], for the one function named [name] that loads every string in [using]. */
+    fun returnAtStart(name: String, using: List<String>, value: Value) {
+        patch(single(name, using), name, value)
     }
 
     /**

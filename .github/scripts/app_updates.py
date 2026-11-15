@@ -81,9 +81,15 @@ def version_key(version):
 
 RELEASE_DATE = re.compile(r"(\d{4})\.(\d{2})\.(\d{2})$")
 
+# Hulu's Android TV versions start with a build hash, "C59F39CFP3.10.33". The
+# hash's digits would otherwise be read as version numbers, so 6344DFC8P3.9.606
+# sorted above C59F39CFP3.10.33. Only the part after the "P" is compared.
+BUILD_HASH = re.compile(r"^[0-9A-Fa-f]{8}P(?=\d)")
+
 
 def compare(a, b):
     """-1, 0, or 1 as version a is older than, the same as, or newer than b."""
+    a, b = BUILD_HASH.sub("", a), BUILD_HASH.sub("", b)
     # Hulu's versions are "6.34.0+18552420-google", but APKPure lists only the
     # build part, "18552420-google". When only one side has a "+", compare the
     # build parts.
@@ -531,6 +537,13 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
             # APKPure can shorten the name (Disney+'s "rc1-2026.11.20"), so the
             # report uses the version name inside the APK, which the pin needs.
             latest = outcome.get("version_name") or version
+            # APKPure can also list a version above the one it serves: for
+            # Netflix it listed a newer version, but the APK inside was
+            # 9.92.0, below the 9.93.0 pin. Reporting that opened an issue the
+            # close step then closed, every run.
+            if pinned and not newer(latest, pinned):
+                record.setdefault("not_newer", []).append(f"{version} (APK is {latest})")
+                continue
             served = record.get("play")
             record.update(outcome, status="update", latest=latest,
                           rollout=served is not None and newer(latest, served))
@@ -552,6 +565,9 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
                 # Play's version is unknown, so the update is reported for review.
                 version, outcome = first_tv
                 record.update(outcome, status="update", latest=outcome.get("version_name") or version)
+            else:
+                # Every APKPure version listed above the pin held an older APK.
+                record.update(status="up to date", latest=pinned)
         play.discard(package)
     print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
     return record
@@ -587,10 +603,16 @@ def check_tv(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksigner
             outcome = check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, apksigner,
                                     keep_dir, expect_tv=True)
             if outcome.get("tv_build"):
-                record.update(outcome, status="update", latest=outcome.get("version_name") or version)
+                latest = outcome.get("version_name") or version
+                # The same check as the phone build: the APK must be newer than the pin.
+                if not newer(latest, pinned):
+                    record.setdefault("not_newer", []).append(f"{version} (APK is {latest})")
+                    continue
+                record.update(outcome, status="update", latest=latest)
                 break
         else:
-            if candidates:
+            # A TV build whose APK was not newer than the pin leaves it up to date.
+            if candidates and not record.get("not_newer"):
                 record["status"] = "TV build not found"
     print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
     return record
@@ -802,14 +824,22 @@ def sync_issues(results, owner, stable=None):
         prefix = f"{TITLE_PREFIX}{r['name']} "
         # "App update: Apple TV " also starts "App update: Apple TV (Android TV) 17.0.3".
         mine = [i for i in issues if i["title"].startswith(prefix) and not i["title"][len(prefix):].startswith("(")]
-        released = (stable or {}).get(r.get("key", r["package"]), r["pinned"])
+        # An app that no main release has yet (one only on dev) falls back to
+        # its pinned version. Its issue still closes once the pin reaches it,
+        # but the comment must not claim a main release.
+        key = r.get("key", r["package"])
+        on_main = key in (stable or {})
+        released = stable[key] if on_main else r["pinned"]
         for issue in mine:
             version = issue["title"][len(prefix):]
             if released and not newer(version, released):
-                gh("issue", "edit", str(issue["number"]), "--add-label", RELEASED_LABEL,
-                   "--remove-label", TESTING_LABEL)
+                why = (f"The latest main release targets {r['name']} `{released}`" if on_main else
+                       f"The patches already target {r['name']} `{released}`, which no main release "
+                       "includes yet")
+                labels = ["--add-label", RELEASED_LABEL] if on_main else []
+                gh("issue", "edit", str(issue["number"]), *labels, "--remove-label", TESTING_LABEL)
                 gh("issue", "close", str(issue["number"]), "--reason", "completed", "--comment",
-                   f"The latest main release targets {r['name']} `{released}`, so this is closed.")
+                   f"{why}, so this is closed.")
         tv_only = [v for v in r.get("tv_builds_skipped", []) if r["status"] != "update" or v != r.get("latest")]
         for issue in mine:
             version = issue["title"][len(prefix):]

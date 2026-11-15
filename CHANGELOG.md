@@ -1,3 +1,10 @@
+# [1.1.0-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.25...v1.1.0-dev.26) (2026-11-15)
+
+
+### Features
+
+* Add AP News 6.32.1 as an experimental target ([8b1ad80](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8b1ad808f96eeb1e8d1a4b2bebedbe9a13652db3))
+
 # [1.1.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.24...v1.1.0-dev.25) (2026-11-15)
 
 

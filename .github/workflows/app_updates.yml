@@ -163,7 +163,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         with:
-          api-level: 34
+          # Android 17. Android 15 to 17 enforce rules that Android 14 does not,
+          # such as edge-to-edge layouts, foreground service types, and stricter
+          # receiver and background-start limits, so an older image passes apps
+          # that break on current phones. The 4 KB page image matches current
+          # phones; the ps16k images would flag 16 KB page devices only.
+          api-level: '37.0'
           arch: x86_64
           target: google_apis
           disable-animations: true

@@ -1,3 +1,17 @@
+# [1.1.0-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.7...v1.1.0-dev.8) (2026-11-15)
+
+
+### Bug Fixes
+
+* Keep WSJ Skip ads working on 15.13.0 ([565ea1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/565ea1b8d99f1ab6c7effedb9dc56224b28a1f22))
+* Stop CNN 26.23.0 hanging on the splash screen ([4d1f5dd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4d1f5dd27b3be3deb52eea4368860d4b9e18229c))
+* Stop RetailMeNot 10.1.0 loading to a blank screen ([cfaca31](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfaca31047aafc5b59c55ab910b9687efee40b92))
+
+
+### Features
+
+* Target Netflix 9.92.0, the version Google Play serves to everyone ([9fd037d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9fd037d8ab9541968dd3ca2cdc5e09cf40c134d8))
+
 # [1.1.0-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.6...v1.1.0-dev.7) (2026-11-15)
 
 

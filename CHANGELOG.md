@@ -1,3 +1,10 @@
+# [1.1.0-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.20...v1.1.0-dev.21) (2026-11-15)
+
+
+### Bug Fixes
+
+* Offer WaPo Hide paywall sheet only for 7.19.0 ([fc66e28](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fc66e28cd8e0a4fceddf9601ba92b85665a69766))
+
 # [1.1.0-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.19...v1.1.0-dev.20) (2026-11-15)
 
 

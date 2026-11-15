@@ -1,3 +1,10 @@
+# [1.1.0-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.18...v1.1.0-dev.19) (2026-11-15)
+
+
+### Bug Fixes
+
+* Keep AdBreakText.translate() so Translate ad break screen applies ([b0d1d88](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b0d1d880a41b669bfa827678248cdd11e45d8551))
+
 # [1.1.0-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.17...v1.1.0-dev.18) (2026-11-15)
 
 

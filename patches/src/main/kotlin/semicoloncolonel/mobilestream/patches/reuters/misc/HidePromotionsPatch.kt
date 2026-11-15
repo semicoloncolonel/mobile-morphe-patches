@@ -26,6 +26,11 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 //                                 is dropped (config.newsletters reads as off),
 //                                 and the newsletter card is not copied.
 //
+//   SignInCard,                   the sign-in card in Menu and other screens.
+//   useSignInBannerTitle          Both read isInSubsCountryAtom, and that read
+//                                 now gives false, so the card shows the plain
+//                                 sign-in text and only the Sign in button, as
+//                                 it does where Reuters sells no subscription.
 //   Breakingviews banner          the "breaking-views" promo in the Today and
 //                                 section feeds and in topic feeds: the jsx
 //                                 call that renders it becomes LoadConstNull.
@@ -72,8 +77,8 @@ private fun bannerEdit(prefix: List<Int>, register: Int, jsx: List<Int>) =
 @Suppress("unused")
 val hidePromotionsPatch = rawResourcePatch(
     name = "Hide promotions",
-    description = "Removes the Subscribe button, the Breakingviews promo banners, marketing pop-ups, and the " +
-        "newsletter sign-ups and notification prompts in articles and feeds.",
+    description = "Removes the Subscribe buttons and offers, the Breakingviews promo banners, marketing pop-ups, " +
+        "and the newsletter sign-ups and notification prompts in articles and feeds.",
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
@@ -110,6 +115,22 @@ val hidePromotionsPatch = rawResourcePatch(
             byteArrayOf().of(55, 3, 1, 33, newsletterCard and 0xFF, newsletterCard shr 8),
             byteArrayOf().of(118, 3, 118, 3, 118, 3),
         )
+        // GetById <atom>, "isInSubsCountryAtom"; Call2 useAtomValue(<atom>) ->
+        // LoadConstFalse plus a no-op Mov, the same length.
+        val subsCountry = bundle.stringId("isInSubsCountryAtom")
+        val lo = subsCountry and 0xFF
+        val hi = subsCountry shr 8
+        bundle.replaceInstructions(
+            "SignInCard", listOf("isInSubsCountryAtom"), VERSION,
+            byteArrayOf().of(55, 1, 1, 11, lo, hi, 83, 19, 2, 3, 1),
+            byteArrayOf().of(55, 1, 1, 11, lo, hi, 121, 19, 8, 19, 19),
+        )
+        bundle.replaceInstructions(
+            "useSignInBannerTitle", listOf("isInSubsCountryAtom"), VERSION,
+            byteArrayOf().of(55, 0, 0, 5, lo, hi, 83, 0, 2, 3, 0),
+            byteArrayOf().of(55, 0, 0, 5, lo, hi, 121, 0, 8, 0, 0),
+        )
+
         val banners = listOf("breakingviews-promo-banner", "breaking-views")
         // Today and section feeds.
         val (feedFind, feedReplace) = bannerEdit(

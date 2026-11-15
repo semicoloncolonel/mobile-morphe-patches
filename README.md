@@ -42,7 +42,7 @@ On a TV, patch the Android TV build of the app. [Android TV](docs/android-tv.md)
 | Category | Apps |
 |----------|------|
 | [Streaming](docs/apps.md#streaming) | 32 |
-| [News](docs/apps.md#news) | 23 |
+| [News](docs/apps.md#news) | 24 |
 | [Social](docs/apps.md#social) | 1 |
 | [Government](docs/apps.md#government) | 6 |
 | [Shopping](docs/apps.md#shopping) | 15 |

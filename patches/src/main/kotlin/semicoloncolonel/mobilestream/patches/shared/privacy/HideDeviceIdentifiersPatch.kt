@@ -3,7 +3,13 @@ package semicoloncolonel.mobilestream.patches.shared.privacy
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.patch.BytecodePatch
+import app.morphe.patcher.patch.BytecodePatchContext
+import app.morphe.patcher.patch.ResourcePatch
+import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.patch.stringOption
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -12,6 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import org.w3c.dom.Element
 import semicoloncolonel.mobilestream.patches.fandango.shared.Constants as Fandango
 import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants as NbcNews
@@ -49,6 +56,7 @@ import semicoloncolonel.mobilestream.patches.att.shared.Constants as Att
 import semicoloncolonel.mobilestream.patches.visible.shared.Constants as Visible
 import semicoloncolonel.mobilestream.patches.whitehouse.shared.Constants as WhiteHouse
 import semicoloncolonel.mobilestream.patches.recgov.shared.Constants as RecGov
+import semicoloncolonel.mobilestream.patches.nfg.shared.Constants as Nfg
 import semicoloncolonel.mobilestream.patches.tubi.shared.Constants as Tubi
 import semicoloncolonel.mobilestream.patches.xumo.shared.Constants as Xumo
 import semicoloncolonel.mobilestream.patches.mlb.shared.Constants as Mlb
@@ -74,7 +82,24 @@ import semicoloncolonel.mobilestream.patches.truthsocial.shared.Constants as Tru
 // ─────────────────────────────────────────────────────────────────────────────
 // Hide device identifiers (OPT-IN, default OFF).
 //
-// Three layers, mapped in Tubi 10.42.0, Disney+ 26.20.0, Pluto TV 17.2.0 and
+// One patch with a checkbox per item, so each app lists one entry instead of
+// nine. Each option runs the shared code it names and adds nothing when it is
+// off:
+//
+//   Android ID and advertising ID   hideIds(), below (on by default)
+//   Carrier, Carrier name           spoofCarrier(), SpoofCarrierPatch.kt
+//   Report Wi-Fi connection, VPN    rewriteNetworkState(), SpoofNetworkStatePatch.kt
+//   Nearby Wi-Fi networks,
+//   Bluetooth scanning,
+//   Cell tower info,
+//   Background location             rewriteCalls() and the manifest helpers,
+//                                   HideNearbyPatches.kt
+//
+// The manifest changes (Bluetooth's beacon wake-up receiver, background
+// location) run in a resource patch this one depends on, which reads the same
+// options.
+//
+// Android ID and advertising ID. Three layers, mapped in Tubi 10.42.0, Disney+ 26.20.0, Pluto TV 17.2.0 and
 // Paramount+ 17.2.0:
 //
 //   1. ANDROID_ID: every Settings.Secure.getString(ContentResolver, String)
@@ -134,96 +159,206 @@ private fun Instruction.isAdIdServiceAction(): Boolean =
     (opcode == Opcode.CONST_STRING || opcode == Opcode.CONST_STRING_JUMBO) &&
         ((this as ReferenceInstruction).reference as? StringReference)?.string == AD_ID_SERVICE_ACTION
 
+internal fun BytecodePatchContext.hideIds() {
+    // Layer 2. Both getters are plain field reads, so p0 (this) is free
+    // to hold the return value.
+    AdvertisingIdInfoGetIdFingerprint.methodOrNull?.addInstructions(
+        0,
+        """
+            const-string p0, "$ZERO_AD_ID"
+            return-object p0
+        """.trimIndent(),
+    )
+    AdvertisingIdInfoLimitTrackingFingerprint.methodOrNull?.addInstructions(
+        0,
+        """
+            const/4 p0, 0x1
+            return p0
+        """.trimIndent(),
+    )
+
+    // Layers 1 and 3. Collect first, mutate after: mutableClassDefBy swaps
+    // the class map entry, which must not happen mid-iteration.
+    val idTargets = mutableListOf<String>()
+    val actionTargets = mutableListOf<String>()
+    classDefForEach { classDef ->
+        if (classDef.type.startsWith(EXTENSION_PACKAGE)) return@classDefForEach
+        val instructions = classDef.methods.flatMap { it.implementation?.instructions ?: emptyList() }
+        if (instructions.any { it.isSecureGetString() }) idTargets += classDef.type
+        if (!classDef.type.startsWith(AD_ID_CLIENT_PACKAGE) &&
+            instructions.any { it.isAdIdServiceAction() }
+        ) {
+            actionTargets += classDef.type
+        }
+    }
+
+    val replacement = "$SPOOFER->getSecureString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;"
+    idTargets.forEach { type ->
+        mutableClassDefBy(type).methods.forEach { method ->
+            // Snapshot: replaceInstruction mutates the live list.
+            val instructions = method.implementation?.instructions?.toList() ?: return@forEach
+            instructions.forEachIndexed { index, instruction ->
+                if (!instruction.isSecureGetString()) return@forEachIndexed
+                // Same registers, same order: only the target changes.
+                val smali = when (instruction) {
+                    is FiveRegisterInstruction ->
+                        "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, $replacement"
+                    is RegisterRangeInstruction ->
+                        "invoke-static/range { v${instruction.startRegister} .. v${instruction.startRegister + 1} }, $replacement"
+                    else -> return@forEachIndexed
+                }
+                method.replaceInstruction(index, smali)
+            }
+        }
+    }
+
+    actionTargets.forEach { type ->
+        mutableClassDefBy(type).methods.forEach { method ->
+            val instructions = method.implementation?.instructions?.toList() ?: return@forEach
+            instructions.forEachIndexed { index, instruction ->
+                if (!instruction.isAdIdServiceAction()) return@forEachIndexed
+                val register = (instruction as OneRegisterInstruction).registerA
+                method.replaceInstruction(
+                    index,
+                    "const-string v$register, \"semicoloncolonel.mobilestream.no-ad-id-service\"",
+                )
+            }
+        }
+    }
+
+    // Layer 4 (Truth Social). AttributionDeviceBody(String adjustDeviceId).
+    classDefByOrNull(TRUTH_ATTRIBUTION_BODY)?.let {
+        mutableClassDefBy(TRUTH_ATTRIBUTION_BODY).methods
+            .filter { it.name == "<init>" && it.parameterTypes.map { p -> p.toString() } == listOf("Ljava/lang/String;") }
+            .forEach { constructor ->
+                constructor.addInstructions(
+                    0,
+                    """
+                        invoke-static { p1 }, $SPOOFER->maskId(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object p1
+                    """.trimIndent(),
+                )
+            }
+    }
+}
+
+// RetailMeNot's Expo permission module rejects calls about a permission the
+// manifest does not declare, and 10.1.0's root screen asks about background
+// location at startup, so removing it left a blank screen. RetailMeNot has its
+// own Block background location, which denies the permission through Expo.
+private const val RETAILMENOT = "com.whaleshark.retailmenot"
+
+private fun option(key: String): Boolean = hideDeviceIdentifiersPatch.options[key].value == true
+
+internal val deviceIdentifiersManifestPatch: ResourcePatch = resourcePatch {
+    execute {
+        if (option("bluetooth")) removeBeaconWakeup()
+        if (option("backgroundLocation")) {
+            val packageName = document("AndroidManifest.xml").use {
+                (it.getElementsByTagName("manifest").item(0) as Element).getAttribute("package")
+            }
+            if (packageName != RETAILMENOT) removeBackgroundLocation()
+        }
+    }
+}
+
 @Suppress("unused")
-val hideDeviceIdentifiersPatch = bytecodePatch(
+val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
     name = "Hide device identifiers",
-    description = "Gives the app a random Android ID and a zeroed advertising ID.",
+    description = "Hides details about your phone from the app. Choose which ones in the patch options.",
     default = false,
 ) {
-    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, HboMax.STREAM_COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, TMobilePlay.COMPATIBILITY, TLife.COMPATIBILITY, JustWatch.COMPATIBILITY, Mint.COMPATIBILITY, Xfinity.COMPATIBILITY, Att.COMPATIBILITY, Verizon.COMPATIBILITY, Visible.COMPATIBILITY, WhiteHouse.COMPATIBILITY, Nps.COMPATIBILITY, Fema.COMPATIBILITY, RecGov.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, NewsNation.TV_COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY, TruthSocial.COMPATIBILITY, SettingsHome.COMPATIBILITY, Netflix.COMPATIBILITY)
+    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, HboMax.STREAM_COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, TMobilePlay.COMPATIBILITY, TLife.COMPATIBILITY, JustWatch.COMPATIBILITY, Mint.COMPATIBILITY, Xfinity.COMPATIBILITY, Att.COMPATIBILITY, Verizon.COMPATIBILITY, Visible.COMPATIBILITY, WhiteHouse.COMPATIBILITY, Nps.COMPATIBILITY, Fema.COMPATIBILITY, RecGov.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, NewsNation.TV_COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY, TruthSocial.COMPATIBILITY, SettingsHome.COMPATIBILITY, Netflix.COMPATIBILITY, Nfg.COMPATIBILITY)
+
+    dependsOn(deviceIdentifiersManifestPatch)
 
     extendWith("extensions/extension.mpe")
 
+    val deviceIds by booleanOption(
+        key = "deviceIds",
+        default = true,
+        title = "Android ID and advertising ID",
+        description = "Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, " +
+            "so playback works.",
+    )
+    val carrier by booleanOption(
+        key = "carrier",
+        default = false,
+        title = "Carrier",
+        description = "Hides your mobile carrier, or reports the name set in Carrier name. Carrier deals, such as " +
+            "League Pass with a phone plan, stop working.",
+    )
+    val carrierName by stringOption(
+        key = "carrierName",
+        default = "",
+        values = mapOf(
+            "Hidden (blank)" to "",
+            "AT&T" to "AT&T",
+            "Google Fi" to "Google Fi",
+            "Mint Mobile" to "Mint Mobile",
+            "T-Mobile" to "T-Mobile",
+            "US Mobile" to "US Mobile",
+            "Verizon" to "Verizon",
+            "Visible" to "Visible",
+        ),
+        title = "Carrier name",
+        description = "The carrier name the app sees when Carrier is on. Pick one from the list or type any name. " +
+            "Blank hides the carrier.",
+        required = false,
+    )
+    val reportWifi by booleanOption(
+        key = "reportWifi",
+        default = false,
+        title = "Report Wi-Fi connection",
+        description = "Shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. " +
+            "This can use a lot of data.",
+    )
+    val hideVpn by booleanOption(
+        key = "hideVpn",
+        default = false,
+        title = "VPN connection",
+        description = "Hides an active VPN from the app's checks on the phone. The app's servers can still detect " +
+            "a VPN from your IP address.",
+    )
+    val wifiNetworks by booleanOption(
+        key = "wifiNetworks",
+        default = false,
+        title = "Nearby Wi-Fi networks",
+        description = "Hides nearby Wi-Fi networks and the name of yours. Store detection, smart-home setup, and " +
+            "checkout fraud checks can be affected.",
+    )
+    val bluetooth by booleanOption(
+        key = "bluetooth",
+        default = false,
+        title = "Bluetooth scanning",
+        description = "Stops scans for Bluetooth devices and beacons, and hides paired devices. In-store maps, " +
+            "kiosk check-in, smart-home setup, and accessory pairing stop working.",
+    )
+    val cellTowers by booleanOption(
+        key = "cellTowers",
+        default = false,
+        title = "Cell tower info",
+        description = "Hides the cell towers your phone sees, which can place you within a few blocks.",
+    )
+    @Suppress("UNUSED_VARIABLE")
+    val backgroundLocation by booleanOption(
+        key = "backgroundLocation",
+        default = false,
+        title = "Background location",
+        description = "Removes the app's access to your location while it is closed or in the background. " +
+            "Store-arrival features and pickup check-in can stop working. RetailMeNot has its own patch for this.",
+    )
+
     execute {
-        // Layer 2. Both getters are plain field reads, so p0 (this) is free
-        // to hold the return value.
-        AdvertisingIdInfoGetIdFingerprint.methodOrNull?.addInstructions(
-            0,
-            """
-                const-string p0, "$ZERO_AD_ID"
-                return-object p0
-            """.trimIndent(),
-        )
-        AdvertisingIdInfoLimitTrackingFingerprint.methodOrNull?.addInstructions(
-            0,
-            """
-                const/4 p0, 0x1
-                return p0
-            """.trimIndent(),
-        )
-
-        // Layers 1 and 3. Collect first, mutate after: mutableClassDefBy swaps
-        // the class map entry, which must not happen mid-iteration.
-        val idTargets = mutableListOf<String>()
-        val actionTargets = mutableListOf<String>()
-        classDefForEach { classDef ->
-            if (classDef.type.startsWith(EXTENSION_PACKAGE)) return@classDefForEach
-            val instructions = classDef.methods.flatMap { it.implementation?.instructions ?: emptyList() }
-            if (instructions.any { it.isSecureGetString() }) idTargets += classDef.type
-            if (!classDef.type.startsWith(AD_ID_CLIENT_PACKAGE) &&
-                instructions.any { it.isAdIdServiceAction() }
-            ) {
-                actionTargets += classDef.type
-            }
-        }
-
-        val replacement = "$SPOOFER->getSecureString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;"
-        idTargets.forEach { type ->
-            mutableClassDefBy(type).methods.forEach { method ->
-                // Snapshot: replaceInstruction mutates the live list.
-                val instructions = method.implementation?.instructions?.toList() ?: return@forEach
-                instructions.forEachIndexed { index, instruction ->
-                    if (!instruction.isSecureGetString()) return@forEachIndexed
-                    // Same registers, same order: only the target changes.
-                    val smali = when (instruction) {
-                        is FiveRegisterInstruction ->
-                            "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, $replacement"
-                        is RegisterRangeInstruction ->
-                            "invoke-static/range { v${instruction.startRegister} .. v${instruction.startRegister + 1} }, $replacement"
-                        else -> return@forEachIndexed
-                    }
-                    method.replaceInstruction(index, smali)
-                }
-            }
-        }
-
-        actionTargets.forEach { type ->
-            mutableClassDefBy(type).methods.forEach { method ->
-                val instructions = method.implementation?.instructions?.toList() ?: return@forEach
-                instructions.forEachIndexed { index, instruction ->
-                    if (!instruction.isAdIdServiceAction()) return@forEachIndexed
-                    val register = (instruction as OneRegisterInstruction).registerA
-                    method.replaceInstruction(
-                        index,
-                        "const-string v$register, \"semicoloncolonel.mobilestream.no-ad-id-service\"",
-                    )
-                }
-            }
-        }
-
-        // Layer 4 (Truth Social). AttributionDeviceBody(String adjustDeviceId).
-        classDefByOrNull(TRUTH_ATTRIBUTION_BODY)?.let {
-            mutableClassDefBy(TRUTH_ATTRIBUTION_BODY).methods
-                .filter { it.name == "<init>" && it.parameterTypes.map { p -> p.toString() } == listOf("Ljava/lang/String;") }
-                .forEach { constructor ->
-                    constructor.addInstructions(
-                        0,
-                        """
-                            invoke-static { p1 }, $SPOOFER->maskId(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object p1
-                        """.trimIndent(),
-                    )
-                }
-        }
+        if (deviceIds == true) hideIds()
+        if (carrier == true) spoofCarrier(carrierName ?: "")
+        // Before the Wi-Fi networks rewrite, which also covers the calls this
+        // one rewrote.
+        if (reportWifi == true || hideVpn == true) rewriteNetworkState()
+        if (reportWifi == true) reportWifi()
+        if (hideVpn == true) hideVpn()
+        if (wifiNetworks == true) rewriteCalls(WIFI_REWRITES)
+        if (bluetooth == true) rewriteCalls(BLUETOOTH_REWRITES)
+        if (cellTowers == true) rewriteCalls(CELL_REWRITES)
     }
 }

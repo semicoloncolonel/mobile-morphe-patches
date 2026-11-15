@@ -42,7 +42,7 @@ val hidePaywallSheetPatch = bytecodePatch(
     name = "Hide paywall sheet",
     description = "Prevents the Washington Post paywall bottom sheet from being shown.",
 ) {
-    compatibleWith(Constants.COMPATIBILITY)
+    compatibleWith(Constants.PAYWALL_SHEET_COMPATIBILITY)
 
     execute {
         val showMethod = PaywallSheetShowFingerprint.method

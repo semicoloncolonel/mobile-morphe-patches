@@ -19,4 +19,17 @@ object Constants {
             AppTarget("7.18.1"),
         )
     )
+
+    // Hide paywall sheet matches 7.19.0's obfuscated names, so it is offered
+    // only for that version.
+    val PAYWALL_SHEET_COMPATIBILITY = Compatibility(
+        name = "The Washington Post",
+        packageName = "com.washingtonpost.android",
+        description = "The Washington Post news app.",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x111111,
+        targets = listOf(
+            devTarget("7.19.0 (3221)", versionCode = 2277),
+        )
+    )
 }

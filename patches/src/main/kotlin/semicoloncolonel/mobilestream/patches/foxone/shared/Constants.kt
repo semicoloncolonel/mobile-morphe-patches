@@ -12,6 +12,6 @@ object Constants {
             "different build. Needs the Pairip license-check patch to run once re-signed.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x030B1A,
-        targets = listOf(AppTarget(version = "1.25.1"))
+        targets = listOf(AppTarget(version = "1.25.1"), AppTarget("1.24.0", versionCode = 26101302))
     )
 }

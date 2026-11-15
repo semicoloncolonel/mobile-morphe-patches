@@ -18,31 +18,31 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Apple TV | Auto-skip (experimental)<br>Hide rating prompt (experimental)<br>Show release times (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable up next (experimental, off by default)<br>Hide player overlays (experimental, off by default) | `3.0.0` | 11/08/26 |
 | Apple TV (Android TV) | Auto-skip (Android TV, experimental)<br>Hide rating prompt (Android TV, experimental)<br>Show release times (Android TV, experimental)<br>Block analytics & tracking (Android TV, experimental, off by default) | `17.0.3`<br>`17.0.2` | 11/12/26 |
 | Disney+ (also on Android TV) | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `26.20.0+rc3-2026.11.02`<br>`26.20.0+rc2-2026.10.28` | 11/08/26 |
-| ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `8.29.0` | 11/04/26 |
+| ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `8.29.0`<br>`8.27.0` | 11/14/26 |
 | Fandango at Home | Mask ads<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |
-| Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1` | 11/06/26 |
-| HBO Max (also on Android TV) | Remove social sign-in (phone)<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default) | `22.0.0.321`<br>Android TV `22.0.0.36` | 11/07/26 |
+| Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1`<br>`1.24.0` | 11/14/26 |
+| HBO Max (also on Android TV) | Remove social sign-in (phone)<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default) | `22.0.0.321`<br>`7.14.0.530`<br>Android TV `22.0.0.36` | 11/14/26 |
 | Hulu | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.34.0+18552420-google` | 10/31/26 |
 | Hulu (Android TV) | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `C59F39CFP3.10.33` | 11/13/26 |
-| JustWatch (also on Android TV) | Block ads<br>Hide sponsored titles<br>Block analytics & tracking (off by default)<br>GmsCore support (experimental, off by default)<br>Hide unavailable titles (experimental, off by default)<br>Hide watched titles (experimental, off by default)<br>Streaming titles only (experimental, off by default) | `26.45.1`<br>Android TV `26.44.5`<br>Android TV `26.43.8` | 11/14/26 |
+| JustWatch (also on Android TV) | Block ads<br>Hide sponsored titles<br>Block analytics & tracking (off by default)<br>GmsCore support (experimental, off by default)<br>Hide unavailable titles (experimental, off by default)<br>Hide watched titles (experimental, off by default)<br>Streaming titles only (experimental, off by default) | `26.45.1`<br>`26.44.2`<br>`26.43.10`<br>Android TV `26.44.5`<br>Android TV `26.43.8` | 11/14/26 |
 | Kanopy | Hide rating prompt (experimental)<br>Hide survey (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.32.0` | 11/09/26 |
 | MGM+ | Remove social sign-in<br>Skip ads (experimental)<br>Skip lion intro<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable MGM+ AI (off by default) | `240.0.2026240000` | 10/30/26 |
 | MLB | Hide surveys and rating prompt<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide betting odds (off by default)<br>Mask live ad breaks (experimental, off by default) | `26.21.0.49` | 11/05/26 |
 | Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking (off by default) | `7.7.1`<br>`7.7.0` | 11/10/26 |
-| NBA | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable Ask NBA AI (experimental, off by default)<br>Hide League Pass upsells (experimental, off by default) | `1.3.0` | 11/09/26 |
+| NBA | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable Ask NBA AI (experimental, off by default)<br>Hide League Pass upsells (experimental, off by default) | `1.3.0`<br>`1.2.0` | 11/14/26 |
 | Netflix | Bypass tamper protection (experimental)<br>Browse hidden categories (experimental, off by default)<br>Disable autoplay (experimental, off by default)<br>Keep screen brightness (experimental, off by default)<br>Remove bottom tabs (experimental, off by default) | `9.93.0 build 7 74878`<br>`9.92.0 build 9 74772` | 11/14/26 |
-| NFL | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `61.0.19` | 11/07/26 |
-| Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0` | 11/04/26 |
+| NFL | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `61.0.19`<br>`61.0.18` | 11/14/26 |
+| Paramount+ | Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>`17.2.0` | 11/14/26 |
 | PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `5.27.0` | 10/30/26 |
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.11` | 11/10/26 |
 | Plex (also on Android TV) | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.22.0`<br>Android TV `2026.22.0` | 11/05/26 |
 | Pluto TV (also on Android TV) | Mask live ad breaks<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.3.0`<br>Android TV `17.3.0` | 11/06/26 |
-| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.479.847` | 11/14/26 |
+| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.480.647`<br>`3.0.479.847`<br>`3.0.477.1447` | 11/14/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2611.2.1`, `2610.4.0` | 11/13/26 |
-| Starz (also on Android TV) | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0` | 11/12/26 |
+| Starz (also on Android TV) | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0`<br>`6.11.0` | 11/14/26 |
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
-| Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.5001` (Android TV) | 11/11/26 |
+| Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.1`<br>`10.44.5001` (Android TV) | 11/14/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |
 | YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
 | YouTube TV (Android TV) | Skip injected ads | `7.32.300` | 11/12/26 |
@@ -61,9 +61,9 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Fox News | Hide prediction markets<br>Opt out of data sale & sharing<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Enable developer menu (off by default) | `5.50.0` | 11/11/26 |
 | MS NOW | Opt out of data sale & sharing<br>Block analytics & tracking (experimental, off by default) | `14.6.0` | 10/31/26 |
 | NBC News | Hide surveys and rating prompt<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default) | `15.0.1` | 11/02/26 |
-| NewsBreak | Block installed-app scan<br>Disable NewsBreak AI<br>Hide My Town intro<br>Hide Premium upsells<br>Hide rating prompt<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide AI summaries (off by default)<br>Route traffic through a proxy (off by default) | `26.46.0` | 11/12/26 |
+| NewsBreak | Block installed-app scan<br>Disable NewsBreak AI<br>Hide My Town intro<br>Hide Premium upsells<br>Hide rating prompt<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide AI summaries (off by default)<br>Route traffic through a proxy (off by default) | `26.46.0`<br>`26.45.1`<br>`26.44.1` | 11/14/26 |
 | NewsNation | Skip ads (phone)<br>Block analytics & tracking (off by default) | `510.3.0` | 11/05/26 |
-| NewsNation (Android TV) | Hide rating prompt (Android TV)<br>Skip ads (Android TV)<br>Block analytics & tracking (off by default) | `4.94` | 11/06/26 |
+| NewsNation (Android TV) | Hide rating prompt (Android TV)<br>Skip ads (Android TV)<br>Block analytics & tracking (off by default) | `4.94`<br>`4.71` | 11/14/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Opt out of data sale & sharing<br>Skip ads<br>Block analytics & tracking (off by default)<br>Route traffic through a proxy (off by default) | `7.10.0` | 11/05/26 |
 | Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default) | `3.13.1`<br>`3.12.0` | 11/10/26 |
 | The Daily Wire | Skip ads<br>Hide promo banners<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.22`, `3.5.21` | 11/13/26 |
@@ -88,7 +88,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | FEMA | Save content for offline use<br>Block analytics & tracking (off by default) | `3.2.1` | 11/02/26 |
 | MyTSA | Block analytics & tracking (off by default) | `5.1.0` | 11/02/26 |
 | National Forests & Grasslands | Disable Pairip license check<br>Block analytics & tracking (off by default) | `1.3.0` | 11/02/26 |
-| NPS | Block analytics & tracking (off by default)<br>Block Bluetooth scanning (off by default) | `2.16.0` | 11/09/26 |
+| NPS | Block analytics & tracking (off by default)<br>Block Bluetooth scanning (off by default) | `2.16.0`<br>`2.15.0` | 11/14/26 |
 | Recreation.gov | Hide rating prompt<br>Skip location on open<br>Block analytics & tracking (off by default)<br>Show hidden details (off by default) | `2.2.67.1` | 11/07/26 |
 | White House | Disable Pairip license check<br>Remove microphone access<br>Skip launch video<br>Block analytics & tracking (off by default)<br>Hide promotions (off by default)<br>Hide social feeds (off by default)<br>Route traffic through a proxy (off by default) | `47.7.11` | 11/10/26 |
 
@@ -105,19 +105,19 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Stop behavioral tracking (off by default)<br>Dark mode (experimental, off by default) | `1.65.0` | 11/13/26 |
 | Flipp | Block ads (experimental)<br>Skip tutorials (experimental)<br>Strip affiliate links (experimental) | `115.0.0` | 11/10/26 |
 | Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | 11/10/26 |
-| RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.1.0` | 11/14/26 |
+| RetailMeNot | Disable Pairip license check<br>Hide surveys (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.1.0`<br>`10.0.6` | 11/14/26 |
 | Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.36.0` | 11/11/26 |
-| Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0` | 11/09/26 |
+| Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0`<br>`2026.43.0` | 11/14/26 |
 | The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | 11/10/26 |
 | Walgreens | Hide sponsored products (experimental)<br>Hide surveys and rating prompt (experimental) | `118.1` | 11/13/26 |
-| Walmart | Hide card offers (experimental)<br>Hide creator videos (experimental)<br>Hide pop-ups (experimental)<br>Hide sponsored listings (experimental)<br>Hide Walmart+ promotions (experimental)<br>Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1` | 11/10/26 |
+| Walmart | Hide card offers (experimental)<br>Hide creator videos (experimental)<br>Hide pop-ups (experimental)<br>Hide sponsored listings (experimental)<br>Hide Walmart+ promotions (experimental)<br>Disable AI (experimental, off by default) | `26.42.2`<br>`26.42.1`<br>`26.42`<br>`26.38` | 11/14/26 |
 
 ## Carriers
 
 | App | Patches | Tested version | Last updated |
 |-----|---------|----------------|--------------|
 | Mint Mobile | Block analytics & tracking (off by default) | `2.3.42` | 11/06/26 |
-| myAT&T | Block background network reports (experimental)<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `2026.10.2` | 11/07/26 |
+| myAT&T | Block background network reports (experimental)<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `2026.10.2`<br>`2026.10.1` | 11/14/26 |
 | My Verizon | Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (experimental, off by default) | `22.3.5` | 11/10/26 |
 | T-Life | Block location tracking<br>Block session recording<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `12.4.0`<br>`12.3.1` | 11/12/26 |
 | T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | 11/10/26 |

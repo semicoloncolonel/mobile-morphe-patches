@@ -15,6 +15,8 @@ object Constants {
         appIconColor = 0xFBC500,
         targets = listOf(
             devTarget("26.45.1", 2645001, description = "Phone build"),
+            AppTarget("26.44.2", versionCode = 2644002, description = "Phone build"),
+            AppTarget("26.43.10", versionCode = 2643010, description = "Phone build"),
             // Two Android TV builds of 26.43.8 exist: APKMirror's bundle (2643008, with
             // 32-bit and 64-bit splits) and the single 32-bit APK Google Play gives an
             // NVIDIA Shield (12643008). Both are listed so Morphe Manager accepts either.

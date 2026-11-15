@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-15T23:40:08",
-  "description": "# [1.1.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.24...v1.1.0-dev.25) (2026-11-15)\n\n\n### Bug Fixes\n\n* Hide the Reuters Menu subscribe offer ([c2254c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c2254c516176a7dafb8cb259dc3f1ed0a37cfcc8))\n* Remove the Reuters Settings subscription row and sign-in offer text ([815dc75](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/815dc75ce9f7cd319f79ee42fea3064bb7555ca4))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.25/patches-1.1.0-dev.25.mpp",
+  "created_at": "2026-11-15T23:50:25",
+  "description": "# [1.1.0-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.25...v1.1.0-dev.26) (2026-11-15)\n\n\n### Features\n\n* Add AP News 6.32.1 as an experimental target ([8b1ad80](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8b1ad808f96eeb1e8d1a4b2bebedbe9a13652db3))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.26/patches-1.1.0-dev.26.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.25",
+  "version": "1.1.0-dev.26",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

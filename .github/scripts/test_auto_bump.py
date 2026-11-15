@@ -79,6 +79,19 @@ class BumpConstantsTest(unittest.TestCase):
         self.assertEqual(text, SINGLE_LINE)
 
 
+class BumpReadmeTest(unittest.TestCase):
+    def test_new_version_is_listed_above_the_old_one(self):
+        with tempfile.TemporaryDirectory() as repo:
+            readme = Path(repo, "docs", "apps.md")
+            readme.parent.mkdir()
+            readme.write_text("| App | Patches | Tested version | Last updated |\n"
+                              "| Walgreens | Skip ads | `118.0` | 11/01/26 |\n")
+            self.assertTrue(auto_bump.bump_readme(repo, "Walgreens", "118.0", "118.1"))
+            row = readme.read_text().splitlines()[1]
+            self.assertIn("| `118.1`<br>`118.0` |", row)
+            self.assertNotIn("11/01/26", row)
+
+
 class QualifiesTest(unittest.TestCase):
     def test_app_with_several_pins_can_be_bumped(self):
         record = {"status": "update", "cert": "matches", "patched_apk": "x.apk", "package": "p",

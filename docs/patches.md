@@ -279,11 +279,13 @@ These patches are off by default.
 
 | Patch | App | What it does |
 |-------|-----|--------------|
+| Disable autoplay | Netflix | Stops preview trailers from playing while you browse, and stops the next episode from starting on its own. Its options turn off each one separately. |
 | Disable video autoplay | Yahoo News | Videos play only when you tap them. The video rails stop moving to the next video, and image carousels stop turning on their own. |
 | Auto-skip | Apple TV, Apple TV (Android TV) | Skips the parts you choose in its options: Apple's promos for other titles, which are on by default, and recaps and intros, which are off by default. Other buttons, such as Add, are left alone. Recaps and intros are recognized by their English button labels, "Skip Recap" and "Skip Intro". Each recap and intro is skipped once per title, so rewinding into one plays it. On a phone, the app's button then shows "Watch Recap" or "Watch Intro" for a few seconds where the skipped part ends, and goes back to its start. |
 | Disable up next | Apple TV | Lets the credits play full screen, instead of shrinking the video into a corner to show the next episode or a recommendation. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
 | Hide player overlays | Apple TV | Hides the overlays you choose in its options: the rating card when a title starts, product placement notices, and photosensitivity and high-motion warnings. The warnings are shown by default. |
+| Keep screen brightness | Netflix | Keeps the screen brightness you set. Without it, Netflix changes the brightness while a video plays. |
 | Highest quality | Tubi | Plays the highest-resolution version of each title and live channel, and keeps it at the highest bitrate Tubi sends. Most titles stop at 720p, and a few have 1080p. Tubi sends the app fewer renditions than its website, so some titles play below the resolution the website offers. Turn it off if videos buffer. |
 | Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz, White House | Opens the app without the intro video. |
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
@@ -298,7 +300,7 @@ These patches are off by default.
 | Change app name | YouTube TV | Names the app "YT TV+" by default, so it is easy to tell apart from the official app. |
 | Disable forced updates | Truth Social | Keeps the app open when Truth Social's server asks for a newer version. A patched app cannot update from the Play Store. |
 | Disable Xfinity auto sign-in | Peacock | Stops automatic sign-in on an Xfinity home network. |
-| Faster launch | CNN | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. |
+| Faster launch | CNN 26.21.0 | Opens the app without waiting to download its feature settings from Optimizely. When a DNS blocker blocks that download, the app otherwise waits about 14 seconds on its splash screen. The app starts with the settings it saved last time, and updates them in the background. CNN 26.23.0 already starts this way, so the patch does not apply to it. |
 | Fix launch with DNS blockers | CNBC | Opens the app when a DNS blocker blocks OneTrust, the app's privacy consent service. Without it, the app stays on its splash screen. |
 | GmsCore support | AP News, Checkout 51, JustWatch, MLB, Moviebase, NewsBreak, The Daily Wire, Yahoo Finance, Yahoo News, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, JustWatch, MLB, NewsBreak, The Daily Wire, and Yahoo Finance it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. On Yahoo News it is off by default and moves only push notifications and Firebase, because Yahoo sign-in does not use Google. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
@@ -307,6 +309,7 @@ These patches are off by default.
 
 | Patch | App | Why |
 |-----|-----|-----|
+| Bypass tamper protection | Netflix | Netflix closes a few seconds after it opens when it is not signed by Netflix, which includes every patched copy. A bundled native library stops that, so the app runs and plays without root. Every other Netflix patch needs it. |
 | Disable Pairip license check | DealNews, DealSeek, Fox One, Moviebase, National Forests & Grasslands, RetailMeNot, White House | Google's Pairip check blocks any copy not installed from the Play Store, which includes every patched app. |
 | Disable signature check | CBS News | CBS News erases its data and closes when it is not signed by CBS. This also skips its block on rooted phones. |
 | Fix media connection crash | NPR | NPR closes when Android Auto, the Google app, or another approved player connects with a signature the app does not expect. The connection is refused or allowed instead. |
@@ -315,6 +318,10 @@ These patches are off by default.
 ## Extra features
 
 **Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
+
+**Browse hidden categories** (Netflix) adds a searchable list of the genre categories that Netflix has but does not show in its menus, such as the codes in netflix.com/browse/genre links. Tapping one opens it in the app. **Surprise me** opens a random one. Its options choose where they appear: a separate Hidden Categories app icon, a shortcut on the Netflix icon, or both, and a Surprise me shortcut. The list holds only categories that had titles when it was made, so the number of titles in each one can change.
+
+**Remove bottom tabs** (Netflix) removes the Clips tab, the Games tab, or both from the bar at the bottom of the screen. Its options choose which.
 
 **Dark mode** (Checkout 51, CNBC, DealSeek, RetailMeNot) lets Android darken the app while the phone is in dark mode. These apps have only a light theme, so Android picks the dark colors itself, and photos and videos keep their own colors.
 

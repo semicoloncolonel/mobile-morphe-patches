@@ -337,5 +337,23 @@ class DevOnlyCloseTest(unittest.TestCase):
         self.assertIn(app_updates.RELEASED_LABEL, edits[0])
 
 
+class IsTvBuildTest(unittest.TestCase):
+    """A phone build that lists Android TV as optional is not a TV build."""
+
+    def badging(self, text):
+        result = mock.Mock(stdout=text)
+        with mock.patch.object(app_updates, "run", return_value=result):
+            return app_updates.is_tv_build(Path("app.apk"), "aapt2")
+
+    def test_optional_leanback_feature_is_a_phone_build(self):
+        self.assertFalse(self.badging(
+            "uses-feature-not-required: name='android.software.leanback'\n"
+            "launchable-activity: name='com.tubitv.MainActivity'\n"))
+
+    def test_tv_launcher_is_a_tv_build(self):
+        self.assertTrue(self.badging(
+            "launchable-activity: name='a.Main'\nleanback-launchable-activity: name='a.TvMain'\n"))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -453,7 +453,10 @@ def version_name(apk, aapt2):
 
 
 def is_tv_build(apk, aapt2):
-    """True when the base APK declares the Android TV (leanback) feature."""
+    """True when the base APK has an Android TV launcher entry. Many phone
+    builds list the leanback feature as optional (uses-feature-not-required),
+    so the feature's name alone also matched phone builds of Tubi, Paramount+,
+    NBA, HBO Max, and others."""
     if not aapt2:
         return None
     with tempfile.TemporaryDirectory() as tmp:
@@ -461,7 +464,7 @@ def is_tv_build(apk, aapt2):
         if base is None:
             return None
         badging = run([aapt2, "dump", "badging", str(base)]).stdout
-        return "android.software.leanback" in badging
+        return "leanback-launchable-activity:" in badging
 
 
 # ── Patching ────────────────────────────────────────────────────────────────

@@ -12,6 +12,7 @@
     # Overwritten by patches, so R8 must not fold its constant answer.
     public static boolean keepBraze();
     public static boolean blockResumeTracking();
+    public static boolean incognitoReading();
     public static *** openConnection(java.net.URL);
     public static java.net.InetAddress[] lookup(java.lang.String);
     public static void install(okhttp3.OkHttpClient$Builder);

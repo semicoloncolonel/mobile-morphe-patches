@@ -14,10 +14,8 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xB8B004,
         targets = listOf(
-            AppTarget("17.4.0", versionCode = 420001013, description = "Phone build"),
-            AppTarget("17.4.0", versionCode = 520001013, description = "Android TV build"),
-            AppTarget("17.3.0", versionCode = 420000991, description = "Phone build"),
-            AppTarget("17.3.0", versionCode = 520000991, description = "Android TV build"),
+            AppTarget("17.4.0"),
+            AppTarget("17.3.0"),
         )
     )
 }

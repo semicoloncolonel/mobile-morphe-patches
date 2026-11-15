@@ -6,6 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants as AbcNews
 import semicoloncolonel.mobilestream.patches.fandango.shared.Constants as Fandango
 import semicoloncolonel.mobilestream.patches.mlb.shared.Constants as Mlb
+import semicoloncolonel.mobilestream.patches.paramount.shared.Constants as Paramount
 import semicoloncolonel.mobilestream.patches.pluto.shared.Constants as Pluto
 import semicoloncolonel.mobilestream.patches.xumo.shared.Constants as Xumo
 import semicoloncolonel.mobilestream.patches.yttv.shared.Constants as YtTv
@@ -32,6 +33,7 @@ val translateAdBreakScreenPatch = bytecodePatch(
         AbcNews.COMPATIBILITY,
         Fandango.COMPATIBILITY,
         Mlb.COMPATIBILITY,
+        Paramount.COMPATIBILITY,
         Pluto.COMPATIBILITY,
         Xumo.COMPATIBILITY,
         YtTv.COMPATIBILITY,

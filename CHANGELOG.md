@@ -1,3 +1,11 @@
+# [1.1.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.24...v1.1.0-dev.25) (2026-11-15)
+
+
+### Bug Fixes
+
+* Hide the Reuters Menu subscribe offer ([c2254c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c2254c516176a7dafb8cb259dc3f1ed0a37cfcc8))
+* Remove the Reuters Settings subscription row and sign-in offer text ([815dc75](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/815dc75ce9f7cd319f79ee42fea3064bb7555ca4))
+
 # [1.1.0-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.23...v1.1.0-dev.24) (2026-11-15)
 
 

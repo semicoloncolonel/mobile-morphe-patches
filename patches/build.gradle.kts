@@ -57,6 +57,10 @@ val flavorExcludes: List<String> = when (bundleFlavor) {
             "**/patches/peacock/misc/DisableHomeNetworkSignInPatch.kt",
             "**/patches/mlb/misc/GmsCoreSupportPatch.kt",
             "**/patches/mlb/misc/HideSurveysPatch.kt",
+            // The Android TV build draws odds through a native odds-provider
+            // banner, not the web scores config this patch targets (that config
+            // object is dead code in the TV dex), so it does not apply here.
+            "**/patches/mlb/misc/HideBettingOddsPatch.kt",
             // The Android TV builds have no social sign-in or, for Starz, no launch video.
             "**/patches/hbomax/misc/RemoveSocialSignInPatch.kt",
             "**/patches/starz/misc/RemoveSocialSignInPatch.kt",

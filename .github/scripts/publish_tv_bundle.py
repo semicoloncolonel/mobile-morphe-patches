@@ -237,13 +237,27 @@ def release_notes(since_version: str | None, version: str) -> str:
     return "\n".join(lines)
 
 
+def write_patches_list(repo: str, branch: str, version: str, path: Path | None, dry_run: bool) -> None:
+    """Commits patches-list.json, the patch list third-party tools read, if one was built."""
+    if path is None:
+        return
+    text = path.read_text()
+    if json.loads(text).get("version") != version:
+        sys.exit(f"{path} is for another version, not {version}")
+    write_file(repo, branch, "patches-list.json", text if text.endswith("\n") else text + "\n",
+               f"chore: Update the patch list for v{version} [skip ci]", dry_run)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", required=True, help="OWNER/tv-morphe-patches")
     parser.add_argument("--branch", required=True, choices=["main", "dev"])
     parser.add_argument("--version")
     parser.add_argument("--mpp", type=Path)
+    parser.add_argument("--patches-list", type=Path,
+                        help="patches-list.json for this bundle, committed beside patches-bundle.json")
     parser.add_argument("--force", action="store_true", help="publish even if no TV file changed")
+    parser.add_argument("--notes-file", type=Path, help="release notes to use instead of the generated ones")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--setup-only", action="store_true",
                         help="only create the branches and sync the README, forms, and labels")
@@ -263,6 +277,7 @@ def main() -> int:
     since = json.loads(current)["version"] if current else None
     if since == version:
         print(f"{repo} {branch} is already at {version}.")
+        write_patches_list(repo, branch, version, args.patches_list, args.dry_run)
         return 0
 
     changed = changed_tv_files(since, version)
@@ -274,7 +289,7 @@ def main() -> int:
     print(f"Publishing {version} to {repo} {branch} (last TV version: {since or 'none'}).")
     print("Changed: " + ", ".join(changed[:20]) + (" ..." if len(changed) > 20 else ""))
 
-    notes = release_notes(since, version)
+    notes = args.notes_file.read_text().strip() if args.notes_file else release_notes(since, version)
     asset = f"patches-{version}.mpp"
     tag = f"v{version}"
 
@@ -303,12 +318,14 @@ def main() -> int:
         "public_key": (ROOT / "morphe-signing.pub").read_text().strip(),
     }
     text = json.dumps(bundle, indent=2) + "\n"
+    write_patches_list(repo, branch, version, args.patches_list, args.dry_run)
     write_file(repo, branch, "patches-bundle.json", text, f"chore: Release {tag} [skip ci]", args.dry_run)
     # Until the TV repository has a stable release, main offers the latest dev
     # pre-release too, so the stable channel works from the start.
     if branch == "dev":
         main_bundle, _ = read_file(repo, "main", "patches-bundle.json")
         if main_bundle is None or "-" in json.loads(main_bundle)["version"]:
+            write_patches_list(repo, "main", version, args.patches_list, args.dry_run)
             write_file(repo, "main", "patches-bundle.json", text,
                        f"chore: Offer {tag} until the first stable release [skip ci]", args.dry_run)
     sync_template(repo, args.dry_run)

@@ -23,6 +23,9 @@
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker$BlockInterceptor { *; }
 -keep class semicoloncolonel.mobilestream.extension.yttvshell.TvScripts {
     public static void setWebContents(java.lang.Object);
+    public static void setWebContentsFromObserver(java.lang.Object);
+    public static void onObserverNavigation(java.lang.Object);
+    public static void onObserverDocument(java.lang.Object);
     public static void onPageEvent(java.lang.String);
     public static void onTitle(java.lang.String);
 }

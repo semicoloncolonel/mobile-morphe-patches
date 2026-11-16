@@ -30,6 +30,12 @@ TV Morphe Patches supports 11 Android TV apps: Apple TV, Disney+, HBO Max, Hulu,
 
 <!-- apps:end -->
 
+## FAQ
+
+### Can you bypass a subscription paywall?
+
+No. This project does not take requests to bypass subscription paywalls. Virtually every streaming service checks your subscription on its own servers before it sends the video, and a patch only changes the app on your device, so no patch can fake that check.
+
 ## Report a problem
 
 Open an issue with one of the [forms in this repository](https://github.com/semicoloncolonel/tv-morphe-patches/issues/new/choose). For a security problem, follow the [security policy](SECURITY.md) instead.

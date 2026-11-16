@@ -1,3 +1,10 @@
+# [1.1.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.40...v1.1.0-dev.41) (2026-11-16)
+
+
+### Features
+
+* **kouponai:** Show promo codes on deal pages ([8a9f939](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8a9f9398857c434866082a625fc7aa620a591e3b))
+
 # [1.1.0-dev.40](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.39...v1.1.0-dev.40) (2026-11-16)
 
 

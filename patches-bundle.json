@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-16T22:18:27",
-  "description": "# [1.1.0-dev.40](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.39...v1.1.0-dev.40) (2026-11-16)\n\n\n### Features\n\n* **kouponai:** Hide the tips on deal pages ([bd572f3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bd572f3a7f95ecef7087dfdbb6af1e566278e149))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.40/patches-1.1.0-dev.40.mpp",
+  "created_at": "2026-11-16T22:24:40",
+  "description": "# [1.1.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.40...v1.1.0-dev.41) (2026-11-16)\n\n\n### Features\n\n* **kouponai:** Show promo codes on deal pages ([8a9f939](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8a9f9398857c434866082a625fc7aa620a591e3b))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.41/patches-1.1.0-dev.41.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.40",
+  "version": "1.1.0-dev.41",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

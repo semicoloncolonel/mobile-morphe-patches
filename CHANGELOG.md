@@ -1,3 +1,10 @@
+# [1.1.0-dev.35](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.34...v1.1.0-dev.35) (2026-11-16)
+
+
+### Features
+
+* Tell Android TV users where future Android TV patches come from ([344b855](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/344b85503413dcd55236ece6afe6c04a76784604))
+
 # [1.1.0-dev.34](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.33...v1.1.0-dev.34) (2026-11-16)
 
 

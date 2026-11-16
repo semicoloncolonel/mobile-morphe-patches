@@ -80,7 +80,7 @@ val disableAutoUpdatesPatch = resourcePatch(
     description = "Stops the Play Store from replacing the patched app with the official version.",
     default = false,
 ) {
-    compatibleWith(
+    compatibleWith(*forBundle(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
         Hulu.COMPATIBILITY,
@@ -123,7 +123,7 @@ val disableAutoUpdatesPatch = resourcePatch(
         Verizon.COMPATIBILITY,
         Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, NewsNation.TV_COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY,
         Reuters.COMPATIBILITY,
-    )
+    ))
 
     execute {
         document("AndroidManifest.xml").use { document ->

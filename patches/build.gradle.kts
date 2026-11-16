@@ -12,6 +12,7 @@ val bundleFlavor: String = providers.gradleProperty("flavor").getOrElse("all").a
 val tvOnlySources = listOf(
     "**/patches/appletv/tv/**",
     "**/patches/espn/tv/**",
+    "**/patches/mlb/tv/**",
     "**/patches/nba/tv/**",
     "**/patches/shared/privacy/RejectTrackingConsentPatch.kt",
     "**/patches/newsnation/tv/**",

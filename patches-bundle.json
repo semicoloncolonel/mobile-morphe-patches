@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-16T18:48:38",
-  "description": "# [1.1.0-dev.36](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.35...v1.1.0-dev.36) (2026-11-16)\n\n\n### Features\n\n* **slickdeals:** Add GmsCore support for Google sign-in ([a256523](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a256523eaed522a5dcc0fa8340057c0447613442))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.36/patches-1.1.0-dev.36.mpp",
+  "created_at": "2026-11-16T18:54:19",
+  "description": "# [1.1.0-dev.37](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.36...v1.1.0-dev.37) (2026-11-16)\n\n\n### Bug Fixes\n\n* **hbomax:** Leave Force decode capability out of the Android TV bundle ([ba8d899](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ba8d8990e96a2c7716e24f91fc156592f51e9f34))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.37/patches-1.1.0-dev.37.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.36",
+  "version": "1.1.0-dev.37",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

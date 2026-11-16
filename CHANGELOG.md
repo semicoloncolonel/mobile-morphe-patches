@@ -1,3 +1,10 @@
+# [1.1.0-dev.37](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.36...v1.1.0-dev.37) (2026-11-16)
+
+
+### Bug Fixes
+
+* **hbomax:** Leave Force decode capability out of the Android TV bundle ([ba8d899](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ba8d8990e96a2c7716e24f91fc156592f51e9f34))
+
 # [1.1.0-dev.36](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.35...v1.1.0-dev.36) (2026-11-16)
 
 

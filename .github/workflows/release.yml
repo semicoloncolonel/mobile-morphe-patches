@@ -111,12 +111,13 @@ jobs:
           subject-path: build/tv/patches-*.mpp
 
       # Publishes only when a file the TV bundle is built from changed since the
-      # last TV release on this branch. TV_SOURCE_TOKEN needs Contents write
-      # access to the TV repository.
+      # last TV release on this branch. The token needs write access to the TV
+      # repository's contents and issues, and the workflow scope when its
+      # workflow files change: TV_SOURCE_TOKEN, or RELEASE_TOKEN without it.
       - name: Publish the Android TV bundle
         if: steps.tv.outcome == 'success'
         env:
-          GH_TOKEN: ${{ secrets.TV_SOURCE_TOKEN }}
+          GH_TOKEN: ${{ secrets.TV_SOURCE_TOKEN || secrets.RELEASE_TOKEN }}
           VERSION: ${{ steps.release.outputs.new_release_version }}
         run: >
           python3 .github/scripts/publish_tv_bundle.py

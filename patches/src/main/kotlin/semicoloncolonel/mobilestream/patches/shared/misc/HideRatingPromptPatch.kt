@@ -162,7 +162,7 @@ val hideRatingPromptPatch = bytecodePatch(
 ) {
     // Apple TV, CNBC, Recreation.gov, NewsBreak, and USA TODAY have their own
     // Hide rating prompt patch, which includes this one.
-    compatibleWith(
+    compatibleWith(*forBundle(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
         Hulu.COMPATIBILITY,
@@ -219,7 +219,7 @@ val hideRatingPromptPatch = bytecodePatch(
         Visible.COMPATIBILITY,
         Xfinity.COMPATIBILITY,
         Reuters.COMPATIBILITY,
-    )
+    ))
 
     dependsOn(blockPlayReviewSheetPatch)
 }

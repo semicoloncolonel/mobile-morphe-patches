@@ -34,17 +34,17 @@ body:
       label: App
       description: The app you patched.
       options:
-        - "Apple TV (Android TV)"
+        - "Apple TV"
         - "Disney+"
         - "HBO Max"
-        - "Hulu (Android TV)"
+        - "Hulu"
         - "JustWatch"
-        - "NewsNation (Android TV)"
+        - "NewsNation"
         - "Plex"
         - "Pluto TV"
         - "Starz"
         - "Tubi"
-        - "YouTube TV (Android TV)"
+        - "YouTube TV"
         - "Other (name it in the description)"
     validations:
       required: true

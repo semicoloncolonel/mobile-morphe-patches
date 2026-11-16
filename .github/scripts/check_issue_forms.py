@@ -24,13 +24,15 @@ def excluded_globs():
 
 
 def patched_apps():
+    """The phone apps. The Android TV-only apps, named "... (Android TV)", are in
+    tv-morphe-patches, whose forms build_tv_repo.py writes."""
     globs = excluded_globs()
     names = set()
     for path in Path("patches/src/main/kotlin").rglob("*.kt"):
         if any(fnmatch.fnmatch(path.as_posix(), glob) for glob in globs):
             continue
         names.update(re.findall(r'Compatibility\(\s*name\s*=\s*"([^"]+)"', path.read_text()))
-    return names
+    return {name for name in names if not name.endswith("(Android TV)")}
 
 
 def form_apps(form):

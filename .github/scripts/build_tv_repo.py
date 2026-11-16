@@ -44,18 +44,30 @@ def tv_bundle_apps() -> list[str]:
     return re.findall(r'"([^"]+)"', match.group(1))
 
 
-def tv_app_names() -> set[str]:
-    """The names the forms use for the TV apps, from each app's Constants.
+def tv_app_names() -> list[str]:
+    """The TV apps' names, from each app's Constants, without " (Android TV)".
 
     An app with a separate Android TV entry, such as "Apple TV (Android TV)",
-    is listed by that entry's name only.
+    is listed by that entry's name. issue_triage.py maps a plain name back to
+    it for reports in the TV repository.
     """
     names = set()
     for app in tv_bundle_apps():
         found = set(re.findall(r'name = "([^"]+)"', (PATCHES / app / "shared/Constants.kt").read_text()))
         tv = {name for name in found if name.endswith("(Android TV)")}
-        names |= tv or found
-    return names
+        names |= {name.removesuffix(" (Android TV)") for name in (tv or found)}
+    return sorted(names, key=str.lower)
+
+
+# Bug report checkbox that only applies to the TV apps.
+HULU_CHECKBOX = (
+    '        - label: "If I patched Hulu, I followed [Installing Hulu on Android TV]'
+    '(https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/android-tv.md'
+    '#installing-hulu-on-android-tv), including patching the full APKM bundle and installing '
+    'the patched file as a single `.apk`."\n'
+    "          required: true\n"
+)
+README_START, README_END = "<!-- apps:start -->", "<!-- apps:end -->"
 
 
 def replace_all(text: str) -> str:
@@ -64,20 +76,25 @@ def replace_all(text: str) -> str:
     return text
 
 
-def tv_form(text: str, names: set[str]) -> str:
-    """Keeps the TV apps in the App dropdown and drops the phone-or-TV question."""
+def tv_form(text: str, names: list[str], form_name: str = "") -> str:
+    """Lists the TV apps in the App dropdown and drops the phone-or-TV question."""
     parts = re.split(r"(?m)^(?=  - type:)", text)
     head, items = parts[0], parts[1:]
     kept = []
     for item in items:
         if re.search(r"(?m)^    id: build$", item):
             continue
-        if re.search(r"(?m)^    id: app$", item):
-            item = "".join(
-                line for line in item.splitlines(keepends=True)
-                if not (m := re.match(r'\s+- "([^"]+)"$', line))
-                or m.group(1).startswith("Other") or m.group(1) in names
-            )
+        if re.search(r"(?m)^    id: app$", item) and re.search(r"(?m)^      options:$", item):
+            lines = item.splitlines(keepends=True)
+            options = [i for i, line in enumerate(lines) if re.match(r'\s+- "([^"]+)"$', line)]
+            other = [lines[i] for i in options if '"Other' in lines[i]]
+            indent = re.match(r"\s+", lines[options[0]]).group(0)
+            new = [f'{indent}- "{name}"\n' for name in names] + other
+            item = "".join(lines[:options[0]]) + "".join(new) + "".join(lines[options[-1] + 1:])
+        if re.search(r"(?m)^    id: before$", item) and "rate this app" not in item and "paywalls" in item \
+                and "1-bug-report" in form_name:
+            item = re.sub(r'(        - label: "I understand that the patches do not currently remove paywalls[^\n]*\n'
+                          r'          required: true\n)', lambda m: m.group(1) + HULU_CHECKBOX, item, count=1)
         kept.append(item)
     return replace_all(head + "".join(kept))
 
@@ -87,7 +104,7 @@ def outputs() -> dict[Path, str]:
     files = {}
     for form in FORMS:
         source = (ROOT / ".github/ISSUE_TEMPLATE" / form).read_text()
-        files[OUT / ".github/ISSUE_TEMPLATE" / form] = HEADER + tv_form(source, names)
+        files[OUT / ".github/ISSUE_TEMPLATE" / form] = HEADER + tv_form(source, names, form)
     config = (ROOT / ".github/ISSUE_TEMPLATE/config.yml").read_text()
     config = config.replace("contact_links:\n", (
         "contact_links:\n"
@@ -96,6 +113,13 @@ def outputs() -> dict[Path, str]:
         "    about: The Android TV apps, and how to get the Android TV build of each.\n"
     ), 1)
     files[OUT / ".github/ISSUE_TEMPLATE/config.yml"] = HEADER + replace_all(config)
+    readme = (OUT / "README.md").read_text()
+    start, end = readme.index(README_START) + len(README_START), readme.index(README_END)
+    apps = (f"\n\nTV Morphe Patches supports {len(names)} Android TV apps: "
+            + ", ".join(names[:-1]) + f", and {names[-1]}. "
+            "[Supported apps](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/android-tv.md) "
+            "lists the patches and the tested versions for each.\n\n")
+    files[OUT / "README.md"] = readme[:start] + apps + readme[end:]
     files[OUT / "SECURITY.md"] = replace_all((ROOT / "SECURITY.md").read_text())
     files[OUT / "NOTICE"] = (ROOT / "NOTICE").read_text()
     files[OUT / "LICENSE"] = (ROOT / "LICENSE").read_text()

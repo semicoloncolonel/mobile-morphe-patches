@@ -195,6 +195,9 @@ def is_tv(description):
 def evaluate(fields, apps):
     """None when the report matches a supported target or cannot be checked, else what is wrong."""
     app, version = fields.get("App"), fields.get("App version")
+    # tv-morphe-patches lists "Apple TV", not "Apple TV (Android TV)".
+    if app and DEFAULT_BUILD.startswith("Android TV") and f"{app} (Android TV)" in apps:
+        app = f"{app} (Android TV)"
     if not app or not version or app not in apps:
         return None
     versions = apps[app]

@@ -20,7 +20,7 @@ import semicoloncolonel.mobilestream.patches.hulutv.shared.Constants
 @Suppress("unused")
 val blockAnalyticsPatch = bytecodePatch(
     name = "Block analytics & tracking (experimental)",
-    description = "Blocks the Hulu Android TV app's analytics and tracking " +
+    description = "Blocks the app's analytics and tracking " +
         "requests (Hulu telemetry, Conviva, and Adobe) through an in-process " +
         "native hook, with no root. Functional traffic is untouched.",
     default = false,

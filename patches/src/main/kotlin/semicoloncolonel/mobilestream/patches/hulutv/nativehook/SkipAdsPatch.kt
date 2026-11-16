@@ -20,9 +20,8 @@ import semicoloncolonel.mobilestream.patches.hulutv.shared.Constants
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
     name = "Skip ads (experimental)",
-    description = "EXPERIMENTAL: removes the ads Hulu stitches into its Android TV " +
-        "on-demand manifests, through an in-process native hook on libwkf_support.so, " +
-        "with no root. It removed the ad breaks from an on-demand episode in testing, " +
+    description = "Removes the ads Hulu stitches into its on-demand videos, through an " +
+        "in-process native hook, with no root. It removed the ad breaks from an on-demand episode in testing, " +
         "but it has not been tested widely and may not remove every ad. It only " +
         "removes explicit ad periods, so it does not affect ad-free content. Live " +
         "broadcast commercials are part of the broadcast and still play. Sign in " +

@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.appletv.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.forTvSource
 import app.morphe.patcher.patch.FormFactor
 import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
@@ -31,5 +32,5 @@ object Constants {
             AppTarget(version = "17.0.2", versionCode = 170202, description = "Android TV build"),
         ),
         formFactor = FormFactor.TV,
-    )
+    ).forTvSource("The Apple TV app.")
 }

@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.yttvshell.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.forTvSource
 import app.morphe.patcher.patch.FormFactor
 
 // YouTube TV's own Android TV app (com.google.android.youtube.tvunplugged) runs on an older,
@@ -28,5 +29,5 @@ object Constants {
         appIconColor = 0xFF0000,
         targets = listOf(AppTarget(version = "7.32.300", description = "Android TV build")),
         formFactor = FormFactor.TV,
-    )
+    ).forTvSource()
 }

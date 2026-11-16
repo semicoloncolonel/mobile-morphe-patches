@@ -21,6 +21,6 @@ object Constants {
         )
     ).splitByBundle(
         phoneDescription = "The Tubi app for phones.",
-        tvDescription = "The Tubi app for Android TV.",
+        tvDescription = "The Tubi app.",
     )
 }

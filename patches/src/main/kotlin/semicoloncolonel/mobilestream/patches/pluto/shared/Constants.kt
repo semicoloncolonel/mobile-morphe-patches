@@ -20,6 +20,6 @@ object Constants {
         )
     ).splitByBundle(
         phoneDescription = "The Pluto TV app for phones. Phone builds have version codes that start with 4.",
-        tvDescription = "The Pluto TV app for Android TV. Android TV builds have version codes that start with 5.",
+        tvDescription = "The Pluto TV app. Its version codes start with 5, and the phone app's start with 4.",
     )
 }

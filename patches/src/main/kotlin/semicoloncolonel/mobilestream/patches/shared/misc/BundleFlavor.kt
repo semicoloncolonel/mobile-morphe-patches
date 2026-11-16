@@ -86,14 +86,48 @@ fun Compatibility.splitByBundle(
         signatures = signatures,
         targets = phoneTargets,
     ),
-    tv = Compatibility(
-        name = checkNotNull(name),
-        packageName = checkNotNull(packageName),
-        description = tvDescription,
-        apkFileType = apkFileType,
-        appIconColor = appIconColor,
-        signatures = signatures,
-        targets = tvTargets,
-        formFactor = FormFactor.TV,
-    ),
+    tv = asTvEntry(tvTargets, tvDescription),
 )
+
+private const val TV_SUFFIX = " (Android TV)"
+
+/**
+ * [name] without " (Android TV)" in the TV bundle, where every app is an
+ * Android TV app. The phone and combined bundles keep the suffix, because there
+ * the phone and Android TV patches for one package sit side by side.
+ */
+fun tvName(name: String): String = if (isTvBundle) name.removeSuffix(TV_SUFFIX) else name
+
+/**
+ * For an entry only an Android TV app uses: in the TV bundle, the same entry
+ * without " (Android TV)" in its name or the "Android TV build" label on its
+ * versions, and with [tvDescription]. Other bundles keep this entry as is.
+ */
+fun Compatibility.forTvSource(tvDescription: String? = description): Compatibility =
+    if (isTvBundle) asTvEntry(targets, tvDescription) else this
+
+private fun Compatibility.asTvEntry(tvTargets: List<AppTarget>, tvDescription: String?) = Compatibility(
+    name = tvName(checkNotNull(name)),
+    packageName = checkNotNull(packageName),
+    description = tvDescription,
+    apkFileType = apkFileType,
+    appIconColor = appIconColor,
+    signatures = signatures,
+    targets = tvTargets.map { target ->
+        if (target.description != TV_BUILD) {
+            target
+        } else {
+            AppTarget(
+                version = target.version,
+                versionCodes = target.versionCodes,
+                isExperimental = target.isExperimental,
+                minSdk = target.minSdk,
+                description = null,
+            )
+        }
+    },
+    formFactor = FormFactor.TV,
+)
+
+/** [text] without " in the Android TV app" in the TV bundle, where every app is an Android TV app. */
+fun tvText(text: String): String = if (isTvBundle) text.replace(" in the Android TV app", "") else text

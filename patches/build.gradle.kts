@@ -44,8 +44,9 @@ val flavorExcludes: List<String> = when (bundleFlavor) {
             "**/patches/appletv/misc/**",
             "**/patches/appletv/privacy/**",
             "**/patches/newsnation/ads/**",
-            // The Android TV build has no social sign-in screen or launch video.
+            // The Android TV builds have no social sign-in or, for Starz, no launch video.
             "**/patches/hbomax/misc/RemoveSocialSignInPatch.kt",
+            "**/patches/starz/misc/RemoveSocialSignInPatch.kt",
             "**/patches/starz/misc/SkipLaunchVideoPatch.kt",
         ))
         // Shared patches with no Android TV app. A shared patch that lists one

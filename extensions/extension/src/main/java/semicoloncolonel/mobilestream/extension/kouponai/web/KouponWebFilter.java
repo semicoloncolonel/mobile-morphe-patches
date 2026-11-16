@@ -2,6 +2,7 @@ package semicoloncolonel.mobilestream.extension.kouponai.web;
 
 import android.net.Uri;
 import android.util.Log;
+import android.webkit.WebView;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 
@@ -41,6 +42,12 @@ import semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker;
  *                              filtered, so the app's own screens are not
  *                              affected.
  *
+ * The client's onPageFinished and doUpdateVisitedHistory also call
+ * {@link #onPage}. When {@link #showCodes()} is on ("Show promo codes"), that
+ * adds a style rule to Koupon's pages: the deal page's Copy code button keeps
+ * "Copy code" on its left half, and the promo code, which the page already
+ * holds under the button, shows in full on the right.
+ *
  * A blocked request gets an empty 404, which the page treats like a failed
  * request. Everything is decided on the device.
  */
@@ -71,6 +78,38 @@ public final class KouponWebFilter {
     /** Overwritten to return true by "Hide pop-ups". */
     public static boolean hideTips() {
         return false;
+    }
+
+    /** Overwritten to return true by "Show promo codes". */
+    public static boolean showCodes() {
+        return false;
+    }
+
+    /** The Copy code button's own rules, with the dark panel cut to half width and its peel removed. */
+    private static final String CODE_STYLE =
+            ".kp-promoCode .copyButton-content{min-width:0 !important;width:50% !important;right:auto !important;"
+                    + "clip-path:none !important;padding:6px !important}"
+                    + ".kp-promoCode .copyButton-content::after{display:none !important}"
+                    + ".kp-promoCode .copyButton-content .text,.kp-promoCode .copyButton-content .subtitle"
+                    + "{white-space:nowrap;padding-right:0 !important;text-align:center}"
+                    + ".kp-promoCode .code{box-sizing:border-box;padding-left:50% !important;"
+                    + "justify-content:center !important}";
+
+    private static final String SHOW_CODES_SCRIPT =
+            "(function(){if(document.getElementById('msp-show-codes'))return;"
+                    + "var s=document.createElement('style');s.id='msp-show-codes';s.textContent='" + CODE_STYLE + "';"
+                    + "(document.head||document.documentElement).appendChild(s);})();";
+
+    /** Called from the web view client's onPageFinished and doUpdateVisitedHistory. */
+    public static void onPage(WebView view, String url) {
+        try {
+            if (!showCodes() || view == null || url == null) return;
+            String host = Uri.parse(url).getHost();
+            if (host == null || !isKoupon(host.toLowerCase())) return;
+            view.evaluateJavascript(SHOW_CODES_SCRIPT, null);
+        } catch (Throwable t) {
+            Log.w(TAG, "could not show promo codes", t);
+        }
     }
 
     private static boolean isKoupon(String host) {

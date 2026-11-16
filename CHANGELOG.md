@@ -1,3 +1,15 @@
+# [1.1.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.31...v1.1.0-dev.32) (2026-11-16)
+
+
+### Bug Fixes
+
+* **mlb:** Hide betting odds no longer crashes Morphe on the Shield ([8d1e591](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8d1e591c3f623a033d88355b5b1ddcdb76426a36))
+
+
+### Features
+
+* **mlb:** Hide betting odds on the Android TV build ([d8265c4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d8265c4a499e41eb1cc82eedd996651a1d3a7136))
+
 # [1.1.0-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.30...v1.1.0-dev.31) (2026-11-16)
 
 

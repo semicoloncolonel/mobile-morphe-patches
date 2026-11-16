@@ -4,6 +4,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
+import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Koupon 3.1.6 — Keep new-user promo codes.
@@ -35,6 +36,8 @@ val keepPromoCodesPatch = bytecodePatch(
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
+
+    dependsOn(requireNativeLibsPatch)
 
     extendWith("extensions/extension.mpe")
 

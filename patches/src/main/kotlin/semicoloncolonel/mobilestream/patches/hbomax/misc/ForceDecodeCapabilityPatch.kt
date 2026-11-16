@@ -52,7 +52,7 @@ internal object IsFormatSupportedFingerprint : Fingerprint(
 
 @Suppress("unused")
 val forceDecodeCapabilityPatch = bytecodePatch(
-    name = "Force decode capability",
+    name = "Force decode capability (experimental)",
     description = "Reports video as decodable at every size and frame rate, so the app can " +
         "request the highest rendition. Experimental: can stutter or fail on a device that " +
         "cannot decode it. Pair with Video quality set to 2160p.",

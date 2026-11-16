@@ -1,3 +1,10 @@
+# [1.1.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.27...v1.1.0-dev.28) (2026-11-16)
+
+
+### Features
+
+* Move the Android TV apps to TV Morphe Patches ([87b7fb9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/87b7fb99e5794524b4e245131f6fb386bb86626c))
+
 # [1.1.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.26...v1.1.0-dev.27) (2026-11-16)
 
 

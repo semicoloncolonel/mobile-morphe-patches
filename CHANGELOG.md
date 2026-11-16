@@ -1,3 +1,10 @@
+# [1.1.0-dev.36](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.35...v1.1.0-dev.36) (2026-11-16)
+
+
+### Features
+
+* **slickdeals:** Add GmsCore support for Google sign-in ([a256523](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a256523eaed522a5dcc0fa8340057c0447613442))
+
 # [1.1.0-dev.35](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.34...v1.1.0-dev.35) (2026-11-16)
 
 

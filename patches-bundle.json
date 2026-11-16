@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-16T01:01:55",
-  "description": "# [1.1.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.26...v1.1.0-dev.27) (2026-11-16)\n\n\n### Bug Fixes\n\n* Stop Hulu (Android TV) from crashing where the TV provider is missing ([60099bf](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/60099bf47e3be165e157a9cc209649563ee93721))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.27/patches-1.1.0-dev.27.mpp",
+  "created_at": "2026-11-16T01:12:42",
+  "description": "# [1.1.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.27...v1.1.0-dev.28) (2026-11-16)\n\n\n### Features\n\n* Move the Android TV apps to TV Morphe Patches ([87b7fb9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/87b7fb99e5794524b4e245131f6fb386bb86626c))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.28/patches-1.1.0-dev.28.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.27",
+  "version": "1.1.0-dev.28",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

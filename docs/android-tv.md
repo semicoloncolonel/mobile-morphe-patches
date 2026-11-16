@@ -25,7 +25,7 @@ The Android TV patches have moved to their own source, [TV Morphe Patches](https
 | Prime Video | Skip ads (experimental)<br>Force highest quality (experimental, off by default) | `6.24.13+v16.0.1.93` | A separate app from the phone build, on the native Ignite engine, which cannot be dex-patched. Skip ads is **experimental**: it bundles a native library that hooks `libignite`'s memory copies and empties the ad-decision response in-process, with no root. On an NVIDIA Shield it removed the ad breaks from a TV episode and the show played straight through. Ads in live channels are server-stitched into the stream and still play. Force highest quality reports every video quality as supported, so the app streams the highest; it can stutter or fail on a device that cannot decode the top quality. |
 | Starz | Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.0`<br>`6.11.0` | The phone and Android TV builds share the version, `6.12.0`. The Android TV build's version code is `9510`, and the phone build's is `4518`. |
 | Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.5001` | The Android TV build has its own version, `10.44.5001`. The phone build is `10.44.3`. |
-| YouTube TV | Skip injected ads | `7.32.300` | Gives you **YT TV+**, an ad-free YouTube TV app. YouTube TV's own app cannot be patched, so YT TV+ is built from a different app, YouTube for Android TV, and installs beside both. See [Installing YT TV+ on Android TV](#installing-yt-tv-on-android-tv) for the steps. Live broadcast commercials are part of the broadcast and still play. |
+| YouTube TV | YT TV+ (ad-free YouTube TV) | `7.32.300` | Gives you **YT TV+**, an ad-free YouTube TV app. YouTube TV's own app cannot be patched, so YT TV+ is built from a different app, YouTube for Android TV, and installs beside both. See [Installing YT TV+ on Android TV](#installing-yt-tv-on-android-tv) for the steps. Live broadcast commercials are part of the broadcast and still play. |
 
 [Known issues](known-issues.md) includes the problems that happen only on a TV.
 
@@ -58,7 +58,7 @@ YT TV+ is YouTube TV without the ads that YouTube adds to it. YouTube TV's own a
    - Do not download the YouTube TV app (`com.google.android.youtube.tvunplugged`). That is the app that cannot be patched.
    - Do not download the phone version of YouTube.
 
-3. **Patch the downloaded file in Morphe Manager.** Select **YouTube TV (Android TV)** and the **Skip injected ads** patch.
+3. **Patch the downloaded file in Morphe Manager.** Select **YouTube TV (Android TV)** and the **YT TV+ (ad-free YouTube TV)** patch.
 
 4. **Install the patched file.** If it still ends in `.apkm` or `.apks`, rename it to end in `.apk` first, as with Hulu. It installs as a new app called **YT TV+**. Your YouTube and YouTube TV apps stay installed and unchanged.
 

@@ -1,3 +1,10 @@
+# [1.1.0-dev.44](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.43...v1.1.0-dev.44) (2026-11-16)
+
+
+### Bug Fixes
+
+* testing Best Buy 26.11.10, myAT&T 2026.11.1, NPR 7.11.0, Starz 6.12.1 ([05dad1d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/05dad1d6f8c3ec3cc8c8c6a7593ab50a4399d333))
+
 # [1.1.0-dev.43](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.42...v1.1.0-dev.43) (2026-11-16)
 
 

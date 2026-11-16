@@ -30,7 +30,8 @@ import semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker;
  *   {@link #stopHistory()}     POST /api/browse-history/add-history, which
  *                              records each deal you open, with its categories
  *                              and title keywords, for your History and for
- *                              personalized ranking.
+ *                              personalized ranking; and /api/recommend/...,
+ *                              the page's personalized "Similar items".
  *   {@link #hideAi()}          /api/deal/ai-evaluation and
  *                              /api/deal/ai-evaluation-enabled, the AI
  *                              evaluation section of a deal page.
@@ -123,6 +124,7 @@ public final class KouponWebFilter {
         }
         if (isKoupon(host)) {
             if (stopHistory() && path.contains("/browse-history/")) return "history";
+            if (stopHistory() && path.contains("/recommend")) return "recommendation";
             if (hideAi() && path.contains("/deal/ai-evaluation")) return "AI";
         }
         if (hideTips() && host.equals("cross-end.koupon.ai") && path.endsWith("/notification/status")

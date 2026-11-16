@@ -18,6 +18,7 @@ import semicoloncolonel.mobilestream.patches.yttvshell.misc.brandingPatch
 import semicoloncolonel.mobilestream.patches.yttvshell.misc.changeStartUrlPatch
 import semicoloncolonel.mobilestream.patches.yttvshell.misc.renamePatch
 import semicoloncolonel.mobilestream.patches.yttvshell.shared.Constants
+import semicoloncolonel.mobilestream.patches.yttvshell.shared.requireNativeLibsPatch
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Skip ads (and block tracking) — YouTube TV on Android TV, via the Chromium-Cobalt shell.
@@ -71,7 +72,7 @@ val skipAdsPatch = bytecodePatch(
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
-    dependsOn(changeStartUrlPatch, renamePatch, brandingPatch)
+    dependsOn(requireNativeLibsPatch, changeStartUrlPatch, renamePatch, brandingPatch)
 
     extendWith("extensions/extension.mpe")
 

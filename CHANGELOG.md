@@ -1,3 +1,10 @@
+# [1.1.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.26...v1.1.0-dev.27) (2026-11-16)
+
+
+### Bug Fixes
+
+* Stop Hulu (Android TV) from crashing where the TV provider is missing ([60099bf](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/60099bf47e3be165e157a9cc209649563ee93721))
+
 # [1.1.0-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.25...v1.1.0-dev.26) (2026-11-15)
 
 

@@ -20,7 +20,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | ESPN | Hide betting<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `8.29.0`<br>`8.27.0` | 11/14/26 |
 | Fandango at Home | Mask ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default) | `10.24.r009.179279954` | 11/02/26 |
 | Fox One | Disable Pairip license check<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `1.25.1`<br>`1.24.0` | 11/14/26 |
-| HBO Max | Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default) | `22.0.0.321`<br>`7.14.0.530` | 11/14/26 |
+| HBO Max | Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Video quality (experimental, off by default)<br>Force decode capability (experimental, off by default) | `22.0.0.321`<br>`7.14.0.530` | 11/14/26 |
 | Hulu | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.34.0+18552420-google` | 10/31/26 |
 | JustWatch | Block ads<br>Hide sponsored titles<br>Block analytics & tracking (off by default)<br>GmsCore support (experimental, off by default)<br>Hide unavailable titles (experimental, off by default)<br>Hide watched titles (experimental, off by default)<br>Streaming titles only (experimental, off by default) | `26.45.1`<br>`26.44.2`<br>`26.43.10` | 11/14/26 |
 | Kanopy | Hide rating prompt (experimental)<br>Hide survey (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.32.0` | 11/09/26 |

@@ -297,6 +297,7 @@ These patches are off by default.
 | Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
 | Video quality | HBO Max | Plays the resolution you choose in its options: 480p, 720p, 1080p, or 2160p. When a title does not have it, the closest lower one plays, or the lowest one when every rendition is higher. HBO decides which resolutions it sends: in testing on a 4K plan, it sent at most 1080p to an NVIDIA Shield, even for titles marked 4K. Videos can buffer if your connection is too slow for the choice. |
+| Force decode capability | HBO Max | Reports video as decodable at every size and frame rate, so the app can request the highest rendition instead of settling lower on a conservative device check. Its Aggressive option (off by default) also reports every format as fully supported. Experimental: forcing a quality the device cannot actually decode can make playback stutter or fail. Pair with Video quality set to 2160p. |
 
 ## Sign-in and startup
 

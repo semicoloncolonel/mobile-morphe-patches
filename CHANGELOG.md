@@ -1,3 +1,10 @@
+# [1.1.0-dev.34](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.33...v1.1.0-dev.34) (2026-11-16)
+
+
+### Bug Fixes
+
+* testing Flipp 116.0.0, NewsBreak 26.46.1 ([f3afbf8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f3afbf86436b1ef2881f3cd235c4866c517ebb50))
+
 # [1.1.0-dev.33](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.32...v1.1.0-dev.33) (2026-11-16)
 
 

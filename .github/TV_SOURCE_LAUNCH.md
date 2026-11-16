@@ -5,7 +5,7 @@ The Android TV patches ship as their own patch source, `tv-morphe-patches`. Morp
 The rollout has two phases, each turned on by a repository variable:
 
 1. **TV source live.** `TV_SOURCE` set to `semicoloncolonel/tv-morphe-patches`. Each release also publishes the Android TV bundle there. This repository keeps releasing the combined bundle, so TV users can move over gradually.
-2. **Phone-only bundle.** `PHONE_ONLY_BUNDLE` set to `true`, after the 1.1 release on main. This repository's bundle then drops the Android TV apps, and phones stop being offered TV versions.
+2. **Phone-only bundle.** Dev releases have built the phone-only bundle since 1.1.0-dev.28. Main releases do too once `PHONE_ONLY_BUNDLE` is set to `true`, which happens with the 1.1 release. This repository's bundle then drops the Android TV apps, and phones stop being offered TV versions.
 
 ## How it works
 
@@ -31,7 +31,7 @@ python3 .github/scripts/publish_tv_bundle.py --repo semicoloncolonel/tv-morphe-p
 
 ## Phase 2: Phone-only bundle
 
-1. Release 1.1 on main first.
+1. Dev releases already build the phone-only bundle. The steps below are for main, before the 1.1 release.
 2. Build the three flavors, and check that they split cleanly:
 
    ```bash
@@ -44,9 +44,9 @@ python3 .github/scripts/publish_tv_bundle.py --repo semicoloncolonel/tv-morphe-p
    - `README.md` and `docs/android-tv.md`: TV users use the TV source. Remove the notes that only matter while the phone and TV targets share a bundle.
    - `.github/tv-repo/README.md`: remove the preview note.
    - The release notes: tell TV users who have not moved yet to add the TV source.
-4. Set the repository variable `PHONE_ONLY_BUNDLE` to `true`.
+4. Set the repository variable `PHONE_ONLY_BUNDLE` to `true`, then release 1.1 on main.
 
-Deleting either variable reverses its phase at the next release.
+Deleting `TV_SOURCE` stops the TV publish, and deleting `PHONE_ONLY_BUNDLE` returns main to the combined bundle, at the next release. Dev releases stay phone-only unless `release.yml` changes.
 
 ## Keeping the split working
 

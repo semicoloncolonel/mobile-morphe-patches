@@ -1,3 +1,10 @@
+# [1.1.0-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.30...v1.1.0-dev.31) (2026-11-16)
+
+
+### Features
+
+* Support the Android TV builds of MGM+, NBA, NFL, and PBS, and reject tracking consent ([639e702](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/639e7021f537dd95242c8a40cd1318dcd0660dcb))
+
 # [1.1.0-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.29...v1.1.0-dev.30) (2026-11-16)
 
 

@@ -17,14 +17,10 @@ object Constants {
     val COMPATIBILITY = Compatibility(
         name = "YouTube TV (Android TV)",
         packageName = "com.google.android.youtube.tv",
-        description = "IMPORTANT: this patches the YouTube FOR Android TV app " +
-            "(com.google.android.youtube.tv), but it does NOT give you regular YouTube. It " +
-            "converts that app into a separate, ad-free YouTube TV app called \"YT TV+\" that " +
-            "loads the YouTube TV live and DVR service and removes the ads YouTube injects into " +
-            "it. YT TV+ installs alongside the original app, so regular YouTube for Android TV is " +
-            "left untouched. (YouTube TV's own app, com.google.android.youtube.tvunplugged, runs " +
-            "on a different engine and cannot be patched; this is the way to an ad-free YouTube " +
-            "TV on Android TV.)",
+        description = "Patch this app to get YT TV+, an ad-free YouTube TV app. YouTube TV's own app cannot " +
+            "be patched, so YT TV+ is made from YouTube for Android TV, version 7.32.300. Download that version " +
+            "from APKMirror, the variant marked APK, instead of using the installed app. YT TV+ installs beside " +
+            "your YouTube and YouTube TV apps, which stay unchanged.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xFF0000,
         targets = listOf(AppTarget(version = "7.32.300", description = "Android TV build")),

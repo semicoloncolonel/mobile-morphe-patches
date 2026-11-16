@@ -2,6 +2,8 @@ package semicoloncolonel.mobilestream.patches.kouponai.privacy
 
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
+import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter
+import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatch
 import semicoloncolonel.mobilestream.patches.shared.misc.filterJsRequests
 import semicoloncolonel.mobilestream.patches.shared.privacy.analyticsKillSwitchesPatch
 import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
@@ -16,7 +18,9 @@ import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
 // call and OkHttp client. The app's JavaScript sends through React Native's
 // NetworkingModule, where KouponTrackingFilter applies the same list and also
 // drops two of Koupon's own reports: the recommendation service's profile
-// endpoint and /user/ad-linking.
+// endpoint and /user/ad-linking. Deal pages are web pages in React Native's
+// web view, and KouponWebFilter applies the shared list there too, along with
+// Intercom's messenger metrics.
 //
 // Not touched: deals, search, sign-in, rewards, push, Firestore, and
 // Crashlytics crash reports.
@@ -34,12 +38,13 @@ val blockAnalyticsPatch = bytecodePatch(
     category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
-    dependsOn(analyticsKillSwitchesPatch)
+    dependsOn(analyticsKillSwitchesPatch, kouponWebFilterPatch)
 
     extendWith("extensions/extension.mpe")
 
     execute {
         filterJsRequests(TRACKING_FILTER)
         blockTrackers()
+        enableWebFilter("blockTrackers")
     }
 }

@@ -22,13 +22,19 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 //   CopilotModal2            the tour's step-by-step tooltips over the feed.
 //   WalkThroughEndDrawer     "Congratulations on receiving 100 points, sign
 //                            up to claim".
-//   NotificationPrompt,      the "Enable notifications" sheet, and the check
-//   shouldPromptNotification that decides when to show it.
-//   ColdSurvey, GoogleSurvey, SearchSurvey, RcmdSurveyCard, RcmdSurveyDrawer,
-//   shouldShowSurvey         the in-feed and pop-up surveys.
+//   shouldPromptNotification the check that decides when to show the
+//                            "Enable notifications" sheet.
+//   GoogleSurvey, SearchSurvey, RcmdSurveyCard, RcmdSurveyDrawer,
+//   shouldShowSurvey         the in-feed and pop-up surveys, and the check
+//                            that adds the interests survey after sign-up.
 //   Nps                      "How likely are you to recommend Koupon".
 //   AppStoreRatingCard       the "Enjoying saving with Koupon? Support Koupon
 //                            by rating us" card on the Me screen.
+//
+// NotificationPrompt and ColdSurvey are left as they are: they are also whole
+// steps of the welcome flow after sign-up (LoginScreen's "notification" and
+// "cold-survey"), and a step that renders nothing leaves a new account on an
+// empty screen. The two checks above keep them from opening on their own.
 //
 // Deal pages are web pages, and they show their own tips ("New to using
 // promo codes on Amazon? Tap here for a quick guide." and a copy-code tip)
@@ -47,8 +53,6 @@ private val hidePopupsInBundlePatch = rawResourcePatch {
             "WalkThroughStartDrawer",
             "CopilotModal2",
             "WalkThroughEndDrawer",
-            "NotificationPrompt",
-            "ColdSurvey",
             "GoogleSurvey",
             "SearchSurvey",
             "RcmdSurveyCard",

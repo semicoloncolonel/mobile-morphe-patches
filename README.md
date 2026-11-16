@@ -25,8 +25,6 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 > [!NOTE]
 > The Android TV patches have their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). This source also includes them until the 1.1 release, so you can move your TV apps to the new source at any time before then.
 >
-> Some patches are phone ports of [ajstrick81's Android TV patches](https://github.com/ajstrick81/morphe-androidtv-patches), and the original hook designs are their work. For Android TV apps that neither source lists, use the original project.
->
 > This project focuses on phone apps that no other patch source covers. The [Morphe patches site](https://morphe-patches.software/) lists the patches from every source, so search it to see what else exists before you request an app. If another source already patches the app you want, please ask its author for updates or new patches.
 >
 > The patches are built and tested on phones. They may work on tablets, but I can test a tablet only on an Android emulator, so my ability to reproduce a tablet problem is limited.
@@ -68,6 +66,10 @@ On a TV, patch the Android TV build of the app. [Android TV](docs/android-tv.md)
 
 The patches do not currently remove paywalls or unlock paid content.
 
+## Credits
+
+Some patches are phone ports of [ajstrick81's Android TV patches](https://github.com/ajstrick81/morphe-androidtv-patches), and the original hook designs are their work. For Android TV apps that neither this source nor [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches) lists, use the original project. [NOTICE](NOTICE) lists every project these patches build on.
+
 ## Disclaimer
 
 This project is not affiliated with, endorsed by, or sponsored by any of the companies whose apps it patches. All app names and trademarks belong to their owners and are used here only to identify the apps.
@@ -76,4 +78,4 @@ This project does not distribute any app, APK, or app code. The patches modify a
 
 ## License
 
-GPL-3.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for credits.
+GPL-3.0. See [LICENSE](LICENSE).

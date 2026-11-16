@@ -2,12 +2,14 @@
 
 These apps have patches for their Android TV builds. On a TV, patch the Android TV build, not the phone build. [Supported apps](apps.md) lists the tested versions and the patches for each app.
 
+The Android TV patches have their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). Add it in Morphe Manager with the link in its README. Until the 1.1 release, this source lists the Android TV apps too.
+
 | App | Notes |
 |-----|-------|
 | Apple TV (Android TV) | A separate app from the phone build, with its own patches. |
 | Disney+ | The phone and Android TV builds share the version name, `26.20.0+rc3-2026.11.02`. The Android TV build's version code is `1793662190`, and the phone build's is `179366219`. |
 | HBO Max | |
-| Hulu (Android TV) | A separate app from the phone build (`com.hulu.livingroomplus`, version `C59F39CFP3.10.33`), on a native WebKit engine that cannot be dex-patched. See [Installing Hulu on Android TV](#installing-hulu-on-android-tv) for the download, patch, and install steps. Skip ads is **experimental**: it bundles a native library that hooks `inflate` inside `libwkf_support.so` and strips the stitched ad periods from the DASH manifest in-process, with no root. It is not yet verified against a real ad break, so it may not remove every ad; it is conservative and does not affect ad-free content. |
+| Hulu (Android TV) | A separate app from the phone build (`com.hulu.livingroomplus`, version `C59F39CFP3.10.33`), on a native WebKit engine that cannot be dex-patched. See [Installing Hulu on Android TV](#installing-hulu-on-android-tv) for the download, patch, and install steps. Skip ads is **experimental**: it bundles a native library that hooks `inflate` inside `libwkf_support.so` and strips the stitched ad periods from the DASH manifest in-process, with no root. On an NVIDIA Shield it removed every ad break from an on-demand episode, but it has not been tested widely and may not remove every ad. It does not affect ad-free content. |
 | JustWatch | |
 | NewsNation (Android TV) | A separate app from the phone build, with its own patches. |
 | Plex | |

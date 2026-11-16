@@ -20,7 +20,11 @@ val tvOnlySources = listOf(
 
 // Folders the TV bundle keeps: the Android TV apps, the apps with one entry for
 // phone and TV builds, and the shared helpers. Everything else is phone-only.
-val tvBundleApps = setOf("appletv", "newsnation", "hulutv", "yttvshell", "tubi", "justwatch", "pluto")
+// Keep this list in step with docs/android-tv.md.
+val tvBundleApps = setOf(
+    "appletv", "disney", "hbomax", "hulutv", "justwatch", "newsnation",
+    "plex", "pluto", "starz", "tubi", "yttvshell",
+)
 val patchesSourceDir = file("src/main/kotlin/semicoloncolonel/mobilestream/patches")
 val flavorExcludes: List<String> = when (bundleFlavor) {
     "phone" -> tvOnlySources
@@ -33,12 +37,15 @@ val flavorExcludes: List<String> = when (bundleFlavor) {
                     .filter { it.name != "shared" }
                     .forEach { add("**/patches/${app.name}/${it.name}" + if (it.isDirectory) "/**" else "") }
             }
-        // Phone-only patches inside the Apple TV and NewsNation folders.
+        // Phone-only patches inside the folders the TV bundle keeps.
         addAll(listOf(
             "**/patches/appletv/ads/**",
             "**/patches/appletv/misc/**",
             "**/patches/appletv/privacy/**",
             "**/patches/newsnation/ads/**",
+            // The Android TV build has no social sign-in screen or launch video.
+            "**/patches/hbomax/misc/RemoveSocialSignInPatch.kt",
+            "**/patches/starz/misc/SkipLaunchVideoPatch.kt",
         ))
         // Shared patches with no Android TV app. A shared patch that lists one
         // stays and filters its list with forBundle().

@@ -54,6 +54,12 @@ jobs:
       # Semantic release runs its own Gradle build, which signs the bundle with
       # MORPHE_SIGNING_KEY. A separate build before it would leave a second .mpp
       # with the old version number in patches/build/libs.
+      #
+      # Android TV split: setting the repository variable TV_SOURCE (for example
+      # semicoloncolonel/tv-morphe-patches) launches it. This release then builds
+      # the phone-only bundle, and the steps after Attest publish the Android TV
+      # bundle to that repository. Without TV_SOURCE, nothing changes: one
+      # combined bundle, as before. See .github/TV_SOURCE_LAUNCH.md.
       - name: Release
         uses: cycjimmy/semantic-release-action@v8
         id: release
@@ -64,6 +70,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MORPHE_SIGNING_KEY: ${{ secrets.MORPHE_SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_flavor: ${{ vars.TV_SOURCE != '' && 'phone' || 'all' }}
 
       - name: Attest
         if: steps.release.outputs.new_release_published == 'true'
@@ -72,8 +79,46 @@ jobs:
           subject-name: 'Mobile Morphe Patches ${{ steps.release.outputs.new_release_git_tag }}'
           subject-path: patches/build/libs/patches-*.mpp
 
+      # Runs after Attest, because the clean removes the phone bundle.
+      - name: Build the Android TV bundle
+        id: tv
+        if: vars.TV_SOURCE != '' && steps.release.outputs.new_release_published == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MORPHE_SIGNING_KEY: ${{ secrets.MORPHE_SIGNING_KEY }}
+          VERSION: ${{ steps.release.outputs.new_release_version }}
+        run: |
+          ./gradlew :patches:clean :patches:buildAndroid -Pflavor=tv
+          mkdir -p build/tv
+          cp "patches/build/libs/patches-$VERSION.mpp" "build/tv/patches-$VERSION.mpp"
+
+      - name: Attest the Android TV bundle
+        if: steps.tv.outcome == 'success'
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-name: 'TV Morphe Patches ${{ steps.release.outputs.new_release_git_tag }}'
+          subject-path: build/tv/patches-*.mpp
+
+      # Publishes only when a file the TV bundle is built from changed since the
+      # last TV release on this branch. TV_SOURCE_TOKEN needs Contents write
+      # access to the TV repository.
+      - name: Publish the Android TV bundle
+        if: steps.tv.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.TV_SOURCE_TOKEN }}
+          VERSION: ${{ steps.release.outputs.new_release_version }}
+        run: >
+          python3 .github/scripts/publish_tv_bundle.py
+          --repo "${{ vars.TV_SOURCE }}"
+          --branch "${{ github.ref_name }}"
+          --version "$VERSION"
+          --mpp "build/tv/patches-$VERSION.mpp"
+
       - name: Verify project compiles
         if: steps.release.outputs.new_release_published != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew clean :patches:buildAndroid
+        run: |
+          ./gradlew clean :patches:buildAndroid
+          ./gradlew :patches:compileKotlin -Pflavor=phone
+          ./gradlew :patches:compileKotlin -Pflavor=tv

@@ -2,7 +2,7 @@
 
 These apps have patches for their Android TV builds. On a TV, patch the Android TV build, not the phone build. [Supported apps](apps.md) lists the tested versions and the patches for each app.
 
-The Android TV patches have their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). Add it in Morphe Manager with the link in its README. Until the 1.1 release, this source lists the Android TV apps too.
+The Android TV patches have moved to their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). Add it in Morphe Manager with the link in its README. The pre-releases of mobile-morphe-patches no longer include the Android TV apps, and its stable release includes them only until 1.1.
 
 | App | Notes |
 |-----|-------|

@@ -58,9 +58,9 @@ jobs:
       # Android TV source, two repository variables (see .github/TV_SOURCE_LAUNCH.md):
       #   TV_SOURCE          set to semicoloncolonel/tv-morphe-patches, the steps
       #                      after Attest publish the Android TV bundle there.
-      #   PHONE_ONLY_BUNDLE  set to true, this release builds the phone-only
-      #                      bundle. Until then it stays combined, so TV users can
-      #                      move to the TV source gradually.
+      #   PHONE_ONLY_BUNDLE  set to true, main releases build the phone-only
+      #                      bundle too. dev releases always do. Until then main
+      #                      stays combined, so TV users can move over gradually.
       - name: Release
         uses: cycjimmy/semantic-release-action@v8
         id: release
@@ -71,7 +71,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MORPHE_SIGNING_KEY: ${{ secrets.MORPHE_SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_flavor: ${{ vars.PHONE_ONLY_BUNDLE == 'true' && 'phone' || 'all' }}
+          # dev releases are phone-only. main stays combined until 1.1.
+          ORG_GRADLE_PROJECT_flavor: ${{ (github.ref_name == 'dev' || vars.PHONE_ONLY_BUNDLE == 'true') && 'phone' || 'all' }}
 
       - name: Attest
         if: steps.release.outputs.new_release_published == 'true'

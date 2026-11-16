@@ -2,6 +2,7 @@ package semicoloncolonel.mobilestream.patches.hulutv.privacy
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import semicoloncolonel.mobilestream.patches.hulutv.misc.fixRecommendationsCrashPatch
 import semicoloncolonel.mobilestream.patches.hulutv.nativehook.ApplicationOnCreateFingerprint
 import semicoloncolonel.mobilestream.patches.hulutv.shared.Constants
 
@@ -27,7 +28,7 @@ val blockAnalyticsPatch = bytecodePatch(
     category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
-    dependsOn(bundleTrackerHookPatch)
+    dependsOn(bundleTrackerHookPatch, fixRecommendationsCrashPatch)
 
     extendWith("extensions/extension.mpe")
 

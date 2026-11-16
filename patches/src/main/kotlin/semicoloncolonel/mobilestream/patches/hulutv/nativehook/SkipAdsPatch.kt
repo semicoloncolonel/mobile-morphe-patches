@@ -2,6 +2,7 @@ package semicoloncolonel.mobilestream.patches.hulutv.nativehook
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import semicoloncolonel.mobilestream.patches.hulutv.misc.fixRecommendationsCrashPatch
 import semicoloncolonel.mobilestream.patches.hulutv.shared.Constants
 
 // Removes the ads Hulu stitches into its Android TV on-demand manifests.
@@ -19,18 +20,18 @@ import semicoloncolonel.mobilestream.patches.hulutv.shared.Constants
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
     name = "Skip ads (experimental)",
-    description = "EXPERIMENTAL and not yet verified against a real ad break: " +
-        "attempts to remove the ads Hulu stitches into its Android TV on-demand " +
-        "manifests, through an in-process native hook on libwkf_support.so, with " +
-        "no root. It is conservative (it only removes explicit ad periods, so it " +
-        "will not affect ad-free content) and may not remove every ad. Live " +
+    description = "EXPERIMENTAL: removes the ads Hulu stitches into its Android TV " +
+        "on-demand manifests, through an in-process native hook on libwkf_support.so, " +
+        "with no root. It removed the ad breaks from an on-demand episode in testing, " +
+        "but it has not been tested widely and may not remove every ad. It only " +
+        "removes explicit ad periods, so it does not affect ad-free content. Live " +
         "broadcast commercials are part of the broadcast and still play. Sign in " +
         "with the activation code at hulu.com/activate.",
 ) {
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
-    dependsOn(bundleNativeHookPatch)
+    dependsOn(bundleNativeHookPatch, fixRecommendationsCrashPatch)
 
     extendWith("extensions/extension.mpe")
 

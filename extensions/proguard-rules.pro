@@ -369,3 +369,13 @@
 
 # TvSourceNotice is named only in the manifest, as a provider, so R8 must keep it.
 -keep class semicoloncolonel.mobilestream.extension.shared.misc.TvSourceNotice { *; }
+
+# Koupon — "Keep new-user promo codes" and "Block analytics & tracking". These
+# methods are called only from injected smali via invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.kouponai.misc.PromoWindow {
+    public static void beforeMultiGet(java.lang.Object, java.lang.Object);
+}
+-keep class semicoloncolonel.mobilestream.extension.kouponai.privacy.KouponTrackingFilter {
+    public static java.lang.String filterJsRequestUrl(java.lang.String);
+    public static java.net.URL filterJsRequestUrl(java.net.URL);
+}

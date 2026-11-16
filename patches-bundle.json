@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-16T18:54:19",
-  "description": "# [1.1.0-dev.37](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.36...v1.1.0-dev.37) (2026-11-16)\n\n\n### Bug Fixes\n\n* **hbomax:** Leave Force decode capability out of the Android TV bundle ([ba8d899](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ba8d8990e96a2c7716e24f91fc156592f51e9f34))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.37/patches-1.1.0-dev.37.mpp",
+  "created_at": "2026-11-16T20:43:00",
+  "description": "# [1.1.0-dev.38](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.37...v1.1.0-dev.38) (2026-11-16)\n\n\n### Features\n\n* **kouponai:** Add Koupon 3.1.6 patches ([83bc1d2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/83bc1d263267467d1cbccbfe59eda34250e1a01f))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.38/patches-1.1.0-dev.38.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.37",
+  "version": "1.1.0-dev.38",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

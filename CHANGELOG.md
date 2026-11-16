@@ -1,3 +1,10 @@
+# [1.1.0-dev.43](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.42...v1.1.0-dev.43) (2026-11-16)
+
+
+### Bug Fixes
+
+* **kouponai:** Refuse a base.apk without Koupon's native libraries ([1e5fbc4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1e5fbc4c2f1be53b74c6971627f52c50d71ab6d2))
+
 # [1.1.0-dev.42](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.41...v1.1.0-dev.42) (2026-11-16)
 
 

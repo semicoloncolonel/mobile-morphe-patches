@@ -357,3 +357,7 @@
     public static void load();
 }
 
+# Called from smali by the Reject tracking consent patch.
+-keep class semicoloncolonel.mobilestream.extension.shared.privacy.ConsentRejecter {
+    public static boolean reject(java.lang.Object, boolean);
+}

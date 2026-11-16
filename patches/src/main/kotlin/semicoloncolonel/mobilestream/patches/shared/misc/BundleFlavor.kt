@@ -134,15 +134,38 @@ fun tvText(text: String): String = if (isTvBundle) text.replace(" in the Android
 
 /**
  * This entry without its "Android TV build" targets, for a patch that only
- * works on the phone build. Use it as compatibleWith(Constants.COMPATIBILITY.phoneOnly()),
+ * works on the phone build. The patch must also be left out of the TV flavor in
+ * patches/build.gradle.kts. Use it as compatibleWith(Constants.COMPATIBILITY.phoneOnly()),
  * so no bundle offers the patch for an Android TV version.
  */
 fun Compatibility.phoneOnly(): Compatibility = Compatibility(
-    name = checkNotNull(name),
+    name = checkNotNull(name).also {
+        // In the TV bundle this entry has only Android TV targets, so nothing
+        // would be left, and an entry without targets matches every version.
+        check(!isTvBundle) { "$it: a phone-only patch is in the TV bundle; exclude it in patches/build.gradle.kts" }
+    },
     packageName = checkNotNull(packageName),
     description = description,
     apkFileType = apkFileType,
     appIconColor = appIconColor,
     signatures = signatures,
     targets = targets.filter { it.description != TV_BUILD },
+)
+
+/**
+ * This entry with only its Android TV targets, for a patch that only works on
+ * the Android TV build. The patch must also be listed in tvOnlySources in
+ * patches/build.gradle.kts, so the phone bundle leaves it out.
+ */
+fun Compatibility.tvOnly(): Compatibility = Compatibility(
+    name = tvName(checkNotNull(name).removeSuffix(" (Android TV)") + " (Android TV)").also {
+        check(!isPhoneBundle) { "$it: an Android TV-only patch is in the phone bundle; list it in tvOnlySources" }
+    },
+    packageName = checkNotNull(packageName),
+    description = description,
+    apkFileType = apkFileType,
+    appIconColor = appIconColor,
+    signatures = signatures,
+    targets = targets.filter { it.description != PHONE_BUILD },
+    formFactor = FormFactor.TV,
 )

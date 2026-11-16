@@ -15,6 +15,6 @@ object Constants {
         targets = listOf(AppTarget("2026.22.0")),
     ).splitByBundle(
         phoneDescription = "The Plex app for phones.",
-        tvDescription = "The Plex app for Android TV.",
+        tvDescription = "The Plex app.",
     )
 }

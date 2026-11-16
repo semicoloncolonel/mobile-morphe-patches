@@ -54,8 +54,9 @@ def list_patches(cli: str, mpp: str) -> list[dict]:
 
 
 def triples(patches: list[dict]) -> set[tuple[str, str, str]]:
+    # The TV bundle drops " (Android TV)" from patch names (tvName in BundleFlavor.kt).
     return {
-        (p["name"], package, version)
+        (p["name"].removesuffix(" (Android TV)"), package, version)
         for p in patches
         for package, versions in p["packages"].items()
         for version in versions or {"(any)"}

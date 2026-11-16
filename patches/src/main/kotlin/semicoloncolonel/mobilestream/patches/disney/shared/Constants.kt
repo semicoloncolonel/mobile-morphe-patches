@@ -25,6 +25,6 @@ object Constants {
         )
     ).splitByBundle(
         phoneDescription = "The Disney+ phone app. The Android TV build of the same version crashes on a phone.",
-        tvDescription = "The Disney+ Android TV app. Patch the Android TV build (version code 1793662190).",
+        tvDescription = "The Disney+ app. Patch the build with version code 1793662190.",
     )
 }

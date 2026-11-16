@@ -160,8 +160,9 @@ val hideRatingPromptPatch = bytecodePatch(
     name = "Hide rating prompt",
     description = "Stops Google Play's rate-this-app sheet.",
 ) {
-    // Apple TV, CNBC, Recreation.gov, NewsBreak, and USA TODAY have their own
-    // Hide rating prompt patch, which includes this one.
+    // Apple TV, CNBC, Recreation.gov, NewsBreak, USA TODAY, and NewsNation's
+    // Android TV build have their own Hide rating prompt patch, which includes
+    // this one.
     compatibleWith(*forBundle(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
@@ -204,7 +205,7 @@ val hideRatingPromptPatch = bytecodePatch(
         ApNews.COMPATIBILITY,
         Substack.COMPATIBILITY,
         Cspan.COMPATIBILITY,
-        NewsNation.COMPATIBILITY, NewsNation.TV_COMPATIBILITY,
+        NewsNation.COMPATIBILITY,
         DailyWire.COMPATIBILITY,
         TruthSocial.COMPATIBILITY,
         WhiteHouse.COMPATIBILITY,

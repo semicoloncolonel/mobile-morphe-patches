@@ -75,7 +75,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
-| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
+| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, NewsNation (Android TV), Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
 | Hide donate button | AP News | The Donate link on Top Stories and the "Donate now" card on the account screen. Your account is not changed. |
 | Hide rating prompt | Apple TV | The "Enjoying Apple TV?" prompt that asks for a review. |
 | Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |
@@ -118,7 +118,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |
 | Hide Premium upsells | NewsBreak | The "Ad-free Reading" banner and Upgrade button on the Me tab, the Premium button on profiles, the promo on Home, the bottom-bar badge, and the Premium offers in pop-ups and ad dialogs. If you pay for NewsBreak Premium, leave it off: the app stops refreshing your subscription status. |
 | Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
-| Hide rating prompt (Android TV) | NewsNation (Android TV) | The "rate this app" dialog. Rating from Settings still works. |
+| Hide rating prompt (Android TV) | NewsNation (Android TV) | The "rate this app" dialog and Google Play's rate-this-app sheet. Rating from Settings still works. |
 | Hide donate buttons | NPR | The Donate buttons in the top bar, on the live-station module on Home, on station pages, and on a live stream's detail sheet. |
 | Hide Waze bar | NPR | Turns off the "Drive with Waze" bar by default. You can turn it back on in the app's settings. |
 | Hide rating prompt | Recreation.gov | The rate-the-app prompt after checkout. |

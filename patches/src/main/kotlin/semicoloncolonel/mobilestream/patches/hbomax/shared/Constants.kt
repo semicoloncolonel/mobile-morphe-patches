@@ -29,7 +29,7 @@ object Constants {
         )
     ).splitByBundle(
         phoneDescription = "The HBO Max phone app (version $PHONE_VERSION).",
-        tvDescription = "The HBO Max Android TV app (version $TV_VERSION).",
+        tvDescription = "The HBO Max app (version $TV_VERSION).",
     )
 
     // For patches that only apply to the phone build, such as the sign-in
@@ -57,7 +57,7 @@ object Constants {
         )
     ).splitByBundle(
         phoneDescription = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
-        tvDescription = "The HBO Max Android TV app as the Play Store installs it (version $TV_VERSION).",
+        tvDescription = "The HBO Max app as the Play Store installs it (version $TV_VERSION).",
     )
 
     // The phone build under the Play Store's package name, for patches that only

@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.hulutv.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.forTvSource
 import app.morphe.patcher.patch.FormFactor
 
 // Hulu's Android TV app (com.hulu.livingroomplus) is a native WebKit (WKF)
@@ -35,5 +36,11 @@ object Constants {
             AppTarget(version = "C59F39CFP3.10.33", versionCode = 3010033, description = "Android TV build"),
         ),
         formFactor = FormFactor.TV,
+    ).forTvSource(
+        tvDescription = "Removes the ads Hulu stitches into its on-demand manifests, through an " +
+            "in-process native hook, with no root. Live broadcast commercials are part of the " +
+            "broadcast and still play. Patch the full APKM bundle, and install the patched file " +
+            "as a single app. If it is saved with a bundle extension such as .apkm or .apks, " +
+            "rename it to end in .apk first.",
     )
 }

@@ -35,6 +35,6 @@ object Constants {
         )
     ).splitByBundle(
         phoneDescription = "The JustWatch streaming guide app for phones.",
-        tvDescription = "The JustWatch streaming guide app for Android TV.",
+        tvDescription = "The JustWatch streaming guide app.",
     )
 }

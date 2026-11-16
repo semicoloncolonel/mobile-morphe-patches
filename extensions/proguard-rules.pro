@@ -379,3 +379,11 @@
     public static java.lang.String filterJsRequestUrl(java.lang.String);
     public static java.net.URL filterJsRequestUrl(java.net.URL);
 }
+# Koupon — web page filter. intercept is called from an added
+# shouldInterceptRequest, and the three switches are overwritten by patches.
+-keep class semicoloncolonel.mobilestream.extension.kouponai.web.KouponWebFilter {
+    public static android.webkit.WebResourceResponse intercept(android.webkit.WebResourceRequest);
+    public static boolean blockTrackers();
+    public static boolean stopHistory();
+    public static boolean hideAi();
+}

@@ -257,3 +257,42 @@ class TvRepositoryTest(unittest.TestCase):
         problem = t.evaluate(self.fields("3.0.0"), self.apps)
         self.assertEqual(problem["app"], "Apple TV (Android TV)")
         self.assertEqual(problem["kind"], "version")
+
+
+class TvRedirectTest(unittest.TestCase):
+    """This repository sends Android TV reports for apps with a TV target to the TV source (issue 80)."""
+
+    apps = dict(apps_from(KOTLIN), **{
+        "Hulu": {"6.34.0+18552420-google": {"codes": set(), "descriptions": set()}},
+        "Hulu (Android TV)": {"C59F39CFP3.10.33": {"codes": {3010033}, "descriptions": {"Android TV build"}}},
+    })
+
+    def setUp(self):
+        self.repo = t.TV_REPO
+        t.TV_REPO = "semicoloncolonel/tv-morphe-patches"
+
+    def tearDown(self):
+        t.TV_REPO = self.repo
+
+    def check(self, *args, **kwargs):
+        return t.evaluate(t.parse_form(form(*args, **kwargs)), self.apps)
+
+    def test_issue_80_hulu_tv_goes_to_the_tv_source(self):
+        problem = self.check("Hulu", "c59f39cfp3.10.33", build="Android TV or Google TV")
+        self.assertEqual(problem["kind"], "tv")
+        self.assertEqual(problem["app"], "Hulu (Android TV)")
+        self.assertIn("https://github.com/semicoloncolonel/tv-morphe-patches/issues", t.comment(problem))
+
+    def test_tv_target_in_the_same_entry(self):
+        self.assertEqual(self.check("HBO Max", "22.0.0.36", build="Android TV or Google TV")["kind"], "tv")
+
+    def test_phone_reports_are_unchanged(self):
+        self.assertIsNone(self.check("Hulu", "6.34.0+18552420-google"))
+
+    def test_app_without_a_tv_target_keeps_the_build_check(self):
+        problem = self.check("Disney+", "26.20.0+rc3-2026.11.02", build="Android TV or Google TV")
+        self.assertEqual(problem["kind"], "build")
+
+    def test_no_redirect_without_a_tv_source(self):
+        t.TV_REPO = ""
+        self.assertIsNone(self.check("Hulu", "C59F39CFP3.10.33", build="Android TV or Google TV"))

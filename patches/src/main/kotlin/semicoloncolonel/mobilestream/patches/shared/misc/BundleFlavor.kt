@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.shared.misc
 
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.FormFactor
 
@@ -54,3 +55,36 @@ fun byBundle(all: Compatibility, phone: Compatibility, tv: Compatibility): Compa
     isPhoneBundle -> phone
     else -> all
 }
+
+/**
+ * Splits an entry from the combined bundle into a phone entry and an Android TV
+ * entry. Each split entry keeps this entry's name, package, and icon, and takes
+ * its own targets and description. The combined bundle keeps this entry as is.
+ */
+fun Compatibility.splitByBundle(
+    phoneTargets: List<AppTarget> = targets,
+    tvTargets: List<AppTarget> = targets,
+    phoneDescription: String? = description,
+    tvDescription: String? = description,
+): Compatibility = byBundle(
+    all = this,
+    phone = Compatibility(
+        name = checkNotNull(name),
+        packageName = checkNotNull(packageName),
+        description = phoneDescription,
+        apkFileType = apkFileType,
+        appIconColor = appIconColor,
+        signatures = signatures,
+        targets = phoneTargets,
+    ),
+    tv = Compatibility(
+        name = checkNotNull(name),
+        packageName = checkNotNull(packageName),
+        description = tvDescription,
+        apkFileType = apkFileType,
+        appIconColor = appIconColor,
+        signatures = signatures,
+        targets = tvTargets,
+        formFactor = FormFactor.TV,
+    ),
+)

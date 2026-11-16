@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.starz.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
 import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
@@ -18,5 +19,8 @@ object Constants {
         // pinned, so the Android TV build is accepted too. Skip launch video is the
         // only patch that does not apply to it; it no-ops there (see its patch).
         targets = listOf(devTarget("6.12.0"), AppTarget("6.11.0"))
+    ).splitByBundle(
+        phoneDescription = "The Starz phone and tablet apps. The phone build of 6.12.0 has version code 4518.",
+        tvDescription = "The Starz Android TV app. The Android TV build of 6.12.0 has version code 9510.",
     )
 }

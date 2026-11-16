@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.hbomax.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
 
 private const val PHONE_VERSION = "22.0.0.321"
 private const val TV_VERSION = "22.0.0.36"
@@ -12,6 +13,14 @@ private const val TV_VERSION = "22.0.0.36"
 // build on Android TV devices that run Android 11 or earlier, such as the
 // NVIDIA Shield, instead of the newer-numbered phone build.
 private const val PHONE_MIN_SDK = 32
+
+private val PHONE_TARGETS = listOf(
+    AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
+    AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"),
+)
+private val TV_TARGETS = listOf(
+    AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
+)
 
 object Constants {
     // The phone and Android TV builds share the package name but not the version.
@@ -26,6 +35,11 @@ object Constants {
             AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
             AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"),
         )
+    ).splitByBundle(
+        phoneTargets = PHONE_TARGETS,
+        tvTargets = TV_TARGETS,
+        phoneDescription = "The HBO Max phone app (version $PHONE_VERSION).",
+        tvDescription = "The HBO Max Android TV app (version $TV_VERSION).",
     )
 
     // For patches that only apply to the phone build, such as the sign-in
@@ -51,6 +65,11 @@ object Constants {
             AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
             AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
         )
+    ).splitByBundle(
+        phoneTargets = PHONE_TARGETS.take(1),
+        tvTargets = TV_TARGETS,
+        phoneDescription = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
+        tvDescription = "The HBO Max Android TV app as the Play Store installs it (version $TV_VERSION).",
     )
 
     // The phone build under the Play Store's package name, for patches that only

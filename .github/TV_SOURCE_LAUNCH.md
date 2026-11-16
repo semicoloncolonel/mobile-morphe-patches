@@ -18,10 +18,7 @@ The rollout has two phases, each turned on by a repository variable:
 
 ## Phase 1: TV source live
 
-1. Create a fine-grained personal access token with access to `tv-morphe-patches` only, with Contents, Issues, and Workflows set to read and write. Workflows is needed because the publish copies the TV repository's workflow files. Add it to this repository as the Actions secret `TV_SOURCE_TOKEN`.
-2. Set the repository variable `TV_SOURCE` to `semicoloncolonel/tv-morphe-patches`.
-3. Push a release to dev. The release publishes the first TV release to both `dev` and `main` of the TV repository.
-4. Add a short note to `docs/android-tv.md` and the README pointing TV users to the new source.
+Done on 2026-11-16. The release workflow publishes with `TV_SOURCE_TOKEN`, or with `RELEASE_TOKEN` when that secret is not set. That token needs the `repo` scope, and the `workflow` scope when `.github/tv-repo/.github/workflows` changes. The repository variable `TV_SOURCE` is set to `semicoloncolonel/tv-morphe-patches`.
 
 To set up the TV repository's files without a release, run:
 

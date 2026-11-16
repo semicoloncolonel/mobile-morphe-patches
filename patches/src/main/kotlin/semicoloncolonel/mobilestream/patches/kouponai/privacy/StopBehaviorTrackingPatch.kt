@@ -5,6 +5,7 @@ import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
 import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter
 import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatch
+import semicoloncolonel.mobilestream.patches.shared.misc.filterJsRequests
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Koupon 3.1.6 — Stop behavioral tracking (OPT-IN, default OFF).
@@ -13,20 +14,29 @@ import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatc
 // account's Firebase UID in its URL. On load, the page posts the deal, its
 // categories, and the keywords of its title to
 // /api/browse-history/add-history. That record fills Me > History ("Recently
-// Viewed") and feeds the recommendations ("You might also like", related
-// deals, search suggestions). KouponWebFilter answers that post with an empty
-// 404, so the visit is not recorded.
+// Viewed") and feeds the recommendations. KouponWebFilter answers that post
+// with an empty 404, so the visit is not recorded.
 //
-// Not touched: the deal page itself, favorites, rewards, and the History
-// screen, which keeps what was recorded before. Clear it there if you want it
-// gone.
+// The personalized recommendations are dropped too, since they are built from
+// that record and carry the account ID: the app's POST /api/recommend ("You
+// might also like" on the History screen and elsewhere), filtered in React
+// Native's NetworkingModule by KouponBehaviorFilter, and the deal page's
+// /api/recommend/v2/related-deal ("Similar items"), filtered in the web view.
+// Those lists come back empty.
+//
+// Not touched: the deal page itself, search, favorites, rewards, and the
+// History screen, which keeps what was recorded before. Clear it there if you
+// want it gone.
 // ─────────────────────────────────────────────────────────────────────────────
+
+private const val BEHAVIOR_FILTER =
+    "Lsemicoloncolonel/mobilestream/extension/kouponai/privacy/KouponBehaviorFilter;"
 
 @Suppress("unused")
 val stopBehaviorTrackingPatch = bytecodePatch(
     name = "Stop behavioral tracking",
-    description = "Stops the app from recording the deals you open, which feeds your viewing history and " +
-        "personalized recommendations. Does not delete history already saved.",
+    description = "Stops the app from recording the deals you open, and drops the personalized " +
+        "recommendations built from them. Does not delete history already saved.",
     default = false,
 ) {
     category("Privacy")
@@ -36,7 +46,10 @@ val stopBehaviorTrackingPatch = bytecodePatch(
 
     dependsOn(kouponWebFilterPatch)
 
+    extendWith("extensions/extension.mpe")
+
     execute {
         enableWebFilter("stopHistory")
+        filterJsRequests(BEHAVIOR_FILTER)
     }
 }

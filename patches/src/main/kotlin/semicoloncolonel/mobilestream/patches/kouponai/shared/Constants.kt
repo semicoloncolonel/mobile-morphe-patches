@@ -8,7 +8,8 @@ object Constants {
     val COMPATIBILITY = Compatibility(
         name = "Koupon",
         packageName = "com.kouponai",
-        description = "The Koupon (KouponAI) promo code and price drop app.",
+        description = "The Koupon (KouponAI) promo code and price drop app. APKMirror does not carry it, so " +
+            "install it from Google Play and patch it with \"Use installed app\".",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x2B2B2B,
         targets = listOf(devTarget("3.1.6", versionCode = 189))

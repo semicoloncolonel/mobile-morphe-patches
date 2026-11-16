@@ -89,8 +89,10 @@ jobs:
           MORPHE_SIGNING_KEY: ${{ secrets.MORPHE_SIGNING_KEY }}
           VERSION: ${{ steps.release.outputs.new_release_version }}
         run: |
-          ./gradlew :patches:clean :patches:buildAndroid -Pflavor=tv
           mkdir -p build/tv
+          # The list is read from the JVM bundle, so it is written before the dex build.
+          ./gradlew :patches:clean :patches:generatePatchesList -Pflavor=tv "-PpatchesList=$PWD/build/tv/patches-list.json"
+          ./gradlew :patches:buildAndroid -Pflavor=tv
           cp "patches/build/libs/patches-$VERSION.mpp" "build/tv/patches-$VERSION.mpp"
 
       - name: Attest the Android TV bundle
@@ -114,6 +116,7 @@ jobs:
           --branch "${{ github.ref_name }}"
           --version "$VERSION"
           --mpp "build/tv/patches-$VERSION.mpp"
+          --patches-list build/tv/patches-list.json
 
       - name: Verify project compiles
         if: steps.release.outputs.new_release_published != 'true'

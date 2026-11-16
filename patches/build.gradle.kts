@@ -14,6 +14,7 @@ val tvOnlySources = listOf(
     "**/patches/newsnation/tv/**",
     "**/patches/hulutv/privacy/**",
     "**/patches/hulutv/nativehook/**",
+    "**/patches/hulutv/misc/**",
     "**/patches/yttvshell/ads/**",
     "**/patches/yttvshell/misc/**",
 )
@@ -82,6 +83,22 @@ sourceSets {
         )
         kotlin.exclude(flavorExcludes)
     }
+}
+
+// patches-list.json for third-party tools, from Morphe's patches template.
+// gson is only on this task's classpath, never in the bundle.
+//   ./gradlew :patches:generatePatchesList -Pflavor=tv -PpatchesList=build/tv/patches-list.json
+val patchListGeneratorClasspath: Configuration = configurations.create("patchListGeneratorClasspath")
+dependencies {
+    compileOnly("com.google.code.gson:gson:2.11.0")
+    patchListGeneratorClasspath("com.google.code.gson:gson:2.11.0")
+}
+tasks.register<JavaExec>("generatePatchesList") {
+    description = "Writes patches-list.json for the bundle in build/libs."
+    dependsOn(tasks.named("build"))
+    classpath = sourceSets["main"].runtimeClasspath + patchListGeneratorClasspath
+    mainClass.set("util.PatchListGeneratorKt")
+    args(providers.gradleProperty("patchesList").getOrElse("../patches-list.json"))
 }
 
 patches {

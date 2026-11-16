@@ -4,6 +4,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
+import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.disableCodePushPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter
 import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatch
@@ -82,6 +83,8 @@ val hidePopupsPatch = resourcePatch(
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
+
+    dependsOn(requireNativeLibsPatch)
 
     dependsOn(hidePopupsInBundlePatch, hideDealPageTipsPatch, disableCodePushPatch)
 }

@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.kouponai.misc
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
+import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.disableCodePushPatch
 import semicoloncolonel.mobilestream.patches.shared.misc.HERMES_BUNDLE
 import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
@@ -62,6 +63,8 @@ val hidePromoCountdownPatch = resourcePatch(
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
+
+    dependsOn(requireNativeLibsPatch)
 
     dependsOn(hidePromoCountdownInBundlePatch, disableCodePushPatch)
 }

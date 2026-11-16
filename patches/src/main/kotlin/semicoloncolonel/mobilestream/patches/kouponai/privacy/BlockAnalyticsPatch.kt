@@ -2,6 +2,7 @@ package semicoloncolonel.mobilestream.patches.kouponai.privacy
 
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
+import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter
 import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatch
 import semicoloncolonel.mobilestream.patches.shared.misc.filterJsRequests
@@ -37,6 +38,8 @@ val blockAnalyticsPatch = bytecodePatch(
 ) {
     category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
+
+    dependsOn(requireNativeLibsPatch)
 
     dependsOn(analyticsKillSwitchesPatch, kouponWebFilterPatch)
 

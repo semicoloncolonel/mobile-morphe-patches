@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.kouponai.ads
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
+import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.disableCodePushPatch
 import semicoloncolonel.mobilestream.patches.shared.misc.HERMES_BUNDLE
 import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
@@ -34,6 +35,8 @@ val hideSponsoredPatch = resourcePatch(
 ) {
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
+
+    dependsOn(requireNativeLibsPatch)
 
     dependsOn(hideSponsoredInBundlePatch, disableCodePushPatch)
 }

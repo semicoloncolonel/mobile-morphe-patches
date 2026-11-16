@@ -38,7 +38,6 @@ body:
         - "AMC+"
         - "AP News"
         - "Apple TV"
-        - "Apple TV (Android TV)"
         - "Best Buy"
         - "C-SPAN Now"
         - "CBS News"
@@ -59,7 +58,6 @@ body:
         - "Fox One"
         - "HBO Max"
         - "Hulu"
-        - "Hulu (Android TV)"
         - "JustWatch"
         - "Kanopy"
         - "Lowe's"
@@ -77,7 +75,6 @@ body:
         - "Netflix"
         - "NewsBreak"
         - "NewsNation"
-        - "NewsNation (Android TV)"
         - "NFL"
         - "NPR"
         - "NPS"
@@ -118,7 +115,6 @@ body:
         - "Yahoo Finance"
         - "Yahoo News"
         - "YouTube TV"
-        - "YouTube TV (Android TV)"
         - "Other (name it in the description)"
     validations:
       required: true

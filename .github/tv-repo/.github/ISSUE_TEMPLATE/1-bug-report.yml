@@ -27,7 +27,7 @@ body:
           required: true
         - label: "I understand that the patches do not currently remove paywalls or unlock paid content."
           required: true
-        - label: "If I patched Hulu (Android TV), I followed [Installing Hulu on Android TV](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/android-tv.md#installing-hulu-on-android-tv), including patching the full APKM bundle and installing the patched file as a single `.apk`."
+        - label: "If I patched Hulu, I followed [Installing Hulu on Android TV](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/android-tv.md#installing-hulu-on-android-tv), including patching the full APKM bundle and installing the patched file as a single `.apk`."
           required: true
   - type: checkboxes
     id: troubleshooting
@@ -53,17 +53,17 @@ body:
       label: App
       description: The app you patched.
       options:
-        - "Apple TV (Android TV)"
+        - "Apple TV"
         - "Disney+"
         - "HBO Max"
-        - "Hulu (Android TV)"
+        - "Hulu"
         - "JustWatch"
-        - "NewsNation (Android TV)"
+        - "NewsNation"
         - "Plex"
         - "Pluto TV"
         - "Starz"
         - "Tubi"
-        - "YouTube TV (Android TV)"
+        - "YouTube TV"
         - "Other (name it in the description)"
     validations:
       required: true

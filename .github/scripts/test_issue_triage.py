@@ -230,3 +230,30 @@ class CommentTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TvRepositoryTest(unittest.TestCase):
+    """tv-morphe-patches runs the triage with TRIAGE_DEFAULT_BUILD and plain app names."""
+
+    apps = {
+        "Apple TV": {"3.0.0": {"codes": set(), "descriptions": {"Phone build"}}},
+        "Apple TV (Android TV)": {"17.0.3": {"codes": {170300}, "descriptions": {"Android TV build"}}},
+    }
+
+    def setUp(self):
+        self.default = t.DEFAULT_BUILD
+        t.DEFAULT_BUILD = "Android TV"
+
+    def tearDown(self):
+        t.DEFAULT_BUILD = self.default
+
+    def fields(self, version):
+        return {"App": "Apple TV", "App version": version, "App version code": None}
+
+    def test_plain_name_maps_to_the_tv_entry(self):
+        self.assertIsNone(t.evaluate(self.fields("17.0.3"), self.apps))
+
+    def test_phone_version_is_not_a_tv_target(self):
+        problem = t.evaluate(self.fields("3.0.0"), self.apps)
+        self.assertEqual(problem["app"], "Apple TV (Android TV)")
+        self.assertEqual(problem["kind"], "version")

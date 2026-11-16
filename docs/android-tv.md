@@ -53,7 +53,7 @@ YT TV+ is YouTube TV without the ads that YouTube adds to it. YouTube TV's own a
 
 1. **Add the patch source.** In Morphe Manager, add [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches) with the link in its README.
 
-2. **Download YouTube for Android TV, version `7.32.300`.** Get it from APKMirror, where it is listed as "YouTube for Android TV (Android TV)". Choose the variant marked **APK**, with version code `732300320`. Three things to avoid:
+2. **Download YouTube for Android TV, version `7.32.300`.** Get it from APKMirror, where it is listed as "YouTube for Android TV (Android TV)". Choose the variant marked **APK**, with version code `732300320`. If you take a **BUNDLE** variant instead, patch the whole bundle: its native libraries are in the `armeabi_v7a` split, and YT TV+ closes at launch without them. Three things to avoid:
    - Do not use "Use installed app". The YouTube app already on your TV is usually a newer version, and the patch works only on `7.32.300`.
    - Do not download the YouTube TV app (`com.google.android.youtube.tvunplugged`). That is the app that cannot be patched.
    - Do not download the phone version of YouTube.

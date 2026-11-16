@@ -16,13 +16,16 @@ import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 // Koupon 3.1.6 opens each deal as a web page (cross-end.koupon.ai) in React
 // Native's web view. That page's requests do not pass through React Native's
 // networking, so React Native's web view clients get a shouldInterceptRequest
-// that asks KouponWebFilter first. The filter does nothing until a patch turns
-// one of its switches on (blockTrackers, stopHistory, hideAi, hideTips).
+// that asks KouponWebFilter first, and their onPageFinished and
+// doUpdateVisitedHistory call KouponWebFilter.onPage. The filter does nothing
+// until a patch turns one of its switches on (blockTrackers, stopHistory,
+// hideAi, hideTips, showCodes).
 // ─────────────────────────────────────────────────────────────────────────────
 
 internal const val KOUPON_WEB_FILTER = "Lsemicoloncolonel/mobilestream/extension/kouponai/web/KouponWebFilter;"
 private const val WEB_VIEW_CLIENT = "Landroid/webkit/WebViewClient;"
 private val INTERCEPT_PARAMETERS = listOf("Landroid/webkit/WebView;", "Landroid/webkit/WebResourceRequest;")
+private val PAGE_PARAMETERS = listOf("Landroid/webkit/WebView;", "Ljava/lang/String;")
 
 internal val kouponWebFilterPatch = bytecodePatch {
     extendWith("extensions/extension.mpe")
@@ -64,6 +67,24 @@ internal val kouponWebFilterPatch = bytecodePatch {
             )
             mutableClassDefBy(type).methods.add(method)
         }
+
+        // Page callbacks of the clients that define them: onPageFinished(view, url)
+        // and doUpdateVisitedHistory(view, url, isReload).
+        var hooked = 0
+        clients.forEach { type ->
+            mutableClassDefBy(type).methods.filter { method ->
+                (method.name == "onPageFinished" && method.parameterTypes.map { it.toString() } == PAGE_PARAMETERS) ||
+                    (method.name == "doUpdateVisitedHistory" &&
+                        method.parameterTypes.map { it.toString() } == PAGE_PARAMETERS + "Z")
+            }.forEach { method ->
+                method.addInstructions(
+                    0,
+                    "invoke-static { p1, p2 }, $KOUPON_WEB_FILTER->onPage(Landroid/webkit/WebView;Ljava/lang/String;)V",
+                )
+                hooked++
+            }
+        }
+        if (hooked == 0) throw PatchException("Koupon: web view page callbacks not found")
     }
 }
 
@@ -73,7 +94,7 @@ private class WebFilterSwitchFingerprint(name: String) : Fingerprint(
     returnType = "Z",
 )
 
-/** Turns on one of KouponWebFilter's switches: blockTrackers, stopHistory, hideAi or hideTips. */
+/** Turns on one of KouponWebFilter's switches: blockTrackers, stopHistory, hideAi, hideTips or showCodes. */
 internal fun BytecodePatchContext.enableWebFilter(switch: String) {
     WebFilterSwitchFingerprint(switch).method.returnEarly("const/4 v0, 0x1\nreturn v0")
 }

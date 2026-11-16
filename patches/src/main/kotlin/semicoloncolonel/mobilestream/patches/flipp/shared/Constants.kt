@@ -11,6 +11,6 @@ object Constants {
         description = "The Flipp weekly ads and deals app.",
         apkFileType = ApkFileType.APK,
         appIconColor = 0x0095DA,
-        targets = listOf(devTarget("115.0.0", versionCode = 1632))
+        targets = listOf(devTarget("115.0.0", versionCode = 1632), devTarget("116.0.0", versionCode = 1635))
     )
 }

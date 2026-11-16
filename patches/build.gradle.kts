@@ -68,6 +68,8 @@ val flavorExcludes: List<String> = when (bundleFlavor) {
             "**/patches/mlb/misc/HideBettingOddsPatch.kt",
             // The Android TV builds have no social sign-in or, for Starz, no launch video.
             "**/patches/hbomax/misc/RemoveSocialSignInPatch.kt",
+            // The Android TV build's media3 has no MediaCodecInfo capability methods to force.
+            "**/patches/hbomax/misc/ForceDecodeCapabilityPatch.kt",
             "**/patches/starz/misc/RemoveSocialSignInPatch.kt",
             "**/patches/starz/misc/SkipLaunchVideoPatch.kt",
         ))

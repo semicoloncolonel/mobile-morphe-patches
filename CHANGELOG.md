@@ -1,3 +1,10 @@
+# [1.1.0-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.28...v1.1.0-dev.29) (2026-11-16)
+
+
+### Bug Fixes
+
+* Clean up the Android TV patch listings ([04e04a9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/04e04a9136ce189ba5792deae2cbfb7009e7d7ab))
+
 # [1.1.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.27...v1.1.0-dev.28) (2026-11-16)
 
 

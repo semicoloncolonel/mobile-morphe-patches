@@ -1,3 +1,10 @@
+# [1.1.0-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.29...v1.1.0-dev.30) (2026-11-16)
+
+
+### Features
+
+* Support the Android TV builds of ESPN, Fox One, MLB, and Peacock ([b5acd44](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b5acd44b1b860362af881ad57b3526daaa70dcad))
+
 # [1.1.0-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.28...v1.1.0-dev.29) (2026-11-16)
 
 

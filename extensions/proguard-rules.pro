@@ -366,3 +366,6 @@
 -keep class semicoloncolonel.mobilestream.extension.primevideotv.PrimeVideoHookLoader {
     public static void load();
 }
+
+# TvSourceNotice is named only in the manifest, as a provider, so R8 must keep it.
+-keep class semicoloncolonel.mobilestream.extension.shared.misc.TvSourceNotice { *; }

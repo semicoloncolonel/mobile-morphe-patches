@@ -32,9 +32,12 @@ val tvBundleApps = setOf(
     "nba", "newsnation", "nfl", "pbs", "peacock", "plex", "pluto", "primevideotv", "starz", "tubi", "yttvshell",
 )
 val patchesSourceDir = file("src/main/kotlin/semicoloncolonel/mobilestream/patches")
+// Shown only by the combined bundle, which is the one that stops carrying the
+// Android TV apps after 1.1. The phone and tv flavors leave it out.
+val combinedOnlySources = listOf("**/patches/shared/misc/TvSourceNoticePatch.kt")
 val flavorExcludes: List<String> = when (bundleFlavor) {
-    "phone" -> tvOnlySources
-    "tv" -> buildList {
+    "phone" -> tvOnlySources + combinedOnlySources
+    "tv" -> combinedOnlySources + buildList {
         patchesSourceDir.listFiles().orEmpty()
             .filter { it.isDirectory && it.name != "shared" && it.name !in tvBundleApps }
             .forEach { app ->

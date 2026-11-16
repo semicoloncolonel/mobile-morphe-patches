@@ -1,3 +1,10 @@
+# [1.1.0-dev.40](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.39...v1.1.0-dev.40) (2026-11-16)
+
+
+### Features
+
+* **kouponai:** Hide the tips on deal pages ([bd572f3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bd572f3a7f95ecef7087dfdbb6af1e566278e149))
+
 # [1.1.0-dev.39](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.38...v1.1.0-dev.39) (2026-11-16)
 
 

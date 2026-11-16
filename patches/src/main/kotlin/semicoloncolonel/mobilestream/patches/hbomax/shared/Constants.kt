@@ -14,14 +14,6 @@ private const val TV_VERSION = "22.0.0.36"
 // NVIDIA Shield, instead of the newer-numbered phone build.
 private const val PHONE_MIN_SDK = 32
 
-private val PHONE_TARGETS = listOf(
-    AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
-    AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"),
-)
-private val TV_TARGETS = listOf(
-    AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
-)
-
 object Constants {
     // The phone and Android TV builds share the package name but not the version.
     val COMPATIBILITY = Compatibility(
@@ -36,8 +28,6 @@ object Constants {
             AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"),
         )
     ).splitByBundle(
-        phoneTargets = PHONE_TARGETS,
-        tvTargets = TV_TARGETS,
         phoneDescription = "The HBO Max phone app (version $PHONE_VERSION).",
         tvDescription = "The HBO Max Android TV app (version $TV_VERSION).",
     )
@@ -66,8 +56,6 @@ object Constants {
             AppTarget(version = TV_VERSION, versionCode = 1842000036, minSdk = 29, description = "Android TV build"),
         )
     ).splitByBundle(
-        phoneTargets = PHONE_TARGETS.take(1),
-        tvTargets = TV_TARGETS,
         phoneDescription = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
         tvDescription = "The HBO Max Android TV app as the Play Store installs it (version $TV_VERSION).",
     )

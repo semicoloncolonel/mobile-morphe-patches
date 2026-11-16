@@ -77,3 +77,6 @@ jobs:
 
       - name: Check the issue forms list every app
         run: python .github/scripts/check_issue_forms.py
+
+      - name: Check the TV repository files are up to date
+        run: python .github/scripts/build_tv_repo.py --check

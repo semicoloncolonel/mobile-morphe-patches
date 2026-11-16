@@ -41,7 +41,10 @@ DEV_LABEL = "dev pre-release"
 TESTING_LABEL = "testing on dev"
 APP_UPDATE_PREFIX = "App update: "
 INCOMPLETE_LABEL = "incomplete"
-FORMS_DIR = ".github/ISSUE_TEMPLATE"
+# tv-morphe-patches runs this script from a checkout of this repository, with
+# its own forms, which have no "Phone or Android TV build" field.
+FORMS_DIR = os.environ.get("TRIAGE_FORMS_DIR", ".github/ISSUE_TEMPLATE")
+DEFAULT_BUILD = os.environ.get("TRIAGE_DEFAULT_BUILD", "")
 # A heading that only one form has, which tells the forms apart.
 FORM_MARKERS = {"Morphe Manager's message": "0-version-or-build.yml", "What happened": "1-bug-report.yml", "What could be better": "2-enhancement.yml",
                 "What the patch should do": "3-new-app-or-patch.yml", "Topic": "4-something-else.yml"}
@@ -203,7 +206,7 @@ def evaluate(fields, apps):
     if code.isdigit() and entry["codes"] and int(code) not in entry["codes"]:
         return {"kind": "build", "app": app, "version": match, "versions": versions,
                 "reason": f"its version code is `{code}`"}
-    build = fields.get("Phone or Android TV build") or ""
+    build = fields.get("Phone or Android TV build") or DEFAULT_BUILD
     descriptions = entry["descriptions"]
     if descriptions and build.startswith("Android TV") and not any(is_tv(d) for d in descriptions):
         return {"kind": "build", "app": app, "version": match, "versions": versions,

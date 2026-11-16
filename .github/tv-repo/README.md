@@ -6,9 +6,13 @@
   <a href="https://morphe.software/add-source?github=semicoloncolonel/tv-morphe-patches"><img alt="Add to Morphe Manager" src="https://img.shields.io/badge/%2B_Add_to-Morphe_Manager-4f46e5?style=for-the-badge"></a>
   <br>
   <sub>Open this link on the device with Morphe Manager installed.</sub>
+  <br><br>
+  <a href="https://morphe.software/add-source?github=semicoloncolonel/mobile-morphe-patches"><img alt="Add the phone patches to Morphe Manager" src="https://img.shields.io/badge/%2B_Add_the-phone_patches-4f46e5?style=flat-square"></a>
 </p>
 
-These patches are built from [mobile-morphe-patches](https://github.com/semicoloncolonel/mobile-morphe-patches), which holds the source, the documentation, and the issue tracker. This repository holds the releases and the `patches-bundle.json` that Morphe Manager reads. Its files are updated automatically, so changes made here are overwritten.
+These patches are built from [mobile-morphe-patches](https://github.com/semicoloncolonel/mobile-morphe-patches), which holds the source and the documentation. This repository holds the releases, the `patches-bundle.json` that Morphe Manager reads, and the issues for the Android TV apps. Its files are updated automatically, so changes made here are overwritten.
+
+> **Preview.** This source is new. Until its first stable release, both the stable and the pre-release channel offer the latest dev pre-release. The phone source, mobile-morphe-patches, still lists the Android TV apps during this time.
 
 > Some patches are based on [ajstrick81's Android TV patches](https://github.com/ajstrick81/morphe-androidtv-patches), and the original hook designs are their work.
 
@@ -22,8 +26,8 @@ The phone patches are a separate source, [mobile-morphe-patches](https://github.
 
 ## Report a problem
 
-Open an issue in [mobile-morphe-patches](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/new/choose), and say that the app is the Android TV build.
+Open an issue with one of the [forms in this repository](https://github.com/semicoloncolonel/tv-morphe-patches/issues/new/choose). For a security problem, follow the [security policy](SECURITY.md) instead.
 
 ## License
 
-[GPLv3](LICENSE), the same license as mobile-morphe-patches.
+[GPLv3](LICENSE), the same license as mobile-morphe-patches. [NOTICE](NOTICE) credits the work these patches build on.

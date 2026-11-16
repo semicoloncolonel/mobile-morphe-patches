@@ -175,11 +175,20 @@ def ensure_branches(repo: str, branch: str, dry_run: bool) -> None:
 
 
 def sync_template(repo: str, dry_run: bool, initial: bool = False) -> None:
-    """Keeps the TV repository's README and license in step with .github/tv-repo."""
+    """Copies .github/tv-repo to the TV repository's main branch and syncs its labels.
+
+    build_tv_repo.py writes most of those files from this repository's copies.
+    """
     message = "docs: Set up the TV patch source" if initial else "docs: Update from mobile-morphe-patches"
-    for name in sorted(os.listdir(TEMPLATE_DIR)):
-        write_file(repo, "main", name, (TEMPLATE_DIR / name).read_text(), message, dry_run)
-    write_file(repo, "main", "LICENSE", (ROOT / "LICENSE").read_text(), message, dry_run)
+    # README first, so a new repository starts with it.
+    files = sorted(p for p in TEMPLATE_DIR.rglob("*") if p.is_file())
+    files.sort(key=lambda p: p.name != "README.md")
+    for path in files:
+        write_file(repo, "main", path.relative_to(TEMPLATE_DIR).as_posix(), path.read_text(), message, dry_run)
+    print(f"{'Would sync' if dry_run else 'Syncing'} labels from .github/labels.json")
+    if not dry_run:
+        subprocess.run([sys.executable, str(ROOT / ".github/scripts/sync_labels.py")], check=True, cwd=ROOT,
+                       env={**os.environ, "GH_REPO": repo})
 
 
 def changed_tv_files(since_version: str | None, version: str) -> list[str]:
@@ -232,15 +241,21 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", required=True, help="OWNER/tv-morphe-patches")
     parser.add_argument("--branch", required=True, choices=["main", "dev"])
-    parser.add_argument("--version", required=True)
-    parser.add_argument("--mpp", required=True, type=Path)
+    parser.add_argument("--version")
+    parser.add_argument("--mpp", type=Path)
     parser.add_argument("--force", action="store_true", help="publish even if no TV file changed")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--setup-only", action="store_true",
+                        help="only create the branches and sync the README, forms, and labels")
     args = parser.parse_args()
     repo, branch, version = args.repo, args.branch, args.version
 
-    if not args.mpp.is_file():
-        sys.exit(f"{args.mpp} does not exist")
+    if args.setup_only:
+        ensure_branches(repo, branch, args.dry_run)
+        sync_template(repo, args.dry_run)
+        return 0
+    if not version or not args.mpp or not args.mpp.is_file():
+        sys.exit("--version and an existing --mpp are required")
 
     ensure_branches(repo, branch, args.dry_run)
 
@@ -251,7 +266,9 @@ def main() -> int:
         return 0
 
     changed = changed_tv_files(since, version)
-    if not changed and not args.force:
+    # Main still offering a dev pre-release takes the first stable release as is.
+    replaces_preview = branch == "main" and since is not None and "-" in since
+    if not changed and not args.force and not replaces_preview:
         print(f"No TV bundle file changed since v{since}; {version} is not published to {repo}.")
         return 0
     print(f"Publishing {version} to {repo} {branch} (last TV version: {since or 'none'}).")
@@ -285,10 +302,16 @@ def main() -> int:
         "version": version,
         "public_key": (ROOT / "morphe-signing.pub").read_text().strip(),
     }
-    write_file(repo, branch, "patches-bundle.json", json.dumps(bundle, indent=2) + "\n",
-               f"chore: Release {tag} [skip ci]", args.dry_run)
-    if branch == "main":
-        sync_template(repo, args.dry_run)
+    text = json.dumps(bundle, indent=2) + "\n"
+    write_file(repo, branch, "patches-bundle.json", text, f"chore: Release {tag} [skip ci]", args.dry_run)
+    # Until the TV repository has a stable release, main offers the latest dev
+    # pre-release too, so the stable channel works from the start.
+    if branch == "dev":
+        main_bundle, _ = read_file(repo, "main", "patches-bundle.json")
+        if main_bundle is None or "-" in json.loads(main_bundle)["version"]:
+            write_file(repo, "main", "patches-bundle.json", text,
+                       f"chore: Offer {tag} until the first stable release [skip ci]", args.dry_run)
+    sync_template(repo, args.dry_run)
 
     if args.dry_run:
         print("\n--- patches-bundle.json ---\n" + json.dumps(bundle, indent=2))

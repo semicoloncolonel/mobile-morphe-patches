@@ -17,7 +17,7 @@ import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 // Native's web view. That page's requests do not pass through React Native's
 // networking, so React Native's web view clients get a shouldInterceptRequest
 // that asks KouponWebFilter first. The filter does nothing until a patch turns
-// one of its switches on (blockTrackers, stopHistory, hideAi).
+// one of its switches on (blockTrackers, stopHistory, hideAi, hideTips).
 // ─────────────────────────────────────────────────────────────────────────────
 
 internal const val KOUPON_WEB_FILTER = "Lsemicoloncolonel/mobilestream/extension/kouponai/web/KouponWebFilter;"
@@ -73,7 +73,7 @@ private class WebFilterSwitchFingerprint(name: String) : Fingerprint(
     returnType = "Z",
 )
 
-/** Turns on one of KouponWebFilter's switches: blockTrackers, stopHistory or hideAi. */
+/** Turns on one of KouponWebFilter's switches: blockTrackers, stopHistory, hideAi or hideTips. */
 internal fun BytecodePatchContext.enableWebFilter(switch: String) {
     WebFilterSwitchFingerprint(switch).method.returnEarly("const/4 v0, 0x1\nreturn v0")
 }

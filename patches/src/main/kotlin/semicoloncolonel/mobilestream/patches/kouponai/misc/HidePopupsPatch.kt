@@ -1,9 +1,12 @@
 package semicoloncolonel.mobilestream.patches.kouponai.misc
 
+import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
 import semicoloncolonel.mobilestream.patches.kouponai.shared.disableCodePushPatch
+import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter
+import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatch
 import semicoloncolonel.mobilestream.patches.shared.misc.HERMES_BUNDLE
 import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 
@@ -24,6 +27,11 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 //   ColdSurvey, GoogleSurvey, SearchSurvey, RcmdSurveyCard, RcmdSurveyDrawer,
 //   shouldShowSurvey         the in-feed and pop-up surveys.
 //   Nps                      "How likely are you to recommend Koupon".
+//
+// Deal pages are web pages, and they show their own tips ("New to using
+// promo codes on Amazon? Tap here for a quick guide." and a copy-code tip)
+// when the page's app-walkthrough status says so. KouponWebFilter fails
+// that one request on deal pages, so the page shows neither tip.
 //
 // Koupon's over-the-air updates are turned off so that the patched bundle
 // stays in use (DisableCodePushPatch).
@@ -51,13 +59,22 @@ private val hidePopupsInBundlePatch = rawResourcePatch {
     }
 }
 
+private val hideDealPageTipsPatch = bytecodePatch {
+    dependsOn(kouponWebFilterPatch)
+
+    execute {
+        enableWebFilter("hideTips")
+    }
+}
+
 @Suppress("unused")
 val hidePopupsPatch = resourcePatch(
     name = "Hide pop-ups",
-    description = "Removes the app tour, the sign-up-for-points pop-ups, the notification prompt, and the surveys.",
+    description = "Removes the app tour, the sign-up-for-points pop-ups, the notification prompt, the surveys, " +
+        "and the tips on deal pages.",
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
-    dependsOn(hidePopupsInBundlePatch, disableCodePushPatch)
+    dependsOn(hidePopupsInBundlePatch, hideDealPageTipsPatch, disableCodePushPatch)
 }

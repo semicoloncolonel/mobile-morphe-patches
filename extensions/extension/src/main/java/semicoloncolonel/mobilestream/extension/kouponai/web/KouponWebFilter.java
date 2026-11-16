@@ -21,7 +21,7 @@ import semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker;
  * page's own requests never reach React Native's networking, so the web view
  * client gets a shouldInterceptRequest that asks {@link #intercept} first.
  *
- * Three switches, each turned on by its own patch (their bodies are replaced
+ * Four switches, each turned on by its own patch (their bodies are replaced
  * to return true):
  *
  *   {@link #blockTrackers()}   the shared tracker list, and Intercom's
@@ -33,6 +33,13 @@ import semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker;
  *   {@link #hideAi()}          /api/deal/ai-evaluation and
  *                              /api/deal/ai-evaluation-enabled, the AI
  *                              evaluation section of a deal page.
+ *   {@link #hideTips()}        the deal page's GET /api/notification/status
+ *                              ?id=app-walkthrough. Its answer decides whether
+ *                              the page shows the "New to using promo codes on
+ *                              Amazon?" and copy-code tips; when it fails, the
+ *                              page shows neither. Only cross-end.koupon.ai is
+ *                              filtered, so the app's own screens are not
+ *                              affected.
  *
  * A blocked request gets an empty 404, which the page treats like a failed
  * request. Everything is decided on the device.
@@ -61,11 +68,16 @@ public final class KouponWebFilter {
         return false;
     }
 
+    /** Overwritten to return true by "Hide pop-ups". */
+    public static boolean hideTips() {
+        return false;
+    }
+
     private static boolean isKoupon(String host) {
         return host.equals("koupon.ai") || host.endsWith(".koupon.ai");
     }
 
-    private static String reason(String host, String path) {
+    private static String reason(String host, String path, String query) {
         if (blockTrackers()) {
             if (TrackerBlocker.isBlocked(host, path)) return "tracker";
             if (host.endsWith("intercom.io") && path.startsWith("/messenger/web/metrics")) return "tracker";
@@ -73,6 +85,10 @@ public final class KouponWebFilter {
         if (isKoupon(host)) {
             if (stopHistory() && path.contains("/browse-history/")) return "history";
             if (hideAi() && path.contains("/deal/ai-evaluation")) return "AI";
+        }
+        if (hideTips() && host.equals("cross-end.koupon.ai") && path.endsWith("/notification/status")
+                && "app-walkthrough".equals(query)) {
+            return "tip";
         }
         return null;
     }
@@ -84,7 +100,7 @@ public final class KouponWebFilter {
             Uri url = request.getUrl();
             String host = url.getHost() == null ? "" : url.getHost().toLowerCase();
             String path = url.getPath() == null ? "" : url.getPath();
-            String reason = reason(host, path);
+            String reason = reason(host, path, url.getQueryParameter("id"));
             if (reason == null) return null;
             if (logged.add(host + path)) {
                 Log.i(TAG, "blocked " + reason + " request -> " + host + path);

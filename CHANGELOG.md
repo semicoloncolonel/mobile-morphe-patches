@@ -1,3 +1,15 @@
+# [1.1.0-dev.42](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.41...v1.1.0-dev.42) (2026-11-16)
+
+
+### Bug Fixes
+
+* **kouponai:** Keep the sign-up welcome steps in Hide pop-ups ([99628f1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/99628f11d9adfed2834263b934a12279e875743c))
+
+
+### Features
+
+* **kouponai:** Hide rewards, and the rating card in Hide pop-ups ([2e757ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2e757acb1008f82ceb5d3d8367c6d1b3bce21658))
+
 # [1.1.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.40...v1.1.0-dev.41) (2026-11-16)
 
 

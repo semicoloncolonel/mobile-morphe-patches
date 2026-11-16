@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-16T22:24:40",
-  "description": "# [1.1.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.40...v1.1.0-dev.41) (2026-11-16)\n\n\n### Features\n\n* **kouponai:** Show promo codes on deal pages ([8a9f939](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8a9f9398857c434866082a625fc7aa620a591e3b))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.41/patches-1.1.0-dev.41.mpp",
+  "created_at": "2026-11-16T22:34:41",
+  "description": "# [1.1.0-dev.42](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.41...v1.1.0-dev.42) (2026-11-16)\n\n\n### Bug Fixes\n\n* **kouponai:** Keep the sign-up welcome steps in Hide pop-ups ([99628f1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/99628f11d9adfed2834263b934a12279e875743c))\n\n\n### Features\n\n* **kouponai:** Hide rewards, and the rating card in Hide pop-ups ([2e757ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2e757acb1008f82ceb5d3d8367c6d1b3bce21658))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.42/patches-1.1.0-dev.42.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.41",
+  "version": "1.1.0-dev.42",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

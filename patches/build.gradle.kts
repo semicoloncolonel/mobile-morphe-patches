@@ -11,6 +11,7 @@ val bundleFlavor: String = providers.gradleProperty("flavor").getOrElse("all").a
 // Each app's shared/ folder stays, because the shared patches name its Constants.
 val tvOnlySources = listOf(
     "**/patches/appletv/tv/**",
+    "**/patches/espn/tv/**",
     "**/patches/newsnation/tv/**",
     "**/patches/hulutv/privacy/**",
     "**/patches/hulutv/nativehook/**",
@@ -23,8 +24,8 @@ val tvOnlySources = listOf(
 // phone and TV builds, and the shared helpers. Everything else is phone-only.
 // Keep this list in step with docs/android-tv.md.
 val tvBundleApps = setOf(
-    "appletv", "disney", "hbomax", "hulutv", "justwatch", "newsnation",
-    "plex", "pluto", "starz", "tubi", "yttvshell",
+    "appletv", "disney", "espn", "foxone", "hbomax", "hulutv", "justwatch", "mlb",
+    "newsnation", "peacock", "plex", "pluto", "starz", "tubi", "yttvshell",
 )
 val patchesSourceDir = file("src/main/kotlin/semicoloncolonel/mobilestream/patches")
 val flavorExcludes: List<String> = when (bundleFlavor) {
@@ -44,6 +45,11 @@ val flavorExcludes: List<String> = when (bundleFlavor) {
             "**/patches/appletv/misc/**",
             "**/patches/appletv/privacy/**",
             "**/patches/newsnation/ads/**",
+            "**/patches/espn/ads/**",
+            "**/patches/espn/misc/**",
+            "**/patches/peacock/misc/DisableHomeNetworkSignInPatch.kt",
+            "**/patches/mlb/misc/GmsCoreSupportPatch.kt",
+            "**/patches/mlb/misc/HideSurveysPatch.kt",
             // The Android TV builds have no social sign-in or, for Starz, no launch video.
             "**/patches/hbomax/misc/RemoveSocialSignInPatch.kt",
             "**/patches/starz/misc/RemoveSocialSignInPatch.kt",
@@ -54,7 +60,6 @@ val flavorExcludes: List<String> = when (bundleFlavor) {
         addAll(listOf(
             "**/patches/shared/privacy/RouteThroughProxyPatch.kt",
             "**/patches/shared/privacy/GovBlockAnalyticsPatch.kt",
-            "**/patches/shared/pairip/**",
             "**/patches/shared/links/**",
         ))
     }

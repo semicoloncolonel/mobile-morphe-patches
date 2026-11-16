@@ -100,7 +100,7 @@ val disableAutoUpdatesPatch = resourcePatch(
         FoxNews.COMPATIBILITY,
         MsNow.COMPATIBILITY,
         Cnn.COMPATIBILITY,
-        Espn.COMPATIBILITY,
+        Espn.COMPATIBILITY, Espn.TV_COMPATIBILITY,
         Nfl.COMPATIBILITY,
         Nba.COMPATIBILITY,
         Fandango.COMPATIBILITY,

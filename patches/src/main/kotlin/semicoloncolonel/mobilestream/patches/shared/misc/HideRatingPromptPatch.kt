@@ -186,7 +186,7 @@ val hideRatingPromptPatch = bytecodePatch(
         Moviebase.COMPATIBILITY,
         JustWatch.COMPATIBILITY,
         YtTv.COMPATIBILITY,
-        Espn.COMPATIBILITY,
+        Espn.COMPATIBILITY, Espn.TV_COMPATIBILITY,
         Nfl.COMPATIBILITY,
         Nba.COMPATIBILITY,
         Mlb.COMPATIBILITY,

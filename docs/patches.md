@@ -20,6 +20,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - CNN: banner and sponsored-content ads, and ads in videos and clips. All Access streaming is not changed.
 - C-SPAN Now: the pre-roll before archive and on-demand videos. Ads in the live channels are stitched into the stream and still play.
 - ESPN: scheduled breaks and on-demand mid-rolls.
+- ESPN (Android TV): pre-roll, mid-roll, and pause ads, the same way as on Disney+. Commercials that are part of a live broadcast still play.
 - Fox Local: ads in on-demand videos, articles, and live blogs, the splash ad, and Taboola recommendations.
 - Fox News: banner, feed, sponsored, and full-screen ads, and ad breaks in videos.
 - Fox One: ads in on-demand videos. On live TV, the ad tracking and the limits on skipping ahead during breaks.

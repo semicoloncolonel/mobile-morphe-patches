@@ -26,7 +26,7 @@ The phone patches are a separate source, [mobile-morphe-patches](https://github.
 
 <!-- apps:start -->
 
-TV Morphe Patches supports 11 Android TV apps: Apple TV, Disney+, HBO Max, Hulu, JustWatch, NewsNation, Plex, Pluto TV, Starz, Tubi, and YouTube TV. [Supported apps](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/android-tv.md) lists the patches and the tested versions for each.
+TV Morphe Patches supports 15 Android TV apps: Apple TV, Disney+, ESPN, Fox One, HBO Max, Hulu, JustWatch, MLB, NewsNation, Peacock, Plex, Pluto TV, Starz, Tubi, and YouTube TV. [Supported apps](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/android-tv.md) lists the patches and the tested versions for each.
 
 <!-- apps:end -->
 

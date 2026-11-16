@@ -131,3 +131,18 @@ private fun Compatibility.asTvEntry(tvTargets: List<AppTarget>, tvDescription: S
 
 /** [text] without " in the Android TV app" in the TV bundle, where every app is an Android TV app. */
 fun tvText(text: String): String = if (isTvBundle) text.replace(" in the Android TV app", "") else text
+
+/**
+ * This entry without its "Android TV build" targets, for a patch that only
+ * works on the phone build. Use it as compatibleWith(Constants.COMPATIBILITY.phoneOnly()),
+ * so no bundle offers the patch for an Android TV version.
+ */
+fun Compatibility.phoneOnly(): Compatibility = Compatibility(
+    name = checkNotNull(name),
+    packageName = checkNotNull(packageName),
+    description = description,
+    apkFileType = apkFileType,
+    appIconColor = appIconColor,
+    signatures = signatures,
+    targets = targets.filter { it.description != TV_BUILD },
+)

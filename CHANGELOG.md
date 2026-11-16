@@ -1,3 +1,12 @@
+# [1.1.0-dev.33](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.32...v1.1.0-dev.33) (2026-11-16)
+
+
+### Features
+
+* **hbomax:** Add Force decode capability, the dual to Video quality ([359a842](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/359a84219d83c0f0845859a0c59f49e6eff25165))
+* **hbomax:** Mark Force decode capability as experimental ([1ddc6b4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ddc6b4af76a671d049a3ad24f8a500458820234))
+* **primevideotv:** Add Prime Video for Android TV with a native ad strip ([b2f16ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b2f16ca6e5db02541c44a74bd8e4161f50ec857f))
+
 # [1.1.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.31...v1.1.0-dev.32) (2026-11-16)
 
 

@@ -27,6 +27,8 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 //   ColdSurvey, GoogleSurvey, SearchSurvey, RcmdSurveyCard, RcmdSurveyDrawer,
 //   shouldShowSurvey         the in-feed and pop-up surveys.
 //   Nps                      "How likely are you to recommend Koupon".
+//   AppStoreRatingCard       the "Enjoying saving with Koupon? Support Koupon
+//                            by rating us" card on the Me screen.
 //
 // Deal pages are web pages, and they show their own tips ("New to using
 // promo codes on Amazon? Tap here for a quick guide." and a copy-code tip)
@@ -52,6 +54,7 @@ private val hidePopupsInBundlePatch = rawResourcePatch {
             "RcmdSurveyCard",
             "RcmdSurveyDrawer",
             "Nps",
+            "AppStoreRatingCard",
         ).forEach { bundle.returnAtStart(it, HermesBundle.Value.NULL) }
         bundle.returnAtStart("shouldPromptNotification", HermesBundle.Value.FALSE)
         bundle.returnAtStart("shouldShowSurvey", HermesBundle.Value.FALSE)
@@ -71,7 +74,7 @@ private val hideDealPageTipsPatch = bytecodePatch {
 val hidePopupsPatch = resourcePatch(
     name = "Hide pop-ups",
     description = "Removes the app tour, the sign-up-for-points pop-ups, the notification prompt, the surveys, " +
-        "and the tips on deal pages.",
+        "the rating card, and the tips on deal pages.",
 ) {
     category("Interface")
     compatibleWith(Constants.COMPATIBILITY)

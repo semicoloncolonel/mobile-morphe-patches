@@ -361,3 +361,8 @@
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.ConsentRejecter {
     public static boolean reject(java.lang.Object, boolean);
 }
+
+# Prime Video Android TV ad-strip loader — only injected smali calls it.
+-keep class semicoloncolonel.mobilestream.extension.primevideotv.PrimeVideoHookLoader {
+    public static void load();
+}

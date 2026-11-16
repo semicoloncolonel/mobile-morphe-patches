@@ -19,6 +19,7 @@ val tvOnlySources = listOf(
     "**/patches/hulutv/privacy/**",
     "**/patches/hulutv/nativehook/**",
     "**/patches/hulutv/misc/**",
+    "**/patches/primevideotv/**",
     "**/patches/yttvshell/ads/**",
     "**/patches/yttvshell/misc/**",
 )
@@ -28,7 +29,7 @@ val tvOnlySources = listOf(
 // Keep this list in step with docs/android-tv.md.
 val tvBundleApps = setOf(
     "appletv", "disney", "espn", "foxone", "hbomax", "hulutv", "justwatch", "mgm", "mlb",
-    "nba", "newsnation", "nfl", "pbs", "peacock", "plex", "pluto", "starz", "tubi", "yttvshell",
+    "nba", "newsnation", "nfl", "pbs", "peacock", "plex", "pluto", "primevideotv", "starz", "tubi", "yttvshell",
 )
 val patchesSourceDir = file("src/main/kotlin/semicoloncolonel/mobilestream/patches")
 val flavorExcludes: List<String> = when (bundleFlavor) {

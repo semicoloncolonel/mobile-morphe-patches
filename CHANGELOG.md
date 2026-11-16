@@ -1,3 +1,10 @@
+# [1.1.0-dev.39](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.38...v1.1.0-dev.39) (2026-11-16)
+
+
+### Features
+
+* **kouponai:** Add experimental Koupon patches ([8138f6f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8138f6f791db61a459b9b2628fe9b5182a6d30d3))
+
 # [1.1.0-dev.38](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.37...v1.1.0-dev.38) (2026-11-16)
 
 

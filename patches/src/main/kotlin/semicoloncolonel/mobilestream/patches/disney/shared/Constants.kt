@@ -24,15 +24,7 @@ object Constants {
             AppTarget(version = "26.20.0+rc2-2026.10.28", versionCode = 179321403, description = "Phone build"),
         )
     ).splitByBundle(
-        // In the split bundles each build is pinned to its own version code.
-        phoneTargets = listOf(
-            AppTarget(version = "26.20.0+rc3-2026.11.02", versionCode = 179366219, description = "Phone build"),
-            AppTarget(version = "26.20.0+rc2-2026.10.28", versionCode = 179321403, description = "Phone build"),
-        ),
-        tvTargets = listOf(
-            AppTarget(version = "26.20.0+rc3-2026.11.02", versionCode = 1793662190, description = "Android TV build"),
-        ),
-        phoneDescription = "The Disney+ phone app.",
-        tvDescription = "The Disney+ Android TV app.",
+        phoneDescription = "The Disney+ phone app. The Android TV build of the same version crashes on a phone.",
+        tvDescription = "The Disney+ Android TV app. Patch the Android TV build (version code 1793662190).",
     )
 }

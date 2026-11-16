@@ -47,8 +47,8 @@ fun forBundle(vararg compatibility: Compatibility): Array<Compatibility> =
     }
 
 /**
- * Picks the compatibility entry for an app whose phone and Android TV builds
- * share one entry in the combined bundle (Tubi, JustWatch, Pluto TV).
+ * Picks the compatibility entry for this bundle. splitByBundle() covers the
+ * usual case.
  */
 fun byBundle(all: Compatibility, phone: Compatibility, tv: Compatibility): Compatibility = when {
     isTvBundle -> tv
@@ -56,14 +56,23 @@ fun byBundle(all: Compatibility, phone: Compatibility, tv: Compatibility): Compa
     else -> all
 }
 
+private const val PHONE_BUILD = "Phone build"
+private const val TV_BUILD = "Android TV build"
+
 /**
  * Splits an entry from the combined bundle into a phone entry and an Android TV
- * entry. Each split entry keeps this entry's name, package, and icon, and takes
- * its own targets and description. The combined bundle keeps this entry as is.
+ * entry, for an app whose phone and Android TV builds share a package. The
+ * combined bundle keeps this entry as is.
+ *
+ * By default a target described as "Android TV build" goes to the TV entry
+ * only, one described as "Phone build" to the phone entry only, and any other
+ * target to both, as when the builds share a version name. Keep the targets in
+ * the Compatibility(...) literal: the issue triage and the update bot read and
+ * edit them there.
  */
 fun Compatibility.splitByBundle(
-    phoneTargets: List<AppTarget> = targets,
-    tvTargets: List<AppTarget> = targets,
+    phoneTargets: List<AppTarget> = targets.filter { it.description != TV_BUILD },
+    tvTargets: List<AppTarget> = targets.filter { it.description != PHONE_BUILD },
     phoneDescription: String? = description,
     tvDescription: String? = description,
 ): Compatibility = byBundle(

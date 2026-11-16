@@ -8,6 +8,8 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
   <a href="https://morphe.software/add-source?github=semicoloncolonel/mobile-morphe-patches"><img alt="Add to Morphe Manager" src="https://img.shields.io/badge/%2B_Add_to-Morphe_Manager-4f46e5?style=for-the-badge"></a>
   <br>
   <sub>Open this link on your phone with Morphe Manager installed.</sub>
+  <br><br>
+  <a href="https://morphe.software/add-source?github=semicoloncolonel/tv-morphe-patches"><img alt="Add the Android TV patches to Morphe Manager" src="https://img.shields.io/badge/%2B_Add_the-Android_TV_patches-14b8a6?style=flat-square"></a>
 </p>
 
 <p align="center">
@@ -21,7 +23,9 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 </p>
 
 > [!NOTE]
-> Some patches are phone ports of [ajstrick81's Android TV patches](https://github.com/ajstrick81/morphe-androidtv-patches), and the original hook designs are their work. For Android TV apps that this project does not list, use the original project.
+> The Android TV patches have their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). This source also includes them until the 1.1 release, so you can move your TV apps to the new source at any time before then.
+>
+> Some patches are phone ports of [ajstrick81's Android TV patches](https://github.com/ajstrick81/morphe-androidtv-patches), and the original hook designs are their work. For Android TV apps that neither source lists, use the original project.
 >
 > This project focuses on phone apps that no other patch source covers. The [Morphe patches site](https://morphe-patches.software/) lists the patches from every source, so search it to see what else exists before you request an app. If another source already patches the app you want, please ask its author for updates or new patches.
 >

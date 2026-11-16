@@ -55,11 +55,12 @@ jobs:
       # MORPHE_SIGNING_KEY. A separate build before it would leave a second .mpp
       # with the old version number in patches/build/libs.
       #
-      # Android TV split: setting the repository variable TV_SOURCE (for example
-      # semicoloncolonel/tv-morphe-patches) launches it. This release then builds
-      # the phone-only bundle, and the steps after Attest publish the Android TV
-      # bundle to that repository. Without TV_SOURCE, nothing changes: one
-      # combined bundle, as before. See .github/TV_SOURCE_LAUNCH.md.
+      # Android TV source, two repository variables (see .github/TV_SOURCE_LAUNCH.md):
+      #   TV_SOURCE          set to semicoloncolonel/tv-morphe-patches, the steps
+      #                      after Attest publish the Android TV bundle there.
+      #   PHONE_ONLY_BUNDLE  set to true, this release builds the phone-only
+      #                      bundle. Until then it stays combined, so TV users can
+      #                      move to the TV source gradually.
       - name: Release
         uses: cycjimmy/semantic-release-action@v8
         id: release
@@ -70,7 +71,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MORPHE_SIGNING_KEY: ${{ secrets.MORPHE_SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_flavor: ${{ vars.TV_SOURCE != '' && 'phone' || 'all' }}
+          ORG_GRADLE_PROJECT_flavor: ${{ vars.PHONE_ONLY_BUNDLE == 'true' && 'phone' || 'all' }}
 
       - name: Attest
         if: steps.release.outputs.new_release_published == 'true'

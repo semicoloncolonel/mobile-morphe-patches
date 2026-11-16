@@ -375,6 +375,10 @@
 -keep class semicoloncolonel.mobilestream.extension.kouponai.misc.PromoWindow {
     public static void beforeMultiGet(java.lang.Object, java.lang.Object);
 }
+-keep class semicoloncolonel.mobilestream.extension.kouponai.privacy.KouponBehaviorFilter {
+    public static java.lang.String filterJsRequestUrl(java.lang.String);
+    public static java.net.URL filterJsRequestUrl(java.net.URL);
+}
 -keep class semicoloncolonel.mobilestream.extension.kouponai.privacy.KouponTrackingFilter {
     public static java.lang.String filterJsRequestUrl(java.lang.String);
     public static java.net.URL filterJsRequestUrl(java.net.URL);

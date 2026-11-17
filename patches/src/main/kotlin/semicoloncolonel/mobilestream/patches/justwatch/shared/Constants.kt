@@ -30,8 +30,9 @@ object Constants {
                 description = "Android TV build",
             ),
             // Matched by version name alone, so both the APKMirror bundle and the
-            // copy Google Play gives a Shield are accepted.
-            devTarget("26.44.5", description = "Android TV build"),
+            // copy Google Play gives a Shield are accepted. Tested on an NVIDIA
+            // Shield (Android 11) on 2026-11-16.
+            AppTarget("26.44.5", description = "Android TV build"),
         )
     ).splitByBundle(
         phoneDescription = "The JustWatch streaming guide app for phones.",

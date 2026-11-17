@@ -1,3 +1,10 @@
+# [1.1.0-dev.49](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.48...v1.1.0-dev.49) (2026-11-17)
+
+
+### Bug Fixes
+
+* **tv:** Mark Hulu (Android TV) experimental and support JustWatch (Android TV) 26.44.5 ([6f5fb57](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6f5fb571dda6fbe6bcb85df4b97228b851ff48e4)), closes [tv-morphe-patches#1](https://github.com/tv-morphe-patches/issues/1) [tv-morphe-patches#3](https://github.com/tv-morphe-patches/issues/3)
+
 # [1.1.0-dev.48](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.47...v1.1.0-dev.48) (2026-11-17)
 
 

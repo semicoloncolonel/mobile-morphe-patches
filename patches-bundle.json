@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-17T03:05:21",
-  "description": "# [1.1.0-dev.48](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.47...v1.1.0-dev.48) (2026-11-17)\n\n\n### Bug Fixes\n\n* **newsbreak:** Fix GmsCore Google sign-in on 26.46.1 ([2eb8d57](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2eb8d573b5581e0f3604863a5dbcc4a6a5e54bcc))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.48/patches-1.1.0-dev.48.mpp",
+  "created_at": "2026-11-17T03:32:36",
+  "description": "# [1.1.0-dev.49](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.48...v1.1.0-dev.49) (2026-11-17)\n\n\n### Bug Fixes\n\n* **tv:** Mark Hulu (Android TV) experimental and support JustWatch (Android TV) 26.44.5 ([6f5fb57](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6f5fb571dda6fbe6bcb85df4b97228b851ff48e4)), closes [tv-morphe-patches#1](https://github.com/tv-morphe-patches/issues/1) [tv-morphe-patches#3](https://github.com/tv-morphe-patches/issues/3)",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.49/patches-1.1.0-dev.49.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.48",
+  "version": "1.1.0-dev.49",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -33,7 +33,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x1CE783,
         targets = listOf(
-            AppTarget(version = "C59F39CFP3.10.33", versionCode = 3010033, description = "Android TV build"),
+            AppTarget(version = "C59F39CFP3.10.33", versionCode = 3010033, isExperimental = true, description = "Android TV build"),
         ),
         formFactor = FormFactor.TV,
     ).forTvSource(

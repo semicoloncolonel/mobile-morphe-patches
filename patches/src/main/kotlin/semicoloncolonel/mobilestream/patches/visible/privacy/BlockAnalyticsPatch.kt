@@ -1,5 +1,9 @@
 package semicoloncolonel.mobilestream.patches.visible.privacy
 
+import semicoloncolonel.mobilestream.patches.shared.privacy.gatedAnalyticsKillSwitchesPatch
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
+import app.morphe.patcher.patch.booleanOption
+import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.Method
@@ -24,19 +28,33 @@ import semicoloncolonel.mobilestream.patches.visible.shared.Constants
 // and sign-in SDKs (Cardinal Commerce, Kount, PayPal, ForgeRock, and Ping).
 
 @Suppress("unused")
-val blockAnalyticsPatch = bytecodePatch(
+val blockAnalyticsPatch: BytecodePatch = bytecodePatch(
     name = "Block analytics & tracking",
-    description = "Stops the app's analytics, ad measurement, and marketing services.",
-    default = false,
+    description = "Blocks the tracking you choose in the patch options.",
 ) {
     category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
+    dependsOn(blockSessionRecordingPatch)
 
-    dependsOn(analyticsKillSwitchesPatch)
+    dependsOn(gatedAnalyticsKillSwitchesPatch { isOptionOn(blockAnalyticsPatch, "analytics") })
 
     extendWith("extensions/extension.mpe")
 
+    booleanOption(
+        key = "analytics",
+        default = false,
+        title = "Analytics and tracking services",
+        description = "Stops the app's analytics, ad measurement, and marketing services.",
+    )
+    booleanOption(
+        key = "sessionRecording",
+        default = true,
+        title = "Session recording",
+        description = "Stops Quantum Metric, which records what you do in the app.",
+    )
+
     execute {
+        if (!isOptionOn(blockAnalyticsPatch, "analytics")) return@execute
         fun stop(what: String, minimum: Int, classFilter: (String) -> Boolean, methodFilter: (Method) -> Boolean, smali: String) {
             val count = forEachMatchingMethod({ classFilter(it.type) }, methodFilter) { it.returnEarly(smali) }
             if (count < minimum) throw PatchException("$what not found ($count)")

@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.kouponai.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
@@ -48,6 +49,7 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 
 private val hidePopupsInBundlePatch = rawResourcePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "popUps")) return@execute
         val file = get(HERMES_BUNDLE)
         val bundle = HermesBundle(file.readBytes())
         listOf(
@@ -71,19 +73,13 @@ private val hideDealPageTipsPatch = bytecodePatch {
     dependsOn(kouponWebFilterPatch)
 
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "popUps")) return@execute
         enableWebFilter("hideTips")
     }
 }
 
-@Suppress("unused")
-val hidePopupsPatch = resourcePatch(
-    name = "Hide pop-ups",
-    description = "Removes the app tour, the sign-up-for-points pop-ups, the notification prompt, the surveys, " +
-        "the rating card, and the tips on deal pages.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "popUps" option is on.
+internal val hidePopupsPatch = resourcePatch {
     dependsOn(requireNativeLibsPatch)
 
     dependsOn(hidePopupsInBundlePatch, hideDealPageTipsPatch, disableCodePushPatch)

@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.foxlocal.privacy
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
@@ -53,15 +54,10 @@ private fun MutableMethod.optOutByDefault() {
     if (replaced == 0) throw PatchException("$definingClass->$name has no default privacy string")
 }
 
-@Suppress("unused")
-val optOutOfDataSalePatch = bytecodePatch(
-    name = "Opt out of data sale & sharing",
-    description = "Starts the app opted out of the sale and sharing of your data.",
-) {
-    category("Privacy")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of blockAnalyticsPatch: runs only when its "dataSale" option is on.
+internal val optOutOfDataSalePatch = bytecodePatch {
     execute {
+        if (!isOptionOn(blockAnalyticsPatch, "dataSale")) return@execute
         StoredPrivacyFingerprint.method.optOutByDefault()
         PlayerPrivacyDefaultFingerprint.method.optOutByDefault()
         LimitAdTrackingFingerprint.method.returnEarly("const/4 v0, 0x1\nreturn v0")

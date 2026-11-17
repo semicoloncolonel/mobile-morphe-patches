@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.dailywire.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.dailywire.shared.Constants
@@ -39,16 +40,10 @@ internal object DynamicMessagesHostFingerprint : Fingerprint(
     returnType = "V",
 )
 
-@Suppress("unused")
-val hidePromoBannersPatch = bytecodePatch(
-    name = "Hide promo banners",
-    description = "Removes the DailyWire+ \"Now Streaming\" promo card and the docked banner that promote " +
-        "the app's own streaming content.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "promoBanners" option is on.
+internal val hidePromoBannersPatch = bytecodePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "promoBanners")) return@execute
         ToPromoItemFingerprint.method.returnEarly(
             """
                 const/4 v0, 0x0

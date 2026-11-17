@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.abcnews.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -49,17 +50,12 @@ internal object ActivityCreateFingerprint : Fingerprint(
     parameters = listOf("Landroid/os/Bundle;"),
 )
 
-@Suppress("unused")
-val maskLiveAdBreaksPatch = bytecodePatch(
-    name = "Mask live ad breaks",
-    description = "Covers live ad breaks with a \"We'll be right back!\" screen and mutes them.",
-) {
-    category("Ads")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of skipAdsPatch: runs only when its "maskLiveAds" option is on.
+internal val maskLiveAdBreaksPatch = bytecodePatch {
     extendWith("extensions/extension.mpe")
 
     execute {
+        if (!isOptionOn(skipAdsPatch, "maskLiveAds")) return@execute
         val modifier = AdStatusModifierToStringFingerprint.classDef
         // toString reads isInAd first.
         val isInAd = AdStatusModifierToStringFingerprint.method.implementation!!.instructions

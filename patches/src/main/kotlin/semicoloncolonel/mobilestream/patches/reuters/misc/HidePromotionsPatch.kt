@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.reuters.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
@@ -59,6 +60,7 @@ internal object BrazeBeforeInAppMessageDisplayedFingerprint : Fingerprint(
 
 private val discardBrazeMessagesPatch = bytecodePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "promotions")) return@execute
         BrazeBeforeInAppMessageDisplayedFingerprint.method.addInstructions(
             0,
             """
@@ -77,18 +79,12 @@ private fun bannerEdit(prefix: List<Int>, register: Int, jsx: List<Int>) =
     byteArrayOf().of(*(prefix + listOf(84, register) + jsx + listOf(92, register)).toIntArray()) to
         byteArrayOf().of(*(prefix + listOf(119, register, 119, register, 119, register, 92, register)).toIntArray())
 
-@Suppress("unused")
-val hidePromotionsPatch = rawResourcePatch(
-    name = "Hide promotions",
-    description = "Removes the Subscribe buttons and offers, the Subscription row in Settings, the Breakingviews " +
-        "promo banners, marketing pop-ups, and the newsletter sign-ups and notification prompts in articles and feeds.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "promotions" option is on.
+internal val hidePromotionsPatch = rawResourcePatch {
     dependsOn(discardBrazeMessagesPatch)
 
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "promotions")) return@execute
         val file = get(HERMES_BUNDLE)
         val bundle = HermesBundle(file.readBytes())
         bundle.returnAtStart("SubscribeButton", HermesBundle.Value.NULL)

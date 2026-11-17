@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.dealseek.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.dealseek.shared.Constants
@@ -30,6 +31,7 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 
 private val hidePopupsInBundlePatch = rawResourcePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "popUps")) return@execute
         val file = get(HERMES_BUNDLE)
         val bundle = HermesBundle(file.readBytes())
         bundle.returnAtStart("TrustPilotModal", HermesBundle.Value.NULL)
@@ -40,13 +42,7 @@ private val hidePopupsInBundlePatch = rawResourcePatch {
     }
 }
 
-@Suppress("unused")
-val hidePopupsPatch = resourcePatch(
-    name = "Hide pop-ups",
-    description = "Removes the review requests, the daily spin-the-wheel pop-up, and the survey after opening a deal.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "popUps" option is on.
+internal val hidePopupsPatch = resourcePatch {
     dependsOn(hidePopupsInBundlePatch, disableExpoUpdatesPatch)
 }

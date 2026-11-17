@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.mlb.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
@@ -21,15 +22,10 @@ internal object NativeAppReviewsFingerprint : Fingerprint(
     parameters = listOf(),
 )
 
-@Suppress("unused")
-val hideSurveysPatch = bytecodePatch(
-    name = "Hide surveys and rating prompt",
-    description = "Stops the Qualtrics surveys and the Play Store rating pop-up.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "surveys" option is on.
+internal val hideSurveysPatch = bytecodePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "surveys")) return@execute
         val qualtrics = mutableClassDefBy(QUALTRICS)
         val display = qualtrics.methods.filter {
             it.name in setOf("display", "displayIntercept", "displayTarget") &&

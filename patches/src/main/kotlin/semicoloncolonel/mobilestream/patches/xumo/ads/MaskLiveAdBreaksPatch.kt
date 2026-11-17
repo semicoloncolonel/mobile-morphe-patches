@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.xumo.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
@@ -65,17 +66,12 @@ internal object VolumeMethodFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
 )
 
-@Suppress("unused")
-val maskLiveAdBreaksPatch = bytecodePatch(
-    name = "Mask live ad breaks",
-    description = "Covers and mutes the ad breaks on live channels until the show returns.",
-) {
-    category("Ads")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of skipAdsPatch: runs only when its "maskLiveAds" option is on.
+internal val maskLiveAdBreaksPatch = bytecodePatch {
     extendWith("extensions/extension.mpe")
 
     execute {
+        if (!isOptionOn(skipAdsPatch, "maskLiveAds")) return@execute
         // 1. Read each HLS playlist before ExoPlayer parses it.
         HlsPlaylistParseFingerprint.method.addInstructions(
             0,

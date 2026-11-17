@@ -56,9 +56,9 @@ For an Android TV app, use the [TV patch source](docs/android-tv.md) instead.
 | Kind | Examples |
 |------|----------|
 | [Ads](docs/patches.md#ads) | Skip ads, Block ads, Mask live ad breaks, Hide sponsored listings |
-| [Pop-ups and prompts](docs/patches.md#pop-ups-and-prompts) | Rating prompts, subscription upsells, surveys, and promo banners |
+| [Pop-ups and prompts](docs/patches.md#pop-ups-and-prompts) | Hide prompts and pop-ups, Hide rating prompt, subscription upsells |
 | [AI features](docs/patches.md#ai-features) | Disable AI, Disable Ask NBA AI, Hide AI summaries |
-| [Privacy](docs/patches.md#privacy) | Block analytics & tracking, Block session recording, Hide device identifiers |
+| [Privacy](docs/patches.md#privacy) | Block analytics & tracking, Hide device identifiers, Incognito reading |
 | [Playback](docs/patches.md#playback) | Auto-skip, Disable up next, Skip launch video, Start at high quality |
 | [Sign-in and startup](docs/patches.md#sign-in-and-startup) | GmsCore support, Remove social sign-in, Faster launch |
 | [Needed for the app to run](docs/patches.md#needed-for-the-app-to-run) | Disable Pairip license check, Disable signature check |

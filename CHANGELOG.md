@@ -1,3 +1,10 @@
+# [1.1.0-dev.52](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.51...v1.1.0-dev.52) (2026-11-17)
+
+
+### Features
+
+* **tv:** Label the Android TV builds in the combined bundle as moving in 1.2.0 ([f624592](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f6245923214f4764c1925f06aa5cb94dd5602797))
+
 # [1.1.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.50...v1.1.0-dev.51) (2026-11-17)
 
 

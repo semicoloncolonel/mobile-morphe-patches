@@ -1,3 +1,10 @@
+# [1.1.0-dev.45](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.44...v1.1.0-dev.45) (2026-11-17)
+
+
+### Bug Fixes
+
+* testing Netflix 9.93.0 build 8 74808 ([199af68](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/199af68d8b301a7e6c4abe66cb5bdd2175634642))
+
 # [1.1.0-dev.44](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.43...v1.1.0-dev.44) (2026-11-16)
 
 

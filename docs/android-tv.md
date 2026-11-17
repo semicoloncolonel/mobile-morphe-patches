@@ -2,7 +2,7 @@
 
 These apps have patches for their Android TV builds. On a TV, patch the Android TV build, not the phone build. The table lists each app's own patches and the versions they were tested on. Disable auto-updates, Hide device identifiers, and Hide rating prompt also cover most of these apps, as [What the patches do](patches.md) explains.
 
-The Android TV patches have moved to their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). Add it in Morphe Manager with the link in its README. The pre-releases of mobile-morphe-patches no longer include the Android TV apps, and its stable release includes them only until 1.1.
+The Android TV patches have moved to their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). Add it in Morphe Manager with the link in its README. The pre-releases of mobile-morphe-patches no longer include the Android TV apps. Its 1.1.0 release is the last stable release that does: from 1.2.0, the Android TV patches are only in the TV source.
 
 | App | Patches | Tested version | Notes |
 |-----|---------|----------------|-------|

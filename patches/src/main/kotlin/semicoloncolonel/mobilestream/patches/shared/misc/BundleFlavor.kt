@@ -59,6 +59,9 @@ fun byBundle(all: Compatibility, phone: Compatibility, tv: Compatibility): Compa
 private const val PHONE_BUILD = "Phone build"
 private const val TV_BUILD = "Android TV build"
 
+/** A target for the Android TV build, with or without the combined bundle's TV source label. */
+private val AppTarget.isTvBuild: Boolean get() = description == TV_BUILD || description == TV_BUILD_LABEL
+
 /**
  * Splits an entry from the combined bundle into a phone entry and an Android TV
  * entry, for an app whose phone and Android TV builds share a package. The
@@ -71,12 +74,12 @@ private const val TV_BUILD = "Android TV build"
  * edit them there.
  */
 fun Compatibility.splitByBundle(
-    phoneTargets: List<AppTarget> = targets.filter { it.description != TV_BUILD },
+    phoneTargets: List<AppTarget> = targets.filter { !it.isTvBuild },
     tvTargets: List<AppTarget> = targets.filter { it.description != PHONE_BUILD },
     phoneDescription: String? = description,
     tvDescription: String? = description,
 ): Compatibility = byBundle(
-    all = this,
+    all = withTvSourceLabel(),
     phone = Compatibility(
         name = checkNotNull(name),
         packageName = checkNotNull(packageName),
@@ -103,8 +106,43 @@ fun tvName(name: String): String = if (isTvBundle) name.removeSuffix(TV_SUFFIX) 
  * without " (Android TV)" in its name or the "Android TV build" label on its
  * versions, and with [tvDescription]. Other bundles keep this entry as is.
  */
-fun Compatibility.forTvSource(tvDescription: String? = description): Compatibility =
-    if (isTvBundle) asTvEntry(targets, tvDescription) else this
+fun Compatibility.forTvSource(tvDescription: String? = description): Compatibility = when {
+    isTvBundle -> asTvEntry(targets, tvDescription)
+    isPhoneBundle -> this
+    else -> withTvSourceLabel(TV_SOURCE_NOTICE)
+}
+
+// The combined bundle is the last one from this source with the Android TV
+// apps: from 1.2.0 they are released only from tv-morphe-patches. Its Android
+// TV versions say so in Morphe Manager. The label is added here, not in each
+// Constants.kt, because the issue triage and the update bot read the literal
+// "Android TV build" there.
+private const val TV_BUILD_LABEL = "Android TV build. From 1.2.0, only in the TV patch source"
+private const val TV_SOURCE_NOTICE = "From 1.2.0, these Android TV patches are only in the TV patch " +
+    "source, tv-morphe-patches."
+
+private fun Compatibility.withTvSourceLabel(notice: String? = null) = Compatibility(
+    name = checkNotNull(name),
+    packageName = checkNotNull(packageName),
+    description = if (notice == null) description else listOfNotNull(description, notice).joinToString(" "),
+    apkFileType = apkFileType,
+    appIconColor = appIconColor,
+    signatures = signatures,
+    targets = targets.map { target ->
+        if (!target.isTvBuild) {
+            target
+        } else {
+            AppTarget(
+                version = target.version,
+                versionCodes = target.versionCodes,
+                isExperimental = target.isExperimental,
+                minSdk = target.minSdk,
+                description = TV_BUILD_LABEL,
+            )
+        }
+    },
+    formFactor = formFactor,
+)
 
 private fun Compatibility.asTvEntry(tvTargets: List<AppTarget>, tvDescription: String?) = Compatibility(
     name = tvName(checkNotNull(name)),
@@ -114,7 +152,7 @@ private fun Compatibility.asTvEntry(tvTargets: List<AppTarget>, tvDescription: S
     appIconColor = appIconColor,
     signatures = signatures,
     targets = tvTargets.map { target ->
-        if (target.description != TV_BUILD) {
+        if (!target.isTvBuild) {
             target
         } else {
             AppTarget(
@@ -149,7 +187,7 @@ fun Compatibility.phoneOnly(): Compatibility = Compatibility(
     apkFileType = apkFileType,
     appIconColor = appIconColor,
     signatures = signatures,
-    targets = targets.filter { it.description != TV_BUILD },
+    targets = targets.filter { !it.isTvBuild },
 )
 
 /**

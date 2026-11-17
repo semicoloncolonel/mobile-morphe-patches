@@ -23,6 +23,9 @@ import tempfile
 from pathlib import Path
 
 
+COMBINED_ONLY = {"Android TV source notice"}
+
+
 def list_patches(cli: str, mpp: str) -> list[dict]:
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "list.txt"
@@ -81,7 +84,9 @@ def main() -> int:
                 print(f"  FAIL {name}: '{p['name']}' has no compatible package")
                 failed = True
 
-    combined = triples(bundles["all"])
+    # The combined bundle's notice that the Android TV patches move to the TV
+    # source (TvSourceNoticePatch.kt) is meant to be in neither split bundle.
+    combined = {t for t in triples(bundles["all"]) if t[0] not in COMBINED_ONLY}
     split = triples(bundles["phone"]) | triples(bundles["tv"])
     for patch, package, version in sorted(combined - split):
         print(f"  FAIL missing from both split bundles: {patch} / {package} {version}")

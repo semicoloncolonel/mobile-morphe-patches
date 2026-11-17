@@ -20,18 +20,15 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - CNN: banner and sponsored-content ads, and ads in videos and clips. All Access streaming is not changed.
 - C-SPAN Now: the pre-roll before archive and on-demand videos. Ads in the live channels are stitched into the stream and still play.
 - ESPN: scheduled breaks and on-demand mid-rolls.
-- ESPN (Android TV): pre-roll, mid-roll, and pause ads, the same way as on Disney+. Commercials that are part of a live broadcast still play.
 - Fox Local: ads in on-demand videos, articles, and live blogs, the splash ad, and Taboola recommendations.
 - Fox News: banner, feed, sponsored, and full-screen ads, and ad breaks in videos.
 - Fox One: ads in on-demand videos. On live TV, the ad tracking and the limits on skipping ahead during breaks.
 - Hulu: ads in on-demand videos. Live TV is not changed.
 - MLB: ads before on-demand videos (highlights and classic games). Live-game ads are covered by Mask live ad breaks.
 - NBA: ads in videos, games, NBA TV, and article videos.
-- NBA (Android TV): the ads the app plays before and during videos. Ads that are part of a live broadcast still play.
 - NBC News: ads in videos, and display ads on the home and section pages.
 - NewsBreak: ads in the feed, the app-open and full-screen ads, and the ads in articles and local-alert pages.
 - NewsNation: the banner, native, and full-screen ads, Teads video ads in articles, Taboola recommendations, Nativo sponsored cards, and the pre-roll before videos. Ads in the live channels are not affected.
-- NewsNation (Android TV): the video ads before clips. Ads in the live channels are not affected.
 - NFL: ads in clips and highlights, including the clips on article pages. The banner ads on article pages are not affected.
 - NPR: sponsor banners in the feed, the ad spaces in stories that open as web pages, and ads before videos. Sponsor credits read in podcasts and the live stream are part of the audio and still play.
 - Paramount+: ads in videos. Live sports breaks show Paramount's "Commercial in Progress" card.
@@ -50,7 +47,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Yahoo Finance: the ads on Home, Markets, quote pages, and in news, including the Taboola stream ads, and the ads in videos. Each ad slot is told its ad failed, so it shows nothing. The video player is also told that you opt out of ads, so it stops sending your device ID. Ads inside article web pages are hidden, and the space they held closes up.
 </details>
 
-**Block ads** (Checkout 51, DealNews, Flipp, JustWatch, Moviebase, Slickdeals, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On Checkout 51, it removes the full-screen ad shown on launch and the Google ads in the offer list, search, and highlights. On DealNews, it removes the ad banner from deal pages. On Slickdeals, it removes the ads in every feed and on deal pages, sponsored carousels, and deals marked Promoted. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. The JustWatch Android TV app shows only video ads, before and during free streams, and those are removed. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
+**Block ads** (Checkout 51, DealNews, Flipp, JustWatch, Moviebase, Slickdeals, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On Checkout 51, it removes the full-screen ad shown on launch and the Google ads in the offer list, search, and highlights. On DealNews, it removes the ad banner from deal pages. On Slickdeals, it removes the ads in every feed and on deal pages, sponsored carousels, and deals marked Promoted. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
 
 **Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
 
@@ -77,10 +74,9 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 | Patch | App | What it hides |
 |-------|-----|---------------|
-| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, NewsNation (Android TV), Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
+| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
 | Hide donate button | AP News | The Donate link on Top Stories and the "Donate now" card on the account screen. Your account is not changed. |
 | Hide rating prompt | Apple TV | The "Enjoying Apple TV?" prompt that asks for a review. |
-| Hide rating prompt (Android TV) | Apple TV (Android TV) | The Google Play review prompt. |
 | Hide surveys | CBS News | Qualtrics surveys and the rate-the-app prompt they can lead to. |
 | Hide surveys | RetailMeNot | The in-app survey card. |
 | Hide newsletter pop-ups | CNBC | The newsletter sign-up bars that slide in over articles and ask for your email address. |
@@ -99,7 +95,6 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
 | Hide betting | ESPN | Betting odds, My Bets, the ESPN BET section of the More tab, sportsbook promotions, and DraftKings account linking. |
 | Hide betting odds | MLB | The betting-odds section on the scores sheet, its toggle, and its legal disclaimer. |
-| Hide betting odds (Android TV) | MLB (Android TV) | The betting-odds banner on the scores screen. |
 | Hide surveys and rating prompt | MLB | The Qualtrics surveys and the Play Store rating pop-up they lead to. |
 | Hide Premium upsell | Moviebase | The Premium screen that opens on its own at launch and after sign-in. Premium still opens from Settings and the app's buttons. |
 | Hide surveys and rating prompt | NBC News | Iterate surveys and the rate-the-app prompt. |
@@ -121,7 +116,6 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |
 | Hide Premium upsells | NewsBreak | The "Ad-free Reading" banner and Upgrade button on the Me tab, the Premium button on profiles, the promo on Home, the bottom-bar badge, and the Premium offers in pop-ups and ad dialogs. If you pay for NewsBreak Premium, leave it off: the app stops refreshing your subscription status. |
 | Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
-| Hide rating prompt (Android TV) | NewsNation (Android TV) | The "rate this app" dialog and Google Play's rate-this-app sheet. Rating from Settings still works. |
 | Hide donate buttons | NPR | The Donate buttons in the top bar, on the live-station module on Home, on station pages, and on a live stream's detail sheet. |
 | Hide Waze bar | NPR | Turns off the "Drive with Waze" bar by default. You can turn it back on in the app's settings. |
 | Hide rating prompt | Recreation.gov | The rate-the-app prompt after checkout. |
@@ -134,7 +128,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide crypto and prediction markets | Truth Social | Truth Predict, the prediction market run with Crypto.com's US derivatives exchange, and Gems, the rewards that convert to Crypto.com's CRO token. |
 | Hide Truth+ | Truth Social | The Truth+ button at the top of the home feeds, the Watch tab, the strip of live Truth+ streams, the live shows row, and the Truth+ banners in the feeds and the side menu. The "+" badges on subscribers' names stay. |
 | Hide sign-in prompts | Tubi | The request to sign in when you pause or leave a title. |
-| Hide update prompts | Tubi | The request to update the app, which Tubi shows from its own server settings or when Google Play has a newer version. A patched app cannot be updated through Google Play, and the Android TV build asks even when it is current. |
+| Hide update prompts | Tubi | The request to update the app, which Tubi shows from its own server settings or when Google Play has a newer version. A patched app cannot be updated through Google Play. |
 | Hide rating prompt | USA TODAY | The Play Store rating request. |
 | Hide subscription prompts | USA TODAY | The "Sale" bar pinned to the bottom of articles, the Subscribe links above Top Stories and in the article toolbar, and the subscription offers that pop up on launch, such as the $1 trial. Sign In stays. |
 | Hide promotions | White House | The buttons you choose: "Text President Trump" and "Get in Touch". |
@@ -186,7 +180,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - ABC News: mParticle, comScore, Braze, and Datadog.
 - AMC+: AppsFlyer, Braze, mParticle, Nielsen, New Relic, and NPAW/Youbora.
 - AP News: Adjust, Branch, Amplitude, Segment, comScore, Parse.ly, LiveRamp, Iterable, Permutive, Quantcast, and AP's BlueConic customer-data platform.
-- Apple TV: Apple's usage metrics, such as the pages you view and what you tap, play, and search for. On Android TV, this is a separate, experimental patch, Block analytics & tracking (Android TV). It turns off Apple's usage metrics in the app and stops the player's playback reports. [Known issues](known-issues.md) lists what it does not cover yet. The Android TV app then stops downloading updates to its screens between app updates, because those updates would bring the metrics back.
+- Apple TV: Apple's usage metrics, such as the pages you view and what you tap, play, and search for.
 - CBS News: Adobe Analytics, comScore, Nielsen, Mux, New Relic, Flurry, Kochava, and Moat.
 - CNBC: Adobe, Amplitude, AppsFlyer, CleverTap, comScore, Kochava, Nielsen, and Airship analytics.
 - CNN: Adobe, AppsFlyer, Chartbeat, comScore, and CNN's own data collection.
@@ -214,7 +208,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 - NBA: Braze, New Relic, Amplitude, Datadog, comScore, and Kochava.
 - NBC News: Adobe, mParticle, Nielsen, comScore, Conviva, Moat, and Iterate.
 - NewsBreak: AppsFlyer, Adjust, Branch, Amplitude, mParticle, Segment, Singular, Iterable, LiveRamp, and Amazon ad analytics. NewsBreak's own event log shares servers with its stories, so it is not blocked.
-- NewsNation: on phones, comScore, Nielsen, Segment, and Adjust. On Android TV, Kochava, including its rotating failover domains, and Intercom's event endpoint. Intercom chat and push are left working.
+- NewsNation: comScore, Nielsen, Segment, and Adjust.
 - NFL: Kochava, Adobe Analytics, Nielsen, Partnerize, and Amplitude. Analytics sent from the app's JavaScript are not covered.
 - NPR: AppsFlyer, Adjust, Branch, mParticle, Segment, comScore, Iterable, Permutive, Quantcast, and Amazon ad analytics.
 - NPS: Mapbox map usage reports.
@@ -266,7 +260,6 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Block TV discovery | T-Mobile Play | Stops Vizbee, which scans your home network for TVs. Sending video to a TV from the app stops working. |
 | Incognito reading | The New York Times, The Washington Post, The Wall Street Journal | Stops the app from recording which articles you read and sending that record to the publisher. On The New York Times, it blocks NYT's own page-view and event trackers and the ad-targeting lookup that receives each article, and keeps opened articles out of Recently viewed. On The Washington Post, it blocks the reading-history service, the meter's log of the articles you read, and related-article suggestions, and the For You feed no longer receives your reading list. On The Wall Street Journal, it stops the per-article offer requests to Piano and leaves the article and your ID out of related-article suggestions. It includes Block analytics & tracking. The article itself is still requested with your account, because the paywall needs it, and related-article suggestions become general ones. |
 | Opt out of data sale & sharing | CBS News, CNN, Fox Local, Fox News, MS NOW, NBC News, NPR | Sets the privacy choice to "do not sell or share" and sends ad partners the US Privacy opt-out signal. On Fox News, it also opts out of Nielsen measurement. On NPR, it chooses Reject All on the cookie banner of the npr.org pages inside the app and hides the banner. You can change it in the app's privacy settings, except on CBS News and CNN. |
-| Reject tracking consent | NBA (Android TV), NFL (Android TV) | Answers the tracking consent prompt with Reject All, so the prompt does not appear and the optional trackers stay off. |
 | Remove location access | RetailMeNot | Keeps the app from reading your location, even when location access is allowed. The app runs as it does when you deny location, and it does not show the permission request. |
 | Remove microphone access | White House | Removes the microphone permission, which no feature uses. |
 | Route traffic through a proxy | AP News, NewsBreak, NPR, Truth Social, White House | Sends the app's traffic through the proxy you set, such as Orbot for Tor or a SOCKS5 server from a VPN service. A SOCKS5 proxy that needs a login is entered as `socks5://user:password@host:port`, and the login is stored in the patched app. The app cannot connect while the proxy is off, and web pages inside the app do not use it. |
@@ -278,7 +271,7 @@ These patches are off by default.
 
 | Patch | Works on | What it does |
 |-------|----------|--------------|
-| Hide device identifiers | Every app except CNBC, Costco, Hulu (Android TV), Kanopy, MyTSA, Plex, SiriusXM, Yahoo Finance, Yahoo News, and YouTube TV | Hides details about your phone from the app. Its options choose which ones:<br>**Android ID and advertising ID**, on by default: gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. On Truth Social, the Adjust ID the app sends to Truth Social's own server is also replaced with a random one.<br>**Carrier** and **Carrier name**: hides your carrier, or shows a name you choose. Carrier deals, such as League Pass with a phone plan, stop working.<br>**Report Wi-Fi connection**: shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data.<br>**VPN connection**: hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address.<br>**Nearby Wi-Fi networks**, **Bluetooth scanning**, **Cell tower info**, and **Background location**: take away the signals that shopping apps use to tell that you are in a store. Store detection, in-store maps, kiosk check-in, smart-home setup, accessory pairing, and pickup check-in can stop working. On T-Life, leave Nearby Wi-Fi networks off if you use Secure Wi-Fi or T-Mobile Home Internet. RetailMeNot has its own Block background location, so this option does nothing there. |
+| Hide device identifiers | Every app except CNBC, Costco, Kanopy, MyTSA, Plex, SiriusXM, Yahoo Finance, Yahoo News, and YouTube TV | Hides details about your phone from the app. Its options choose which ones:<br>**Android ID and advertising ID**, on by default: gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, so playback works. On Truth Social, the Adjust ID the app sends to Truth Social's own server is also replaced with a random one.<br>**Carrier** and **Carrier name**: hides your carrier, or shows a name you choose. Carrier deals, such as League Pass with a phone plan, stop working.<br>**Report Wi-Fi connection**: shows mobile data as Wi-Fi, so Wi-Fi-only downloads and mobile quality limits do not apply. This can use a lot of data.<br>**VPN connection**: hides an active VPN from the app's checks on the phone. The app's servers can still detect a VPN from your IP address.<br>**Nearby Wi-Fi networks**, **Bluetooth scanning**, **Cell tower info**, and **Background location**: take away the signals that shopping apps use to tell that you are in a store. Store detection, in-store maps, kiosk check-in, smart-home setup, accessory pairing, and pickup check-in can stop working. On T-Life, leave Nearby Wi-Fi networks off if you use Secure Wi-Fi or T-Mobile Home Internet. RetailMeNot has its own Block background location, so this option does nothing there. |
 | Disable auto-updates | Every app except CNBC, Costco, Kanopy, Mint Mobile, Plex, SiriusXM, T-Mobile Play, The Washington Post, Truth Social, White House, and YouTube TV | Stops the Play Store from replacing the patched app with the official one. To update, patch the newer version. It is always on with Tubi's Skip ads. |
 
 ## Playback
@@ -287,11 +280,11 @@ These patches are off by default.
 |-------|-----|--------------|
 | Disable autoplay | Netflix | Stops preview trailers from playing while you browse, and stops the next episode from starting on its own. Its options turn off each one separately. |
 | Disable video autoplay | Yahoo News | Videos play only when you tap them. The video rails stop moving to the next video, and image carousels stop turning on their own. |
-| Auto-skip | Apple TV, Apple TV (Android TV) | Skips the parts you choose in its options: Apple's promos for other titles, which are on by default, and recaps and intros, which are off by default. Other buttons, such as Add, are left alone. Recaps and intros are recognized by their English button labels, "Skip Recap" and "Skip Intro". Each recap and intro is skipped once per title, so rewinding into one plays it. On a phone, the app's button then shows "Watch Recap" or "Watch Intro" for a few seconds where the skipped part ends, and goes back to its start. |
+| Auto-skip | Apple TV | Skips the parts you choose in its options: Apple's promos for other titles, which are on by default, and recaps and intros, which are off by default. Other buttons, such as Add, are left alone. Recaps and intros are recognized by their English button labels, "Skip Recap" and "Skip Intro". Each recap and intro is skipped once per title, so rewinding into one plays it. The app's button then shows "Watch Recap" or "Watch Intro" for a few seconds where the skipped part ends, and goes back to its start. |
 | Disable up next | Apple TV | Lets the credits play full screen, instead of shrinking the video into a corner to show the next episode or a recommendation. |
 | Enable picture-in-picture | Paramount+ | Offers picture-in-picture for on-demand and live content on devices that support it. Experimental. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
-| Force highest quality | Paramount+, Prime Video (Android TV) | Plays the highest quality your device and plan allow. On Paramount+ it is on by default and stops the app from lowering the quality to match the measured connection speed. Turn it off if videos buffer. On Prime Video (Android TV) it is experimental and off by default: it reports every video quality as supported, which can stutter or fail on a device that cannot decode the top quality. |
+| Force highest quality | Paramount+ | Plays the highest quality your device and plan allow. It is on by default and stops the app from lowering the quality to match the measured connection speed. Turn it off if videos buffer. |
 | Hide player overlays | Apple TV | Hides the overlays you choose in its options: the rating card when a title starts, product placement notices, and photosensitivity and high-motion warnings. The warnings are shown by default. |
 | Keep screen brightness | Netflix | Keeps the screen brightness you set. Without it, Netflix changes the brightness while a video plays. |
 | Highest quality | Tubi | Plays the highest-resolution version of each title and live channel, and keeps it at the highest bitrate Tubi sends. Most titles stop at 720p, and a few have 1080p. Tubi sends the app fewer renditions than its website, so some titles play below the resolution the website offers. Turn it off if videos buffer. |
@@ -326,7 +319,7 @@ These patches are off by default.
 
 ## Extra features
 
-**Show release times** (Apple TV, on phones and Android TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or, on a phone, the device's setting. On Android TV, the app shows labels such as "Coming Tuesday at 4:00 PM PST", and it stops downloading updates to its screens between app updates, as with Block analytics & tracking (Android TV). Labels are in English.
+**Show release times** (Apple TV) shows when an upcoming episode or title is released, in your time zone. The app shows only a day, such as "Coming This Wednesday", which can be the day after the release in your time zone. Episode tiles show the day and time, such as "Tue 4:00 PM PST", the badge on an episode's page says "Coming Tuesday at 4:00 PM PST", and the "Coming Soon" row under Information shows the full date and time. Its options choose 12-hour or 24-hour time, or the device's setting. Labels are in English.
 
 **Browse hidden categories** (Netflix) adds a searchable list of the genre categories that Netflix has but does not show in its menus, such as the codes in netflix.com/browse/genre links. Tapping one opens it in the app. **Surprise me** opens a random one. Its options choose where they appear: a separate Hidden Categories app icon, a shortcut on the Netflix icon, or both, and a Surprise me shortcut. The list holds only categories that had titles when it was made, so the number of titles in each one can change.
 
@@ -338,7 +331,7 @@ These patches are off by default.
 
 **Enable developer menu** (Fox News) opens the hidden developer menu with a long-press on the Fox logo at the bottom of Settings. Reopen the app after you change a feature flag. Some of its settings point the app at test servers.
 
-**Streaming titles only**, **Hide unavailable titles**, and **Hide watched titles** (JustWatch) change what the Watchlist shows, on phones and Android TV, using JustWatch's own data for each title. Streaming titles only shows titles you can stream on a subscription or for free, and hides titles you can only rent or buy. Picking a Types filter in the app overrides it. Hide unavailable titles hides titles that are not on the services you picked in the service bar. With All picked, it hides titles that no service offers, except titles that are not released yet. Hide watched titles hides movies you marked as seen and shows you are caught up on. The Seen, Likes, and Dislikes tabs and your other lists are not changed, and the title count at the top of the Watchlist still includes hidden titles.
+**Streaming titles only**, **Hide unavailable titles**, and **Hide watched titles** (JustWatch) change what the Watchlist shows, using JustWatch's own data for each title. Streaming titles only shows titles you can stream on a subscription or for free, and hides titles you can only rent or buy. Picking a Types filter in the app overrides it. Hide unavailable titles hides titles that are not on the services you picked in the service bar. With All picked, it hides titles that no service offers, except titles that are not released yet. Hide watched titles hides movies you marked as seen and shows you are caught up on. The Seen, Likes, and Dislikes tabs and your other lists are not changed, and the title count at the top of the Watchlist still includes hidden titles.
 
 **Show hidden details** (Recreation.gov) shows details the app receives but does not display: the ticket-lottery application and award counts and the per-account limit (in a dialog you dismiss, since that screen has no text to add them to), when each ticket time slot stops selling, booking window rules, the deadline to confirm a lottery win, and when venue booking opens or closes. The lottery's results date is left out because the app already shows it.
 

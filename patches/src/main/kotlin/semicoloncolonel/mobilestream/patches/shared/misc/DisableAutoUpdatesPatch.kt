@@ -80,7 +80,7 @@ val disableAutoUpdatesPatch = resourcePatch(
     description = "Stops the Play Store from replacing the patched app with the official version.",
     default = false,
 ) {
-    compatibleWith(*forBundle(
+    compatibleWith(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
         Hulu.COMPATIBILITY,
@@ -100,9 +100,9 @@ val disableAutoUpdatesPatch = resourcePatch(
         FoxNews.COMPATIBILITY,
         MsNow.COMPATIBILITY,
         Cnn.COMPATIBILITY,
-        Espn.COMPATIBILITY, Espn.TV_COMPATIBILITY,
+        Espn.COMPATIBILITY,
         Nfl.COMPATIBILITY,
-        Nba.COMPATIBILITY, Nba.TV_COMPATIBILITY,
+        Nba.COMPATIBILITY,
         Fandango.COMPATIBILITY,
         CbsNews.COMPATIBILITY,
         NbcNews.COMPATIBILITY,
@@ -121,9 +121,9 @@ val disableAutoUpdatesPatch = resourcePatch(
         Xfinity.COMPATIBILITY,
         Att.COMPATIBILITY,
         Verizon.COMPATIBILITY,
-        Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, NewsNation.TV_COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY,
+        Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY,
         Reuters.COMPATIBILITY,
-    ))
+    )
 
     execute {
         document("AndroidManifest.xml").use { document ->

@@ -202,6 +202,23 @@ public final class TrackerBlocker {
             "prod.cm.publishers.advertising.a2z.com", // Amazon ad metrics
             // Kanopy (6.32.0)
             "sentry-tmp.kanopy.com", // Kanopy's Sentry server, which receives screenshots
+            // Malware served through compromised Optimizely Web snippets on 16 November
+            // 2026 (report-uri.com, "World's largest brands infected with malware via
+            // Optimizely"). It swapped crypto wallet addresses, skimmed card forms, and
+            // stole cookies. Not trackers, but blocked here so a web page an app shows
+            // cannot load it again.
+            "1688360.cc", // the skimmer's script and data collector
+            "webshell.lol", // the injector
+            "linkforge.cc", // a script that carried the injector
+            "5vobauua3ojpklx.icu", // the rest are the kit's iOS routers and fallback servers
+            "eil786npto9u5bq.icu",
+            "l7bcsnwc7nzr3uo.icu",
+            "je4ft3gn8vxudum.icu",
+            "q1ls1ho9x7wsxlu.icu",
+            "ios-hack.icu",
+            "p55abnw2pnsz0bo.icu",
+            "1y69gy2mdzaltz1.icu",
+            "gm38duxoihbmy5o.icu",
     };
 
     /**

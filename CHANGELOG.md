@@ -1,3 +1,10 @@
+# [1.1.0-dev.48](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.47...v1.1.0-dev.48) (2026-11-17)
+
+
+### Bug Fixes
+
+* **newsbreak:** Fix GmsCore Google sign-in on 26.46.1 ([2eb8d57](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2eb8d573b5581e0f3604863a5dbcc4a6a5e54bcc))
+
 # [1.1.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.46...v1.1.0-dev.47) (2026-11-17)
 
 

@@ -52,12 +52,17 @@ def phone_apps():
     for path in KOTLIN.rglob("*.kt"):
         if any(fnmatch.fnmatch(path.as_posix(), glob) for glob in globs):
             continue
-        for block in re.findall(r"Compatibility\((.*?)\n\s*\)", path.read_text(), re.S):
+        text = path.read_text()
+        constants = dict(re.findall(r'const val (\w+)\s*=\s*"([^"]+)"', text))
+        for block in re.findall(r"Compatibility\((.*?)\n\s*\)", text, re.S):
             name = re.search(r'name\s*=\s*"([^"]+)"', block)
-            package = re.search(r'packageName\s*=\s*"([^"]+)"', block)
+            # The package is a string, or a constant such as PACKAGE_NAME in the same file.
+            package = re.search(r'packageName\s*=\s*(?:"([^"]+)"|(\w+))', block)
             if not name or not package or "FormFactor.TV" in block or name.group(1).endswith("(Android TV)"):
                 continue
-            apps.setdefault(package.group(1), name.group(1))
+            value = package.group(1) or constants.get(package.group(2))
+            if value:
+                apps.setdefault(value, name.group(1))
     return sorted(((name, package) for package, name in apps.items()), key=lambda app: app[0].lower())
 
 

@@ -1,3 +1,13 @@
+# [1.2.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-11-17)
+
+
+### Features
+
+* Merge related patches into options ([8fd9ff9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8fd9ff98b618a51fa0efa5ecc5b8914d58ff18cd))
+* Patch phone apps only, without the Android TV apps ([0b66df6](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0b66df60aae5d4d998d25ea36b987cec1371222f))
+* **release:** Begin the 1.2.0 dev line ([11e2ce9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/11e2ce930cf014b5cd1d785546e7849313d6b832))
+* Sort every patch into a folder ([f3c6160](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f3c6160983fd62ceda7305ca5054d029b40ac3b0))
+
 # [1.1.0](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21...v1.1.0) (2026-11-17)
 
 ### Android TV

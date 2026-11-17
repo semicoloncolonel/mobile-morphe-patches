@@ -1,3 +1,10 @@
+# [1.1.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.46...v1.1.0-dev.47) (2026-11-17)
+
+
+### Features
+
+* **flipp:** Add GmsCore support ([d1efca0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d1efca093dbaef6f80d4d67cc3b6a87d738cf92e))
+
 # [1.1.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.45...v1.1.0-dev.46) (2026-11-17)
 
 

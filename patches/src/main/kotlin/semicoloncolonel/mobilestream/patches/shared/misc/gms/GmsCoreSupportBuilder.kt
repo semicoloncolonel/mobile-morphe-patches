@@ -24,6 +24,7 @@ import app.morphe.patcher.patch.Option
 import app.morphe.patcher.patch.PatchAvailability
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.booleanOption
+import app.morphe.patcher.patch.Patch
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
@@ -146,10 +147,14 @@ internal fun gmsCoreSupportPatch(
     launcherActivity: String,
     required: Boolean = false,
     category: String? = null,
+    // App-specific fixes that only matter when sign-in goes through GmsCore.
+    extraPatches: Set<Patch> = emptySet(),
 ): BytecodePatch {
     lateinit var cloneApp: Option<Boolean>
     lateinit var clonePackage: Option<String>
     fun targetPackage() = if (cloneApp.value == false) packageName else clonePackage.value ?: clonePackageName
+    // The app's own provider authorities that clone mode renames, old to new.
+    val renamedAuthorities = mutableMapOf<String, String>()
 
     val resources = resourcePatch {
         execute {
@@ -174,7 +179,9 @@ internal fun gmsCoreSupportPatch(
                     val providers = document.getElementsByTagName("provider")
                     for (i in 0 until providers.length) {
                         (providers.item(i) as Element).renameAttribute("android:authorities") { authorities ->
-                            authorities.split(';').joinToString(";") { own(it) }
+                            authorities.split(';').joinToString(";") { authority ->
+                                own(authority).also { if (it != authority) renamedAuthorities[authority] = it }
+                            }
                         }
                     }
                 }
@@ -256,6 +263,7 @@ internal fun gmsCoreSupportPatch(
         }
 
         dependsOn(resources)
+        extraPatches.forEach { dependsOn(it) }
 
         extendWith("extensions/extension.mpe")
 
@@ -286,6 +294,29 @@ internal fun gmsCoreSupportPatch(
 
             (GmsCoreConstants.PERMISSIONS + GmsCoreConstants.ACTIONS + GmsCoreConstants.AUTHORITIES).forEach {
                 replaceStrings(it, it.replace("com.google", VENDOR))
+            }
+
+            // In clone mode, the code that names the app's own providers, such as
+            // "content://com.wishabi.flipp.content.Flyer/flyers" or a bare
+            // authority in a UriMatcher. Without this, the app asks for a
+            // provider that no longer exists and crashes at launch (Flipp 116.0.0).
+            renamedAuthorities.forEach { (from, to) ->
+                replaceStrings(from, to)
+                string("content://$from", StringComparisonType.STARTS_WITH).matchAllMethodIndicesForEach(
+                    requireMatches = false,
+                ) { index ->
+                    val instruction = getInstruction<ReferenceInstruction>(index)
+                    val uri = (instruction.reference as StringReference).string
+                    if (uri != "content://$from" && !uri.startsWith("content://$from/")) return@matchAllMethodIndicesForEach
+                    replaceInstruction(
+                        index,
+                        BuilderInstruction21c(
+                            Opcode.CONST_STRING,
+                            (instruction as OneRegisterInstruction).registerA,
+                            ImmutableStringReference("content://$to" + uri.removePrefix("content://$from")),
+                        ),
+                    )
+                }
             }
 
             val authorityPrefixes = GmsCoreConstants.AUTHORITIES.map { it to "content://$it" }

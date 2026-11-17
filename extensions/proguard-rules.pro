@@ -397,3 +397,7 @@
     public static boolean showCodes();
     public static void onPage(android.webkit.WebView, java.lang.String);
 }
+
+-keep class semicoloncolonel.mobilestream.extension.flipp.GoogleConsent {
+    public static java.lang.Object register(java.lang.Object, java.lang.Object, java.lang.Object);
+}

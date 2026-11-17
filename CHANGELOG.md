@@ -1,3 +1,10 @@
+# [1.2.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2026-11-17)
+
+
+### Bug Fixes
+
+* testing Paramount+ 17.4.1 ([004c0ec](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/004c0eceb1c5888229e0e404d0298d4072dcfdfb))
+
 # [1.2.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-11-17)
 
 ### Android TV

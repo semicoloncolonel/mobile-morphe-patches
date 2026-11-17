@@ -23,7 +23,7 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
 </p>
 
 > [!NOTE]
-> **The Android TV patches are in their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches).** From 1.2.0, this source patches phone apps only. Version 1.1.0 is the last release that includes the Android TV apps.
+> **The Android TV patches are in their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches).** Starting version 1.2.0, this source patches phone apps only. Version 1.1.0 is the last release that includes the Android TV apps.
 >
 > This project focuses on phone apps that no other patch source covers. The [Morphe patches site](https://morphe-patches.software/) lists the patches from every source, so search it to see what else exists before you request an app. If another source already patches the app you want, please ask its author for updates or new patches.
 >

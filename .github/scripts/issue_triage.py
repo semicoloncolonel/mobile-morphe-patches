@@ -245,7 +245,7 @@ def version_line(version, entry):
 
 def tv_comment(problem):
     repo = TV_REPO
-    return (f"From version 1.2.0, this source patches phone apps only. The Android TV patches, including "
+    return (f"Starting version 1.2.0, this source patches phone apps only. The Android TV patches, including "
             f"{problem['app']}, come from a separate patch source, [{repo}](https://github.com/{repo}).\n\n"
             f"Please [add that source](https://morphe.software/add-source?github={repo}) in Morphe Manager, "
             f"as [its instructions](https://github.com/{repo}#readme) describe, and patch the app again with "

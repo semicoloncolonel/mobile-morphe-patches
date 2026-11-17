@@ -23,14 +23,7 @@ For each app in the patch bundle, this script:
    app is up to date, and when Play serves a newer one, that download is
    checked and patched. Downloads are only patched on the runner, never
    installed.
-5. Checks the Android TV build separately for apps whose patches also
-   target it. A target whose description says "Android TV build" belongs to
-   the TV track, which has its own pin, report row, and issue ("App update:
-   <App> (Android TV) <version>"). Google Play is asked as a Sony Bravia TV
-   (apkeep's bravia_vu2 profile), which serves the TV build. Without a Play
-   account, APKPure's newer versions are tried instead, keeping the first
-   that is a TV build. TV updates are never bumped automatically.
-6. Writes a Markdown and JSON report, and with --issues keeps one GitHub
+5. Writes a Markdown and JSON report, and with --issues keeps one GitHub
    issue per app and version up to date: it opens "App update: <App>
    <version>", updates it on later runs, and closes it once the latest
    main release (--stable-mpp) targets that version. A version bumped on
@@ -156,50 +149,6 @@ def app_names(repo):
     return names
 
 
-def tv_targets(repo):
-    """{package: {version, ...}} of the targets described as an Android TV build."""
-    from auto_bump import call_end
-    found = {}
-    for path in sorted(Path(repo, "patches/src/main/kotlin").rglob("Constants.kt")):
-        text = path.read_text()
-        constants = dict(re.findall(r'val\s+([A-Z_]+)\s*=\s*"([^"]+)"', text))
-        for match in re.finditer(r"\bCompatibility\(", text):
-            end = call_end(text, match.end() - 1)
-            if end is None:
-                continue
-            block = text[match.start():end]
-            pkg = re.search(r'packageName\s*=\s*(?:"([^"]+)"|([A-Z_]+))', block)
-            package = pkg and (pkg.group(1) or constants.get(pkg.group(2)))
-            if not package:
-                continue
-            for target in re.finditer(r"\b(?:AppTarget|devTarget)\(", block):
-                call = block[target.start():call_end(block, target.end() - 1)]
-                if not re.search(r'description\s*=\s*"[^"]*Android TV', call):
-                    continue
-                version = re.search(r'\(\s*(?:version\s*=\s*)?(?:"([^"]+)"|([A-Z_]+))', call)
-                value = version and (version.group(1) or constants.get(version.group(2)))
-                if value:
-                    found.setdefault(package, set()).add(value)
-    return found
-
-
-def split_tracks(app, tv):
-    """(phone, tv) halves of a bundle app: each {"versions", "patches"}, or None
-    when the app has no targets of that kind. A patch belongs to a track when it
-    lists one of that track's versions, or lists none at all."""
-    tv_versions = set(app["versions"]) & set(tv)
-    phone_versions = set(app["versions"]) - tv_versions
-    by_patch = app.get("patch_versions") or {}
-
-    def half(versions):
-        if not versions:
-            return None
-        patches = [p for p in app["patches"] if not by_patch.get(p) or by_patch[p] & versions]
-        return {"versions": versions, "patches": patches}
-
-    return half(phone_versions), half(tv_versions)
-
-
 # ── APKPure ─────────────────────────────────────────────────────────────────
 
 def apkpure_versions(package):
@@ -209,8 +158,6 @@ def apkpure_versions(package):
 
 
 DISPENSER_URL = "https://auroraoss.com/api/auth"
-# apkeep's built-in Sony Bravia TV profile, which Google Play serves Android TV builds.
-TV_DEVICE = "bravia_vu2"
 PLAY_DETAILS_URL = "https://android.clients.google.com/fdfe/details"
 
 
@@ -261,9 +208,6 @@ class PlayStore:
     Staged rollouts reach only some devices, so a version Play does not serve
     to this phone is treated as not yet public.
 
-    With tv=True, the account asks as a Sony Bravia TV (apkeep's bravia_vu2
-    profile), so Play serves the Android TV build. The anonymous login has no
-    TV profile, so it answers None for the TV build.
     """
 
     def __init__(self, profile, aapt2=None, workdir=None):
@@ -276,11 +220,11 @@ class PlayStore:
         self.error = None
         self.downloads = {}
 
-    def account_version(self, package, tv=False):
+    def account_version(self, package):
         """The versionName of the APK Play gives the throwaway account, or None.
-        The download is kept for downloaded(package, tv)."""
-        folder = Path(tempfile.mkdtemp(dir=self.workdir, prefix="play-tv-" if tv else "play-"))
-        options = f"device={TV_DEVICE},split_apk=true" if tv else "split_apk=true"
+        The download is kept for downloaded(package)."""
+        folder = Path(tempfile.mkdtemp(dir=self.workdir, prefix="play-"))
+        options = "split_apk=true"
         result = run(["apkeep", "-a", package, "-d", "google-play", "-e", self.email, "-t", self.aas_token,
                       "-o", options, str(folder)], timeout=900)
         base = next(folder.rglob(f"{package}.apk"), None)
@@ -290,15 +234,15 @@ class PlayStore:
                   flush=True)
             shutil.rmtree(folder, ignore_errors=True)
             return None
-        self.downloads[(package, tv)] = (folder, base)
+        self.downloads[package] = (folder, base)
         badging = run([self.aapt2, "dump", "badging", str(base)]).stdout
         found = re.search(r"versionName='([^']+)'", badging)
         return found.group(1) if found else None
 
-    def downloaded(self, package, tv=False):
+    def downloaded(self, package):
         """(base APK, input to patch) of the build read by version(), or None.
         A split download is packed into one .apks archive for patching."""
-        folder, base = self.downloads.get((package, tv), (None, None))
+        folder, base = self.downloads.get(package, (None, None))
         if base is None or not base.exists():
             return None
         splits = sorted(base.parent.glob("*.apk"))
@@ -310,9 +254,9 @@ class PlayStore:
                 z.write(split, split.name)
         return base, archive
 
-    def discard(self, package, tv=False):
+    def discard(self, package):
         """Deletes the kept download to free the runner's disk."""
-        folder, _ = self.downloads.pop((package, tv), (None, None))
+        folder, _ = self.downloads.pop(package, (None, None))
         if folder is not None:
             shutil.rmtree(folder, ignore_errors=True)
 
@@ -329,11 +273,11 @@ class PlayStore:
         with urllib.request.urlopen(request, timeout=30) as response:
             self.auth = json.load(response)
 
-    def version(self, package, tv=False):
+    def version(self, package):
         """The versionName Play serves for the package, or None."""
         if self.email and self.aas_token:
-            return self.account_version(package, tv)
-        if tv or self.error:
+            return self.account_version(package)
+        if self.error:
             return None
         try:
             if self.auth is None:
@@ -486,25 +430,13 @@ def patch_check(apk, patches, cli_path, mpp, workdir):
 
 # ── Report ──────────────────────────────────────────────────────────────────
 
-def tv_name(name):
-    return name if "Android TV" in name else f"{name} (Android TV)"
-
-
-def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, keep_dir, play, tv=None):
-    """tv maps a package to the versions its patches target as an Android TV
-    build (tv_targets). Those get their own record; the rest are the phone build."""
+def check(apps, names, certs, cli_path, mpp, workdir, aapt2, apksigner, only, keep_dir, play):
     results = []
     for package in sorted(apps, key=lambda p: names.get(p, p).lower()):
         if only and package not in only:
             continue
-        phone_app, tv_app = split_tracks(apps[package], (tv or {}).get(package, ()))
-        name = names.get(package, package)
-        if phone_app or not tv_app:
-            results.append(check_phone(package, name, phone_app or apps[package], certs, cli_path, mpp,
-                                       workdir, aapt2, apksigner, keep_dir, play))
-        if tv_app:
-            results.append(check_tv(package, tv_name(name), tv_app, certs, cli_path, mpp, workdir, aapt2,
-                                    apksigner, keep_dir, play))
+        results.append(check_phone(package, names.get(package, package), apps[package], certs, cli_path, mpp,
+                                   workdir, aapt2, apksigner, keep_dir, play))
     return results
 
 
@@ -576,70 +508,21 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
     return record
 
 
-def check_tv(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir, play):
-    """The Android TV build. Google Play, asked as a TV, decides. Without a Play
-    account, APKPure's newer versions are tried and the first TV build is used."""
-    pinned = max(app["versions"], key=version_order)
-    record = {"package": package, "name": name, "pinned": pinned, "key": f"{package}#tv", "track": "tv",
-              "targets": sorted(app["versions"], key=version_order)}
-    served = play.version(package, tv=True)
-    record["play"] = served
-    if served:
-        if not newer(served, pinned):
-            record.update(status="up to date", latest=served)
-        elif found := play.downloaded(package, tv=True):
-            base, patch_input = found
-            outcome = inspect_apk(package, base, patch_input, app, certs, cli_path, mpp, workdir, aapt2,
-                                  apksigner, keep_dir, expect_tv=True)
-            record.update(outcome, status="update", source="Google Play",
-                          latest=outcome.get("version_name") or served, rollout=False)
-        else:
-            record.update(status="update", source="Google Play", latest=served, download="failed")
-        play.discard(package, tv=True)
-    else:
-        public = apkpure_versions(package)
-        candidates = sorted((v for v in public if newer(v, pinned)), key=version_order, reverse=True)
-        record.update(status="not on APKPure" if not public else "up to date", latest=pinned)
-        # The phone build can have higher version numbers (NewsNation's is 510.x,
-        # its TV build 4.x), so up to three newer versions are tried.
-        for version in candidates[:3]:
-            outcome = check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, apksigner,
-                                    keep_dir, expect_tv=True)
-            if outcome.get("tv_build"):
-                latest = outcome.get("version_name") or version
-                # The same check as the phone build: the APK must be newer than the pin.
-                if not newer(latest, pinned):
-                    record.setdefault("not_newer", []).append(f"{version} (APK is {latest})")
-                    continue
-                record.update(outcome, status="update", latest=latest)
-                break
-        else:
-            # A TV build whose APK was not newer than the pin leaves it up to date.
-            if candidates and not record.get("not_newer"):
-                record["status"] = "TV build not found"
-    print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
-    return record
-
-
-def check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir,
-                  expect_tv=False):
+def check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir):
     """Downloads one version from APKPure, checks its certificate and build, and test-patches it."""
     apk = download(package, version, workdir)
     if apk is None:
         return {"download": "failed"}
-    outcome = inspect_apk(package, apk, apk, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir,
-                          expect_tv)
+    outcome = inspect_apk(package, apk, apk, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir)
     # Free the runner's disk before the next download.
     shutil.rmtree(apk.parent, ignore_errors=True)
     return outcome
 
 
-def inspect_apk(package, apk, patch_input, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir,
-                expect_tv=False):
+def inspect_apk(package, apk, patch_input, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir):
     """Checks a download's certificate and build, and test-patches patch_input
-    (the APK itself, or an .apks archive of its splits) when it is the build
-    expected: the phone build, or with expect_tv the Android TV build. Only a
-    phone build is kept for the launch check, which runs on a phone emulator."""
+    (the APK itself, or an .apks archive of its splits) when it is the phone
+    build. A fully patched build is kept for the launch check on an emulator."""
     outcome = {}
     digest = signing_cert(apk, apksigner)
     known = certs.get(package, [])
@@ -650,10 +533,10 @@ def inspect_apk(package, apk, patch_input, app, certs, cli_path, mpp, workdir, a
         outcome["tv_build"] = is_tv_build(apk, aapt2)
         outcome["version_code"] = version_code(apk, aapt2)
         outcome["version_name"] = version_name(apk, aapt2)
-        if bool(outcome["tv_build"]) == expect_tv:
+        if not outcome["tv_build"]:
             outcome["patches"] = patch_check(patch_input, app["patches"], cli_path, mpp, workdir)
             patched = Path(workdir, patch_input.stem + "-patched.apk")
-            if not expect_tv and fully_patched(outcome) and patched.exists():
+            if fully_patched(outcome) and patched.exists():
                 # Kept for the launch check on an emulator.
                 keep_dir.mkdir(parents=True, exist_ok=True)
                 shutil.move(str(patched), keep_dir / f"{package}.apk")
@@ -742,20 +625,13 @@ def review_reasons(r):
         reasons.append("Patching did not run. Check the log below.")
     for name in patches.get("failed", []):
         reasons.append(f"The patch \"{name}\" failed on this version and needs an update.")
-    if r.get("track") == "tv" and r.get("source") != "Google Play":
-        reasons.append("Google Play could not be asked for the Android TV build, so this version came from "
-                       "APKPure. Check that Google Play serves it to Android TV devices.")
-    if r.get("tv_build") and r.get("track") != "tv":
+    if r.get("tv_build"):
         reasons.append("APKPure serves the Android TV build for this version. Check whether the phone build "
                        "also updated before moving the phone pin.")
     return reasons
 
 
 def play_note(r):
-    if r.get("track") == "tv":
-        if r.get("play") is None:
-            return "its Android TV version could not be read"
-        return f"serves `{r['play']}` to an Android TV"
     if r.get("play") is None:
         return "its version could not be read"
     if r.get("rollout"):
@@ -900,10 +776,8 @@ def main():
     certs_path = Path(args.certs)
     certs = json.loads(certs_path.read_text()) if certs_path.exists() else {}
     out = Path(args.out)
-    tv = tv_targets(args.repo)
     results = check(apps, app_names(args.repo), certs, args.cli, args.mpp, args.workdir,
-                    args.aapt2, args.apksigner, only, out / "patched", PlayStore(args.play_device, args.aapt2, args.workdir),
-                    tv)
+                    args.aapt2, args.apksigner, only, out / "patched", PlayStore(args.play_device, args.aapt2, args.workdir))
 
     out.mkdir(parents=True, exist_ok=True)
     (out / "app-updates.json").write_text(json.dumps(results, indent=2))
@@ -912,10 +786,8 @@ def main():
         stable_apps = bundle_apps(args.cli, args.stable_mpp) if args.stable_mpp else apps
         stable = {}
         for p, a in stable_apps.items():
-            phone_app, tv_app = split_tracks(a, tv.get(p, ()))
-            for key, half in ((p, phone_app or (None if tv_app else a)), (f"{p}#tv", tv_app)):
-                if half and half["versions"]:
-                    stable[key] = max(half["versions"], key=version_order)
+            if a["versions"]:
+                stable[p] = max(a["versions"], key=version_order)
         sync_issues(results, os.environ.get("GITHUB_REPOSITORY_OWNER"), stable)
 
 

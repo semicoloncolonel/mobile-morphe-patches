@@ -28,7 +28,7 @@ import semicoloncolonel.mobilestream.patches.yttvshell.shared.Constants as YouTu
 // Android TV source notice. In the combined bundle only (-Pflavor=all); the
 // phone and tv flavors leave this file out in patches/build.gradle.kts.
 //
-// After 1.1 the phone source drops the Android TV apps, and they are released
+// From 1.2.0 the phone source drops the Android TV apps, and they are released
 // only from tv-morphe-patches. This adds the extension's TvSourceNotice to the
 // manifest as a provider, so it starts with the app without a hook in the
 // app's own code. On a TV it shows a dialog that says where future Android TV

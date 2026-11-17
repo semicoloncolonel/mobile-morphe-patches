@@ -12,7 +12,7 @@
 
 These patches are built from [mobile-morphe-patches](https://github.com/semicoloncolonel/mobile-morphe-patches), which holds the source and the documentation. This repository holds the releases, the `patches-bundle.json` that Morphe Manager reads, and the issues for the Android TV apps. Its files are updated automatically, so changes made here are overwritten.
 
-> **New source.** The stable release of the phone source, mobile-morphe-patches, also lists the Android TV apps until its 1.1 release. Hulu (Android TV) is in testing, so only the pre-release channel has it.
+> **New source.** The phone source, mobile-morphe-patches, also lists the Android TV apps in its 1.1.0 release. From 1.2.0, they are only in this source. Hulu (Android TV) is in testing and is marked experimental.
 
 ## Install
 

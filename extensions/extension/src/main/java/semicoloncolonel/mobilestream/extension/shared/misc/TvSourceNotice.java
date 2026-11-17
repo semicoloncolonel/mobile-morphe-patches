@@ -30,8 +30,8 @@ public final class TvSourceNotice extends ContentProvider {
     private static final String KEY_SEEN = "seen";
 
     static final String TITLE = "Android TV patches have moved";
-    static final String MESSAGE = "After version 1.1, the phone patch source no longer includes the "
-            + "Android TV patches. To keep receiving updates for this app, add the tv-morphe-patches "
+    static final String MESSAGE = "Starting with version 1.2.0, the phone patch source no longer "
+            + "includes the Android TV patches. To keep receiving updates for this app, add the tv-morphe-patches "
             + "source in Morphe Manager and patch the app with it.\n\n"
             + "github.com/semicoloncolonel/tv-morphe-patches";
 

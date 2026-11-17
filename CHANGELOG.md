@@ -1,3 +1,10 @@
+# [1.1.0-dev.50](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.49...v1.1.0-dev.50) (2026-11-17)
+
+
+### Bug Fixes
+
+* Mark public app versions as standard instead of experimental ([fbd5d3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fbd5d3fced6b022ada32e7d27de4531d03f64a6b))
+
 # [1.1.0-dev.49](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.48...v1.1.0-dev.49) (2026-11-17)
 
 

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-17T02:24:08",
-  "description": "# [1.1.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.45...v1.1.0-dev.46) (2026-11-17)\n\n\n### Bug Fixes\n\n* **yttvshell:** Refuse a YouTube for Android TV base.apk without its native libraries ([0388796](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03887960b6f87ac7093784c25f26373a86c8ba10))\n* **yttv:** Support YouTube TV 10.46.0 ([2294cad](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2294cad5926273f106946eff4482f61fb0b55714))\n\n\n### Features\n\n* **kouponai:** Drop personalized recommendations; add a new-app checklist ([4d738b5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4d738b5cca28bc52f40ff7cc36a079c1f1632190))\n* **yttvshell:** Experimental Skip ads for the official YouTube TV app 4.01.03 ([7f69766](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7f697662088a43f513c52a1840b7f43c26fc00de))\n* **yttvshell:** Name the patch YT TV+ (ad-free YouTube TV) ([11c1e13](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/11c1e13340dfe8496fd4da3ec3cde1d2124ea175))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.46/patches-1.1.0-dev.46.mpp",
+  "created_at": "2026-11-17T02:51:47",
+  "description": "# [1.1.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.46...v1.1.0-dev.47) (2026-11-17)\n\n\n### Features\n\n* **flipp:** Add GmsCore support ([d1efca0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d1efca093dbaef6f80d4d67cc3b6a87d738cf92e))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.47/patches-1.1.0-dev.47.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.46",
+  "version": "1.1.0-dev.47",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

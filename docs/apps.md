@@ -42,7 +42,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 | Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | 11/05/26 |
 | Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.44.3`<br>`10.44.1` | 11/14/26 |
 | Xumo Play | Mask live ad breaks (experimental)<br>Skip ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | 11/04/26 |
-| YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.45.0`<br>`10.44.0` | 11/07/26 |
+| YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default) | `10.46.0`<br>`10.45.0`<br>`10.44.0` | 11/16/26 |
 
 ## News
 

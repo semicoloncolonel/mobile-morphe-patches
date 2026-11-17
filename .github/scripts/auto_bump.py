@@ -17,9 +17,8 @@ updates workflow, which runs only when the repository variable AUTO_BUMP is
     its "experimental" or "needs review" label. The certificate must still
     match and every patch must still apply, so an untrusted or unbuildable
     download is never shipped.
-  - The app has one Compatibility. Apps whose phone and Android TV builds
-    share a package (HBO Max, NewsNation, JustWatch, Apple TV) keep their
-    "ready to bump" issue for a person to handle.
+  - The app has one Compatibility. Apps with more than one, such as HBO Max,
+    keep their "ready to bump" issue for a person to handle.
 
 The new version is added as devTarget(new version, versionCode = ...), so dev
 builds mark it experimental. Every older version stays targeted, so people who

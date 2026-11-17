@@ -1,25 +1,27 @@
 name: ✨ Improve a working patch
-description: A patch works, but it misses something, such as an ad, a prompt, or a tracker, or it leaves an empty space behind. Not for problems.
+description: Ask for a new feature or a change to how a working patch behaves, such as a new option. Not for something that does not work, such as an ad that still plays or a side effect of a patch.
 title: "enhancement: "
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form only when a patch works as described and you would like it to do more, for example hide an ad or prompt it misses, or remove an empty space it leaves behind.
+        Use this form to ask for a new feature or a change to how a working patch behaves, for example a new option or a different default.
 
         This form is not for anything that does not work. Use the [Bug report](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/new?template=1-bug-report.yml) form when:
 
         - Morphe Manager does not accept your app version or build.
         - A patch fails to apply.
         - The patched app will not install, open, play, or sign in, or it crashes.
+        - A patch misses something it should remove, such as an ad, a prompt, or a tracker, or it leaves an empty space behind.
+        - A patch causes a new problem, such as out-of-sync subtitles.
         - A patch does not do what [What the patches do](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/patches.md) says it does.
 
         To ask for a new app, a new patch, or another app version, use the [New app or patch request](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/new?template=3-new-app-or-patch.yml) form.
 
-        Thank you for helping improve a patch. I maintain these patches as a volunteer, so complete requests are the quickest to act on. A screenshot of what the patch misses helps the most. Before you submit, remove or cover any private information, such as your email address, account name, phone number, or location, in text and screenshots.
+        Thank you for helping improve a patch. I maintain these patches as a volunteer, so complete requests are the quickest to act on. A screenshot of the part of the app you would like changed helps the most. Before you submit, remove or cover any private information, such as your email address, account name, phone number, or location, in text and screenshots.
 
-        Required fields are marked with an asterisk. A request that is incomplete, or that does not show what the patch misses, may be closed without a change.
+        Required fields are marked with an asterisk. A request that is incomplete, or that does not say what should change, may be closed without a change.
   - type: checkboxes
     id: before
     attributes:
@@ -202,14 +204,14 @@ body:
     id: description
     attributes:
       label: What could be better
-      description: What the patch misses or leaves behind, and where in the app you see it.
+      description: The feature or change you would like, and where in the app it would apply.
     validations:
       required: true
   - type: textarea
     id: screenshots
     attributes:
       label: Screenshots or video
-      description: Drag files here to attach them. A screenshot of what is left behind helps the most.
+      description: Drag files here to attach them. A screenshot of the part of the app you would like changed helps the most.
   - type: textarea
     id: context
     attributes:

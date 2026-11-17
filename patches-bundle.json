@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-17T04:14:00",
-  "description": "# [1.1.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.50...v1.1.0-dev.51) (2026-11-17)\n\n\n### Features\n\n* **privacy:** Block the domains of the Optimizely snippet malware ([b64bf54](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b64bf54a2a52226b4286e3f97816190d40657a05))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.51/patches-1.1.0-dev.51.mpp",
+  "created_at": "2026-11-17T04:26:58",
+  "description": "# [1.1.0-dev.52](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.51...v1.1.0-dev.52) (2026-11-17)\n\n\n### Features\n\n* **tv:** Label the Android TV builds in the combined bundle as moving in 1.2.0 ([f624592](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f6245923214f4764c1925f06aa5cb94dd5602797))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.52/patches-1.1.0-dev.52.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.51",
+  "version": "1.1.0-dev.52",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

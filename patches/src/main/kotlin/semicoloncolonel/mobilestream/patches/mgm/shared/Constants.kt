@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -15,7 +14,7 @@ object Constants {
         appIconColor = 0xC9A227,
         targets = listOf(
             AppTarget("240.0.2026240000", description = "Phone build"),
-            devTarget("241.0.2026241001", description = "Android TV build"),
+            AppTarget("241.0.2026241001", description = "Android TV build"),
         )
     ).splitByBundle(
         phoneDescription = "The MGM+ phone app (formerly Epix).",

@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -15,7 +14,7 @@ object Constants {
         appIconColor = 0x002D72,
         targets = listOf(
             AppTarget("26.21.0.49", description = "Phone build"),
-            devTarget("26.21.0.76", description = "Android TV build"),
+            AppTarget("26.21.0.76", description = "Android TV build"),
         ),
     ).splitByBundle(
         phoneDescription = "The MLB phone app.",

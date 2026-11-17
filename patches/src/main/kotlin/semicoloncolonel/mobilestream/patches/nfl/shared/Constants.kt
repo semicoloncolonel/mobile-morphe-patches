@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -16,7 +15,7 @@ object Constants {
         targets = listOf(
             AppTarget(version = "61.0.19", description = "Phone build"),
             AppTarget("61.0.18", versionCode = 1356680, description = "Phone build"),
-            devTarget("18.27.0", description = "Android TV build"),
+            AppTarget("18.27.0", description = "Android TV build"),
         )
     ).splitByBundle(
         phoneDescription = "The NFL phone app.",

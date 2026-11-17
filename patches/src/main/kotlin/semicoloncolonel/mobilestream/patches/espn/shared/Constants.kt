@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.FormFactor
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 import semicoloncolonel.mobilestream.patches.shared.misc.forTvSource
 
 // ESPN ships two different apps under one package name: the phone app (8.x)
@@ -29,7 +28,7 @@ object Constants {
         description = "The Android TV app, not the phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xCC0000,
-        targets = listOf(devTarget("6.13.2", description = "Android TV build")),
+        targets = listOf(AppTarget("6.13.2", description = "Android TV build")),
         formFactor = FormFactor.TV,
     ).forTvSource("The ESPN app.")
 }

@@ -5,7 +5,6 @@ import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
 import app.morphe.patcher.patch.SupportedAbi
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -15,7 +14,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xFBC500,
         targets = listOf(
-            devTarget("26.45.1", 2645001, description = "Phone build"),
+            AppTarget("26.45.1", versionCode = 2645001, description = "Phone build"),
             AppTarget("26.44.2", versionCode = 2644002, description = "Phone build"),
             AppTarget("26.43.10", versionCode = 2643010, description = "Phone build"),
             // Two Android TV builds of 26.43.8 exist: APKMirror's bundle (2643008, with

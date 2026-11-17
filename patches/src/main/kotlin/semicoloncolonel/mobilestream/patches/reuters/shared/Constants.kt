@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.reuters.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -11,6 +11,6 @@ object Constants {
         description = "The Reuters news app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xFA6400,
-        targets = listOf(devTarget("7.51.0", versionCode = 1793827556))
+        targets = listOf(AppTarget("7.51.0", versionCode = 1793827556))
     )
 }

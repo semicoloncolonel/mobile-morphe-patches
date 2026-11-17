@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -15,9 +14,9 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xE9181C,
         targets = listOf(
-            devTarget("10.44.3", versionCode = 1066, description = "Phone build"),
+            AppTarget("10.44.3", versionCode = 1066, description = "Phone build"),
             AppTarget("10.44.1", versionCode = 1063, description = "Phone build"),
-            devTarget("10.44.5001", versionCode = 1067, description = "Android TV build"),
+            AppTarget("10.44.5001", versionCode = 1067, description = "Android TV build"),
         )
     ).splitByBundle(
         phoneDescription = "The Tubi app for phones.",

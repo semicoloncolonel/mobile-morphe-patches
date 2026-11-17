@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.wsj.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
@@ -25,15 +26,10 @@ internal object BrazeBeforeDisplayFingerprint : Fingerprint(
     },
 )
 
-@Suppress("unused")
-val hideMarketingPopupsPatch = bytecodePatch(
-    name = "Hide marketing pop-ups",
-    description = "Stops in-app marketing pop-ups, but not the paywall.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "marketingPopUps" option is on.
+internal val hideMarketingPopupsPatch = bytecodePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "marketingPopUps")) return@execute
         BrazeBeforeDisplayFingerprint.method.addInstructions(
             0,
             """

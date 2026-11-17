@@ -1,5 +1,8 @@
 package semicoloncolonel.mobilestream.patches.abcnews.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
+import app.morphe.patcher.patch.booleanOption
+import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -82,12 +85,21 @@ private fun MutableMethod.answerEmptyPod() {
 }
 
 @Suppress("unused")
-val skipAdsPatch = bytecodePatch(
+val skipAdsPatch: BytecodePatch = bytecodePatch(
     name = "Skip ads",
     description = "Removes the ads in on-demand videos, the feeds, and articles.",
 ) {
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
+    extendWith("extensions/extension.mpe")
+    dependsOn(maskLiveAdBreaksPatch)
+
+    booleanOption(
+        key = "maskLiveAds",
+        default = true,
+        title = "Mask live ad breaks",
+        description = "Covers live ad breaks with a \"We'll be right back!\" screen and mutes them.",
+    )
 
     execute {
         PodHandlerFingerprint.method.answerEmptyPod()

@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.cspan.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.PatchException
@@ -24,15 +25,10 @@ internal object DynamicYieldChooseFingerprint : Fingerprint(
     strings = listOf("Choosing variations for page ", "chooseVariations"),
 )
 
-@Suppress("unused")
-val hidePromoBannersPatch = bytecodePatch(
-    name = "Hide promo banners",
-    description = "Removes C-SPAN's program promo banners above the player and on the Watch tab.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "promoBanners" option is on.
+internal val hidePromoBannersPatch = bytecodePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "promoBanners")) return@execute
         DynamicYieldChooseFingerprint.method.apply {
             val instructions = implementation!!.instructions.toList()
             // The initialized flag is a static boolean, read twice.

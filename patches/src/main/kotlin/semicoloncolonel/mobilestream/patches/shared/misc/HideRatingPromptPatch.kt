@@ -1,6 +1,14 @@
 package semicoloncolonel.mobilestream.patches.shared.misc
 
+import semicoloncolonel.mobilestream.patches.walmart.shared.Constants as Walmart
+import semicoloncolonel.mobilestream.patches.walgreens.shared.Constants as Walgreens
+import semicoloncolonel.mobilestream.patches.retailmenot.shared.Constants as RetailMeNot
+import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants as Koupon
+import semicoloncolonel.mobilestream.patches.dealseek.shared.Constants as DealSeek
+import semicoloncolonel.mobilestream.patches.dealnews.shared.Constants as DealNews
+import semicoloncolonel.mobilestream.patches.checkout51.shared.Constants as Checkout51
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -115,10 +123,18 @@ private fun Instruction.isLaunchReviewFlow(): Boolean {
 internal val blockPlayReviewSheetPatch = bytecodePatch {
     extendWith("extensions/extension.mpe")
 
-    execute {
+    execute { blockPlayReviewSheet() }
+}
+
+/**
+ * The work of [blockPlayReviewSheetPatch], for a patch that runs it only when
+ * one of its options is on. That patch must extend with the extension itself.
+ */
+internal fun BytecodePatchContext.blockPlayReviewSheet() {
+    run {
         // RatingPromptBlocker builds its answer with Tasks.forResult. An app
         // that renamed it would crash on the replacement, so skip it instead.
-        if (missingMethods(listOf(TASKS_FOR_RESULT)).isNotEmpty()) return@execute
+        if (missingMethods(listOf(TASKS_FOR_RESULT)).isNotEmpty()) return@run
 
         // Collect first, mutate after: mutableClassDefBy swaps the class map
         // entry, which must not happen mid-iteration.
@@ -155,14 +171,25 @@ internal val blockPlayReviewSheetPatch = bytecodePatch {
     }
 }
 
+// The shopping apps whose Hide prompts and pop-ups has a Rating prompt option.
+private val OWN_PROMPTS_PATCH = setOf(
+    Checkout51.COMPATIBILITY,
+    DealNews.COMPATIBILITY,
+    DealSeek.COMPATIBILITY,
+    Koupon.COMPATIBILITY,
+    RetailMeNot.COMPATIBILITY,
+    Walgreens.COMPATIBILITY,
+    Walmart.COMPATIBILITY,
+)
+
 @Suppress("unused")
 val hideRatingPromptPatch = bytecodePatch(
     name = "Hide rating prompt",
     description = "Stops Google Play's rate-this-app sheet.",
 ) {
     category("Interface")
-    // Apple TV, CNBC, Recreation.gov, NewsBreak, and USA TODAY have their own
-    // Hide rating prompt patch, which includes this one.
+    // Apps with their own Hide prompts and pop-ups are not listed: its Rating
+    // prompt option runs the same code.
     compatibleWith(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,
@@ -189,28 +216,23 @@ val hideRatingPromptPatch = bytecodePatch(
         Espn.COMPATIBILITY,
         Nfl.COMPATIBILITY,
         Nba.COMPATIBILITY,
-        Mlb.COMPATIBILITY,
         TheScore.COMPATIBILITY,
         NyTimes.COMPATIBILITY,
-        WashingtonPost.COMPATIBILITY,
-        Wsj.COMPATIBILITY,
         FoxNews.COMPATIBILITY,
         MsNow.COMPATIBILITY,
         Cnn.COMPATIBILITY,
-        CbsNews.COMPATIBILITY,
-        NbcNews.COMPATIBILITY,
         FoxLocal.COMPATIBILITY,
         AbcNews.COMPATIBILITY,
         Npr.COMPATIBILITY,
         ApNews.COMPATIBILITY,
         Substack.COMPATIBILITY,
-        Cspan.COMPATIBILITY,
         NewsNation.COMPATIBILITY,
-        DailyWire.COMPATIBILITY,
         TruthSocial.COMPATIBILITY,
         WhiteHouse.COMPATIBILITY,
         *GOV_APPS,
-        *SHOPPING_APPS,
+        // Shopping apps with their own Hide prompts and pop-ups, which has a rating
+        // prompt option, are left out.
+        *SHOPPING_APPS.filterNot { it in OWN_PROMPTS_PATCH }.toTypedArray(),
         Costco.COMPATIBILITY,
         Mint.COMPATIBILITY,
         Verizon.COMPATIBILITY,
@@ -219,7 +241,6 @@ val hideRatingPromptPatch = bytecodePatch(
         TMobilePlay.COMPATIBILITY,
         Visible.COMPATIBILITY,
         Xfinity.COMPATIBILITY,
-        Reuters.COMPATIBILITY,
     )
 
     dependsOn(blockPlayReviewSheetPatch)

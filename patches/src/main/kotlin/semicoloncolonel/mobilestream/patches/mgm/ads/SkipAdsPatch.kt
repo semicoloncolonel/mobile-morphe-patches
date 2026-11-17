@@ -1,5 +1,8 @@
 package semicoloncolonel.mobilestream.patches.mgm.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
+import app.morphe.patcher.patch.booleanOption
+import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
@@ -23,12 +26,21 @@ internal object PrepareAdPlanGetAdPlanFingerprint : Fingerprint(
 )
 
 @Suppress("unused")
-val skipAdsPatch = bytecodePatch(
+val skipAdsPatch: BytecodePatch = bytecodePatch(
     name = "Skip ads",
     description = "Gives every title an empty ad plan, so no ad break is scheduled.",
 ) {
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
+    extendWith("extensions/extension.mpe")
+    dependsOn(skipPrerollPromoPatch)
+
+    booleanOption(
+        key = "prerollPromo",
+        default = false,
+        title = "Skip pre-roll promo",
+        description = "Skips the MGM+ promo that plays before a title. Experimental.",
+    )
 
     execute {
         // getAdPlan has .registers 18, so v0 is free.

@@ -1,5 +1,8 @@
 package semicoloncolonel.mobilestream.patches.mlb.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
+import app.morphe.patcher.patch.booleanOption
+import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
@@ -29,14 +32,22 @@ import semicoloncolonel.mobilestream.patches.mlb.shared.Constants
 private const val REWRITER = "Lsemicoloncolonel/mobilestream/extension/mlb/MlbManifestRewriter;"
 
 @Suppress("unused")
-val skipAdsPatch = bytecodePatch(
+val skipAdsPatch: BytecodePatch = bytecodePatch(
     name = "Skip ads",
     description = "Removes the ads before on-demand videos.",
 ) {
     category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
+    dependsOn(maskLiveAdBreaksPatch)
 
     extendWith("extensions/extension.mpe")
+
+    booleanOption(
+        key = "maskLiveAds",
+        default = false,
+        title = "Mask live ad breaks",
+        description = "Covers live gambling-ad breaks with a notice. Experimental.",
+    )
 
     execute {
         // Quiet the IMA DAI machinery (belt-and-suspenders).

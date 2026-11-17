@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.walmart.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
@@ -31,17 +32,12 @@ internal object FeedbackViewStateFingerprint : Fingerprint(
     parameters = listOf("Z"),
 )
 
-@Suppress("unused")
-val hidePopupsPatch = bytecodePatch(
-    name = "Hide pop-ups",
-    description = "Removes surveys, review and feedback requests, tooltips, nudges, and the holiday splash.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "popUps" option is on.
+internal val hidePopupsPatch = bytecodePatch {
     extendWith("extensions/extension.mpe")
 
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "popUps")) return@execute
         forceWalmartFlagsOff("isWalmartPopupKey")
         filterWalmartTempoModules("walmartNagModules")
         FeedbackViewStateFingerprint.method.addInstructions(0, "const/4 p1, 0x0")

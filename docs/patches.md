@@ -24,7 +24,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Fox News: banner, feed, sponsored, and full-screen ads, and ad breaks in videos.
 - Fox One: ads in on-demand videos. On live TV, the ad tracking and the limits on skipping ahead during breaks.
 - Hulu: ads in on-demand videos. Live TV is not changed.
-- MLB: ads before on-demand videos (highlights and classic games). Live-game ads are covered by Mask live ad breaks.
+- MLB: ads before on-demand videos (highlights and classic games). Live-game ads are covered by the Mask live ad breaks option, which is experimental and off by default.
 - NBA: ads in videos, games, NBA TV, and article videos.
 - NBC News: ads in videos, and display ads on the home and section pages.
 - NewsBreak: ads in the feed, the app-open and full-screen ads, and the ads in articles and local-alert pages.
@@ -34,13 +34,13 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Paramount+: ads in videos. Live sports breaks show Paramount's "Commercial in Progress" card.
 - PBS: sponsor messages before and during videos.
 - Plex: ads in on-demand titles, and pause ads. Live TV is not changed.
-- Pluto TV: on-demand ads. Live breaks are covered by Mask live ad breaks.
+- Pluto TV: on-demand ads. Live breaks are covered by the Mask live ad breaks option.
 - Prime Video: every ad break. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
 - Reuters: the ad slots in the feeds and in articles, including the "Advertisement" blocks, the Dianomi sponsored content in articles, and the ads in videos.
 - The Daily Wire: the banner ads and their "Advertisement" slots, including the one pinned to the top of articles, and the pre-roll before videos. Members-only content stays locked.
 - Truth Social: sponsored Truths, boosted posts (paid promotions marked "Boosted"), the other ads placed in the feeds, Google ads, the top banner ad, and the ad on a post's detail page.
 - USA TODAY: the ads in the section fronts, articles, galleries, and videos, Taboola recommendations, and the ad-free upsells. It turns on the app's own ad-free mode, so premium articles stay locked and Settings may show you as ad-free.
-- Xumo Play: pre-roll and mid-roll ads in on-demand videos. Live breaks are covered by Mask live ad breaks.
+- Xumo Play: pre-roll and mid-roll ads in on-demand videos. Live breaks are covered by the Mask live ad breaks option, which is experimental and off by default.
 - YouTube TV: ads inserted into on-demand videos and DVR recordings, and overlay and pause ads. With Mask live ad breaks, the ads YouTube TV inserts into live breaks are covered instead.
 
 - Yahoo News: the Taboola ad rows in the feeds, the ad slots in articles, and the ads before videos. The video player is also told that you opt out of ads, so it stops sending your device ID.
@@ -49,14 +49,14 @@ Everything runs on the device, inside the patched app. The patches do not send d
 
 **Block ads** (Checkout 51, DealNews, Flipp, JustWatch, Moviebase, Slickdeals, T-Mobile Play, and Visible) removes the ads and stops the ad networks from starting. On Checkout 51, it removes the full-screen ad shown on launch and the Google ads in the offer list, search, and highlights. On DealNews, it removes the ad banner from deal pages. On Slickdeals, it removes the ads in every feed and on deal pages, sponsored carousels, and deals marked Promoted. On Flipp, it removes the ad slots from the home feed, the ad among search results, and the ads at the top, middle, and bottom of a flyer. The flyers themselves are not affected. On the JustWatch phone app, the banner spaces and their "Remove Ads" links are removed too. On Visible, it also stops Madme, which shows ads over other apps, after calls, when you unlock the phone, and as notifications.
 
-**Mask live ad breaks** (ABC News, Pluto TV, Xumo Play, and YouTube TV) and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
+**Mask live ad breaks** and **Mask ads** (Fandango at Home) cover ads that cannot be removed with a "We'll be right back!" screen and mute them until the break ends. Live ads are part of the broadcast, and Fandango streams a free title only after its ads play. Mask live ad breaks is an option of Skip ads on ABC News, MLB, Pluto TV, and Xumo Play, and its own patch on SiriusXM and YouTube TV. It is on by default on ABC News and Pluto TV, and experimental and off by default on the others. On ABC News, the cover counts down the break. On YouTube TV, it covers only the ads YouTube TV inserts into a live break. The commercials built into the channel's own broadcast are not covered and still play.
 
 **Translate ad break screen** (experimental) shows that screen in your device's language when it is Arabic, Chinese, French, German, Greek, Italian, Korean, Portuguese, Russian, Spanish, Tagalog, or Vietnamese. Other languages show English. The translations come from a translation service, so some may read awkwardly. Please submit corrections or rewrites through [GitHub issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/new/choose).
 
 On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels during each commercial that SiriusXM labels as an ad, and the player shows "Ad - 🔇 Commercial break" in place of the advertiser's name. The sound comes back when the show returns. Its **Also mute promos and PSAs** option, off by default, also mutes SiriusXM's own channel promos and public service announcements, which SiriusXM does not label as ads. They show as "🔇 Announcement". Ads in podcasts are part of each episode's audio file, so they still play.
 
 > [!TIP]
-> To turn off Mask live ad breaks on Pluto TV without patching again, create a file named `slate_off` in `Android/data/tv.pluto.android/files`. A file named `pluto_slate_mode` that contains `black` or `mute` keeps only the cover or only the muting.
+> To turn off the Mask live ad breaks option on Pluto TV without patching again, create a file named `slate_off` in `Android/data/tv.pluto.android/files`. A file named `pluto_slate_mode` that contains `black` or `mute` keeps only the cover or only the muting.
 
 ### Sponsored content
 
@@ -72,39 +72,43 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 ## Pop-ups and prompts
 
+Hide prompts and pop-ups gathers an app's own prompts into one patch, with one option for each kind. Every option is on by default. Where it has a Rating prompt option, that option runs the same code as Hide rating prompt.
+
 | Patch | App | What it hides |
 |-------|-----|---------------|
-| Hide rating prompt | Every app except Apple TV, CNBC, Kanopy, NewsBreak, Recreation.gov, and USA TODAY, whose own Hide rating prompt includes it | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
+| Hide rating prompt | Every app except Netflix, Settings Home, and the apps with Hide prompts and pop-ups, whose Rating prompt option does the same | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
 | Hide donate button | AP News | The Donate link on Top Stories and the "Donate now" card on the account screen. Your account is not changed. |
-| Hide rating prompt | Apple TV | The "Enjoying Apple TV?" prompt that asks for a review. |
-| Hide surveys | CBS News | Qualtrics surveys and the rate-the-app prompt they can lead to. |
-| Hide surveys | RetailMeNot | The in-app survey card. |
+| Hide prompts and pop-ups | Apple TV | **Rating prompt**: The "Enjoying Apple TV?" prompt that asks for a review. It also stops Google Play's rate-this-app sheet. |
+| Hide prompts and pop-ups | CBS News | **Rating prompt**: Google Play's rate-this-app sheet. **Surveys**: Qualtrics surveys and the rate-the-app prompt they can lead to. |
+| Hide prompts and pop-ups | RetailMeNot | **Rating prompt**: Google Play's rate-this-app sheet. **Surveys**: The in-app survey card. |
 | Hide newsletter pop-ups | CNBC | The newsletter sign-up bars that slide in over articles and ask for your email address. |
 | Hide premium promotions | CNBC | The "Premium Content" subscription card and its "Latest Episodes" heading on show pages, so a show's page starts with its free clips. The card to sign in with a TV provider stays. |
-| Hide rating prompt | CNBC | The Play Store rating request. |
-| Hide rating prompt | Kanopy | The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. |
+| Hide prompts and pop-ups | CNBC | **Rating prompt**: The Play Store rating request. It also stops Google Play's rate-this-app sheet. |
+| Hide prompts and pop-ups | Kanopy | **Rating prompt**: The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. It also stops Google Play's rate-this-app sheet. |
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
-| Hide promo banners | C-SPAN Now | C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
+| Hide prompts and pop-ups | C-SPAN Now | **Rating prompt**: Google Play's rate-this-app sheet. **Promo banners**: C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide editor articles | DealSeek | The "From our editors" card on deal pages, which links to DealSeek's own articles about the product. |
-| Hide pop-ups | Checkout 51 | The "Want to see more offers?" sign-up sheet shown to guests, the welcome walkthrough after sign-up, the notification and Instant Offers prompts, the "turn on notifications" banner, the notice about location data shown before it asks for location again, Braze marketing messages, and the card in the offer list that asks you to rate the app. The country picker and the offline banner still show. |
+| Hide prompts and pop-ups | Checkout 51 | **Rating prompt**: Google Play's rate-this-app sheet. **Pop-ups**: The "Want to see more offers?" sign-up sheet shown to guests, the welcome walkthrough after sign-up, the notification and Instant Offers prompts, the "turn on notifications" banner, the notice about location data shown before it asks for location again, Braze marketing messages, and the card in the offer list that asks you to rate the app. The country picker and the offline banner still show. |
 | Show gas offers on OpenStreetMap | Checkout 51 | Google Maps rejects the map key in any patched copy of the app, so the gas maps are blank. This draws OpenStreetMap maps in their place. The gas tab shows a pin for each offer with its cash back, above a list of the offers, nearest first, with the price and cash back per gallon. Tap a pin or an offer to see its details and add it. The details screen shows the station on the map, with a Directions button that opens it in the maps app you choose. Map tiles come from OpenStreetMap's servers, which see your IP address and the area on screen, and are kept on the phone for seven days. |
-| Hide pop-ups | DealNews | The rating card and the walkthrough on first launch. The welcome screen that offers sign-in still appears once. |
-| Hide pop-ups | DealSeek | The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
+| Hide prompts and pop-ups | DealNews | **Rating prompt**: Google Play's rate-this-app sheet. **Pop-ups**: The rating card and the walkthrough on first launch. The welcome screen that offers sign-in still appears once. |
+| Hide prompts and pop-ups | The Daily Wire | **Rating prompt**: Google Play's rate-this-app sheet. **Promo banners**: The DailyWire+ "Now Streaming" promo card and the docked banner that promote the app's own streaming content. |
+| Hide prompts and pop-ups | DealSeek | **Rating prompt**: Google Play's rate-this-app sheet. **Pop-ups**: The Trustpilot and Play Store review requests, the daily spin-the-wheel pop-up, and the survey that appears when you return from a deal. The app also stops downloading updates to its screens, so it stays on the version you patched. |
+| Hide prompts and pop-ups | Koupon | **Rating prompt**: Google Play's rate-this-app sheet. **Pop-ups**: The app tour, the sign-up-for-points pop-ups, the notification prompt, the surveys, the rating card, and the tips on deal pages. |
 | Hide prediction markets | Fox News | Kalshi and Polymarket market widgets in articles and live blogs. |
 | Hide prediction markets | The Wall Street Journal | Polymarket odds in story cards. |
 | Hide pop-ups and rating prompts | Fox Local | The rate-the-app prompt, the rating card in the feeds, and marketing pop-ups. |
 | Hide betting | ESPN | Betting odds, My Bets, the ESPN BET section of the More tab, sportsbook promotions, and DraftKings account linking. |
 | Hide betting odds | MLB | The betting-odds section on the scores sheet, its toggle, and its legal disclaimer. |
-| Hide surveys and rating prompt | MLB | The Qualtrics surveys and the Play Store rating pop-up they lead to. |
+| Hide prompts and pop-ups | MLB | **Rating prompt**: Google Play's rate-this-app sheet. **Surveys and rating prompt**: The Qualtrics surveys and the Play Store rating pop-up they lead to. |
 | Hide Premium upsell | Moviebase | The Premium screen that opens on its own at launch and after sign-in. Premium still opens from Settings and the app's buttons. |
-| Hide surveys and rating prompt | NBC News | Iterate surveys and the rate-the-app prompt. |
-| Hide surveys and rating prompt | Walgreens | Medallia surveys and the rate-the-app dialog on the home screen. |
+| Hide prompts and pop-ups | NBC News | **Rating prompt**: Google Play's rate-this-app sheet. **Surveys and rating prompt**: Iterate surveys and the rate-the-app prompt. |
+| Hide prompts and pop-ups | Walgreens | **Rating prompt**: Google Play's rate-this-app sheet. **Surveys and rating prompt**: Medallia surveys and the rate-the-app dialog on the home screen. |
 | Hide creator videos | Walmart | The "Featured in videos" sections from content creators on item pages and the video carousels on the home and membership pages. |
-| Hide pop-ups | Walmart | Surveys and review requests after checkout, the "Give feedback" row, tooltips and coach marks, update nudges, sign-in and survey nudges, and the full-screen event splash. |
-| Hide pop-ups | Yahoo Finance | The "Enjoying Yahoo Finance?" drawer and the review request after it, the feedback prompts on new screens, announcement sheets, tours and coach marks, tooltips, the widget prompt, and the beta program invitation. Privacy and consent screens still show. |
-| Hide pop-ups | Yahoo News | The "rate the app" screen, the banners and cards that ask you to turn on notifications, and the Ask Scout and You tab tooltips. |
+| Hide prompts and pop-ups | Walmart | **Rating prompt**: Google Play's rate-this-app sheet. **Pop-ups**: Surveys and review requests after checkout, the "Give feedback" row, tooltips and coach marks, update nudges, sign-in and survey nudges, and the full-screen event splash. |
+| Hide prompts and pop-ups | Yahoo Finance | **Pop-ups**: The "Enjoying Yahoo Finance?" drawer and the review request after it, the feedback prompts on new screens, announcement sheets, tours and coach marks, tooltips, the widget prompt, and the beta program invitation. Privacy and consent screens still show. |
+| Hide prompts and pop-ups | Yahoo News | **Pop-ups**: The "rate the app" screen, the banners and cards that ask you to turn on notifications, and the Ask Scout and You tab tooltips. |
 | Hide Plus upsells | Yahoo Finance | The Yahoo Finance Plus banners, sheets, and cards, the "Upgrade to Yahoo Finance Premium" card and the "Premium perks" row on Account, the Coinbase "Trade Now" referral button, and the Coinbase referral links in articles. Features that need Plus stay locked and still show the paywall when tapped. |
-| Hide promotions | Reuters | The Subscribe buttons, the subscription offer on the sign-in card in Menu and Settings, the Subscription row in Settings, the Breakingviews promo banners, Braze marketing pop-ups, and the newsletter sign-ups, notification prompts, and topic cards in articles and feeds. The Sign in button stays, and breaking-news alerts still arrive. |
+| Hide prompts and pop-ups | Reuters | **Rating prompt**: Google Play's rate-this-app sheet. **Promotions**: The Subscribe buttons, the subscription offer on the sign-in card in Menu and Settings, the Subscription row in Settings, the Breakingviews promo banners, Braze marketing pop-ups, and the newsletter sign-ups, notification prompts, and topic cards in articles and feeds. The Sign in button stays, and breaking-news alerts still arrive. |
 | Hide reading streaks | Yahoo News | The reading level and day streak on Home and Profile, and the pop-ups that celebrate a new level or a longer streak. Yahoo still counts your reads on its server. |
 | Customize bottom bar | Reuters (off by default) | Hides the bottom tabs you choose in its options: Markets, My News, or Media. Home and Menu always stay. Links that open a hidden tab, such as a stock quote from an alert, do nothing. |
 | Move Today section | Reuters (off by default) | Moves Today off the first page of Home, so the app opens on the first section in Your sections. Reorder your sections to choose where it opens. Its option puts Today on the last page, the default, or removes it. Today comes back only when you patch the app again. |
@@ -115,13 +119,14 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide sign-up prompts | Slickdeals | The sign-up flow on first launch, the notification prompt screen, the image tooltip, the "Log in / Sign up" nudges after a number of sessions, deal views, and searches, and the rating prompt. Prompts that answer something you tapped, such as voting on a deal, still appear. |
 | Hide My Town intro | NewsBreak | The "Meet My Town" pop-up, the My Town tooltip, and the "new" badge on the tab. |
 | Hide Premium upsells | NewsBreak | The "Ad-free Reading" banner and Upgrade button on the Me tab, the Premium button on profiles, the promo on Home, the bottom-bar badge, and the Premium offers in pop-ups and ad dialogs. If you pay for NewsBreak Premium, leave it off: the app stops refreshing your subscription status. |
-| Hide rating prompt | NewsBreak | The "How are we doing?" pop-up on the home screen and the Play Store rating request. |
+| Hide prompts and pop-ups | NewsBreak | **Rating prompt**: The "How are we doing?" pop-up on the home screen and the Play Store rating request. It also stops Google Play's rate-this-app sheet. |
 | Hide donate buttons | NPR | The Donate buttons in the top bar, on the live-station module on Home, on station pages, and on a live stream's detail sheet. |
 | Hide Waze bar | NPR | Turns off the "Drive with Waze" bar by default. You can turn it back on in the app's settings. |
-| Hide rating prompt | Recreation.gov | The rate-the-app prompt after checkout. |
+| Hide prompts and pop-ups | Recreation.gov | **Rating prompt**: The rate-the-app prompt after checkout. It also stops Google Play's rate-this-app sheet. |
 | Hide follow upsell | Substack | The "Follow" upsell card shown under notes in the Notes feed. |
 | Hide upsell pop-ups | The New York Times | The full-screen subscription takeover and the promo banner at the top. |
-| Hide marketing pop-ups | The Washington Post, The Wall Street Journal | In-app marketing messages, such as subscription offers, and the subscribe banner on The Washington Post's home page. |
+| Hide prompts and pop-ups | The Washington Post | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers, and the subscribe banner on the home page. |
+| Hide prompts and pop-ups | The Wall Street Journal | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers. |
 | Hide paywall sheet | The Washington Post 7.19.0 | The paywall sheet that slides up from the bottom of the screen. |
 | Hide stories | T-Mobile Play | The Storyteller stories and video clips in the feeds. |
 | Disable update and review prompts | Truth Social | The Play Store update prompt and the rate-the-app prompt. A patched app cannot update from the Play Store. |
@@ -129,7 +134,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Hide Truth+ | Truth Social | The Truth+ button at the top of the home feeds, the Watch tab, the strip of live Truth+ streams, the live shows row, and the Truth+ banners in the feeds and the side menu. The "+" badges on subscribers' names stay. |
 | Hide sign-in prompts | Tubi | The request to sign in when you pause or leave a title. |
 | Hide update prompts | Tubi | The request to update the app, which Tubi shows from its own server settings or when Google Play has a newer version. A patched app cannot be updated through Google Play. |
-| Hide rating prompt | USA TODAY | The Play Store rating request. |
+| Hide prompts and pop-ups | USA TODAY | **Rating prompt**: The Play Store rating request. It also stops Google Play's rate-this-app sheet. |
 | Hide subscription prompts | USA TODAY | The "Sale" bar pinned to the bottom of articles, the Subscribe links above Top Stories and in the article toolbar, and the subscription offers that pop up on launch, such as the $1 trial. Sign In stays. |
 | Hide promotions | White House | The buttons you choose: "Text President Trump" and "Get in Touch". |
 | Hide social feeds | White House | The feeds you choose: Truth Social, X, Instagram, Facebook, LinkedIn, TikTok, YouTube, or the Wire. A hidden feed's tab shows that it could not load. Hiding YouTube also empties the Live tab. |
@@ -173,6 +178,8 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 ## Privacy
 
 **Block analytics & tracking** stops each app's analytics, ad measurement, and marketing services. Sign-in and playback are left alone, and so is crash reporting, except on Kanopy, Recreation.gov, and T-Life. In every app except Apple TV, it also stops Firebase and Google Analytics, Meta app events and the Meta Pixel, Google Ads conversion tracking, Optimizely events, Bitmovin player analytics, and Mixpanel. Facebook sign-in and sharing keep working.
+
+**Options.** On CBS News, CNN, Fox Local, Fox News, MS NOW, NBC News, NPR, myAT&T, My Verizon, T-Life, and Visible, Block analytics & tracking is on by default, and its options choose what it blocks. **Analytics and tracking services**, off by default, blocks the services above. **Opt out of data sale & sharing**, on by default on CBS News, CNN, Fox Local, Fox News, MS NOW, NBC News, and NPR: Sets the privacy choice to "do not sell or share" and sends ad partners the US Privacy opt-out signal. On Fox News, it also opts out of Nielsen measurement. On NPR, it chooses Reject All on the cookie banner of the npr.org pages inside the app and hides the banner. You can change it in the app's privacy settings, except on CBS News and CNN. **Session recording**, on by default on myAT&T, My Verizon, T-Life, and Visible: Stops Quantum Metric, which records what you do in the app with details such as your phone number, email, or login ID. **Location tracking**, on by default on T-Life: Stops Radar, which sends your location every 30 seconds while the app runs. Store check-in and location-based offers can be affected. On DealSeek and Koupon, the patch stays off by default and has a **Behavioral tracking** option, off by default. On DealSeek, it stops the app from reporting the deals you view and click, which feeds personalized ranking and your viewed-deal history. It does not delete history already saved. On Koupon, it stops the app from recording the deals you open, and drops the personalized recommendations built from them. It does not delete history already saved.
 
 <details>
 <summary>What else it stops in each app</summary>
@@ -253,13 +260,10 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Block Advanced Security telemetry | Xfinity | Stops the uploads of the websites Advanced Security checked and your network changes. Threat filtering keeps working. |
 | Block background network reports | myAT&T | Stops Ookla's background reports of your signal and location. The speed test you start still works. |
 | Block installed-app scan | NewsBreak | Stops the app from checking which of about 500 other apps you have, including sportsbooks, prediction markets, period trackers, and payment apps, and sending that list to NewsBreak. |
-| Block location tracking | T-Life | Stops Radar, which sends your location every 30 seconds while the app runs. Store check-in and location-based offers can be affected. |
 | Block location tracking | Checkout 51 | Stops Foursquare's Movement SDK, which records the places you visit in the background and reports them with your user ID, gender, and birthday. Its background services and boot receivers are removed too. Checkout 51's own server still receives your location when you open the gas map, to find nearby stations. |
-| Block session recording | myAT&T, My Verizon, T-Life, Visible | Stops Quantum Metric, which records what you do in the app with details such as your phone number, email, or login ID. |
 | Block telemetry | YouTube TV | Stops quality reports, interaction logging, view tracking, and ad measurement. Watch history, resume points, location checks, and DRM licenses are left alone. |
 | Block TV discovery | T-Mobile Play | Stops Vizbee, which scans your home network for TVs. Sending video to a TV from the app stops working. |
 | Incognito reading | The New York Times, The Washington Post, The Wall Street Journal | Stops the app from recording which articles you read and sending that record to the publisher. On The New York Times, it blocks NYT's own page-view and event trackers and the ad-targeting lookup that receives each article, and keeps opened articles out of Recently viewed. On The Washington Post, it blocks the reading-history service, the meter's log of the articles you read, and related-article suggestions, and the For You feed no longer receives your reading list. On The Wall Street Journal, it stops the per-article offer requests to Piano and leaves the article and your ID out of related-article suggestions. It includes Block analytics & tracking. The article itself is still requested with your account, because the paywall needs it, and related-article suggestions become general ones. |
-| Opt out of data sale & sharing | CBS News, CNN, Fox Local, Fox News, MS NOW, NBC News, NPR | Sets the privacy choice to "do not sell or share" and sends ad partners the US Privacy opt-out signal. On Fox News, it also opts out of Nielsen measurement. On NPR, it chooses Reject All on the cookie banner of the npr.org pages inside the app and hides the banner. You can change it in the app's privacy settings, except on CBS News and CNN. |
 | Remove location access | RetailMeNot | Keeps the app from reading your location, even when location access is allowed. The app runs as it does when you deny location, and it does not show the permission request. |
 | Remove microphone access | White House | Removes the microphone permission, which no feature uses. |
 | Route traffic through a proxy | AP News, NewsBreak, NPR, Truth Social, White House | Sends the app's traffic through the proxy you set, such as Orbot for Tor or a SOCKS5 server from a VPN service. A SOCKS5 proxy that needs a login is entered as `socks5://user:password@host:port`, and the login is stored in the patched app. The app cannot connect while the proxy is off, and web pages inside the app do not use it. |
@@ -290,7 +294,7 @@ These patches are off by default.
 | Highest quality | Tubi | Plays the highest-resolution version of each title and live channel, and keeps it at the highest bitrate Tubi sends. Most titles stop at 720p, and a few have 1080p. Tubi sends the app fewer renditions than its website, so some titles play below the resolution the website offers. Turn it off if videos buffer. |
 | Skip launch video | AMC+, Disney+, Paramount+, Pluto TV, Starz, White House | Opens the app without the intro video. |
 | Skip lion intro | MGM+ | Opens the app without the lion video. |
-| Skip pre-roll promo | MGM+, Starz | Skips the app's own promo before a title. |
+| Skip pre-roll promo | Starz | Skips the app's own promo before a title. On MGM+, this is the Skip pre-roll promo option of Skip ads, which is experimental and off by default. |
 | Start at high quality | YouTube TV | Starts recordings and on-demand videos at high quality, without the flicker of stepping up from a low one. They start at 1080p, or at the resolution you choose in the patch options. Live channels still start low, because the player picks their quality itself. A slow connection can take longer to start. The patch cannot go above what your plan includes. Choose 2160p only if you have the 4K Plus add-on: without it, videos start low and step up as if the patch were off. |
 | Video quality | HBO Max | Plays the resolution you choose in its options: 480p, 720p, 1080p, or 2160p. When a title does not have it, the closest lower one plays, or the lowest one when every rendition is higher. HBO decides which resolutions it sends: in testing on a 4K plan, it sent at most 1080p to an NVIDIA Shield, even for titles marked 4K. Videos can buffer if your connection is too slow for the choice. |
 | Force decode capability | HBO Max | Reports video as decodable at every size and frame rate, so the app can request the highest rendition instead of settling lower on a conservative device check. Its Aggressive option (off by default) also reports every format as fully supported. Experimental: forcing a quality the device cannot actually decode can make playback stutter or fail. Pair with Video quality set to 2160p. |

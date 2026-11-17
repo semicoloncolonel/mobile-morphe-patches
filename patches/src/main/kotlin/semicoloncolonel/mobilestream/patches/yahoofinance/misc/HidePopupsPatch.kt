@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.yahoofinance.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.prependGate
@@ -34,18 +35,12 @@ internal object RegisterStepFingerprint : Fingerprint(
     returnType = "V",
 )
 
-@Suppress("unused")
-val hidePopupsPatch = bytecodePatch(
-    name = "Hide pop-ups",
-    description = "Removes the rating and feedback requests, announcements, tours, coach marks, and tooltips. " +
-        "Privacy and consent screens still show.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "popUps" option is on.
+internal val hidePopupsPatch = bytecodePatch {
     extendWith("extensions/extension.mpe")
 
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "popUps")) return@execute
         RegisterStepFingerprint.method.prependGate(
             """
                 iget-object v0, p1, $STEP->a:$STEP_ID

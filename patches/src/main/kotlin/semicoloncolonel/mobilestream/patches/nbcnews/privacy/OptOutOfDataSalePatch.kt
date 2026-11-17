@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.nbcnews.privacy
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants
@@ -21,15 +22,10 @@ internal object OneTrustReadyFingerprint : Fingerprint(
     returnType = "V",
 )
 
-@Suppress("unused")
-val optOutOfDataSalePatch = bytecodePatch(
-    name = "Opt out of data sale & sharing",
-    description = "Starts the app opted out of the sale and sharing of your data.",
-) {
-    category("Privacy")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of blockAnalyticsPatch: runs only when its "dataSale" option is on.
+internal val optOutOfDataSalePatch = bytecodePatch {
     execute {
+        if (!isOptionOn(blockAnalyticsPatch, "dataSale")) return@execute
         OneTrustReadyFingerprint.method.returnEarly(
             """
                 iget-boolean v0, p0, $ON_SUCCESS->${'$'}ccpaStringNotSet:Z

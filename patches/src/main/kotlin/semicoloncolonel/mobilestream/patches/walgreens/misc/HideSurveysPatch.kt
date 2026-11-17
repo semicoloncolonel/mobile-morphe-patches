@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.walgreens.misc
 
+import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -34,15 +35,10 @@ internal object RatingDialogStatusFingerprint : Fingerprint(
     returnType = RATING_STATUS,
 )
 
-@Suppress("unused")
-val hideSurveysPatch = bytecodePatch(
-    name = "Hide surveys and rating prompt",
-    description = "Stops Medallia survey invitations and the \"rate the app\" dialog on the home screen.",
-) {
-    category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
-
+// Part of hidePromptsAndPopupsPatch: runs only when its "surveys" option is on.
+internal val hideSurveysPatch = bytecodePatch {
     execute {
+        if (!isOptionOn(hidePromptsAndPopupsPatch, "surveys")) return@execute
         MedalliaInitFingerprint.method.returnEarly("return-void")
 
         RatingDialogStatusFingerprint.method.returnEarly(

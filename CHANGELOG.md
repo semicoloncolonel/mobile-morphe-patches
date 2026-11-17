@@ -1,441 +1,87 @@
-# [1.1.0-dev.52](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.51...v1.1.0-dev.52) (2026-11-17)
+## [1.0.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.20...v1.0.21) (2026-11-14)
+
+
+### Bug Fixes
+
+* **appletv:** support the Android TV build 17.0.3, and find the MetricsKit chunk by its contents ([82f6880](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/82f6880e02a58692fa3f826cfe97a8bd6fb7f7fe))
+* **checkout51:** open gas offer details from the list, and add Directions in place of the blank details map ([f68e9b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f68e9b71479a2a76ab212ad3c4b32bccfb0abd0a))
+* **checkout51:** send the full station address to the maps app ([0de3e78](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0de3e7860f350f552ac61320704970e1e02ee479))
+* **cnn:** keep the patches working on 26.23.0 and 26.21.0 ([f0a8af8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f0a8af8b02348b4a0849d42788bb8f8a1abc9df6))
+* **issue-forms:** list YouTube TV (Android TV) in the app dropdowns ([1491c2d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1491c2dbd0469ea8c29c23c16129623dd2492e26))
+* **justwatch:** block the 26.45.1 free-streaming pre-roll ads ([78a7d39](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/78a7d392044fc96cdc6b57da8945b2a25191e8e7))
+* keep the previous version supported when bumping to a newer one ([f666674](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f666674b6957d4bddf26b7bdd1d9c7e085222f57))
+* **settingshome:** disable the Pairip license check ([544de09](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/544de0979acb3ccbbada52e9bc827e2f623380fe))
+* testing ABC News 8.100.0, Fox News 5.50.0 ([cd29a65](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cd29a6504b4c41dff42aec6d9b5e1c0fc51d2f75))
+* testing AP News 6.32, Costco 26.10.3, theScore 26.16.1, and T-Mobile Play 19.5.2 as a standard target ([6a80146](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6a80146ee2d0bc79a309b0dff3ea703492647395))
+* testing CNN 26.23.0, JustWatch 26.45.1, NewsBreak 26.46.0 ([36d798d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/36d798d7c584623574c86186cfa33735cf067ab6))
+* testing DealSeek 1.65.0, The Daily Wire 3.5.22 ([414a81a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/414a81a6dce4af0562d0e286817c17c4d1b5d7a2))
+* testing My Verizon 22.3.5, Peacock 7.11.11 ([5354bb7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5354bb7747ba2f97cecc86a8b18870fae118dbe5))
+* testing Prime Video 3.0.480.847, White House 47.7.11, Tubi 10.44.3, The New York Times 11.99.0 ([2e36fc2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2e36fc293145579dd3bf98521c45c3ae2c18e60b))
+* testing Starz 6.12.0 ([111cf80](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/111cf80680d8d6ae7eb50b7f61a05317d3c9cdd1))
+* testing Visible 3.0.6 ([a9234d2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a9234d21503ae44dc8f76bb972888743451240c9))
+* testing Walgreens 118.1 ([3cb334b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3cb334b443d14ff5e17d86e47abe0bb7390086e3))
+* **tlife:** support 12.4.0, where Radar, Adobe, Amplitude, and Luciq classes are renamed ([3ff6486](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3ff6486c0b98fb1b278e44c55b4c6c25444e03d1))
+* **washingtonpost:** support 7.19.0, and find the summary flag without a fixed field name ([f70fe4f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f70fe4f3f2a9a690d6139466e9aaffcfef537517))
+* **yahoofinance:** hide the Premium upgrade card and the Premium perks row on Account ([86d2fe0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/86d2fe06f743a7131665088ec5759e98165096ad))
+* **yahoofinance:** hide the remaining ad slots and article ads, and close the gaps they left ([43da8e0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/43da8e042020b089dcd8d8a5f80667bd5433f6dd))
+* **yahoofinance:** tighten the space above Your most actives left by the removed ad ([6abb146](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6abb146ec63e1863fa18ea347b062bc748c0924a))
 
 
 ### Features
 
-* **tv:** Label the Android TV builds in the combined bundle as moving in 1.2.0 ([f624592](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f6245923214f4764c1925f06aa5cb94dd5602797))
-
-# [1.1.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.50...v1.1.0-dev.51) (2026-11-17)
-
-
-### Features
-
-* **privacy:** Block the domains of the Optimizely snippet malware ([b64bf54](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b64bf54a2a52226b4286e3f97816190d40657a05))
-
-# [1.1.0-dev.50](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.49...v1.1.0-dev.50) (2026-11-17)
-
-
-### Bug Fixes
-
-* Mark public app versions as standard instead of experimental ([fbd5d3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fbd5d3fced6b022ada32e7d27de4531d03f64a6b))
-
-# [1.1.0-dev.49](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.48...v1.1.0-dev.49) (2026-11-17)
-
-
-### Bug Fixes
-
-* **tv:** Mark Hulu (Android TV) experimental and support JustWatch (Android TV) 26.44.5 ([6f5fb57](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6f5fb571dda6fbe6bcb85df4b97228b851ff48e4)), closes [tv-morphe-patches#1](https://github.com/tv-morphe-patches/issues/1) [tv-morphe-patches#3](https://github.com/tv-morphe-patches/issues/3)
-
-# [1.1.0-dev.48](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.47...v1.1.0-dev.48) (2026-11-17)
-
-
-### Bug Fixes
-
-* **newsbreak:** Fix GmsCore Google sign-in on 26.46.1 ([2eb8d57](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2eb8d573b5581e0f3604863a5dbcc4a6a5e54bcc))
-
-# [1.1.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.46...v1.1.0-dev.47) (2026-11-17)
-
-
-### Features
-
-* **flipp:** Add GmsCore support ([d1efca0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d1efca093dbaef6f80d4d67cc3b6a87d738cf92e))
-
-# [1.1.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.45...v1.1.0-dev.46) (2026-11-17)
-
-
-### Bug Fixes
-
-* **yttvshell:** Refuse a YouTube for Android TV base.apk without its native libraries ([0388796](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03887960b6f87ac7093784c25f26373a86c8ba10))
-* **yttv:** Support YouTube TV 10.46.0 ([2294cad](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2294cad5926273f106946eff4482f61fb0b55714))
-
-
-### Features
-
-* **kouponai:** Drop personalized recommendations; add a new-app checklist ([4d738b5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4d738b5cca28bc52f40ff7cc36a079c1f1632190))
-* **yttvshell:** Experimental Skip ads for the official YouTube TV app 4.01.03 ([7f69766](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7f697662088a43f513c52a1840b7f43c26fc00de))
-* **yttvshell:** Name the patch YT TV+ (ad-free YouTube TV) ([11c1e13](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/11c1e13340dfe8496fd4da3ec3cde1d2124ea175))
-
-# [1.1.0-dev.45](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.44...v1.1.0-dev.45) (2026-11-17)
-
-
-### Bug Fixes
-
-* testing Netflix 9.93.0 build 8 74808 ([199af68](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/199af68d8b301a7e6c4abe66cb5bdd2175634642))
-
-# [1.1.0-dev.44](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.43...v1.1.0-dev.44) (2026-11-16)
-
-
-### Bug Fixes
-
-* testing Best Buy 26.11.10, myAT&T 2026.11.1, NPR 7.11.0, Starz 6.12.1 ([05dad1d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/05dad1d6f8c3ec3cc8c8c6a7593ab50a4399d333))
-
-# [1.1.0-dev.43](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.42...v1.1.0-dev.43) (2026-11-16)
-
-
-### Bug Fixes
-
-* **kouponai:** Refuse a base.apk without Koupon's native libraries ([1e5fbc4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1e5fbc4c2f1be53b74c6971627f52c50d71ab6d2))
-
-# [1.1.0-dev.42](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.41...v1.1.0-dev.42) (2026-11-16)
-
-
-### Bug Fixes
-
-* **kouponai:** Keep the sign-up welcome steps in Hide pop-ups ([99628f1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/99628f11d9adfed2834263b934a12279e875743c))
-
-
-### Features
-
-* **kouponai:** Hide rewards, and the rating card in Hide pop-ups ([2e757ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2e757acb1008f82ceb5d3d8367c6d1b3bce21658))
-
-# [1.1.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.40...v1.1.0-dev.41) (2026-11-16)
-
-
-### Features
-
-* **kouponai:** Show promo codes on deal pages ([8a9f939](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8a9f9398857c434866082a625fc7aa620a591e3b))
-
-# [1.1.0-dev.40](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.39...v1.1.0-dev.40) (2026-11-16)
-
-
-### Features
-
-* **kouponai:** Hide the tips on deal pages ([bd572f3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bd572f3a7f95ecef7087dfdbb6af1e566278e149))
-
-# [1.1.0-dev.39](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.38...v1.1.0-dev.39) (2026-11-16)
-
-
-### Features
-
-* **kouponai:** Add experimental Koupon patches ([8138f6f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8138f6f791db61a459b9b2628fe9b5182a6d30d3))
-
-# [1.1.0-dev.38](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.37...v1.1.0-dev.38) (2026-11-16)
-
-
-### Features
-
-* **kouponai:** Add Koupon 3.1.6 patches ([83bc1d2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/83bc1d263267467d1cbccbfe59eda34250e1a01f))
-
-# [1.1.0-dev.37](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.36...v1.1.0-dev.37) (2026-11-16)
-
-
-### Bug Fixes
-
-* **hbomax:** Leave Force decode capability out of the Android TV bundle ([ba8d899](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ba8d8990e96a2c7716e24f91fc156592f51e9f34))
-
-# [1.1.0-dev.36](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.35...v1.1.0-dev.36) (2026-11-16)
-
-
-### Features
-
-* **slickdeals:** Add GmsCore support for Google sign-in ([a256523](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a256523eaed522a5dcc0fa8340057c0447613442))
-
-# [1.1.0-dev.35](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.34...v1.1.0-dev.35) (2026-11-16)
-
-
-### Features
-
-* Tell Android TV users where future Android TV patches come from ([344b855](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/344b85503413dcd55236ece6afe6c04a76784604))
-
-# [1.1.0-dev.34](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.33...v1.1.0-dev.34) (2026-11-16)
-
-
-### Bug Fixes
-
-* testing Flipp 116.0.0, NewsBreak 26.46.1 ([f3afbf8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f3afbf86436b1ef2881f3cd235c4866c517ebb50))
-
-# [1.1.0-dev.33](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.32...v1.1.0-dev.33) (2026-11-16)
-
-
-### Features
-
-* **hbomax:** Add Force decode capability, the dual to Video quality ([359a842](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/359a84219d83c0f0845859a0c59f49e6eff25165))
-* **hbomax:** Mark Force decode capability as experimental ([1ddc6b4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ddc6b4af76a671d049a3ad24f8a500458820234))
-* **primevideotv:** Add Prime Video for Android TV with a native ad strip ([b2f16ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b2f16ca6e5db02541c44a74bd8e4161f50ec857f))
-
-# [1.1.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.31...v1.1.0-dev.32) (2026-11-16)
-
-
-### Bug Fixes
-
-* **mlb:** Hide betting odds no longer crashes Morphe on the Shield ([8d1e591](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8d1e591c3f623a033d88355b5b1ddcdb76426a36))
-
-
-### Features
-
-* **mlb:** Hide betting odds on the Android TV build ([d8265c4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d8265c4a499e41eb1cc82eedd996651a1d3a7136))
-
-# [1.1.0-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.30...v1.1.0-dev.31) (2026-11-16)
-
-
-### Features
-
-* Support the Android TV builds of MGM+, NBA, NFL, and PBS, and reject tracking consent ([639e702](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/639e7021f537dd95242c8a40cd1318dcd0660dcb))
-
-# [1.1.0-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.29...v1.1.0-dev.30) (2026-11-16)
-
-
-### Features
-
-* Support the Android TV builds of ESPN, Fox One, MLB, and Peacock ([b5acd44](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b5acd44b1b860362af881ad57b3526daaa70dcad))
-
-# [1.1.0-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.28...v1.1.0-dev.29) (2026-11-16)
-
-
-### Bug Fixes
-
-* Clean up the Android TV patch listings ([04e04a9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/04e04a9136ce189ba5792deae2cbfb7009e7d7ab))
-
-# [1.1.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.27...v1.1.0-dev.28) (2026-11-16)
-
-
-### Features
-
-* Move the Android TV apps to TV Morphe Patches ([87b7fb9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/87b7fb99e5794524b4e245131f6fb386bb86626c))
-
-# [1.1.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.26...v1.1.0-dev.27) (2026-11-16)
-
-
-### Bug Fixes
-
-* Stop Hulu (Android TV) from crashing where the TV provider is missing ([60099bf](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/60099bf47e3be165e157a9cc209649563ee93721))
-
-# [1.1.0-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.25...v1.1.0-dev.26) (2026-11-15)
-
-
-### Features
-
-* Add AP News 6.32.1 as an experimental target ([8b1ad80](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8b1ad808f96eeb1e8d1a4b2bebedbe9a13652db3))
-
-# [1.1.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.24...v1.1.0-dev.25) (2026-11-15)
-
-
-### Bug Fixes
-
-* Hide the Reuters Menu subscribe offer ([c2254c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c2254c516176a7dafb8cb259dc3f1ed0a37cfcc8))
-* Remove the Reuters Settings subscription row and sign-in offer text ([815dc75](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/815dc75ce9f7cd319f79ee42fea3064bb7555ca4))
-
-# [1.1.0-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.23...v1.1.0-dev.24) (2026-11-15)
-
-
-### Bug Fixes
-
-* List Reuters in the issue forms and the README News count ([dde40b0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dde40b000cd43eb0e3ddef56d58d296efcaae093))
-
-# [1.1.0-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.22...v1.1.0-dev.23) (2026-11-15)
-
-
-### Bug Fixes
-
-* Leave no gap where Reuters ads and promo cards were ([bcef042](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bcef04202d6274a806f6fe50615d6f57e7f60eec))
-
-
-### Features
-
-* Add Reuters 7.51.0 ([8148c12](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8148c12dfd57df260aa26d6a595b79e97f801674)), closes [#75](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/75)
-
-# [1.1.0-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.21...v1.1.0-dev.22) (2026-11-15)
-
-
-### Features
-
-* Merge shared privacy patches into Hide device identifiers ([6f9aa31](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6f9aa31f1e4ad88165a90da1de5a4614ddb2b5a1))
-
-# [1.1.0-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.20...v1.1.0-dev.21) (2026-11-15)
-
-
-### Bug Fixes
-
-* Offer WaPo Hide paywall sheet only for 7.19.0 ([fc66e28](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fc66e28cd8e0a4fceddf9601ba92b85665a69766))
-
-# [1.1.0-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.19...v1.1.0-dev.20) (2026-11-15)
-
-
-### Bug Fixes
-
-* Keep Paramount+ device and server caps in quality and PiP patches ([4ed658f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4ed658f9b057fa4daf574f3e54a9fb5e29c625a8))
-* Remove Paramount+ Hide upsell prompts, which crashed the app ([c043ad0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c043ad08720a90830806fc841d45207315b26910))
-
-# [1.1.0-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.18...v1.1.0-dev.19) (2026-11-15)
-
-
-### Bug Fixes
-
-* Keep AdBreakText.translate() so Translate ad break screen applies ([b0d1d88](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b0d1d880a41b669bfa827678248cdd11e45d8551))
-
-# [1.1.0-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.17...v1.1.0-dev.18) (2026-11-15)
-
-
-### Features
-
-* Add Paramount+ live mask, quality, upsell, PiP; fix Pluto duplicate targets ([8465d3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8465d3f8797577723868f7ef168bdc5001980426))
-
-# [1.1.0-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.16...v1.1.0-dev.17) (2026-11-15)
-
-
-### Features
-
-* Add Pluto TV 17.4.0, split phone/TV targets, more YTTV clone names ([2208149](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/220814985a6694c582fc163f236735390e4c2fe1))
-* Add Translate ad break screen (experimental) ([0e01425](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0e014258c5989d62814507484050be65585cdb00))
-
-# [1.1.0-dev.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.15...v1.1.0-dev.16) (2026-11-15)
-
-
-### Features
-
-* Promote Prime Video 3.0.481.1947, WSJ 15.13.0.44249, RetailMeNot 10.1.0 ([ef7ef56](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ef7ef5669968e745febcf30a1e2f1aa1bb561402))
-
-# [1.1.0-dev.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.14...v1.1.0-dev.15) (2026-11-15)
-
-
-### Features
-
-* Remove Subscribe on the web for WaPo ([ada02de](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ada02de6ac206e581711faf9ab0c0e482d9deefb))
-
-# [1.1.0-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.13...v1.1.0-dev.14) (2026-11-15)
-
-
-### Bug Fixes
-
-* Wait for the emulator's package service before installing ([642dbf8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/642dbf834c0cb63f43d24705faac79aa6717966c))
-
-
-### Features
-
-* Add Incognito reading and Subscribe on the web for WaPo ([15332b5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/15332b5ea80edd95ac2d7cee3be689066c010f57))
-* Add Incognito reading for NYT, and block more trackers in every app ([1ff5e4b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1ff5e4ba9ad761fd4b0665ae20e8da468e061525))
-* Add Incognito reading for WSJ ([dfc6cfc](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dfc6cfcd021e5f0c9dadf7a5f6bf1cc252987462))
-* Mark Incognito reading and Subscribe on the web as experimental ([41e0826](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/41e0826454a8684c9014b9ba76a9b837312ff362))
-
-# [1.1.0-dev.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.12...v1.1.0-dev.13) (2026-11-15)
-
-
-### Bug Fixes
-
-* testing The Wall Street Journal 15.13.0.44249 ([410940e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/410940ea1ace09038a0cd94ca0522aecefabdb00))
-
-# [1.1.0-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.11...v1.1.0-dev.12) (2026-11-15)
-
-
-### Bug Fixes
-
-* Restore 21 app versions the update bot dropped ([69a2cbb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/69a2cbb7d329bfa026924ce9d2df55296d1f0b01))
-* Stop the update check reading phone builds as Android TV builds ([1048cd2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1048cd2d91992b1f0c71f7815d0537e86f7576ab))
-* testing Prime Video 3.0.481.1947 ([a35d755](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a35d755ed15597c7621c99efe32dc405029de5d0))
-
-# [1.1.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.10...v1.1.0-dev.11) (2026-11-15)
-
-
-### Bug Fixes
-
-* testing JustWatch (Android TV) 26.44.5 ([72b7e3d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/72b7e3da37d4b5bf6e7eb27a5b5160df79b5dbad))
-
-# [1.1.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.9...v1.1.0-dev.10) (2026-11-15)
-
-
-### Bug Fixes
-
-* List Netflix in the issue forms ([a6c5bce](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a6c5bce91e1eb04e32d912a91f55755fcfc56c9a))
-
-# [1.1.0-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.8...v1.1.0-dev.9) (2026-11-15)
-
-
-### Bug Fixes
-
-* Keep older app versions targeted when the update bot bumps one ([77772ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/77772ca8a9944a57d85069a9257f084207c84fab))
-
-# [1.1.0-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.7...v1.1.0-dev.8) (2026-11-15)
-
-
-### Bug Fixes
-
-* Keep WSJ Skip ads working on 15.13.0 ([565ea1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/565ea1b8d99f1ab6c7effedb9dc56224b28a1f22))
-* Stop CNN 26.23.0 hanging on the splash screen ([4d1f5dd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4d1f5dd27b3be3deb52eea4368860d4b9e18229c))
-* Stop RetailMeNot 10.1.0 loading to a blank screen ([cfaca31](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfaca31047aafc5b59c55ab910b9687efee40b92))
-
-
-### Features
-
-* Target Netflix 9.92.0, the version Google Play serves to everyone ([9fd037d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9fd037d8ab9541968dd3ca2cdc5e09cf40c134d8))
-
-# [1.1.0-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.6...v1.1.0-dev.7) (2026-11-15)
-
-
-### Bug Fixes
-
-* Stop the app update check from reporting older versions as updates ([7d971c1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7d971c1ca36cae4d1ab1a09350d424ad001b8a32))
-
-# [1.1.0-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.5...v1.1.0-dev.6) (2026-11-14)
-
-
-### Bug Fixes
-
-* testing RetailMeNot 10.1.0 ([2659c84](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2659c84b67756ab483d976d5017ca97e648a1c02))
-
-# [1.1.0-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.4...v1.1.0-dev.5) (2026-11-14)
-
-
-### Bug Fixes
-
-* Don't fail CNN Faster launch when the splash gate is already instant ([adae2db](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/adae2dbcfdceb54276d371abf5963329ea057c28))
-
-# [1.1.0-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2026-11-14)
-
-
-### Bug Fixes
-
-* Keep CNN's Faster launch working on the 26.23.0 splash gate ([5bfe4e7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5bfe4e732cea77418d82eda1fbd47e6a1607444f))
-
-
-### Features
-
-* Add a Netflix Keep screen brightness patch ([5964b19](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5964b19852ee114b1a8a23b1461b5f73872c6fae))
-* Add a Netflix Remove bottom tabs patch ([13d0176](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/13d0176a574c9459182cfefe031492d10f2e2443))
-* Add entry-point options and Surprise me to Netflix hidden categories ([f4fa872](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f4fa872ab027804b41c0bad4ad3207ec3bc71859))
-
-# [1.1.0-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-11-14)
-
-
-### Features
-
-* Add a Netflix Browse hidden categories patch ([884ee8e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/884ee8e901de2758c8daeadbd23977861a76545e))
-* Add a Netflix Disable autoplay patch ([85d41ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/85d41ca6cd629574524ca0f280758ae7c8b5f225))
-
-# [1.1.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-11-14)
-
-
-### Features
-
-* Add Netflix with a non-root tamper-protection bypass ([d6d9777](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6d977774510d4f31816cf78c30f253a43fd7a3d))
-* Offer the shared privacy patches on Netflix ([cfe4f5d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cfe4f5dbc2b5da951129ed778bd8fb5acbdc5fb2))
-
-# [1.1.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.31...v1.1.0-dev.1) (2026-11-14)
-
-
-### Bug Fixes
-
-* keep the previous version supported when bumping to a newer one ([923f3f8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/923f3f88cc742642b760b8b9ceba28dadd7599c2))
-
-
-### Features
-
-* **dealseek:** add Stop behavioral tracking patch ([5fb3738](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5fb3738ee6ed394c6ccae05c74def4b4b0cd14f5))
-* Hide promo banners for The Daily Wire, and widen version support ([976bed3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/976bed38d2e4af8ba15128d62ad17449ed22d5e8))
-* **release:** begin the 1.1.0 dev line ([54c8399](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/54c839915273430e2e078fcd218cb274be370259))
+* add ad-free YouTube TV on Android TV via the Chromium-Cobalt shell ([e471d8c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e471d8c93f12e2a5b94d59a150d1e23ccedb0714))
+* add Checkout 51 ([d93fb98](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d93fb98fb184ac525b802e0a8f94d4146a202499))
+* add Flipp, with Block ads and Skip tutorials ([28e6b7c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/28e6b7ce5028f73134756c9c92389fcb2f80af99))
+* add Hide editor articles and Dark mode to DealSeek ([dab8d4b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/dab8d4b3378c6355410530d9b78e0156dd8d93ab))
+* add Hide sponsored listings to Walmart, The Home Depot, and CVS ([04b4334](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/04b4334467167c04b67b8beeb5867c1a3a7ff9a6))
+* add Hide sponsored products and Hide surveys and rating prompt to Walgreens ([af4f975](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/af4f975985b5183cd435544cbd79c1d52bff0ec7))
+* add Lowe's, with Hide sponsored listings and Disable AI ([bcb52ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bcb52ac936925ac10ff52dcf93eebf4a68479fe5))
+* add RetailMeNot ([9063375](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/90633753d6d7456b98a4120c170ac7bf8181424f))
+* add Settings Home launcher ([03afa6c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03afa6c6bcc6d45e2613f75fff71220a1857167c))
+* add Slickdeals and DealNews ([c42295c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c42295c27047c251a6bc09ab9b44b9b1f5922b6a))
+* add Strip affiliate links to every deal app, and clean shared and copied links ([5a1e267](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5a1e26775fe8fb26787ba6729f6732136c0b5d8a))
+* add Yahoo Finance ([cce8603](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cce86039ddc65bd9b6e4163f0e8790d120327cba))
+* add Yahoo News ([8a75262](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8a7526234dcba9a909316ee0242327c818a999be))
+* **checkout51:** add Block location tracking, which stops Foursquare's Movement SDK ([cded9d8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cded9d880db2ad420aea1d893dfc82f41a55a544))
+* **checkout51:** add GmsCore support and hide more pop-ups ([7de7ded](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7de7ded53fbc34260d38d2e0ce044ffcc4abbaec))
+* **checkout51:** hide the location data notice ([d29d200](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d29d200b53d4f5b20df037871bdc06970d38d71c))
+* **checkout51:** list gas offers over the blank gas map ([7d8af2b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7d8af2b0b02387caf368c39c442f4291193057c7))
+* **checkout51:** show gas offers on OpenStreetMap in place of the blank Google maps ([95a7400](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/95a7400cf551baec87b7b81fdef70c7d1f553141))
+* **dealnews:** support the public Play version 10.7.1 ([de96eb2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/de96eb217bf833198050f17e2a776bd01ecc545e))
+* **dealseek:** add Stop behavioral tracking patch ([d6f2591](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6f25919fe62477515a5c6344d49ece96132daf3))
+* Hide promo banners for The Daily Wire, and widen version support ([0d64d16](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0d64d16fe9c3457bc6c2203b47a23adf8b8b1334))
+* **justwatch:** add Unlock JustWatch Pro patch ([f6ea4ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f6ea4ac2cd6493084bc35e8bfbbdefa16b92f0be))
+* **justwatch:** add Unlock JustWatch Pro patch ([f10d0b7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f10d0b75adda7922835945b83899b279641225cd))
+* **retailmenot:** add Dark mode ([62e48c2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/62e48c29f08fb192fc5b5a9f7d1f0013bc336985))
+* **retailmenot:** add Hide VPN connection ([98c3a6e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/98c3a6e93ebe51880ea57aa0270de8fb993ed65e))
+* **retailmenot:** add Remove location access ([fc82afe](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fc82afe5aa21072d13600f94edcfe60a8160d2a9))
+* sort the patches of apps with five or more into folders in Morphe Manager ([85b2005](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/85b2005e0c5cc6db995b0826c49090611a18bd59))
+* support the Disney+ and Starz Android TV builds ([4ee3aaf](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4ee3aafd82be861e3c6b0de3da32ccf8b282308c))
+* **tubi:** add Hide update prompts ([e4632c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4632c505b9d153a921d1163ccb1c2d608022817))
+* **tubi:** support the Android TV build 10.44.5001 ([cc03dd7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cc03dd716fc17875c95c0a63ebde0446d5be1918)), closes [#43](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/43)
+* **walmart:** hide card offers, Walmart+ promotions, creator videos, and pop-ups ([96bd978](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/96bd9784b45b8d05b70250de1f702e34d1d73345))
+* **yahoonews:** add Customize bottom bar, and Show unreleased features with Video tab, continuous picture-in-picture, and Listen ([05f65ac](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/05f65ac541a2718dbffc64383ddaa29282e4ea6d))
+* **yahoonews:** add Show Follow and Local ([57f0868](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/57f0868535e75d119a9249a3008759ed2d88e903))
+* **yttvshell:** install YouTube TV as a standalone "YT TV+" app ([39e5bbb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/39e5bbb73a894a0828de6778c5ad2e6208429211))
+* **yttvshell:** make the YouTube TV conversion explicit in Morphe Manager ([964c724](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/964c724d177e8c91a1dd74e06f047a48df00e09b))
+* **yttvshell:** use YouTube TV's icon and banner for YT TV+ ([d56d4ca](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d56d4ca3b1ab1b5bbc6324f51f6424738b123a8b))
+
+
+### Reverts
+
+* **justwatch:** remove the Unlock JustWatch Pro patch ([9d6e761](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9d6e761d978b00c2fd990b8bcc9efa72de0c152a))
 
 ## [1.0.21-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.30...v1.0.21-dev.31) (2026-11-13)
 
 
 ### Bug Fixes
 
-* **hulutv:** harden tracker hook to preserve 64-bit curl options ([6d94358](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6d94358dc522532960921dc39acd908c88ff40fe))
 
 ## [1.0.21-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.29...v1.0.21-dev.30) (2026-11-13)
 
 
 ### Bug Fixes
 
-* **hulutv:** refuse a base-only input that drops Hulu's native libs ([e4ecef7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4ecef764fb2d1122a984f3c736d648b78b097c4))
 
 ## [1.0.21-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.28...v1.0.21-dev.29) (2026-11-13)
 
@@ -449,21 +95,18 @@
 
 ### Features
 
-* **hulutv:** opt-in analytics/tracking blocker for Hulu on Android TV ([8c47e1b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8c47e1b35bb9b2863031252724991ee8342ab2b8))
 
 ## [1.0.21-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.26...v1.0.21-dev.27) (2026-11-13)
 
 
 ### Bug Fixes
 
-* **issue-forms:** list Hulu (Android TV) and Settings Home in the app dropdowns ([a60f886](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a60f886a323cf3950b96fc86b9fbbc747e766036))
 
 ## [1.0.21-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.25...v1.0.21-dev.26) (2026-11-13)
 
 
 ### Features
 
-* **hulutv:** experimental ad-strip for Hulu on Android TV via a native inflate hook ([507d6f7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/507d6f7c580737cafa171e70612a30979f5ea3a0))
 
 ## [1.0.21-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21-dev.24...v1.0.21-dev.25) (2026-11-13)
 

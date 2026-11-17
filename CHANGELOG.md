@@ -1,3 +1,18 @@
+# [1.1.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.45...v1.1.0-dev.46) (2026-11-17)
+
+
+### Bug Fixes
+
+* **yttvshell:** Refuse a YouTube for Android TV base.apk without its native libraries ([0388796](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/03887960b6f87ac7093784c25f26373a86c8ba10))
+* **yttv:** Support YouTube TV 10.46.0 ([2294cad](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2294cad5926273f106946eff4482f61fb0b55714))
+
+
+### Features
+
+* **kouponai:** Drop personalized recommendations; add a new-app checklist ([4d738b5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4d738b5cca28bc52f40ff7cc36a079c1f1632190))
+* **yttvshell:** Experimental Skip ads for the official YouTube TV app 4.01.03 ([7f69766](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7f697662088a43f513c52a1840b7f43c26fc00de))
+* **yttvshell:** Name the patch YT TV+ (ad-free YouTube TV) ([11c1e13](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/11c1e13340dfe8496fd4da3ec3cde1d2124ea175))
+
 # [1.1.0-dev.45](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.44...v1.1.0-dev.45) (2026-11-17)
 
 

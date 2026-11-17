@@ -28,14 +28,14 @@ val translateAdBreakScreenPatch = bytecodePatch(
         "Please submit corrections or rewrites through GitHub issues.",
 ) {
     category("Ads")
-    compatibleWith(*forBundle(
+    compatibleWith(
         AbcNews.COMPATIBILITY,
         Fandango.COMPATIBILITY,
         Mlb.COMPATIBILITY,
         Pluto.COMPATIBILITY,
         Xumo.COMPATIBILITY,
         YtTv.COMPATIBILITY,
-    ))
+    )
 
     extendWith("extensions/extension.mpe")
 

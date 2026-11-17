@@ -1,8 +1,6 @@
 package semicoloncolonel.mobilestream.patches.shared.privacy
 
 import app.morphe.patcher.Fingerprint
-import semicoloncolonel.mobilestream.patches.shared.misc.forBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.isTvBundle
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.BytecodePatch
@@ -251,7 +249,7 @@ internal fun BytecodePatchContext.hideIds() {
 // own Block background location, which denies the permission through Expo.
 private const val RETAILMENOT = "com.whaleshark.retailmenot"
 
-// False for an option this bundle does not declare, such as Bluetooth scanning in the TV bundle.
+// False for an option that is not declared.
 private fun option(key: String): Boolean =
     runCatching { hideDeviceIdentifiersPatch.options[key].value == true }.getOrDefault(false)
 
@@ -270,11 +268,11 @@ internal val deviceIdentifiersManifestPatch: ResourcePatch = resourcePatch {
 @Suppress("unused")
 val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
     name = "Hide device identifiers",
-    description = "Hides details about your ${if (isTvBundle) "device" else "phone"} from the app. " +
+    description = "Hides details about your phone from the app. " +
         "Choose which ones in the patch options.",
     default = false,
 ) {
-    compatibleWith(*forBundle(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, HboMax.STREAM_COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Espn.TV_COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Nba.TV_COMPATIBILITY, Fandango.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, TMobilePlay.COMPATIBILITY, TLife.COMPATIBILITY, JustWatch.COMPATIBILITY, Mint.COMPATIBILITY, Xfinity.COMPATIBILITY, Att.COMPATIBILITY, Verizon.COMPATIBILITY, Visible.COMPATIBILITY, WhiteHouse.COMPATIBILITY, Nps.COMPATIBILITY, Fema.COMPATIBILITY, RecGov.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, NewsNation.TV_COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY, TruthSocial.COMPATIBILITY, SettingsHome.COMPATIBILITY, Netflix.COMPATIBILITY, Nfg.COMPATIBILITY, Reuters.COMPATIBILITY))
+    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, HboMax.STREAM_COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, TMobilePlay.COMPATIBILITY, TLife.COMPATIBILITY, JustWatch.COMPATIBILITY, Mint.COMPATIBILITY, Xfinity.COMPATIBILITY, Att.COMPATIBILITY, Verizon.COMPATIBILITY, Visible.COMPATIBILITY, WhiteHouse.COMPATIBILITY, Nps.COMPATIBILITY, Fema.COMPATIBILITY, RecGov.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY, TruthSocial.COMPATIBILITY, SettingsHome.COMPATIBILITY, Netflix.COMPATIBILITY, Nfg.COMPATIBILITY, Reuters.COMPATIBILITY)
 
     dependsOn(deviceIdentifiersManifestPatch)
 
@@ -287,17 +285,14 @@ val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
         description = "Gives the app a random Android ID and a zeroed advertising ID. The DRM ID is left alone, " +
             "so playback works.",
     )
-    // A TV has no SIM or mobile data, so the TV bundle leaves out the carrier,
-    // Wi-Fi report, and cell tower options.
-    val phoneOptions = !isTvBundle
-    val carrier = if (!phoneOptions) null else booleanOption(
+    val carrier = booleanOption(
         key = "carrier",
         default = false,
         title = "Carrier",
         description = "Hides your mobile carrier, or reports the name set in Carrier name. Carrier deals, such as " +
             "League Pass with a phone plan, stop working.",
     )
-    val carrierName = if (!phoneOptions) null else stringOption(
+    val carrierName = stringOption(
         key = "carrierName",
         default = "",
         values = mapOf(
@@ -315,7 +310,7 @@ val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
             "Blank hides the carrier.",
         required = false,
     )
-    val reportWifi = if (!phoneOptions) null else booleanOption(
+    val reportWifi = booleanOption(
         key = "reportWifi",
         default = false,
         title = "Report Wi-Fi connection",
@@ -326,33 +321,26 @@ val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
         key = "hideVpn",
         default = false,
         title = "VPN connection",
-        description = "Hides an active VPN from the app's checks on the ${if (isTvBundle) "device" else "phone"}. " +
+        description = "Hides an active VPN from the app's checks on the phone. " +
             "The app's servers can still detect a VPN from your IP address.",
     )
     val wifiNetworks by booleanOption(
         key = "wifiNetworks",
         default = false,
         title = "Nearby Wi-Fi networks",
-        description = if (isTvBundle) {
-            "Hides nearby Wi-Fi networks and the name of yours. Smart-home setup in the app can be affected."
-        } else {
+        description =
             "Hides nearby Wi-Fi networks and the name of yours. Store detection, smart-home setup, and " +
-                "checkout fraud checks can be affected."
-        },
+                "checkout fraud checks can be affected.",
     )
     val bluetooth by booleanOption(
         key = "bluetooth",
         default = false,
         title = "Bluetooth scanning",
-        description = if (isTvBundle) {
-            "Stops the app's scans for Bluetooth devices and beacons, and hides paired devices from it. " +
-                "Smart-home setup in the app stops working. Remotes and controllers keep working."
-        } else {
+        description =
             "Stops scans for Bluetooth devices and beacons, and hides paired devices. In-store maps, " +
-                "kiosk check-in, smart-home setup, and accessory pairing stop working."
-        },
+                "kiosk check-in, smart-home setup, and accessory pairing stop working.",
     )
-    val cellTowers = if (!phoneOptions) null else booleanOption(
+    val cellTowers = booleanOption(
         key = "cellTowers",
         default = false,
         title = "Cell tower info",
@@ -363,12 +351,9 @@ val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
         key = "backgroundLocation",
         default = false,
         title = "Background location",
-        description = if (isTvBundle) {
-            "Removes the app's access to your location while it is closed or in the background."
-        } else {
+        description =
             "Removes the app's access to your location while it is closed or in the background. " +
-                "Store-arrival features and pickup check-in can stop working. RetailMeNot has its own patch for this."
-        },
+                "Store-arrival features and pickup check-in can stop working. RetailMeNot has its own patch for this.",
     )
 
     execute {

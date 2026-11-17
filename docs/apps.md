@@ -4,7 +4,7 @@ Each table lists an app's patches and the versions they were tested on. [What th
 
 - **Experimental** means the patch or version is still in testing and may not always work. If you run into an error, please [report it](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/new/choose) with as much detail as you can.
 - **Off by default** means the patch is applied only if you select it in Morphe Manager when you patch.
-- The Android TV apps are in their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). [Android TV](android-tv.md) lists them.
+- The Android TV apps are in their own source, [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). [Android TV](android-tv.md) explains how to add it.
 
 **Which file to download.** The "Get it from" column says where each app can come from. The most reliable source is Google Play or Aurora Store: install the app, then patch the installed copy with "Use installed app" in Morphe Manager. That gives you the phone build Google Play currently serves. If you are in the app's beta program, Google Play can give you a newer version than the patches support. The column's other entries mean:
 

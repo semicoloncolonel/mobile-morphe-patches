@@ -260,7 +260,7 @@ class TvRepositoryTest(unittest.TestCase):
 
 
 class TvRedirectTest(unittest.TestCase):
-    """This repository sends Android TV reports for apps with a TV target to the TV source (issue 80)."""
+    """This repository sends every Android TV report for a named app to the TV source (issue 80)."""
 
     apps = dict(apps_from(KOTLIN), **{
         "Hulu": {"6.34.0+18552420-google": {"codes": set(), "descriptions": set()}},
@@ -289,9 +289,15 @@ class TvRedirectTest(unittest.TestCase):
     def test_phone_reports_are_unchanged(self):
         self.assertIsNone(self.check("Hulu", "6.34.0+18552420-google"))
 
-    def test_app_without_a_tv_target_keeps_the_build_check(self):
+    def test_app_without_a_tv_target_goes_to_the_tv_source(self):
         problem = self.check("Disney+", "26.20.0+rc3-2026.11.02", build="Android TV or Google TV")
-        self.assertEqual(problem["kind"], "build")
+        self.assertEqual(problem["kind"], "tv")
+
+    def test_app_this_source_does_not_list_goes_to_the_tv_source(self):
+        self.assertEqual(self.check("Prime Video", "6.24.13", build="Android TV or Google TV")["kind"], "tv")
+
+    def test_other_apps_are_left_alone(self):
+        self.assertIsNone(self.check("Other (name it in the description)", "1.0", build="Android TV or Google TV"))
 
     def test_no_redirect_without_a_tv_source(self):
         t.TV_REPO = ""

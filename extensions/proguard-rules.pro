@@ -21,14 +21,6 @@
     public static java.net.URL filterJsRequestUrl(java.net.URL);
 }
 -keep class semicoloncolonel.mobilestream.extension.shared.privacy.TrackerBlocker$BlockInterceptor { *; }
--keep class semicoloncolonel.mobilestream.extension.yttvshell.TvScripts {
-    public static void setWebContents(java.lang.Object);
-    public static void setWebContentsFromObserver(java.lang.Object);
-    public static void onObserverNavigation(java.lang.Object);
-    public static void onObserverDocument(java.lang.Object);
-    public static void onPageEvent(java.lang.String);
-    public static void onTitle(java.lang.String);
-}
 
 # Pluto TV — "Skip ads". filter is called only from
 # injected smali via invoke-static.
@@ -262,9 +254,8 @@
 -keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaSaver { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.truthsocial.MediaTypeFix { *; }
 
-# Apple TV (Android TV) — "Auto-skip". Called only from injected smali, and its
+# Apple TV — "Auto-skip". Called only from injected smali, and its
 # skipPromos / skipRecaps / skipIntros answers are overwritten by the patch.
--keep class semicoloncolonel.mobilestream.extension.appletv.AutoSkipper { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.appletv.PhoneAutoSkipper { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.appletv.ReleaseTimes { public static *; }
 -keep class semicoloncolonel.mobilestream.extension.appletv.PlayerInfo { public static *; }
@@ -341,10 +332,6 @@
     public static *;
 }
 
--keep class semicoloncolonel.mobilestream.extension.hulutv.nativehook.NativeHookLoader {
-    public static void load();
-}
-
 # Netflix — "Bypass tamper protection". load() is called only from injected
 # smali at the top of the Application's attachBaseContext.
 -keep class semicoloncolonel.mobilestream.extension.netflix.bypass.NetflixBypassLoader {
@@ -355,23 +342,6 @@
 # referenced only from the manifest, so R8 must keep them.
 -keep class semicoloncolonel.mobilestream.extension.netflix.categories.HiddenCategoriesActivity { *; }
 -keep class semicoloncolonel.mobilestream.extension.netflix.categories.SurpriseMeActivity { *; }
-
--keep class semicoloncolonel.mobilestream.extension.hulutv.privacy.NativeTrackerLoader {
-    public static void load();
-}
-
-# Called from smali by the Reject tracking consent patch.
--keep class semicoloncolonel.mobilestream.extension.shared.privacy.ConsentRejecter {
-    public static boolean reject(java.lang.Object, boolean);
-}
-
-# Prime Video Android TV ad-strip loader — only injected smali calls it.
--keep class semicoloncolonel.mobilestream.extension.primevideotv.PrimeVideoHookLoader {
-    public static void load();
-}
-
-# TvSourceNotice is named only in the manifest, as a provider, so R8 must keep it.
--keep class semicoloncolonel.mobilestream.extension.shared.misc.TvSourceNotice { *; }
 
 # Koupon — "Keep new-user promo codes" and "Block analytics & tracking". These
 # methods are called only from injected smali via invoke-static.

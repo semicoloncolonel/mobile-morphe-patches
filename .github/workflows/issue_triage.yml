@@ -49,5 +49,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           # Android TV reports are sent to the TV patch source.
-          TRIAGE_TV_REPO: ${{ vars.TV_SOURCE }}
+          TRIAGE_TV_REPO: semicoloncolonel/tv-morphe-patches
         run: python3 .github/scripts/issue_triage.py

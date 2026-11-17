@@ -202,12 +202,13 @@ def evaluate(fields, apps):
     # The forms list "Apple TV", and the patches name the TV entry "Apple TV (Android TV)".
     if app and build.startswith("Android TV") and f"{app} (Android TV)" in apps:
         app = f"{app} (Android TV)"
+    # This source patches phone apps only, so every Android TV report for a
+    # named app goes to the TV source, whether or not its targets are still here.
+    if TV_REPO and app and version and build.startswith("Android TV") and not app.startswith("Other"):
+        return {"kind": "tv", "app": app, "version": version.strip(), "versions": apps.get(app, {})}
     if not app or not version or app not in apps:
         return None
     versions = apps[app]
-    has_tv_target = any(is_tv(d) for e in versions.values() for d in e["descriptions"])
-    if TV_REPO and build.startswith("Android TV") and has_tv_target:
-        return {"kind": "tv", "app": app, "version": version.strip(), "versions": versions}
     match = next((v for v in versions if v.lower() == version.strip().lower()), None)
     if match is None:
         return {"kind": "version", "app": app, "version": version.strip(), "versions": versions}
@@ -244,9 +245,8 @@ def version_line(version, entry):
 
 def tv_comment(problem):
     repo = TV_REPO
-    return (f"The Android TV patches, including {problem['app']}, now come from a separate patch source, "
-            f"[{repo}](https://github.com/{repo}). The dev pre-releases of this source no longer include them, "
-            f"and the main releases will stop including them after version 1.1.\n\n"
+    return (f"From version 1.2.0, this source patches phone apps only. The Android TV patches, including "
+            f"{problem['app']}, come from a separate patch source, [{repo}](https://github.com/{repo}).\n\n"
             f"Please [add that source](https://morphe.software/add-source?github={repo}) in Morphe Manager, "
             f"as [its instructions](https://github.com/{repo}#readme) describe, and patch the app again with "
             f"it. If the problem "

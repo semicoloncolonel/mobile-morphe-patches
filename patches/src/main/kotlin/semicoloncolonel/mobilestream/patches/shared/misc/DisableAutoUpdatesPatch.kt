@@ -80,6 +80,7 @@ val disableAutoUpdatesPatch = resourcePatch(
     description = "Stops the Play Store from replacing the patched app with the official version.",
     default = false,
 ) {
+    category("Setup")
     compatibleWith(
         Tubi.COMPATIBILITY,
         Disney.COMPATIBILITY,

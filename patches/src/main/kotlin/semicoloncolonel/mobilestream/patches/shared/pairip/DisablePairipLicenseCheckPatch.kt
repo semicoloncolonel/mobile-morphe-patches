@@ -49,6 +49,7 @@ val disablePairipLicenseCheckPatch = bytecodePatch(
     name = "Disable Pairip license check",
     description = "Lets the patched app start by skipping Google's Pairip license check.",
 ) {
+    category("Setup")
     compatibleWith(
         FoxOne.COMPATIBILITY,
         DealSeek.COMPATIBILITY,

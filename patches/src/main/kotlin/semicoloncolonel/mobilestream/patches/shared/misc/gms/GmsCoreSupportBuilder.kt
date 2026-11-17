@@ -155,8 +155,6 @@ private fun com.android.tools.smali.dexlib2.iface.Method.isAvailableOnDeviceCall
  * @param required Whether the app cannot sign in without it. Apps that also
  *   offer email or other sign-ins get it as an opt-in patch, because it also
  *   moves push notifications to GmsCore.
- * @param category Folder that Morphe Manager shows the patch in, for apps
- *   with enough patches to sort.
  */
 internal fun gmsCoreSupportPatch(
     compatibility: Compatibility,
@@ -166,7 +164,6 @@ internal fun gmsCoreSupportPatch(
     signature: String,
     launcherActivity: String,
     required: Boolean = false,
-    category: String? = null,
     // App-specific fixes that only matter when sign-in goes through GmsCore.
     extraPatches: Set<Patch> = emptySet(),
 ): BytecodePatch {
@@ -251,7 +248,7 @@ internal fun gmsCoreSupportPatch(
         default = required,
     ) {
         compatibleWith(compatibility)
-        category?.let { category(it) }
+        category("Setup")
 
         // A root mount keeps the stock package name and Google's signature.
         availability { installer, _ ->

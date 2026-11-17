@@ -38,6 +38,7 @@ val hideMarketingPopupsPatch = bytecodePatch(
     name = "Hide marketing pop-ups",
     description = "Stops in-app marketing pop-ups and the subscribe banner on the home page, but not the paywall.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

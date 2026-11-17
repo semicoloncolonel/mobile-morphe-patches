@@ -29,6 +29,7 @@ val blockAnalyticsPatch = bytecodePatch(
     description = "Stops the app's analytics, ad measurement, and marketing services.",
     default = false,
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(analyticsKillSwitchesPatch)

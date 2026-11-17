@@ -44,6 +44,7 @@ val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
     description = "Plays every title with an empty ad plan, so no ad break is scheduled.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     // A re-signed Prime Video that keeps Amazon's permission names blocks

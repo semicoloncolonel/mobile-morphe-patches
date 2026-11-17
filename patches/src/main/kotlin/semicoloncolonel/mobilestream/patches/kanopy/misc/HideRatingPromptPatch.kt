@@ -26,6 +26,7 @@ val hideRatingPromptPatch = bytecodePatch(
     name = "Hide rating prompt",
     description = "Stops the app's rating dialog and the Google Play rating prompt.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     dependsOn(blockPlayReviewSheetPatch)

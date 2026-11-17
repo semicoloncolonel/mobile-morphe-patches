@@ -31,6 +31,7 @@ val skipAdsPatch = rawResourcePatch(
     name = "Skip ads",
     description = "Stops on-demand titles from requesting video ads and pause ads.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

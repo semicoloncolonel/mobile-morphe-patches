@@ -18,6 +18,7 @@ val blockSessionRecordingPatch = bytecodePatch(
     name = "Block session recording",
     description = "Stops Quantum Metric, which records what you do in T-Life.",
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

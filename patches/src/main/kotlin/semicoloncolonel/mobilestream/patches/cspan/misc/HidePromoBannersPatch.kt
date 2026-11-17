@@ -29,6 +29,7 @@ val hidePromoBannersPatch = bytecodePatch(
     name = "Hide promo banners",
     description = "Removes C-SPAN's program promo banners above the player and on the Watch tab.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

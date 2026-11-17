@@ -1,5 +1,5 @@
 name: 🐞 Bug report
-description: Morphe Manager does not accept your app version or build, a patch fails to apply, the patched app crashes or will not play, or a patch does not do what its description says.
+description: Morphe Manager does not accept your app version or build, a patch fails to apply, the patched app crashes or will not play, or a patch does not do what its description says, misses something it should remove, or causes a new problem, such as out-of-sync subtitles.
 title: "bug: "
 labels: ["bug"]
 body:

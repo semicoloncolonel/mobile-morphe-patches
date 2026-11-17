@@ -39,6 +39,7 @@ val hideSurveysPatch = bytecodePatch(
     name = "Hide surveys and rating prompt",
     description = "Stops Medallia survey invitations and the \"rate the app\" dialog on the home screen.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

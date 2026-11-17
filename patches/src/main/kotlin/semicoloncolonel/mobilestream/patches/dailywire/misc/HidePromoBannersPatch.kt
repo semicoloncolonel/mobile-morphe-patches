@@ -45,6 +45,7 @@ val hidePromoBannersPatch = bytecodePatch(
     description = "Removes the DailyWire+ \"Now Streaming\" promo card and the docked banner that promote " +
         "the app's own streaming content.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

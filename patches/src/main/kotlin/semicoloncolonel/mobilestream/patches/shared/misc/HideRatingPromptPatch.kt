@@ -160,6 +160,7 @@ val hideRatingPromptPatch = bytecodePatch(
     name = "Hide rating prompt",
     description = "Stops Google Play's rate-this-app sheet.",
 ) {
+    category("Interface")
     // Apple TV, CNBC, Recreation.gov, NewsBreak, and USA TODAY have their own
     // Hide rating prompt patch, which includes this one.
     compatibleWith(

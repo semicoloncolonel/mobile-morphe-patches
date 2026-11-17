@@ -22,6 +22,7 @@ val blockLocationTrackingPatch = bytecodePatch(
     name = "Block location tracking",
     description = "Stops Radar, which sends your location to its servers every 30 seconds.",
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

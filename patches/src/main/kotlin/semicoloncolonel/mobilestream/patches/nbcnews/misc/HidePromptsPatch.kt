@@ -28,6 +28,7 @@ val hidePromptsPatch = bytecodePatch(
     name = "Hide surveys and rating prompt",
     description = "Stops the Iterate surveys and the prompt to rate the app.",
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

@@ -45,6 +45,7 @@ val maskLiveAdsPatch = bytecodePatch(
     name = "Mask live ad breaks",
     description = "Covers live ad breaks with a \"We'll be right back!\" screen and mutes them.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

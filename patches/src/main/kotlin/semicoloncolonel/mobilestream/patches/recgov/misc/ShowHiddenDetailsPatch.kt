@@ -68,6 +68,7 @@ val showHiddenDetailsPatch = bytecodePatch(
     description = "Shows ticket lottery, ticket sales, and booking details the app receives but hides.",
     default = false,
 ) {
+    category("Interface")
     compatibleWith(Constants.COMPATIBILITY)
 
     extendWith("extensions/extension.mpe")

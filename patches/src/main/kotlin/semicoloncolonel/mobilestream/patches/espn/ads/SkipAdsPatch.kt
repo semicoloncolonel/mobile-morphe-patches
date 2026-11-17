@@ -23,6 +23,7 @@ val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
     description = "Stops the scheduled ad breaks and on-demand mid-rolls in videos.",
 ) {
+    category("Ads")
     compatibleWith(Constants.COMPATIBILITY)
 
     execute {

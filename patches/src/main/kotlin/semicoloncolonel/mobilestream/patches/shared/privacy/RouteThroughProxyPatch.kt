@@ -31,6 +31,7 @@ val routeThroughProxyPatch = bytecodePatch(
     description = "Sends the app's network traffic through a proxy you choose, such as Orbot or a VPN service's SOCKS5 server.",
     default = false,
 ) {
+    category("Privacy")
     compatibleWith(
         WhiteHouse.COMPATIBILITY,
         Npr.COMPATIBILITY,

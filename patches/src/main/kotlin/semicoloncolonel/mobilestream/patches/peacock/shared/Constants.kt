@@ -3,7 +3,6 @@ package semicoloncolonel.mobilestream.patches.peacock.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.AppTarget
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
 
 object Constants {
@@ -14,9 +13,9 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x000000,
         targets = listOf(
-            devTarget("7.11.11", versionCode = 124071111, description = "Phone build"),
+            AppTarget("7.11.11", versionCode = 124071111, description = "Phone build"),
             AppTarget(version = "7.10.30", description = "Phone build"),
-            devTarget("7.10.200", description = "Android TV build"),
+            AppTarget("7.10.200", description = "Android TV build"),
         )
     ).splitByBundle(
         phoneDescription = "The Peacock phone app.",

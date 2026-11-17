@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -17,7 +16,7 @@ object Constants {
         targets = listOf(
             AppTarget(version = "1.25.1", description = "Phone build"),
             AppTarget("1.24.0", versionCode = 26101302, description = "Phone build"),
-            devTarget("1.20.0", description = "Android TV build"),
+            AppTarget("1.20.0", description = "Android TV build"),
         )
     ).splitByBundle(
         phoneDescription = "The Fox One phone app. Needs the Pairip license-check patch to run once re-signed.",

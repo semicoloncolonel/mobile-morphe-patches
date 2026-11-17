@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import semicoloncolonel.mobilestream.patches.shared.misc.splitByBundle
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -18,7 +17,7 @@ object Constants {
         // (version code 4518) and the Android TV build (9510). No version code is
         // pinned, so the Android TV build is accepted too. Skip launch video is the
         // only patch that does not apply to it; it no-ops there (see its patch).
-        targets = listOf(devTarget("6.12.0"), devTarget("6.12.1", versionCode = 4519), AppTarget("6.11.0"))
+        targets = listOf(AppTarget("6.12.0"), AppTarget("6.12.1", versionCode = 4519), AppTarget("6.11.0"))
     ).splitByBundle(
         phoneDescription = "The Starz phone and tablet apps. The phone build of 6.12.0 has version code 4518.",
         tvDescription = "The Starz app. Patch the 6.12.0 build with version code 9510.",

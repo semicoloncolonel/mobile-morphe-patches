@@ -4,7 +4,6 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.FormFactor
-import semicoloncolonel.mobilestream.patches.shared.misc.IS_DEV_BUILD
 import semicoloncolonel.mobilestream.patches.shared.misc.forTvSource
 
 // Prime Video's Android TV app runs its player inside the native Ignite engine
@@ -19,7 +18,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x1399FF,
         targets = listOf(
-            AppTarget("6.24.13+v16.0.1.93-allAbis", isExperimental = IS_DEV_BUILD, description = "Android TV build"),
+            AppTarget("6.24.13+v16.0.1.93-allAbis", description = "Android TV build"),
         ),
         formFactor = FormFactor.TV,
     ).forTvSource()

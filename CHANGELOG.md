@@ -1,12 +1,41 @@
 # [1.2.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-11-17)
 
+### Android TV
 
-### Features
+This source now patches phone apps only. The Android TV patches are in [TV Morphe Patches](https://github.com/semicoloncolonel/tv-morphe-patches). Add that source in Morphe Manager to keep receiving them.
 
-* Merge related patches into options ([8fd9ff9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/8fd9ff98b618a51fa0efa5ecc5b8914d58ff18cd))
-* Patch phone apps only, without the Android TV apps ([0b66df6](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0b66df60aae5d4d998d25ea36b987cec1371222f))
-* **release:** Begin the 1.2.0 dev line ([11e2ce9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/11e2ce930cf014b5cd1d785546e7849313d6b832))
-* Sort every patch into a folder ([f3c6160](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f3c6160983fd62ceda7305ca5054d029b40ac3b0))
+### Folders
+
+Every patch is now in one of five folders in Morphe Manager: Ads, Privacy, Interface, Playback, and Setup.
+
+### Merged patches
+
+Several small patches are now options of one patch. **Merged and renamed patches reset their saved selections in Morphe Manager**, so check their options before you patch again.
+
+**Block analytics & tracking**
+- Opt out of data sale & sharing is now its option "Opt out of data sale & sharing" on CBS News, CNN, Fox Local, Fox News, MS NOW, NBC News, and NPR. It is on by default.
+- Block session recording is now its option "Session recording" on myAT&T, My Verizon, T-Life, and Visible. It is on by default.
+- Block location tracking is now its option "Location tracking" on T-Life. It is on by default.
+- Stop behavioral tracking is now its option "Behavioral tracking" on DealSeek and Koupon. It is off by default.
+- On the 11 apps above with an option that is on by default, Block analytics & tracking is now on by default. Its own blocking of analytics services is the option "Analytics and tracking services", which is off by default. On DealSeek and Koupon, the patch stays off by default.
+
+**Hide prompts and pop-ups**, a new patch for 23 apps. Every option is on by default.
+- Hide rating prompt is now its option "Rating prompt" on Apple TV, CNBC, Kanopy, NewsBreak, Recreation.gov, and USA TODAY.
+- Hide surveys is now its option "Surveys" on CBS News and RetailMeNot.
+- Hide surveys and rating prompt is now its option "Surveys and rating prompt" on MLB, NBC News, and Walgreens.
+- Hide pop-ups is now its option "Pop-ups" on Checkout 51, DealNews, DealSeek, Koupon, Walmart, Yahoo Finance, and Yahoo News.
+- Hide marketing pop-ups is now its option "Marketing pop-ups" on The Washington Post and The Wall Street Journal.
+- Hide promo banners is now its option "Promo banners" on C-SPAN Now and The Daily Wire.
+- Hide promotions is now its option "Promotions" on Reuters.
+- On CBS News, C-SPAN Now, Checkout 51, The Daily Wire, DealNews, DealSeek, Koupon, MLB, NBC News, RetailMeNot, Reuters, Walgreens, Walmart, The Washington Post, and The Wall Street Journal, Hide rating prompt is now the option "Rating prompt" of Hide prompts and pop-ups.
+
+**Skip ads**
+- Mask live ad breaks is now its option "Mask live ad breaks" on ABC News and Pluto TV, where it is on by default, and on MLB and Xumo Play, where it is experimental and off by default.
+- Skip pre-roll promo is now its option "Skip pre-roll promo" on MGM+, where it is experimental and off by default.
+
+Mask live ad breaks on Xumo Play and Skip pre-roll promo on MGM+ were on by default before. Turn the option on if you used them.
+
+These stay their own patches: Block location tracking on Checkout 51, Mask live ad breaks on SiriusXM and YouTube TV, Skip pre-roll promo on Starz, and Hide promotions on White House.
 
 # [1.1.0](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21...v1.1.0) (2026-11-17)
 

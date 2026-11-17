@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-17T04:02:28",
-  "description": "# [1.1.0-dev.50](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.49...v1.1.0-dev.50) (2026-11-17)\n\n\n### Bug Fixes\n\n* Mark public app versions as standard instead of experimental ([fbd5d3f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fbd5d3fced6b022ada32e7d27de4531d03f64a6b))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.50/patches-1.1.0-dev.50.mpp",
+  "created_at": "2026-11-17T04:14:00",
+  "description": "# [1.1.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.50...v1.1.0-dev.51) (2026-11-17)\n\n\n### Features\n\n* **privacy:** Block the domains of the Optimizely snippet malware ([b64bf54](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b64bf54a2a52226b4286e3f97816190d40657a05))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.1.0-dev.51/patches-1.1.0-dev.51.mpp",
   "signature_download_url": "",
-  "version": "1.1.0-dev.50",
+  "version": "1.1.0-dev.51",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

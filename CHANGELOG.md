@@ -1,3 +1,10 @@
+# [1.1.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.50...v1.1.0-dev.51) (2026-11-17)
+
+
+### Features
+
+* **privacy:** Block the domains of the Optimizely snippet malware ([b64bf54](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b64bf54a2a52226b4286e3f97816190d40657a05))
+
 # [1.1.0-dev.50](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0-dev.49...v1.1.0-dev.50) (2026-11-17)
 
 

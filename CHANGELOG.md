@@ -1,3 +1,12 @@
+# [1.2.0-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.7...v1.2.0-dev.8) (2026-11-18)
+
+
+### Features
+
+* **netflix:** Automatically skip intros and recaps ([52fca9c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/52fca9c44160a136292390ed23239bec186fb5d6))
+* **netflix:** Keep Picture-in-Picture available when Netflix turns it off ([06172dc](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/06172dce4a20f7109cab6612644b340ea9b20dba))
+* **netflix:** Keep playing in the background ([88062f4](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/88062f4822b2cad5857c437128445b61f5b84522))
+
 # [1.2.0-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.6...v1.2.0-dev.7) (2026-11-18)
 
 

@@ -69,3 +69,9 @@ jobs:
       - name: Check the issue forms list every app
         run: python .github/scripts/check_issue_forms.py
 
+      # On dev, the Signing key workflow updates these files after a key change,
+      # so the check runs on the release pull request, where they must match.
+      - name: Check the published signing key fingerprint
+        if: github.event_name == 'pull_request'
+        run: python .github/scripts/signing_key.py --check
+

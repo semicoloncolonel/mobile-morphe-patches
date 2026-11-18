@@ -1,3 +1,10 @@
+# [1.2.0-dev.7](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.6...v1.2.0-dev.7) (2026-11-18)
+
+
+### Bug Fixes
+
+* **primevideo:** Skip the ads built into the video stream and keep subtitles in sync ([867427a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/867427ad977d83883ada6ad1507cea6381fe02c2))
+
 # [1.2.0-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.5...v1.2.0-dev.6) (2026-11-18)
 
 

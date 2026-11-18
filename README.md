@@ -12,6 +12,14 @@ Morphe patches that remove ads and block tracking in the phone versions of strea
   <a href="https://morphe.software/add-source?github=semicoloncolonel/tv-morphe-patches"><img alt="Add the Android TV patches to Morphe Manager" src="https://img.shields.io/badge/%2B_Add_the-Android_TV_patches-14b8a6?style=flat-square"></a>
 </p>
 
+<!-- signer:start -->
+<p align="center">
+  <a href="docs/signing-key.md"><img alt="Signed by 4c2b a5d2 28d4 532f" src="docs/assets/signed-by.svg"></a>
+  <br>
+  <sub>Morphe Manager shows this signer on the source. If it shows a different one, check the <a href="docs/signing-key.md">signing key history</a> before you apply the patches.</sub>
+</p>
+<!-- signer:end -->
+
 <p align="center">
   <a href="#install">Install</a> ·
   <a href="docs/apps.md">Supported apps</a> ·

@@ -1,3 +1,10 @@
+# [1.2.0-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.4...v1.2.0-dev.5) (2026-11-18)
+
+
+### Features
+
+* **moviesanywhere:** Add Movies Anywhere 1.54.0 with prompts and quality patches ([97e56b8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/97e56b8a39a5fff4c430249d2f0049a76caeed90))
+
 # [1.2.0-dev.4](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.3...v1.2.0-dev.4) (2026-11-18)
 
 

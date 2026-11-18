@@ -1,3 +1,10 @@
+# [1.2.0-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.8...v1.2.0-dev.9) (2026-11-18)
+
+
+### Bug Fixes
+
+* testing NFL 61.0.21 ([7fd328c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7fd328c3c7af7f7b6dff2d7615c82df38707abff))
+
 # [1.2.0-dev.8](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.7...v1.2.0-dev.8) (2026-11-18)
 
 

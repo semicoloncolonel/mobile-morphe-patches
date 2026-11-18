@@ -218,6 +218,10 @@
 # app's picture-in-picture calls in injected smali.
 -keep class semicoloncolonel.mobilestream.extension.yttv.YttvPictureInPicture { public static *; }
 
+# YouTube TV — "Volume and brightness sliders". onScroll() is called from the
+# player gesture handler via injected invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.yttv.YttvScreenGestures { public static *; }
+
 # Fox News and The Wall Street Journal — "Hide prediction markets".
 # filterFoxItems() is called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.shared.misc.PredictionMarkets { public static *; }

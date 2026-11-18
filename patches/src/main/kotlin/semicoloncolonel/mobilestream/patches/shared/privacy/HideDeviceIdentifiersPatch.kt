@@ -48,7 +48,6 @@ import semicoloncolonel.mobilestream.patches.peacock.shared.Constants as Peacock
 import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as PrimeVideo
 import semicoloncolonel.mobilestream.patches.pluto.shared.Constants as Pluto
 import semicoloncolonel.mobilestream.patches.tmobileplay.shared.Constants as TMobilePlay
-import semicoloncolonel.mobilestream.patches.tlife.shared.Constants as TLife
 import semicoloncolonel.mobilestream.patches.justwatch.shared.Constants as JustWatch
 import semicoloncolonel.mobilestream.patches.mint.shared.Constants as Mint
 import semicoloncolonel.mobilestream.patches.verizon.shared.Constants as Verizon
@@ -161,7 +160,12 @@ private fun Instruction.isAdIdServiceAction(): Boolean =
     (opcode == Opcode.CONST_STRING || opcode == Opcode.CONST_STRING_JUMBO) &&
         ((this as ReferenceInstruction).reference as? StringReference)?.string == AD_ID_SERVICE_ACTION
 
-internal fun BytecodePatchContext.hideIds() {
+// spoofAndroidId chooses whether Layer 1 (the ANDROID_ID rewrite) runs. The
+// advertising-ID layers (2, 3 and 4) always run, because the ad ID is a
+// resettable marketing identifier, not a device-integrity signal. T-Life's
+// "Mask device identity" patch calls this with spoofAndroidId = false for its
+// Relaxed mode, so a carrier fraud check still reads the genuine ANDROID_ID.
+internal fun BytecodePatchContext.hideIds(spoofAndroidId: Boolean = true) {
     // Layer 2. Both getters are plain field reads, so p0 (this) is free
     // to hold the return value.
     AdvertisingIdInfoGetIdFingerprint.methodOrNull?.addInstructions(
@@ -186,7 +190,7 @@ internal fun BytecodePatchContext.hideIds() {
     classDefForEach { classDef ->
         if (classDef.type.startsWith(EXTENSION_PACKAGE)) return@classDefForEach
         val instructions = classDef.methods.flatMap { it.implementation?.instructions ?: emptyList() }
-        if (instructions.any { it.isSecureGetString() }) idTargets += classDef.type
+        if (spoofAndroidId && instructions.any { it.isSecureGetString() }) idTargets += classDef.type
         if (!classDef.type.startsWith(AD_ID_CLIENT_PACKAGE) &&
             instructions.any { it.isAdIdServiceAction() }
         ) {
@@ -274,7 +278,7 @@ val hideDeviceIdentifiersPatch: BytecodePatch = bytecodePatch(
     default = false,
 ) {
     category("Privacy")
-    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, HboMax.STREAM_COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, MoviesAnywhere.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, TMobilePlay.COMPATIBILITY, TLife.COMPATIBILITY, JustWatch.COMPATIBILITY, Mint.COMPATIBILITY, Xfinity.COMPATIBILITY, Att.COMPATIBILITY, Verizon.COMPATIBILITY, Visible.COMPATIBILITY, WhiteHouse.COMPATIBILITY, Nps.COMPATIBILITY, Fema.COMPATIBILITY, RecGov.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY, TruthSocial.COMPATIBILITY, SettingsHome.COMPATIBILITY, Netflix.COMPATIBILITY, Nfg.COMPATIBILITY, Reuters.COMPATIBILITY)
+    compatibleWith(Tubi.COMPATIBILITY, Disney.COMPATIBILITY, Hulu.COMPATIBILITY, Pluto.COMPATIBILITY, Paramount.COMPATIBILITY, HboMax.COMPATIBILITY, HboMax.STREAM_COMPATIBILITY, Peacock.COMPATIBILITY, PrimeVideo.COMPATIBILITY, Mgm.COMPATIBILITY, FoxOne.COMPATIBILITY, NyTimes.COMPATIBILITY, WashingtonPost.COMPATIBILITY, Wsj.COMPATIBILITY, Amc.COMPATIBILITY, Starz.COMPATIBILITY, Pbs.COMPATIBILITY, FoxNews.COMPATIBILITY, MsNow.COMPATIBILITY, Cnn.COMPATIBILITY, Espn.COMPATIBILITY, Nfl.COMPATIBILITY, Nba.COMPATIBILITY, Fandango.COMPATIBILITY, MoviesAnywhere.COMPATIBILITY, CbsNews.COMPATIBILITY, NbcNews.COMPATIBILITY, FoxLocal.COMPATIBILITY, AbcNews.COMPATIBILITY, Moviebase.COMPATIBILITY, TMobilePlay.COMPATIBILITY, JustWatch.COMPATIBILITY, Mint.COMPATIBILITY, Xfinity.COMPATIBILITY, Att.COMPATIBILITY, Verizon.COMPATIBILITY, Visible.COMPATIBILITY, WhiteHouse.COMPATIBILITY, Nps.COMPATIBILITY, Fema.COMPATIBILITY, RecGov.COMPATIBILITY, *SHOPPING_APPS, AppleTv.COMPATIBILITY, Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY, TruthSocial.COMPATIBILITY, SettingsHome.COMPATIBILITY, Netflix.COMPATIBILITY, Nfg.COMPATIBILITY, Reuters.COMPATIBILITY)
 
     dependsOn(deviceIdentifiersManifestPatch)
 

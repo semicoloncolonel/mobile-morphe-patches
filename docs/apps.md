@@ -125,7 +125,7 @@ Whatever the source, check that the version and version code match the table. Th
 | Mint Mobile | Block analytics & tracking (off by default) | `2.3.42` | Google Play, or a full bundle | 11/06/26 |
 | myAT&T | Block background network reports (experimental)<br>Block analytics & tracking<br>Disable AI (off by default) | `2026.11.1`<br>`2026.10.2`<br>`2026.10.1` | Google Play, or a full bundle | 11/16/26 |
 | My Verizon | Block analytics & tracking<br>Disable AI (experimental, off by default) | `22.3.5` | Google Play, or a full bundle | 11/10/26 |
-| T-Life | Block analytics & tracking<br>Disable AI (off by default) | `12.4.0`<br>`12.3.1` | Google Play, or a full bundle | 11/12/26 |
+| T-Life | Block analytics & tracking<br>Disable AI (off by default)<br>Mask device identity (off by default) | `12.4.0`<br>`12.3.1` | Google Play, or a full bundle | 11/12/26 |
 | T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | Any | 11/10/26 |
 | Visible | Block ads<br>Block analytics & tracking | `3.0.6` | Google Play, or a full bundle | 11/12/26 |
 | Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.14.0-2` | Google Play, or a full bundle | 11/01/26 |

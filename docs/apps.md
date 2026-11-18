@@ -69,7 +69,7 @@ Whatever the source, check that the version and version code match the table. Th
 | NewsNation | Skip ads<br>Block analytics & tracking (off by default) | `510.3.0` | Any | 11/05/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Skip ads<br>Block analytics & tracking<br>Route traffic through a proxy (off by default) | `7.11.0`<br>`7.10.0` | Google Play, or a full bundle | 11/16/26 |
 | Reuters | Hide prompts and pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Customize bottom bar (off by default)<br>Move Today section (experimental, off by default) | `7.51.0` | Google Play, or a full bundle. Not APKPure | 11/15/26 |
-| Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.13.1`<br>`3.12.0` | Google Play, or a full bundle. Not APKPure | 11/10/26 |
+| Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.14.0`<br>`3.13.1`<br>`3.12.0` | Google Play, or a full bundle. Not APKPure | 11/17/26 |
 | The Daily Wire | Skip ads<br>Hide prompts and pop-ups<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.22`, `3.5.21` | Google Play, or a full bundle | 11/13/26 |
 | The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Incognito reading (experimental, off by default) | `11.99.0`<br>`11.98.2`<br>`11.98.0` | Google Play, or a full bundle. Not APKPure | 11/10/26 |
 | theScore | Block analytics & tracking (off by default) | `26.16.1`<br>`26.16.0` | Google Play, or a full bundle. Not APKPure | 11/12/26 |
@@ -133,4 +133,4 @@ Whatever the source, check that the version and version code match the table. Th
 
 | App | Patches | Tested version | Get it from | Last updated |
 |-----|---------|----------------|-------------|--------------|
-| Settings Home | Block ads<br>Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `1.6.4` | Google Play, or a full bundle | 11/13/26 |
+| Settings Home | Block ads<br>Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `1.6.6`<br>`1.6.4` | Google Play, or a full bundle | 11/17/26 |

@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-18T21:38:21",
-  "description": "# [1.2.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.9...v1.2.0-dev.10) (2026-11-18)\n\n\n### Features\n\n* **tlife:** Add Mask device identity with relaxed and aggressive modes ([daa3897](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/daa3897fb30e9fe9f16522571e6dec47eba6f256))\n* **yttv:** Add Change the seek interval for the double tap and buttons ([d3d44dc](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d3d44dc05e6f2f600aab2f596731e19ee2d534c6))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.10/patches-1.2.0-dev.10.mpp",
+  "created_at": "2026-11-18T21:56:56",
+  "description": "# [1.2.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.10...v1.2.0-dev.11) (2026-11-18)\n\n\n### Features\n\n* **washingtonpost:** Hide the edge of the next article at the top of an article ([20aad32](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/20aad32a7f2927ddbdee49ac4c2c369125ea1d68)), closes [#98](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/98)\n* **yttv:** Change how far the skip buttons and double-tap move ([c1a9e48](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c1a9e48a061e9ef937585554e947c79242115a3f)), closes [#101](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/101)\n* **yttv:** Stop live channel tiles from playing previews ([f442ce6](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f442ce61f575cc3bcc10bdfc3a5af8fdecf2398d)), closes [#99](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/99)",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.11/patches-1.2.0-dev.11.mpp",
   "signature_download_url": "",
-  "version": "1.2.0-dev.10",
+  "version": "1.2.0-dev.11",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -1,3 +1,12 @@
+# [1.2.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.10...v1.2.0-dev.11) (2026-11-18)
+
+
+### Features
+
+* **washingtonpost:** Hide the edge of the next article at the top of an article ([20aad32](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/20aad32a7f2927ddbdee49ac4c2c369125ea1d68)), closes [#98](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/98)
+* **yttv:** Change how far the skip buttons and double-tap move ([c1a9e48](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c1a9e48a061e9ef937585554e947c79242115a3f)), closes [#101](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/101)
+* **yttv:** Stop live channel tiles from playing previews ([f442ce6](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f442ce61f575cc3bcc10bdfc3a5af8fdecf2398d)), closes [#99](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/99)
+
 # [1.2.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.9...v1.2.0-dev.10) (2026-11-18)
 
 

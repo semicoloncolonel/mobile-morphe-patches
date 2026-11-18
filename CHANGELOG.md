@@ -1,3 +1,16 @@
+# [1.2.0-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.2...v1.2.0-dev.3) (2026-11-18)
+
+
+### Bug Fixes
+
+* **espn:** Find the ad-disabled flag in 8.30.0 ([f82ecbf](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f82ecbf70c9698e49d88ad67b47f554037a7a4ca))
+* testing Substack 3.14.0, Settings Home 1.6.6 ([23af522](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/23af5224a400d9ee5b29ef0eb55c80f64fe0da3d))
+
+
+### Features
+
+* **substack:** Add GmsCore support for Google sign-in ([7841bd0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7841bd0a91c739376baf48c9af851a1358471e28))
+
 # [1.2.0-dev.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2026-11-17)
 
 

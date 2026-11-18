@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0...v1.1.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **mlb:** Keep the playlist header when a preroll ad is removed ([99450db](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/99450db62053b2d53881bc603cf2a65a8fe2a760))
+
 # [1.1.0](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21...v1.1.0) (2026-11-17)
 
 ### Android TV

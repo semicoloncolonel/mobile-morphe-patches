@@ -255,6 +255,20 @@ class IsTvBuildTest(unittest.TestCase):
         self.assertTrue(self.badging(
             "launchable-activity: name='a.Main'\nleanback-launchable-activity: name='a.TvMain'\n"))
 
+    def test_tv_build_that_requires_leanback(self):
+        # Starz 6.12.1 for Android TV (version code 9511).
+        self.assertTrue(self.badging(
+            "launchable-activity: name='com.starz.amznfiretv.SplashActivity'\n"
+            "leanback-launchable-activity: name='com.starz.amznfiretv.SplashActivity'\n"
+            "  uses-feature: name='android.software.leanback'\n"))
+
+    def test_one_apk_for_phones_and_tvs_is_a_phone_build(self):
+        # Substack 3.14.0 has a TV activity, but leanback is optional (issue 95).
+        self.assertFalse(self.badging(
+            "launchable-activity: name='com.substack.app.ui.AppActivity'\n"
+            "leanback-launchable-activity: name='com.substack.tv.TvActivity'\n"
+            "  uses-feature-not-required: name='android.software.leanback'\n"))
+
 
 if __name__ == "__main__":
     unittest.main()

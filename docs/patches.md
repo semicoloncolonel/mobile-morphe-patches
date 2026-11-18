@@ -127,6 +127,7 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 | Hide follow upsell | Substack | The "Follow" upsell card shown under notes in the Notes feed. |
 | Hide upsell pop-ups | The New York Times | The full-screen subscription takeover and the promo banner at the top. |
 | Hide prompts and pop-ups | The Washington Post | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers, and the subscribe banner on the home page. |
+| Hide next article peek | The Washington Post (off by default) | Hides the edge of the next article that shows on the right at the top of an article. Swiping between articles still works. |
 | Hide prompts and pop-ups | The Wall Street Journal | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers. |
 | Hide paywall sheet | The Washington Post 7.19.0 | The paywall sheet that slides up from the bottom of the screen. |
 | Skip age check errors | The Washington Post 7.19.0 | The "Error on Google Services" dialog that closes the app at launch when Google Play cannot check your age, such as on a phone without the Play Store or with a copy that did not come from Google Play. microG cannot answer this check, because it is a Play Store service. An age result from Google Play still applies. |

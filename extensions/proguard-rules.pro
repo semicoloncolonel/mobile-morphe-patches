@@ -343,6 +343,10 @@
 -keep class semicoloncolonel.mobilestream.extension.netflix.categories.HiddenCategoriesActivity { *; }
 -keep class semicoloncolonel.mobilestream.extension.netflix.categories.SurpriseMeActivity { *; }
 
+# Netflix — "Auto-skip". The patch overwrites the option/name stubs and calls
+# onSkipCta from the player, so the public static members must keep their names.
+-keep class semicoloncolonel.mobilestream.extension.netflix.misc.NetflixAutoSkipper { public static *; }
+
 # Koupon — "Keep new-user promo codes" and "Block analytics & tracking". These
 # methods are called only from injected smali via invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.kouponai.misc.PromoWindow {

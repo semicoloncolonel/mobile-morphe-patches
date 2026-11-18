@@ -1,3 +1,16 @@
+# [1.2.0-dev.12](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.11...v1.2.0-dev.12) (2026-11-18)
+
+
+### Bug Fixes
+
+* testing Flipp 116.1.0, Fox News 5.51.0, myAT&T 2026.11.2, Prime Video 3.0.481.2447, Visible 3.0.7, Walmart 26.42.3 ([d6420af](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d6420af026d04a492a97c79ef582342e5cb9ba2c))
+
+
+### Features
+
+* **yttv:** Add press-and-hold speed-up and a set-playback-speed option ([37f775b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/37f775b0ed3214f2d518064752b253685a475546)), closes [#102](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/102) [#100](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/100)
+* **yttv:** Add volume and brightness sliders ([88d427f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/88d427f0c2f3502c724b58d95c05960acc021872)), closes [#103](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/103)
+
 # [1.2.0-dev.11](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.10...v1.2.0-dev.11) (2026-11-18)
 
 

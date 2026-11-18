@@ -222,6 +222,10 @@
 # player gesture handler via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.yttv.YttvScreenGestures { public static *; }
 
+# YouTube TV — "Press and hold to speed up". setController(), onLongPress(), and
+# onTouch() are called from the media and gesture layers via injected invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.yttv.YttvPlaybackSpeed { public static *; }
+
 # Fox News and The Wall Street Journal — "Hide prediction markets".
 # filterFoxItems() is called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.shared.misc.PredictionMarkets { public static *; }

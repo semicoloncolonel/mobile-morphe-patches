@@ -1,3 +1,10 @@
+# [1.2.0-dev.6](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.5...v1.2.0-dev.6) (2026-11-18)
+
+
+### Features
+
+* **washingtonpost:** Skip the age check error dialog when Google Play cannot check ([b751374](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b751374db8adb71337c5b50272b1ae3edc347fc5))
+
 # [1.2.0-dev.5](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.4...v1.2.0-dev.5) (2026-11-18)
 
 

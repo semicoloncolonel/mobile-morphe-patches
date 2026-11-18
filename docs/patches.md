@@ -35,7 +35,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - PBS: sponsor messages before and during videos.
 - Plex: ads in on-demand titles, and pause ads. Live TV is not changed.
 - Pluto TV: on-demand ads. Live breaks are covered by the Mask live ad breaks option.
-- Prime Video: every ad break. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
+- Prime Video: every ad break, including the ads that Amazon builds into the video stream. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
 - Reuters: the ad slots in the feeds and in articles, including the "Advertisement" blocks, the Dianomi sponsored content in articles, and the ads in videos.
 - The Daily Wire: the banner ads and their "Advertisement" slots, including the one pinned to the top of articles, and the pre-roll before videos. Members-only content stays locked.
 - Truth Social: sponsored Truths, boosted posts (paid promotions marked "Boosted"), the other ads placed in the feeds, Google ads, the top banner ad, and the ad on a post's detail page.

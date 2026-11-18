@@ -129,6 +129,7 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 | Hide prompts and pop-ups | The Washington Post | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers, and the subscribe banner on the home page. |
 | Hide prompts and pop-ups | The Wall Street Journal | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers. |
 | Hide paywall sheet | The Washington Post 7.19.0 | The paywall sheet that slides up from the bottom of the screen. |
+| Skip age check errors | The Washington Post 7.19.0 | The "Error on Google Services" dialog that closes the app at launch when Google Play cannot check your age, such as on a phone without the Play Store or with a copy that did not come from Google Play. microG cannot answer this check, because it is a Play Store service. An age result from Google Play still applies. |
 | Hide stories | T-Mobile Play | The Storyteller stories and video clips in the feeds. |
 | Disable update and review prompts | Truth Social | The Play Store update prompt and the rate-the-app prompt. A patched app cannot update from the Play Store. |
 | Hide crypto and prediction markets | Truth Social | Truth Predict, the prediction market run with Crypto.com's US derivatives exchange, and Gems, the rewards that convert to Crypto.com's CRO token. |

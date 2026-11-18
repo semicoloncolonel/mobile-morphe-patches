@@ -8,6 +8,7 @@ package semicoloncolonel.mobilestream.patches.shared.misc
 
 import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.fandango.shared.Constants as Fandango
+import semicoloncolonel.mobilestream.patches.moviesanywhere.shared.Constants as MoviesAnywhere
 import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants as NbcNews
 import semicoloncolonel.mobilestream.patches.foxlocal.shared.Constants as FoxLocal
@@ -105,6 +106,7 @@ val disableAutoUpdatesPatch = resourcePatch(
         Nfl.COMPATIBILITY,
         Nba.COMPATIBILITY,
         Fandango.COMPATIBILITY,
+        MoviesAnywhere.COMPATIBILITY,
         CbsNews.COMPATIBILITY,
         NbcNews.COMPATIBILITY,
         FoxLocal.COMPATIBILITY,

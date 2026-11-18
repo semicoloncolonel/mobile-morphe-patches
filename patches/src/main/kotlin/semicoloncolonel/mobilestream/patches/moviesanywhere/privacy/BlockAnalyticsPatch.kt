@@ -13,7 +13,7 @@ import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
 // native Kotlin app that keeps OkHttp's public names and also uses
 // HttpURLConnection, so both shared layers apply: URLConnection and OkHttp
 // (see BlockTrackers.kt). The shared host blocklist already covers braze.com,
-// conviva.com, and the Sentry ingest hosts; Sentry crash reporting is left on.
+// conviva.com, and the Sentry ingest hosts.
 //
 // Not touched: sign-in, the movie library, playback, or DRM.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -24,7 +24,9 @@ val blockAnalyticsPatch = bytecodePatch(
     description = "Stops the app's analytics, ad measurement, and marketing services.",
     default = false,
 ) {
+    category("Privacy")
     compatibleWith(Constants.COMPATIBILITY)
+    dependsOn(Constants.REQUIRE_NATIVE_LIBS)
 
     dependsOn(analyticsKillSwitchesPatch)
 

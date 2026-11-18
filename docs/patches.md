@@ -85,6 +85,7 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 | Hide premium promotions | CNBC | The "Premium Content" subscription card and its "Latest Episodes" heading on show pages, so a show's page starts with its free clips. The card to sign in with a TV provider stays. |
 | Hide prompts and pop-ups | CNBC | **Rating prompt**: The Play Store rating request. It also stops Google Play's rate-this-app sheet. |
 | Hide prompts and pop-ups | Kanopy | **Rating prompt**: The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. It also stops Google Play's rate-this-app sheet. |
+| Hide prompts and pop-ups | Movies Anywhere | **Rating prompt**: The Google Play rating request, which Movies Anywhere opens from an in-app message. **Marketing pop-ups**: In-app marketing messages. The prompt to re-link a retailer account still shows. |
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide prompts and pop-ups | C-SPAN Now | **Rating prompt**: Google Play's rate-this-app sheet. **Promo banners**: C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide editor articles | DealSeek | The "From our editors" card on deal pages, which links to DealSeek's own articles about the product. |
@@ -206,6 +207,7 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 - JustWatch: JustWatch's own event tracking, AppsFlyer, Adjust, and Singular.
 - Kanopy: Mux, Mapbox map usage events, and Kanopy's Sentry crash reports, which include screenshots. Crashlytics is left alone.
 - MGM+: Braze, Kochava, Segment, and Nielsen.
+- Movies Anywhere: Braze, Conviva, and Sentry.
 - Mint Mobile: Amplitude, Braze, Branch, and Optimizely, along with marketing notifications, in-app promotions, and referral links.
 - MLB: comScore, Conviva, Adobe Analytics, and Branch.
 - Moviebase: RevenueCat diagnostics. Purchases and list sync are left alone.
@@ -289,6 +291,7 @@ These patches are off by default.
 | Enable picture-in-picture | Paramount+ | Offers picture-in-picture for on-demand and live content on devices that support it. Experimental. |
 | Fix picture-in-picture | YouTube TV | Keeps the picture-in-picture window at the video's shape. Without it, the window can flicker between two sizes for several seconds after it shrinks. Needs Android 13 or later. |
 | Force highest quality | Paramount+ | Plays the highest quality your device and plan allow. It is on by default and stops the app from lowering the quality to match the measured connection speed. Turn it off if videos buffer. |
+| Force highest quality | Movies Anywhere (off by default) | Plays the highest quality your phone and plan allow. Its options: **Highest bitrate**, on by default, keeps each title at its highest bitrate, whatever the measured connection speed. **Full HD on phones**, on by default, plays the 1080p edition on a phone with Widevine L1. Without it, the app plays HD at most on any phone. **4K and HDR**, off by default, plays the 4K edition, in HDR10 or Dolby Vision when the screen supports them. It needs Full HD on phones. The app's server can still limit the quality for a title or plan. Experimental: turn it off if videos buffer or fail to play. |
 | Hide player overlays | Apple TV | Hides the overlays you choose in its options: the rating card when a title starts, product placement notices, and photosensitivity and high-motion warnings. The warnings are shown by default. |
 | Keep screen brightness | Netflix | Keeps the screen brightness you set. Without it, Netflix changes the brightness while a video plays. |
 | Highest quality | Tubi | Plays the highest-resolution version of each title and live channel, and keeps it at the highest bitrate Tubi sends. Most titles stop at 720p, and a few have 1080p. Tubi sends the app fewer renditions than its website, so some titles play below the resolution the website offers. Turn it off if videos buffer. |

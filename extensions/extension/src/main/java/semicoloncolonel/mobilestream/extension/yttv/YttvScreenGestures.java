@@ -29,7 +29,7 @@ public final class YttvScreenGestures {
     private static final float SLOP = 0.02f;
 
     private static long gestureId = -1;
-    private static boolean committed;
+    private static boolean decided;
     private static boolean handled;
     private static boolean leftSide;
     private static float level; // 0..1 working value for the side in use
@@ -48,17 +48,21 @@ public final class YttvScreenGestures {
             long id = down.getDownTime();
             if (id != gestureId) {
                 gestureId = id;
-                committed = false;
+                decided = false;
                 handled = false;
             }
 
-            if (!committed) {
-                committed = true;
+            if (!decided) {
                 float dx = Math.abs(current.getX() - down.getX());
                 float dy = Math.abs(current.getY() - down.getY());
                 int height = view.getHeight();
-                if (height <= 0 || dy < height * SLOP || dy <= dx) {
-                    handled = false; // horizontal or too small: not ours
+                // Wait until the drag is clearly one direction before deciding;
+                // the first onScroll fires after only a few pixels.
+                float threshold = Math.max(24f, height * SLOP);
+                if (dy < threshold && dx < threshold) return false;
+                decided = true;
+                if (dy <= dx) {
+                    handled = false; // horizontal: leave it for the player's own gestures
                     return false;
                 }
                 handled = true;

@@ -1,3 +1,11 @@
+# [1.2.0-dev.10](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.9...v1.2.0-dev.10) (2026-11-18)
+
+
+### Features
+
+* **tlife:** Add Mask device identity with relaxed and aggressive modes ([daa3897](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/daa3897fb30e9fe9f16522571e6dec47eba6f256))
+* **yttv:** Add Change the seek interval for the double tap and buttons ([d3d44dc](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d3d44dc05e6f2f600aab2f596731e19ee2d534c6))
+
 # [1.2.0-dev.9](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.8...v1.2.0-dev.9) (2026-11-18)
 
 

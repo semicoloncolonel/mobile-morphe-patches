@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **mlb:** Keep the playlist header when a preroll ad is removed ([d51516e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d51516eacffaaf8ac61180babc126e4d9ca6b703)), closes [#EXTM3U](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/EXTM3U) [#EXT-X-TARGETDURATION](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/EXT-X-TARGETDURATION) [#EXT-X-MEDIA-SEQUENCE](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/EXT-X-MEDIA-SEQUENCE) [#EXT-X-KEY](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/EXT-X-KEY) [#EXT-X-MAP](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/EXT-X-MAP)
+* **mlb:** Keep the playlist header when a preroll ad is removed ([d51516e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d51516eacffaaf8ac61180babc126e4d9ca6b703))
 
 # [1.2.0-dev.3](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.2...v1.2.0-dev.3) (2026-11-18)
 

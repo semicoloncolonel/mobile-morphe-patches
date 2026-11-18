@@ -371,3 +371,7 @@
 -keep class semicoloncolonel.mobilestream.extension.flipp.GoogleConsent {
     public static java.lang.Object register(java.lang.Object, java.lang.Object, java.lang.Object);
 }
+
+# Prime Video — "Skip ads". isServerInserted() and onAdBreakStart() are called
+# only from injected smali in PrepareAdPlan and ServerInsertedAdBreakState.
+-keep class semicoloncolonel.mobilestream.extension.primevideo.ads.ServerInsertedAdSkipper { public static *; }

@@ -1,3 +1,17 @@
+# [1.2.0-dev.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.15...v1.2.0-dev.16) (2026-11-19)
+
+
+### Bug Fixes
+
+* **wsj:** Find the profile Subscribe Now button on 15.12.0 ([f85d942](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f85d94264093cc384443d071f27c10a523a56296))
+* **wsj:** Stop scrolling up from getting stuck at removed feed ads ([d14ef0a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d14ef0a16aab10a08bf173129064e7eef392c90b))
+
+
+### Features
+
+* **wsj:** Add Hide paywall overlay ([425a2d7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/425a2d72345479c40d860bfa43124eeab8917745))
+* **wsj:** Hide the welcome tour, cookie pop-ups, and subscription offers ([470f694](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/470f694d0fbbcb8fe0ff394d64ce1afb0b3df4c8))
+
 # [1.2.0-dev.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.14...v1.2.0-dev.15) (2026-11-19)
 
 

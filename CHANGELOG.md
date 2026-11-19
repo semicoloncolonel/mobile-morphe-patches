@@ -1,3 +1,10 @@
+# [1.2.0-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.20...v1.2.0-dev.21) (2026-11-19)
+
+
+### Bug Fixes
+
+* testing Fox One 1.26.0 ([cc1b7f3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cc1b7f32fb2b2bc00d3dd934abe96f4a84a427d5))
+
 # [1.2.0-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.19...v1.2.0-dev.20) (2026-11-19)
 
 

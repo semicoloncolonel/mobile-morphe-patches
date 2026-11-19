@@ -13,4 +13,7 @@ dependencies {
     // Google Play's Task API is bundled in every app that asks for a Play
     // review. It is only needed here to compile RatingPromptBlocker.
     compileOnly("com.google.android.gms:play-services-tasks:18.2.0")
+    // AndroidX WebKit is bundled in WSJ. It is only needed here to compile
+    // CookieConsent's document-start script.
+    compileOnly("androidx.webkit:webkit:1.12.1")
 }

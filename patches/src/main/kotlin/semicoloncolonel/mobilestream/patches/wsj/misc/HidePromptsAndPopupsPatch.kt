@@ -9,6 +9,7 @@ import app.morphe.patcher.patch.booleanOption
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.blockPlayReviewSheet
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
@@ -50,10 +51,28 @@ internal object SectionBannerUiFingerprint : Fingerprint(
     returnType = "V",
 )
 
+// Compose records each function's name as a trace string, which survives
+// obfuscation. 15.13.0 draws the button in ProfileHeaderButton. 15.12.0 draws
+// it inline, so the signed-out header (InstallerHeaderUi), which holds only the
+// button, is cut instead; there a free account keeps its button.
+private const val PROFILE_HEADER = "com.dowjones.profile.ui.component."
+
+private fun traceName(prefix: String) = { method: com.android.tools.smali.dexlib2.iface.Method, _: Any? ->
+    method.implementation?.instructions?.any {
+        (((it as? ReferenceInstruction)?.reference as? StringReference)?.string ?: "").startsWith(prefix)
+    } == true
+}
+
 internal object ProfileSubscribeButtonFingerprint : Fingerprint(
     definingClass = "Lcom/dowjones/profile/ui/component/ProfileHeaderKt;",
     returnType = "V",
-    parameters = listOf("Ljava/lang/String;", "Lkotlin/jvm/functions/Function0;", "Landroidx/compose/runtime/Composer;", "I"),
+    custom = { method, classDef -> traceName("${PROFILE_HEADER}ProfileHeaderButton (")(method, classDef) },
+)
+
+internal object SignedOutProfileHeaderFingerprint : Fingerprint(
+    definingClass = "Lcom/dowjones/profile/ui/component/ProfileHeaderKt;",
+    returnType = "V",
+    custom = { method, classDef -> traceName("${PROFILE_HEADER}InstallerHeaderUi (")(method, classDef) },
 )
 
 // The cookie dialog is a Sourcepoint message in a WebView. The app's Sourcepoint
@@ -161,9 +180,9 @@ val hidePromptsAndPopupsPatch: BytecodePatch = bytecodePatch(
             create.addInstruction(preload + 1, "invoke-static { v$webView }, $COOKIE_CONSENT->onWebView(Landroid/webkit/WebView;)V")
         }
         if (isOptionOn(hidePromptsAndPopupsPatch, "subscriptionOffers")) {
-            listOf(SectionBannerUiFingerprint, ProfileSubscribeButtonFingerprint).forEach {
-                it.method.addInstructions(0, "return-void")
-            }
+            SectionBannerUiFingerprint.method.addInstructions(0, "return-void")
+            val button = ProfileSubscribeButtonFingerprint.methodOrNull ?: SignedOutProfileHeaderFingerprint.method
+            button.addInstructions(0, "return-void")
         }
     }
 }

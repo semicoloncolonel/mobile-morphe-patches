@@ -1,3 +1,10 @@
+# [1.2.0-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.13...v1.2.0-dev.14) (2026-11-19)
+
+
+### Bug Fixes
+
+* **yttv:** Make the swipe sliders, press-and-hold, and set playback speed work ([2d257fd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2d257fddd0b3f32e07cb8475708da539195fdcec))
+
 # [1.2.0-dev.13](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.12...v1.2.0-dev.13) (2026-11-18)
 
 

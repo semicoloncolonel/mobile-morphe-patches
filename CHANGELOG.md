@@ -1,3 +1,10 @@
+# [1.2.0-dev.20](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.19...v1.2.0-dev.20) (2026-11-19)
+
+
+### Bug Fixes
+
+* testing JustWatch 26.46.2, Tubi 10.46.0 ([88b932d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/88b932ded169dacc99b8f1cb45898474024304c8))
+
 # [1.2.0-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.18...v1.2.0-dev.19) (2026-11-19)
 
 

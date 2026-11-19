@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-19T02:35:49",
-  "description": "# [1.2.0-dev.16](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.15...v1.2.0-dev.16) (2026-11-19)\n\n\n### Bug Fixes\n\n* **wsj:** Find the profile Subscribe Now button on 15.12.0 ([f85d942](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f85d94264093cc384443d071f27c10a523a56296))\n* **wsj:** Stop scrolling up from getting stuck at removed feed ads ([d14ef0a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d14ef0a16aab10a08bf173129064e7eef392c90b))\n\n\n### Features\n\n* **wsj:** Add Hide paywall overlay ([425a2d7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/425a2d72345479c40d860bfa43124eeab8917745))\n* **wsj:** Hide the welcome tour, cookie pop-ups, and subscription offers ([470f694](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/470f694d0fbbcb8fe0ff394d64ce1afb0b3df4c8))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.16/patches-1.2.0-dev.16.mpp",
+  "created_at": "2026-11-19T02:54:34",
+  "description": "# [1.2.0-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.16...v1.2.0-dev.17) (2026-11-19)\n\n\n### Bug Fixes\n\n* **plex:** Support Plex 2026.23.0 ([3a10191](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3a10191295530a4fa0a46dac36d5fb127d7090a5))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.17/patches-1.2.0-dev.17.mpp",
   "signature_download_url": "",
-  "version": "1.2.0-dev.16",
+  "version": "1.2.0-dev.17",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

@@ -12,6 +12,6 @@ object Constants {
         description = "The Plex app for phones.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xE5A00D,
-        targets = listOf(AppTarget("2026.22.0"), devTarget("2026.23.0", versionCode = 971050598, description = "Beta")),
+        targets = listOf(AppTarget("2026.22.0"), devTarget("2026.23.0", description = "Beta")),
     )
 }

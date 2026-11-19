@@ -3,6 +3,7 @@ package semicoloncolonel.mobilestream.patches.yttv.misc
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
+import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.stringOption
@@ -74,13 +75,15 @@ internal object DoubleTapSkipDurationFingerprint : Fingerprint(
 )
 
 @Suppress("unused")
-val changeSkipIntervalPatch = bytecodePatch(
+val changeSkipIntervalPatch: BytecodePatch = bytecodePatch(
     name = "Change skip interval",
-    description = "Changes how far the skip buttons and double-tap move in the player. The skip button icons keep showing 15.",
+    description = "Changes how far the skip buttons and double-tap move in the player. The skip button icons keep showing 15, " +
+        "and the button labels read by TalkBack follow the new interval.",
     default = false,
 ) {
     category("Playback")
     compatibleWith(Constants.COMPATIBILITY)
+    dependsOn(skipIntervalLabelsPatch)
 
     val seconds by stringOption(
         key = "skipSeconds",

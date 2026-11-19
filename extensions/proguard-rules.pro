@@ -222,9 +222,16 @@
 # player gesture handler via injected invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.yttv.YttvScreenGestures { public static *; }
 
-# YouTube TV — "Press and hold to speed up". setController(), onLongPress(), and
-# onTouch() are called from the media and gesture layers via injected invoke-static.
+# YouTube TV — "Press and hold to speed up" and "Set playback speed".
+# onSetRate() and filterRate() are called from injected smali, and holdRate(),
+# defaultRate(), and callSetRate() are overwritten by the patches, so R8 must
+# keep them as they are.
 -keep class semicoloncolonel.mobilestream.extension.yttv.YttvPlaybackSpeed { public static *; }
+
+# YouTube TV — shared player touch hook. onDispatch() and cancelOf() are called
+# from the dispatchTouchEvent added to WatchLayout, and slidersEnabled() and
+# holdEnabled() are overwritten by the patches, so R8 must keep them as they are.
+-keep class semicoloncolonel.mobilestream.extension.yttv.YttvPlayerTouch { public static *; }
 
 # Fox News and The Wall Street Journal — "Hide prediction markets".
 # filterFoxItems() is called only from injected smali.

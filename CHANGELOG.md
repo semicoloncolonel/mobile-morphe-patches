@@ -1,3 +1,10 @@
+# [1.2.0-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.17...v1.2.0-dev.18) (2026-11-19)
+
+
+### Bug Fixes
+
+* **plex:** Accept both Plex 2026.23.0 builds ([f0f39bb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f0f39bbfe5239997997063103e27370223541dbb))
+
 # [1.2.0-dev.17](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.16...v1.2.0-dev.17) (2026-11-19)
 
 

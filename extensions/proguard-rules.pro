@@ -394,3 +394,7 @@
 # Prime Video — "Skip ads". isServerInserted() and onAdBreakStart() are called
 # only from injected smali in PrepareAdPlan and ServerInsertedAdBreakState.
 -keep class semicoloncolonel.mobilestream.extension.primevideo.ads.ServerInsertedAdSkipper { public static *; }
+
+# WSJ — "Hide prompts and pop-ups", cookie consent option. onShown() is called
+# only from injected smali in the app's Sourcepoint client (onUIReady).
+-keep class semicoloncolonel.mobilestream.extension.wsj.CookieConsent { public static *; }

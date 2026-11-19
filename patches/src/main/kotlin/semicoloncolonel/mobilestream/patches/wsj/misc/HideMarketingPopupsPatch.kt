@@ -26,6 +26,15 @@ internal object BrazeBeforeDisplayFingerprint : Fingerprint(
     },
 )
 
+// The CandyBar is the app's own campaign sheet ("Welcome to the WSJ App", sale
+// offers) over the bottom of the feed. CandyBarManager.showCandyBar publishes it
+// to the UI state; returning first leaves the state empty, so nothing shows.
+internal object ShowCandyBarFingerprint : Fingerprint(
+    definingClass = "Lcom/dowjones/candybar/CandyBarManager;",
+    name = "access${'$'}showCandyBar",
+    returnType = "V",
+)
+
 // Part of hidePromptsAndPopupsPatch: runs only when its "marketingPopUps" option is on.
 internal val hideMarketingPopupsPatch = bytecodePatch {
     execute {
@@ -39,5 +48,7 @@ internal val hideMarketingPopupsPatch = bytecodePatch {
         )
 
         disableAirshipInAppMessages()
+
+        ShowCandyBarFingerprint.method.addInstructions(0, "return-void")
     }
 }

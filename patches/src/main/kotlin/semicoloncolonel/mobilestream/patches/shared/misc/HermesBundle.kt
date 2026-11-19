@@ -210,6 +210,17 @@ internal class HermesBundle(private val bytes: ByteArray) {
     }
 
     /**
+     * Like [returnAtStart], for a function the bundle may hold more than once
+     * (a module bundled twice): every function named [name] returns [value]
+     * at once. Fails when none has that name.
+     */
+    fun returnAtStartEvery(name: String, value: Value) {
+        val matches = functions.filter { it.name == name }
+        if (matches.isEmpty()) throw PatchException("Hermes function $name not found")
+        matches.forEach { patch(it, name, value) }
+    }
+
+    /**
      * The value the one function named [name] was made to return by
      * [returnAtStart], or null when it is unchanged. Lets two patches that
      * would set the same function to different values notice each other.

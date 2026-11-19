@@ -41,7 +41,7 @@ Whatever the source, check that the version and version code match the table. Th
 | Paramount+ | Enable picture-in-picture (experimental)<br>Force highest quality<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.4.1`<br>`17.3.0`<br>`17.2.0` | Google Play, or a full bundle | 11/17/26 |
 | PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `5.27.0` | Google Play, or a full bundle | 10/30/26 |
 | Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.11` | Google Play, or a full bundle. Not APKPure | 11/10/26 |
-| Plex | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.22.0` | Google Play, or a full bundle | 11/05/26 |
+| Plex | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.23.0` (beta)<br>`2026.22.0` | Google Play, or a full bundle | 11/05/26 |
 | Pluto TV | Skip ads<br>Skip launch video<br>Translate ad break screen (experimental)<br>Block analytics & tracking (experimental, off by default) | `17.3.0` | Google Play, or a full bundle. Not APKPure | 11/06/26 |
 | Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.481.2447`<br>`3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.480.647`<br>`3.0.479.847`<br>`3.0.477.1447` | Any | 11/18/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | Google Play, or a full bundle | 11/05/26 |

@@ -1,3 +1,10 @@
+# [1.2.0-dev.19](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.18...v1.2.0-dev.19) (2026-11-19)
+
+
+### Bug Fixes
+
+* **cnn:** Explain that Faster launch is not needed on 26.23.0 ([bb74b1e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/bb74b1efa98a2d97c3f7508b32a5a8870db639c7))
+
 # [1.2.0-dev.18](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.17...v1.2.0-dev.18) (2026-11-19)
 
 

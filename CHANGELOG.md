@@ -1,3 +1,10 @@
+# [1.2.0-dev.15](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.14...v1.2.0-dev.15) (2026-11-19)
+
+
+### Bug Fixes
+
+* **yttv:** Make the skip button labels match the chosen skip interval ([705896c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/705896c5adfc78df98b6dcb618c8cfc318eeb87e))
+
 # [1.2.0-dev.14](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.13...v1.2.0-dev.14) (2026-11-19)
 
 

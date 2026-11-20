@@ -1,3 +1,10 @@
+# [1.2.0-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.22...v1.2.0-dev.23) (2026-11-20)
+
+
+### Bug Fixes
+
+* testing NBA 1.4.2, RetailMeNot 10.2.0 ([54e00c5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/54e00c5689ae9663cbdc915743ac3c9ce513a691))
+
 # [1.2.0-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.21...v1.2.0-dev.22) (2026-11-20)
 
 

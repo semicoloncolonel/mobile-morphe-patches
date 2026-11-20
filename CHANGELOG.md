@@ -1,3 +1,10 @@
+# [1.2.0-dev.22](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.21...v1.2.0-dev.22) (2026-11-20)
+
+
+### Bug Fixes
+
+* testing Disney+ 26.21.0+rc3-2026.11.17, Prime Video 3.0.481.2847, The Daily Wire 3.5.23, The New York Times 12.0.0 ([420c7de](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/420c7dee26baed86420e9d09c481fef5bb07e974))
+
 # [1.2.0-dev.21](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.20...v1.2.0-dev.21) (2026-11-19)
 
 

@@ -1,3 +1,10 @@
+# [1.2.0-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.23...v1.2.0-dev.24) (2026-11-21)
+
+
+### Bug Fixes
+
+* testing Prime Video 3.0.482.1447, YouTube TV 10.47.0 ([3e78040](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/3e78040ba214bf6ef1ac992ca4ae9a5dd41dfd19))
+
 # [1.2.0-dev.23](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.22...v1.2.0-dev.23) (2026-11-20)
 
 

@@ -41,10 +41,10 @@ Whatever the source, check that the version and version code match the table. Th
 | NFL | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `61.0.21`<br>`61.0.19`<br>`61.0.18` | Google Play, or a full bundle. Not APKPure | 11/18/26 |
 | Paramount+ | Enable picture-in-picture (experimental)<br>Force highest quality<br>Skip ads<br>Skip launch video<br>Block analytics & tracking (experimental, off by default) | `17.4.1`<br>`17.3.0`<br>`17.2.0` | Google Play, or a full bundle | 11/17/26 |
 | PBS | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `5.27.0` | Google Play, or a full bundle | 10/30/26 |
-| Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.11` | Google Play, or a full bundle. Not APKPure | 11/10/26 |
+| Peacock | Disable Xfinity auto sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default) | `7.11.22`<br>`7.11.11` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | Plex | Hide sponsored content<br>Skip ads<br>Block analytics & tracking (off by default) | `2026.23.0` (beta)<br>`2026.22.0` | Google Play, or a full bundle | 11/05/26 |
 | Pluto TV | Skip ads<br>Skip launch video<br>Translate ad break screen (experimental)<br>Block analytics & tracking (experimental, off by default) | `17.3.0` | Google Play, or a full bundle. Not APKPure | 11/06/26 |
-| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.482.1447`<br>`3.0.481.2847`<br>`3.0.481.2447`<br>`3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.480.647`<br>`3.0.479.847`<br>`3.0.477.1447` | Any | 11/21/26 |
+| Prime Video | Rename shared permissions<br>Skip ads<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default) | `3.0.482.2147`<br>`3.0.482.1447`<br>`3.0.481.2847`<br>`3.0.481.2447`<br>`3.0.481.1947`<br>`3.0.480.847`<br>`3.0.480.747`<br>`3.0.480.647`<br>`3.0.479.847`<br>`3.0.477.1447` | Any | 11/24/26 |
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | Google Play, or a full bundle | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2611.2.1`, `2610.4.0` | Google Play, or a full bundle | 11/13/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.1`<br>`6.12.0`<br>`6.11.0` | Google Play, or a full bundle. Not APKPure | 11/16/26 |
@@ -117,7 +117,7 @@ Whatever the source, check that the version and version code match the table. Th
 | Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default)<br>GmsCore support (experimental, off by default) | `6.36.0` | Any | 11/11/26 |
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0`<br>`2026.43.0` | Google Play, or a full bundle | 11/14/26 |
 | The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | Google Play, or a full bundle | 11/10/26 |
-| Walgreens | Hide sponsored products (experimental)<br>Hide prompts and pop-ups (experimental) | `118.1` | Google Play, or a full bundle. Not APKPure | 11/13/26 |
+| Walgreens | Hide sponsored products (experimental)<br>Hide prompts and pop-ups (experimental) | `119.0`<br>`118.1` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | Walmart | Hide card offers (experimental)<br>Hide creator videos (experimental)<br>Hide prompts and pop-ups (experimental)<br>Hide sponsored listings (experimental)<br>Hide Walmart+ promotions (experimental)<br>Disable AI (experimental, off by default) | `26.42.3`<br>`26.42.2`<br>`26.42.1`<br>`26.42`<br>`26.38` | Google Play, or a full bundle | 11/18/26 |
 
 ## Carriers

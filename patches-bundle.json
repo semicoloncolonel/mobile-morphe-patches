@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-24T05:10:13",
-  "description": "# [1.2.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.26...v1.2.0-dev.27) (2026-11-24)\n\n\n### Bug Fixes\n\n* testing Yahoo Finance 26.23.0, Koupon 3.1.8 ([29c0a34](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/29c0a34ab165cdcba5b47b184f2d6b0fe8337e69))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.27/patches-1.2.0-dev.27.mpp",
+  "created_at": "2026-11-24T10:36:23",
+  "description": "# [1.2.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.27...v1.2.0-dev.28) (2026-11-24)\n\n\n### Features\n\n* **Netflix:** Add \"Respect rotation lock\" patch ([14872b1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/14872b1f2f30f8c9a017d21c7ddca3223316d85e)), closes [#142](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/142)",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.28/patches-1.2.0-dev.28.mpp",
   "signature_download_url": "",
-  "version": "1.2.0-dev.27",
+  "version": "1.2.0-dev.28",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

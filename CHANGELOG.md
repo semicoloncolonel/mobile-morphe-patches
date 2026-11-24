@@ -1,3 +1,10 @@
+# [1.2.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.27...v1.2.0-dev.28) (2026-11-24)
+
+
+### Features
+
+* **Netflix:** Add "Respect rotation lock" patch ([14872b1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/14872b1f2f30f8c9a017d21c7ddca3223316d85e)), closes [#142](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/142)
+
 # [1.2.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.26...v1.2.0-dev.27) (2026-11-24)
 
 

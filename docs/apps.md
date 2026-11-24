@@ -34,7 +34,7 @@ Whatever the source, check that the version and version code match the table. Th
 | Kanopy | Hide prompts and pop-ups (experimental)<br>Hide survey (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.32.0` | Any | 11/09/26 |
 | MGM+ | Remove social sign-in<br>Skip ads (experimental)<br>Skip lion intro<br>Block analytics & tracking (experimental, off by default)<br>Disable MGM+ AI (off by default) | `240.0.2026240000` | Google Play, or a full bundle | 10/30/26 |
 | MLB | Hide prompts and pop-ups<br>Skip ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide betting odds (off by default) | `26.22.0.41`<br>`26.21.0.49` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
-| Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking (off by default) | `7.7.1`<br>`7.7.0` | Google Play, or a full bundle | 11/10/26 |
+| Moviebase | Block ads<br>Disable Pairip license check<br>GmsCore support<br>Hide Premium upsell<br>Block analytics & tracking (off by default) | `7.7.2`<br>`7.7.1`<br>`7.7.0` | Google Play, or a full bundle | 11/24/26 |
 | Movies Anywhere | Hide prompts and pop-ups (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Force highest quality (experimental, off by default) | `1.54.0` | Google Play, or a full bundle | 11/17/26 |
 | NBA | Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable Ask NBA AI (experimental, off by default)<br>Hide League Pass upsells (experimental, off by default) | `1.4.2`<br>`1.3.0`<br>`1.2.0` | Google Play, or a full bundle. Not APKPure | 11/20/26 |
 | Netflix | Bypass tamper protection (experimental)<br>Browse hidden categories (experimental, off by default)<br>Disable autoplay (experimental, off by default)<br>Keep screen brightness (experimental, off by default)<br>Remove bottom tabs (experimental, off by default)<br>Respect rotation lock (experimental) | `9.93.0 build 8 74808`<br>`9.93.0 build 7 74878` (experimental)<br>`9.92.0 build 9 74772` | Google Play, or a full bundle | 11/17/26 |
@@ -48,7 +48,7 @@ Whatever the source, check that the version and version code match the table. Th
 | Shudder | Block analytics & tracking (off by default) | `10.1.1` | Google Play, or a full bundle | 11/05/26 |
 | SiriusXM | Block analytics & tracking (off by default)<br>Hide content (experimental, off by default)<br>Hide Howard tab (off by default)<br>Mask live ad breaks (experimental, off by default) | `2611.2.1`, `2610.4.0` | Google Play, or a full bundle | 11/13/26 |
 | Starz | Remove social sign-in<br>Skip launch video<br>Skip pre-roll promo (experimental)<br>Block analytics & tracking (experimental, off by default) | `6.12.1`<br>`6.12.0`<br>`6.11.0` | Google Play, or a full bundle. Not APKPure | 11/16/26 |
-| Sundance Now | Block analytics & tracking (off by default) | `5.0.25.2` | Any | 11/05/26 |
+| Sundance Now | Block analytics & tracking (off by default) | `5.0.30.1`<br>`5.0.25.2` | Any | 11/24/26 |
 | Tubi | Hide sign-in prompts<br>Hide update prompts<br>Highest quality (experimental)<br>Remove social sign-in<br>Skip ads<br>Block analytics & tracking (experimental, off by default) | `10.46.0`<br>`10.44.3`<br>`10.44.1` | Google Play, or a full bundle. Not APKPure | 11/19/26 |
 | Xumo Play | Skip ads<br>Translate ad break screen (experimental)<br>Block analytics & tracking (experimental, off by default) | `4.6.21` | Any | 11/04/26 |
 | YouTube TV | Change app name<br>Fix picture-in-picture (experimental)<br>GmsCore support<br>Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block telemetry (off by default)<br>Hide membership upsell (off by default)<br>Hide prompts and promos (off by default)<br>Mask live ad breaks (experimental, off by default)<br>Start at high quality (experimental, off by default)<br>Change skip interval (experimental, off by default)<br>Disable live previews (experimental, off by default)<br>Volume and brightness sliders (experimental, off by default)<br>Press and hold to speed up (experimental, off by default)<br>Set playback speed (experimental, off by default) | `10.47.0`<br>`10.46.0`<br>`10.45.0`<br>`10.44.0` | Google Play, or a full bundle. Not APKPure | 11/21/26 |
@@ -57,7 +57,7 @@ Whatever the source, check that the version and version code match the table. Th
 
 | App | Patches | Tested version | Get it from | Last updated |
 |-----|---------|----------------|-------------|--------------|
-| ABC News | Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default) | `8.100.0` | Google Play, or a full bundle. Not APKPure | 11/11/26 |
+| ABC News | Skip ads (experimental)<br>Translate ad break screen (experimental)<br>Block analytics & tracking (off by default) | `8.101.0`<br>`8.100.0` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | AP News | Hide donate button<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Route traffic through a proxy (off by default) | `6.32.1`<br>`6.32` | Google Play, or a full bundle | 11/15/26 |
 | BBC: World News & Stories | Skip ads<br>Block analytics & tracking (off by default) | `2026.11.0` | Google Play, or a full bundle | 11/23/26 |
 | CBS News | Disable signature check<br>Hide prompts and pop-ups<br>Skip ads<br>Block analytics & tracking | `5.20` | Any | 11/02/26 |
@@ -65,16 +65,16 @@ Whatever the source, check that the version and version code match the table. Th
 | CNN | Faster launch (26.21.0 only)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental) | `26.23.0`<br>`26.21.0` | Google Play, or a full bundle. Not APKPure | 11/14/26 |
 | C-SPAN Now | Hide prompts and pop-ups<br>Skip ads (experimental)<br>Block analytics & tracking (off by default) | `1.25.0` | Any | 11/05/26 |
 | Fox Local | Hide pop-ups and rating prompts<br>Skip ads (experimental)<br>Block analytics & tracking | `7.22.0` | Google Play, or a full bundle | 11/02/26 |
-| Fox News | Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental)<br>Enable developer menu (off by default) | `5.51.0`<br>`5.50.0` | Google Play, or a full bundle | 11/18/26 |
-| MS NOW | Block analytics & tracking (experimental) | `14.6.0` | Google Play, or a full bundle | 10/31/26 |
+| Fox News | Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental)<br>Enable developer menu (off by default) | `5.52.0`<br>`5.51.0`<br>`5.50.0` | Google Play, or a full bundle | 11/24/26 |
+| MS NOW | Block analytics & tracking (experimental) | `14.7.1`<br>`14.6.0` | Google Play, or a full bundle | 11/24/26 |
 | NBC News | Hide prompts and pop-ups<br>Skip ads<br>Block analytics & tracking | `15.0.1` | Google Play, or a full bundle | 11/02/26 |
 | NewsBreak | Block installed-app scan<br>Disable NewsBreak AI<br>Hide My Town intro<br>Hide Premium upsells<br>Hide prompts and pop-ups<br>Skip ads<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default)<br>Hide AI summaries (off by default)<br>Route traffic through a proxy (off by default) | `26.46.1`<br>`26.46.0`<br>`26.45.1`<br>`26.44.1` | Google Play, or a full bundle | 11/16/26 |
 | NewsNation | Skip ads<br>Block analytics & tracking (off by default) | `510.3.0` | Any | 11/05/26 |
 | NPR | Fix media connection crash<br>Hide donate buttons<br>Hide Waze bar<br>Skip ads<br>Block analytics & tracking<br>Route traffic through a proxy (off by default) | `7.11.0`<br>`7.10.0` | Google Play, or a full bundle | 11/16/26 |
 | Reuters | Hide paywall overlay<br>Hide prompts and pop-ups (experimental)<br>Skip ads (experimental)<br>Block analytics & tracking (off by default)<br>Customize bottom bar (off by default)<br>Move Today section (experimental, off by default) | `8.0.0`<br>`7.51.0` | Google Play, or a full bundle. Not APKPure | 11/23/26 |
 | Substack | Disable screenshot detection<br>Hide follow upsell<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.15.0`<br>`3.14.0`<br>`3.13.1`<br>`3.12.0` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
-| The Daily Wire | Skip ads<br>Hide prompts and pop-ups<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.23`<br>`3.5.22`, `3.5.21` | Google Play, or a full bundle | 11/20/26 |
-| The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Incognito reading (experimental, off by default) | `12.0.0`<br>`11.99.0`<br>`11.98.2`<br>`11.98.0` | Google Play, or a full bundle. Not APKPure | 11/20/26 |
+| The Daily Wire | Skip ads<br>Hide prompts and pop-ups<br>Block analytics & tracking (off by default)<br>GmsCore support (off by default) | `3.5.24`<br>`3.5.23`<br>`3.5.22`, `3.5.21` | Google Play, or a full bundle | 11/24/26 |
+| The New York Times | Hide upsell pop-ups (experimental)<br>Remove social sign-in<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Incognito reading (experimental, off by default) | `12.1.0`<br>`12.0.0`<br>`11.99.0`<br>`11.98.2`<br>`11.98.0` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | theScore | Block analytics & tracking (off by default) | `26.16.1`<br>`26.16.0` | Google Play, or a full bundle. Not APKPure | 11/12/26 |
 | The Wall Street Journal | Hide paywall overlay<br>Hide prompts and pop-ups (experimental)<br>Hide prediction markets<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Incognito reading (experimental, off by default) | `15.13.0.44249`<br>`15.12.0.42675` | Any | 11/15/26 |
 | The Washington Post | Hide prompts and pop-ups (experimental)<br>Hide paywall sheet (7.19.0 only)<br>Skip age check errors (7.19.0 only)<br>Skip ads (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Disable AI (experimental, off by default)<br>Hide next article peek (experimental, off by default)<br>Incognito reading (experimental, off by default) | `7.19.0`<br>`7.18.4`<br>`7.18.3`<br>`7.18.1` | Google Play, or a full bundle | 11/12/26 |
@@ -86,7 +86,7 @@ Whatever the source, check that the version and version code match the table. Th
 
 | App | Patches | Tested version | Get it from | Last updated |
 |-----|---------|----------------|-------------|--------------|
-| Truth Social | Disable AI<br>Disable forced updates<br>Disable update and review prompts<br>Fix pictures shown as videos<br>Hide crypto and prediction markets<br>Hide Truth+<br>Save videos<br>Skip ads<br>Block analytics & tracking (off by default)<br>Route traffic through a proxy (off by default)<br>Show poll results (off by default)<br>Show sensitive media (off by default) | `1.28.3` | Google Play, or a full bundle. Not APKPure | 11/06/26 |
+| Truth Social | Disable AI<br>Disable forced updates<br>Disable update and review prompts<br>Fix pictures shown as videos<br>Hide crypto and prediction markets<br>Hide Truth+<br>Save videos<br>Skip ads<br>Block analytics & tracking (off by default)<br>Route traffic through a proxy (off by default)<br>Show poll results (off by default)<br>Show sensitive media (off by default) | `1.28.4`<br>`1.28.3` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 
 ## Government
 
@@ -94,29 +94,29 @@ Whatever the source, check that the version and version code match the table. Th
 |-----|---------|----------------|-------------|--------------|
 | FEMA | Save content for offline use<br>Block analytics & tracking (off by default) | `3.2.1` | Google Play, or a full bundle | 11/02/26 |
 | MyTSA | Block analytics & tracking (off by default) | `5.1.0` | Any | 11/02/26 |
-| National Forests & Grasslands | Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `1.3.0` | Google Play, or a full bundle | 11/02/26 |
+| National Forests & Grasslands | Disable Pairip license check<br>Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `1.4.0`<br>`1.3.0` | Google Play, or a full bundle | 11/24/26 |
 | NPS | Block analytics & tracking (off by default)<br>Hide device identifiers (off by default) | `2.16.0`<br>`2.15.0` | Google Play, or a full bundle. Not APKPure | 11/14/26 |
-| Recreation.gov | Hide prompts and pop-ups<br>Skip location on open<br>Block analytics & tracking (off by default)<br>Show hidden details (off by default) | `2.2.67.1` | Google Play, or a full bundle | 11/07/26 |
+| Recreation.gov | Hide prompts and pop-ups<br>Skip location on open<br>Block analytics & tracking (off by default)<br>Show hidden details (off by default) | `2.2.69`<br>`2.2.67.1` | Google Play, or a full bundle | 11/24/26 |
 | White House | Disable Pairip license check<br>Remove microphone access<br>Skip launch video<br>Block analytics & tracking (off by default)<br>Hide promotions (off by default)<br>Hide social feeds (off by default)<br>Route traffic through a proxy (off by default) | `47.7.11` | Google Play, or a full bundle | 11/10/26 |
 
 ## Shopping
 
 | App | Patches | Tested version | Get it from | Last updated |
 |-----|---------|----------------|-------------|--------------|
-| Amazon Shopping | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `32.20.0.100`<br>`32.19.0.100` | Google Play, or a full bundle. Not APKPure | 11/10/26 |
+| Amazon Shopping | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `32.20.2.100`<br>`32.20.0.100`<br>`32.19.0.100` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | Best Buy | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.10`<br>`26.10.10` | Google Play, or a full bundle | 11/16/26 |
 | Checkout 51 | Block ads (experimental)<br>Block location tracking (experimental)<br>Hide prompts and pop-ups (experimental)<br>Show gas offers on OpenStreetMap (experimental)<br>Dark mode (experimental, off by default)<br>GmsCore support (off by default)<br>Strip affiliate links (experimental, off by default) | `9.22.10` | Any | 11/11/26 |
-| Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.10.3` | Google Play, or a full bundle | 11/12/26 |
-| CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.30` (experimental)<br>`26.10.50` | Google Play, or a full bundle | 11/10/26 |
+| Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.11.1`<br>`26.10.3` | Google Play, or a full bundle | 11/24/26 |
+| CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.31`<br>`26.11.30` (experimental)<br>`26.10.50` | Google Play, or a full bundle | 11/24/26 |
 | DealNews | Disable Pairip license check<br>Block ads<br>Hide prompts and pop-ups<br>Strip affiliate links<br>Block analytics & tracking (off by default) | `10.7.2`<br>`10.7.1` | Google Play, or a full bundle | 11/11/26 |
 | DealSeek | Disable Pairip license check<br>Hide editor articles (experimental)<br>Hide prompts and pop-ups<br>Strip affiliate links<br>Block analytics & tracking (experimental, off by default)<br>Dark mode (experimental, off by default) | `1.65.0` | Google Play, or a full bundle | 11/13/26 |
 | Flipp | Block ads (experimental)<br>Skip tutorials (experimental)<br>Strip affiliate links (experimental)<br>GmsCore support (off by default) | `116.1.0`<br>`116.0.0`<br>`115.0.0` | Any | 11/18/26 |
 | Koupon | Strip affiliate links<br>Keep new-user promo codes<br>Hide promo code countdown<br>Show promo codes<br>Hide prompts and pop-ups<br>Hide rewards<br>Hide sponsored cards (experimental)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default)<br>GmsCore support (off by default) | `3.1.8`<br>`3.1.6` | Google Play only | 11/16/26 |
-| Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.7` | Google Play, or a full bundle | 11/10/26 |
+| Lowe's | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.10.8`<br>`26.10.7` | Google Play, or a full bundle | 11/24/26 |
 | RetailMeNot | Disable Pairip license check<br>Hide prompts and pop-ups (experimental)<br>Block analytics & tracking (experimental, off by default)<br>Strip affiliate links (experimental, off by default)<br>Dark mode (experimental, off by default)<br>Remove location access (experimental, off by default) | `10.2.0`<br>`10.1.0`<br>`10.0.6` | Google Play, or a full bundle | 11/20/26 |
-| Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default)<br>GmsCore support (experimental, off by default) | `6.36.0` | Any | 11/11/26 |
+| Slickdeals | Block ads (experimental)<br>Hide sign-up prompts (experimental)<br>Strip affiliate links (experimental)<br>Block analytics & tracking (experimental, off by default)<br>GmsCore support (experimental, off by default) | `6.37.0`<br>`6.36.0` | Any | 11/24/26 |
 | Target | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `2026.44.0`<br>`2026.43.0` | Google Play, or a full bundle | 11/14/26 |
-| The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.6`<br>`8.2.5` | Google Play, or a full bundle | 11/10/26 |
+| The Home Depot | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `8.2.8`<br>`8.2.6`<br>`8.2.5` | Google Play, or a full bundle | 11/24/26 |
 | Walgreens | Hide sponsored products (experimental)<br>Hide prompts and pop-ups (experimental) | `119.0`<br>`118.1` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | Walmart | Hide card offers (experimental)<br>Hide creator videos (experimental)<br>Hide prompts and pop-ups (experimental)<br>Hide sponsored listings (experimental)<br>Hide Walmart+ promotions (experimental)<br>Disable AI (experimental, off by default) | `26.42.3`<br>`26.42.2`<br>`26.42.1`<br>`26.42`<br>`26.38` | Google Play, or a full bundle | 11/18/26 |
 
@@ -124,13 +124,13 @@ Whatever the source, check that the version and version code match the table. Th
 
 | App | Patches | Tested version | Get it from | Last updated |
 |-----|---------|----------------|-------------|--------------|
-| Mint Mobile | Block analytics & tracking (off by default) | `2.3.42` | Google Play, or a full bundle | 11/06/26 |
+| Mint Mobile | Block analytics & tracking (off by default) | `2.3.43`<br>`2.3.42` | Google Play, or a full bundle | 11/24/26 |
 | myAT&T | Block background network reports (experimental)<br>Block analytics & tracking<br>Disable AI (off by default) | `2026.11.2`<br>`2026.11.1`<br>`2026.10.2`<br>`2026.10.1` | Google Play, or a full bundle | 11/18/26 |
 | My Verizon | Block analytics & tracking<br>Disable AI (experimental, off by default) | `22.3.5` | Google Play, or a full bundle | 11/10/26 |
 | T-Life | Block analytics & tracking<br>Disable AI (off by default)<br>Mask device identity (off by default) | `12.4.0`<br>`12.3.1` | Google Play, or a full bundle | 11/12/26 |
 | T-Mobile Play | Block ads<br>Block analytics & tracking (off by default)<br>Block TV discovery (off by default)<br>Hide stories (off by default) | `19.5.2`<br>`19.4.4` | Any | 11/10/26 |
 | Visible | Block ads<br>Block analytics & tracking | `3.0.7`<br>`3.0.6` | Google Play, or a full bundle | 11/18/26 |
-| Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.14.0-2` | Google Play, or a full bundle | 11/01/26 |
+| Xfinity | Block Advanced Security telemetry (off by default)<br>Block analytics & tracking (off by default)<br>Disable AI (off by default) | `6.16.0-2`<br>`6.14.0-2` | Google Play, or a full bundle | 11/24/26 |
 
 ## Utilities
 

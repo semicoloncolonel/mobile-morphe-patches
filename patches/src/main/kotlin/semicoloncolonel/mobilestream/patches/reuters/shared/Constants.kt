@@ -11,6 +11,9 @@ object Constants {
         description = "The Reuters news app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0xFA6400,
-        targets = listOf(AppTarget("7.51.0", versionCode = 1793827556))
+        targets = listOf(
+            AppTarget("8.0.0", versionCode = 1794926395),
+            AppTarget("7.51.0", versionCode = 1793827556),
+        )
     )
 }

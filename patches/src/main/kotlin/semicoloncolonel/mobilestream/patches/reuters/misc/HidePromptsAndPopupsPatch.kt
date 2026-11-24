@@ -31,7 +31,8 @@ val hidePromptsAndPopupsPatch: BytecodePatch = bytecodePatch(
         default = true,
         title = "Promotions",
         description = "Removes the Subscribe buttons and offers, the Subscription row in Settings, the Breakingviews " +
-        "promo banners, marketing pop-ups, and the newsletter sign-ups and notification prompts in articles and feeds.",
+        "promo banners, marketing pop-ups, and the newsletter sign-ups and notification prompts in articles and feeds. " +
+            "Hide paywall overlay removes the subscription paywall.",
     )
 
     execute {

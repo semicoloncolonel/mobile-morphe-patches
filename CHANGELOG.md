@@ -1,3 +1,10 @@
+# [1.2.0-dev.27](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.26...v1.2.0-dev.27) (2026-11-24)
+
+
+### Bug Fixes
+
+* testing Yahoo Finance 26.23.0, Koupon 3.1.8 ([29c0a34](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/29c0a34ab165cdcba5b47b184f2d6b0fe8337e69))
+
 # [1.2.0-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.25...v1.2.0-dev.26) (2026-11-24)
 
 

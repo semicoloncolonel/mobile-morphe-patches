@@ -1,3 +1,19 @@
+# [1.2.0-dev.26](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.25...v1.2.0-dev.26) (2026-11-24)
+
+
+### Bug Fixes
+
+* **ci:** Read Android TV patches in the update check, and accept "v1.2.3" versions ([9280da5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/9280da550768a3ae640c8e61f658c1fb2c03dd2a))
+* **gmscore:** Keep gRPC header keys intact ([b0074c0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b0074c0edf71b5ef0e89228ba70b0a297cf446c4))
+* **yahoofinance:** Find renamed classes by their signatures for 26.23.0 ([e4d949a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4d949a9340921298d69c3ec7400ca5480799e1f))
+
+
+### Features
+
+* Add BBC: World News & Stories and Fawesome ([1081b30](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/1081b3071d34727a9694126a124968fc95eaf763)), closes [#130](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/130) [#137](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/137)
+* **foxnews:** Add Hide comments and reactions, and Hide app promotions ([2cbe9b0](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2cbe9b09342025ea11e918ed09201b27d3b2ef9c)), closes [#132](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/132)
+* **reuters:** Add Hide paywall overlay, and support 8.0.0 ([909b7b5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/909b7b5c13fca6880f9a8a8e5d627fb467b9ae29))
+
 # [1.2.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.24...v1.2.0-dev.25) (2026-11-24)
 
 

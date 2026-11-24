@@ -3,8 +3,12 @@ package semicoloncolonel.mobilestream.patches.hbomax.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
+import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 private const val PHONE_VERSION = "22.0.0.321"
+
+// On dev only until it is released on main.
+private val NEXT_PHONE_TARGET = devTarget("22.1.0.340", versionCode = 1800027770, minSdk = PHONE_MIN_SDK, description = "Phone build")
 
 // The phone build needs Android 12L. Morphe Manager leaves out versions the
 // device cannot install.
@@ -18,6 +22,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
         targets = listOf(
+            NEXT_PHONE_TARGET,
             AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
             AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"),
         )
@@ -31,7 +36,7 @@ object Constants {
         description = "The HBO Max phone app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"), AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"))
+        targets = listOf(NEXT_PHONE_TARGET, AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"), AppTarget(version = "7.14.0.530", versionCode = 1800025444, description = "Phone build"))
     )
 
     // The package name the Play Store installs (checked 2026-11-08).
@@ -42,6 +47,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
         targets = listOf(
+            NEXT_PHONE_TARGET,
             AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"),
         )
     )
@@ -54,6 +60,6 @@ object Constants {
         description = "The HBO Max phone app as the Play Store installs it (version $PHONE_VERSION).",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x002BE7,
-        targets = listOf(AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"))
+        targets = listOf(NEXT_PHONE_TARGET, AppTarget(version = PHONE_VERSION, versionCode = 1800026515, minSdk = PHONE_MIN_SDK, description = "Phone build"))
     )
 }

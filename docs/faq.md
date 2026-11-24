@@ -85,6 +85,6 @@ Labels show what an issue is about and how far it has come.
 | `released` | The fix or feature is in a main release. |
 | `upstream` | The app, Morphe Manager, or another tool causes the problem, not the patches. |
 | `not patchable` | The app blocks patched copies, for example with Play Integrity or App Check. |
-| `out of scope` | Outside what the project does, such as paywalls, paid content, or a post that is not about these patches. |
+| `out of scope` | Outside what the project does, such as paid content, a paywall in an app that has no patch for it, or a post that is not about these patches. |
 | `duplicate` | Another issue already covers this. |
 | `wontfix` | This will not be changed. |

@@ -18,7 +18,7 @@ body:
       options:
         - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this request."
           required: true
-        - label: "I understand that the patches do not currently remove paywalls or unlock paid content."
+        - label: "I understand that the patches do not unlock paid content, and that they hide a paywall only in the apps that [What the patches do](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/patches.md) lists."
           required: true
         - label: "I searched the [Morphe patches site](https://morphe-patches.software/) and no other patch source already does this."
           required: true

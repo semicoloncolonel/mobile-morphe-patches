@@ -2,6 +2,9 @@
   "air.com.vudu.air.DownloaderTablet": [
     "a853c31d562d4e5e0ae4be2bea35735cfa0eb15abebb7087eb2cc284fac11eb2"
   ],
+  "bbc.mobile.news.ww": [
+    "fd76b3b8df5fe8fd590957eb0f78a996967dd3c8bd87aff41f47e7799d065dc7"
+  ],
   "com.abc.abcnews": [
     "84ffa7412f76777e76a22f5b51874e012bd81607110c1b2bda3e6008c4bc75be"
   ],
@@ -90,6 +93,9 @@
   "com.foxnews.android": [
     "56f4b0412df023323dcbe10740690a782faf1f8723b335afa57d4dd3e6c6ff01"
   ],
+  "com.future.moviesByFawesomeAndroidTV": [
+    "f38349bfaf07ce33aee4d7bbbd6040ac9d2cb177adb22203b0ba6fce393bf6be"
+  ],
   "com.google.android.apps.youtube.unplugged": [
     "052749e5121fe1bb941677299f41230e17a837da95765d53cb9eca43723efc30",
     "07e37adddc17496c156b37bd6353adb13832c72dbadec11a012f230a19b45b88"
@@ -105,6 +111,9 @@
   ],
   "com.kanopy": [
     "2b2ebed6ffe9c30ee60c6e79560214885965b5f8d5387f684fe88a3d925d2946"
+  ],
+  "com.kouponai": [
+    "f7793db4e3661c2d9523bffab470ca61677d2c5c365deebc42cd08032c2ebef9"
   ],
   "com.lowes.android": [
     "19ff963156e7914501c6f87b9281ac85d7ede06b6953abbf45fdc396103adc08"
@@ -155,6 +164,9 @@
   ],
   "com.thehomedepot": [
     "18f52d1c50614cab099daf3503b4fd574aa35acf976c5767a23f7abb5cb2dea1"
+  ],
+  "com.thomsonreuters.reuters": [
+    "ea8ac7f9f238ad63dc9e3dbb291667ca97405a9b1ba908ae0bad7d703dfe7601"
   ],
   "com.tmobile.m1": [
     "3d1a4bef6ee7af7d34d120e7b1aac0dd245585de6237cf100f68333afacff562"

@@ -72,6 +72,7 @@ import semicoloncolonel.mobilestream.patches.xfinity.shared.Constants as Xfinity
 import semicoloncolonel.mobilestream.patches.xumo.shared.Constants as Xumo
 import semicoloncolonel.mobilestream.patches.yttv.shared.Constants as YtTv
 import semicoloncolonel.mobilestream.patches.reuters.shared.Constants as Reuters
+import semicoloncolonel.mobilestream.patches.bbcnews.shared.Constants as BbcNews
 
 // Apps open Google Play's in-app review sheet with
 // ReviewManager.launchReviewFlow(Activity, ReviewInfo), which returns a
@@ -241,6 +242,7 @@ val hideRatingPromptPatch = bytecodePatch(
         TMobilePlay.COMPATIBILITY,
         Visible.COMPATIBILITY,
         Xfinity.COMPATIBILITY,
+        BbcNews.COMPATIBILITY,
     )
 
     dependsOn(blockPlayReviewSheetPatch)

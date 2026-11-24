@@ -15,11 +15,13 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - AMC+: stitched-in breaks, including the interactive true[X] and Brightline ads.
 - AP News: ad and sponsored rows in the feed and articles, the sticky banner, "Sponsored by" rows, and ads before videos.
 - Apple TV: ad interstitials in on-demand videos, and promos delivered the same way.
+- BBC: World News & Stories: the ad sections in the feeds, the ads in articles and in other sections, and sponsored cards.
 - CBS News: banner ads, ads in videos and recordings, and Taboola recommendations under articles.
 - CNBC: banner and in-feed ads, the ad slots in articles, and the ad breaks in on-demand videos, which are skipped as each one starts. Ads in the live TV stream are part of the broadcast and still play.
 - CNN: banner and sponsored-content ads, and ads in videos and clips. All Access streaming is not changed.
 - C-SPAN Now: the pre-roll before archive and on-demand videos. Ads in the live channels are stitched into the stream and still play.
 - ESPN: scheduled breaks and on-demand mid-rolls.
+- Fawesome: the video ads before and during movies and shows, and its own promo videos.
 - Fox Local: ads in on-demand videos, articles, and live blogs, the splash ad, and Taboola recommendations.
 - Fox News: banner, feed, sponsored, and full-screen ads, and ad breaks in videos.
 - Fox One: ads in on-demand videos. On live TV, the ad tracking and the limits on skipping ahead during breaks.
@@ -74,6 +76,8 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 
 Hide prompts and pop-ups gathers an app's own prompts into one patch, with one option for each kind. Every option is on by default. Where it has a Rating prompt option, that option runs the same code as Hide rating prompt.
 
+A promotion here is the app's own marketing: the buttons, banners, and pop-ups that ask you to subscribe, sign up, or turn on notifications. A paywall is different. It is the screen that blocks an article or video until you subscribe, and the promotion options do not remove it.
+
 | Patch | App | What it hides |
 |-------|-----|---------------|
 | Hide rating prompt | Every app except Netflix, Settings Home, and the apps with Hide prompts and pop-ups, whose Rating prompt option does the same | Google Play's rate-this-app sheet. The app carries on as it does when Play decides not to show the sheet. Apps that rename Google's review code, such as Tubi and myAT&T, still show it. |
@@ -109,7 +113,8 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 | Hide prompts and pop-ups | Yahoo Finance | **Pop-ups**: The "Enjoying Yahoo Finance?" drawer and the review request after it, the feedback prompts on new screens, announcement sheets, tours and coach marks, tooltips, the widget prompt, and the beta program invitation. Privacy and consent screens still show. |
 | Hide prompts and pop-ups | Yahoo News | **Pop-ups**: The "rate the app" screen, the banners and cards that ask you to turn on notifications, and the Ask Scout and You tab tooltips. |
 | Hide Plus upsells | Yahoo Finance | The Yahoo Finance Plus banners, sheets, and cards, the "Upgrade to Yahoo Finance Premium" card and the "Premium perks" row on Account, the Coinbase "Trade Now" referral button, and the Coinbase referral links in articles. Features that need Plus stay locked and still show the paywall when tapped. |
-| Hide prompts and pop-ups | Reuters | **Rating prompt**: Google Play's rate-this-app sheet. **Promotions**: The Subscribe buttons, the subscription offer on the sign-in card in Menu and Settings, the Subscription row in Settings, the Breakingviews promo banners, Braze marketing pop-ups, and the newsletter sign-ups, notification prompts, and topic cards in articles and feeds. The Sign in button stays, and breaking-news alerts still arrive. |
+| Hide prompts and pop-ups | Reuters | **Rating prompt**: Google Play's rate-this-app sheet. **Promotions**: The Subscribe buttons, the subscription offer on the sign-in card in Menu and Settings, the Subscription row in Settings, the Breakingviews promo banners, Braze marketing pop-ups, and the newsletter sign-ups, notification prompts, and topic cards in articles and feeds. The Sign in button stays, and breaking-news alerts still arrive. Hide paywall overlay removes the subscription paywall. |
+| Hide paywall overlay | Reuters | The "Subscribe to Reuters News to continue reading" sheet that blocks an article once your free articles run out. |
 | Hide reading streaks | Yahoo News | The reading level and day streak on Home and Profile, and the pop-ups that celebrate a new level or a longer streak. Yahoo still counts your reads on its server. |
 | Customize bottom bar | Reuters (off by default) | Hides the bottom tabs you choose in its options: Markets, My News, or Media. Home and Menu always stay. Links that open a hidden tab, such as a stock quote from an alert, do nothing. |
 | Move Today section | Reuters (off by default) | Moves Today off the first page of Home, so the app opens on the first section in Your sections. Reorder your sections to choose where it opens. Its option puts Today on the last page, the default, or removes it. Today comes back only when you patch the app again. |
@@ -129,6 +134,7 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 | Hide prompts and pop-ups | The Washington Post | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers, and the subscribe banner on the home page. |
 | Hide next article peek | The Washington Post (off by default) | Hides the edge of the next article that shows on the right at the top of an article. Swiping between articles still works. |
 | Hide prompts and pop-ups | The Wall Street Journal | **Rating prompt**: Google Play's rate-this-app sheet. **Marketing pop-ups**: In-app marketing messages, such as subscription offers. **Welcome pop-up and tips**: The welcome pop-up and the feature tips that follow it. **Cookie consent**: Answers the cookie pop-ups with I Do Not Agree. **Subscription offers**: The sale banner at the top of the sections and the Subscribe Now button on the profile. A patched app cannot complete a purchase. |
+| Hide paywall overlay | The Wall Street Journal | The paywall that blocks an article, the subscribe screens and dialogs, and the paywall over videos. |
 | Hide paywall sheet | The Washington Post 7.19.0 | The paywall sheet that slides up from the bottom of the screen. |
 | Skip age check errors | The Washington Post 7.19.0 | The "Error on Google Services" dialog that closes the app at launch when Google Play cannot check your age, such as on a phone without the Play Store or with a copy that did not come from Google Play. microG cannot answer this check, because it is a Play Store service. An age result from Google Play still applies. |
 | Hide stories | T-Mobile Play | The Storyteller stories and video clips in the feeds. |
@@ -191,6 +197,7 @@ Hide prompts and pop-ups gathers an app's own prompts into one patch, with one o
 - AMC+: AppsFlyer, Braze, mParticle, Nielsen, New Relic, and NPAW/Youbora.
 - AP News: Adjust, Branch, Amplitude, Segment, comScore, Parse.ly, LiveRamp, Iterable, Permutive, Quantcast, and AP's BlueConic customer-data platform.
 - Apple TV: Apple's usage metrics, such as the pages you view and what you tap, play, and search for.
+- BBC: World News & Stories: Firebase/Google Analytics, AppsFlyer, comScore, and Chartbeat.
 - CBS News: Adobe Analytics, comScore, Nielsen, Mux, New Relic, Flurry, Kochava, and Moat.
 - CNBC: Adobe, Amplitude, AppsFlyer, CleverTap, comScore, Kochava, Nielsen, and Airship analytics.
 - CNN: Adobe, AppsFlyer, Chartbeat, comScore, and CNN's own data collection.

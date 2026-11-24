@@ -241,6 +241,9 @@
 # only from injected smali in ScreenModel's constructor.
 -keep class semicoloncolonel.mobilestream.extension.foxnews.ArticleComponents { public static *; }
 
+# Yahoo News — "Skip ads". hide is called only from injected smali via invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.yahoonews.ArticleAds { public static *; }
+
 # The Washington Post — "Skip ads". track() is called only from injected smali
 # in the BannerAdView constructors.
 -keep class semicoloncolonel.mobilestream.extension.washingtonpost.AdSlotCollapser { public static *; }

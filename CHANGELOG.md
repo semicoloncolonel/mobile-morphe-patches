@@ -1,3 +1,10 @@
+# [1.2.0-dev.25](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.24...v1.2.0-dev.25) (2026-11-24)
+
+
+### Bug Fixes
+
+* testing JustWatch 26.47.1, MLB 26.22.0.41, Substack 3.15.0 ([d3f129c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d3f129c3ebdb812fd302d574e89dcdf73548e8f3))
+
 # [1.2.0-dev.24](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.23...v1.2.0-dev.24) (2026-11-21)
 
 

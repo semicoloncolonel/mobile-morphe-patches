@@ -1,3 +1,10 @@
+# [1.2.0-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.29...v1.2.0-dev.30) (2026-11-24)
+
+
+### Bug Fixes
+
+* testing Peacock 7.11.22, Prime Video 3.0.482.2147, Walgreens 119.0 ([a48578f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a48578f15f1fc2f93c87235807e58c7a1969ccb4))
+
 # [1.2.0-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.28...v1.2.0-dev.29) (2026-11-24)
 
 

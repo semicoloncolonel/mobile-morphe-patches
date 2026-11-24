@@ -237,6 +237,10 @@
 # filterFoxItems() is called only from injected smali.
 -keep class semicoloncolonel.mobilestream.extension.shared.misc.PredictionMarkets { public static *; }
 
+# Fox News — "Hide comments and reactions" and "Hide app promotions". Called
+# only from injected smali in ScreenModel's constructor.
+-keep class semicoloncolonel.mobilestream.extension.foxnews.ArticleComponents { public static *; }
+
 # The Washington Post — "Skip ads". track() is called only from injected smali
 # in the BannerAdView constructors.
 -keep class semicoloncolonel.mobilestream.extension.washingtonpost.AdSlotCollapser { public static *; }

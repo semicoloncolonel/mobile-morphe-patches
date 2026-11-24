@@ -366,6 +366,10 @@
 # onSkipCta from the player, so the public static members must keep their names.
 -keep class semicoloncolonel.mobilestream.extension.netflix.misc.NetflixAutoSkipper { public static *; }
 
+# Netflix — "Respect rotation lock". set/getRequestedOrientation are called only from
+# injected smali via invoke-static.
+-keep class semicoloncolonel.mobilestream.extension.netflix.misc.RotationLock { public static *; }
+
 # Koupon — "Keep new-user promo codes" and "Block analytics & tracking". These
 # methods are called only from injected smali via invoke-static.
 -keep class semicoloncolonel.mobilestream.extension.kouponai.misc.PromoWindow {

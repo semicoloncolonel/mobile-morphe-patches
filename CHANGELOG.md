@@ -1,3 +1,11 @@
+# [1.2.0-dev.31](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.30...v1.2.0-dev.31) (2026-11-24)
+
+
+### Bug Fixes
+
+* testing HBO Max 22.1.0.340 ([2c2c48d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2c2c48d87ea9a5fa8434963564abd19135ceb336)), closes [#143](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/143) [#144](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/144)
+* **updates:** Check Google Play when APKPure lacks a newer version ([6c28c32](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6c28c320f2a12a93b0ffcf49db182e3e72877b85))
+
 # [1.2.0-dev.30](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.29...v1.2.0-dev.30) (2026-11-24)
 
 

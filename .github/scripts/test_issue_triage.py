@@ -99,6 +99,12 @@ class EvaluateTest(unittest.TestCase):
     def test_supported_report_passes(self):
         self.assertIsNone(self.check("Disney+", "26.20.0+rc2-2026.10.28", code="179321403"))
 
+    def test_version_written_with_a_prefix_passes(self):
+        # Issue 135 on mobile-morphe-patches: "v32.20.0.100" was read as unsupported.
+        for written in ("v26.20.0+rc2-2026.10.28", "V 26.20.0+rc2-2026.10.28",
+                        "version 26.20.0+rc2-2026.10.28", "`26.20.0+rc2-2026.10.28`"):
+            self.assertIsNone(self.check("Disney+", written, code="179321403"), written)
+
     def test_unsupported_version(self):
         problem = self.check("Disney+", "26.14.0+rc6-2026.07.30")
         self.assertEqual(problem["kind"], "version")

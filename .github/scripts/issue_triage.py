@@ -195,6 +195,13 @@ def is_tv(description):
     return bool(description) and "tv" in description.lower()
 
 
+def normalize_version(version):
+    """The version as the patches name it: reporters often write "v1.2.3", "version 1.2.3", or `1.2.3`."""
+    v = version.strip().strip("`").strip()
+    v = re.sub(r"^(?:version\s+|v\s*)(?=\d)", "", v, flags=re.IGNORECASE)
+    return v.lower()
+
+
 def evaluate(fields, apps):
     """None when the report matches a supported target or cannot be checked, else what is wrong."""
     app, version = fields.get("App"), fields.get("App version")
@@ -209,7 +216,7 @@ def evaluate(fields, apps):
     if not app or not version or app not in apps:
         return None
     versions = apps[app]
-    match = next((v for v in versions if v.lower() == version.strip().lower()), None)
+    match = next((v for v in versions if v.lower() == normalize_version(version)), None)
     if match is None:
         return {"kind": "version", "app": app, "version": version.strip(), "versions": versions}
     entry = versions[match]

@@ -270,5 +270,47 @@ class IsTvBuildTest(unittest.TestCase):
             "  uses-feature-not-required: name='android.software.leanback'\n"))
 
 
+# list-patches output of Morphe CLI 2.3.0: a TV package has a "Form factor"
+# line between its name and its versions, and a phone package has none.
+LIST_PATCHES = """INFO: Index: 0
+Name: Skip ads
+Description: Removes the ads.
+Enabled: true
+Compatible packages:
+\tPackage name: com.abc.abcnews
+\tForm factor: TV
+\tCompatible versions:
+\t\t11.12.0
+\tVersion codes:
+\t\t11.12.0: ARM64_V8A=53550563, X86=53550563
+
+Index: 1
+Name: Hide rating prompt
+Description: Hides the prompt.
+Enabled: true
+Compatible packages:
+\tPackage name: com.tubitv
+\tCompatible versions:
+\t\t10.44.1
+\t\t10.46.0
+\tPackage name: com.foxnews.android
+\tForm factor: TV
+\tCompatible versions:
+\t\t5.50.0
+"""
+
+
+class BundleAppsTest(unittest.TestCase):
+    def test_reads_packages_with_and_without_a_form_factor(self):
+        result = mock.Mock(stdout=LIST_PATCHES)
+        with mock.patch.object(app_updates, "run", return_value=result):
+            apps = app_updates.bundle_apps("cli.jar", "patches.mpp")
+        self.assertEqual(apps["com.abc.abcnews"]["versions"], {"11.12.0"})
+        self.assertEqual(apps["com.abc.abcnews"]["patches"], ["Skip ads"])
+        self.assertEqual(apps["com.tubitv"]["versions"], {"10.44.1", "10.46.0"})
+        self.assertEqual(apps["com.foxnews.android"]["versions"], {"5.50.0"})
+        self.assertEqual(apps["com.foxnews.android"]["patches"], ["Hide rating prompt"])
+
+
 if __name__ == "__main__":
     unittest.main()

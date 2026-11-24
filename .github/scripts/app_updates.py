@@ -120,8 +120,13 @@ def bundle_apps(cli_path, mpp):
         name = re.search(r"^Name: (.+)$", block, re.M)
         if not name:
             continue
+        # Lines such as "Form factor: TV" (Morphe CLI 2.3.0 and later) may sit
+        # between a package's name and its versions.
         for package, versions in re.findall(
-            r"Package name: (\S+)\s*\n\s*Compatible versions:\s*\n((?:\t\t.+\n?)*)", block
+            r"Package name: (\S+)[^\n]*\n"
+            r"(?:[ \t]+(?!Compatible versions:|Package name:)[^\n]*\n)*?"
+            r"[ \t]*Compatible versions:[ \t]*\n((?:\t\t.+\n?)*)",
+            block,
         ):
             app = apps.setdefault(package, {"versions": set(), "patches": [], "patch_versions": {}})
             listed = {v.strip() for v in versions.splitlines() if v.strip()}

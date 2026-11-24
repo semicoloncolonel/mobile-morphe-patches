@@ -1,3 +1,10 @@
+# [1.2.0-dev.29](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.28...v1.2.0-dev.29) (2026-11-24)
+
+
+### Bug Fixes
+
+* **yahoonews:** Hide the ad slots in web articles ([7e5a249](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7e5a249d7a85bbdd6945cc784e31852db5d47576)), closes [#131](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/131)
+
 # [1.2.0-dev.28](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.27...v1.2.0-dev.28) (2026-11-24)
 
 

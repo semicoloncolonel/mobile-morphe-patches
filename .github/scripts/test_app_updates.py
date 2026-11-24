@@ -128,6 +128,63 @@ class TvBuildTest(unittest.TestCase):
         self.assertIn("still serves Tubi `10.44.2` to phones", closes[0][-1])
 
 
+class PlayOnlyTest(unittest.TestCase):
+    """National Forests & Grasslands 1.4.0 was on Google Play while APKPure still
+    had 1.3.0, and Recreation.gov is not on APKPure at all."""
+
+    APPS = {"gov.usda.fs.nfg": {"versions": ["1.3.0"], "patches": ["Block analytics"]}}
+
+    def run_check(self, apkpure, listed, play, inspected=None):
+        with mock.patch.object(app_updates, "apkpure_versions", return_value=apkpure), \
+                mock.patch.object(app_updates, "play_listed_version", return_value=listed) as page, \
+                mock.patch.object(app_updates, "check_version") as check_version, \
+                mock.patch.object(app_updates, "inspect_apk", return_value=inspected or {}) as inspect:
+            results = app_updates.check(self.APPS, {"gov.usda.fs.nfg": "National Forests & Grasslands"}, {},
+                                        "cli", "mpp", "work", "aapt2", "apksigner", None, Path("keep"), play)
+        check_version.assert_not_called()
+        return results[0], inspect, page
+
+    PHONE = {"tv_build": False, "cert": "matches", "version_name": "1.4.0",
+             "patches": {"applied": ["Block analytics"], "failed": []}}
+
+    def test_newer_on_play_is_checked_from_play(self):
+        record, inspect, _ = self.run_check(["1.3.0"], "1.4.0", FakePlay("1.4.0"), self.PHONE)
+        self.assertEqual((record["status"], record["latest"], record["source"]), ("update", "1.4.0", "Google Play"))
+        self.assertEqual(inspect.call_args.args[1:3], (Path("base.apk"), Path("app.apks")))
+        self.assertEqual(app_updates.review_reasons(record), [])
+
+    def test_app_missing_from_apkpure_is_checked_from_play(self):
+        record, _, _ = self.run_check([], "1.4.0", FakePlay("1.4.0"), self.PHONE)
+        self.assertEqual((record["status"], record["latest"]), ("update", "1.4.0"))
+
+    def test_same_version_on_play_is_up_to_date(self):
+        play = FakePlay("1.3.0")
+        record, inspect, _ = self.run_check(["1.3.0"], "1.3.0", play)
+        self.assertEqual(record["status"], "up to date")
+        inspect.assert_not_called()
+
+    def test_rollout_not_served_to_this_phone_is_up_to_date(self):
+        play = FakePlay("1.3.0")
+        record, inspect, _ = self.run_check(["1.3.0"], "1.4.0", play)
+        self.assertEqual(record["status"], "up to date")
+        inspect.assert_not_called()
+        self.assertIn("gov.usda.fs.nfg", play.discarded)
+
+    def test_failed_play_download_is_reported_for_review(self):
+        record, _, _ = self.run_check(["1.3.0"], "1.4.0", FakePlay("1.4.0", download=False))
+        self.assertEqual((record["status"], record["latest"], record["download"]), ("update", "1.4.0", "failed"))
+        self.assertIn("The download from Google Play failed", app_updates.review_reasons(record)[0])
+
+    def test_store_page_is_not_read_when_apkpure_has_an_update(self):
+        with mock.patch.object(app_updates, "apkpure_versions", return_value=["1.4.0", "1.3.0"]), \
+                mock.patch.object(app_updates, "play_listed_version") as page, \
+                mock.patch.object(app_updates, "check_version", return_value=self.PHONE):
+            results = app_updates.check(self.APPS, {}, {}, "cli", "mpp", "work", "aapt2", "apksigner", None,
+                                        Path("keep"), FakePlay("1.4.0"))
+        page.assert_not_called()
+        self.assertEqual(results[0]["status"], "update")
+
+
 class CleanupTest(unittest.TestCase):
     def test_keeps_the_download_folder(self):
         """Run 42789639970: patching Play's com.abc.abcnews.apk must not touch

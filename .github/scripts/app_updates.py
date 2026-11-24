@@ -313,6 +313,33 @@ class PlayStore:
             return None
 
 
+PLAY_PAGE_URL = "https://play.google.com/store/apps/details"
+
+
+def play_listed_version(package):
+    """The version Google Play's public store page lists for the package, or None.
+
+    APKPure lags behind Google Play for some apps (National Forests &
+    Grasslands stayed at 1.3.0 there after Play had 1.4.0) and does not list
+    others at all (Recreation.gov), so an app with nothing newer on APKPure is
+    also checked against Play. The store page needs no sign-in and costs one
+    request, so it decides whether the build is downloaded from Play.
+    """
+    url = f"{PLAY_PAGE_URL}?{urllib.parse.urlencode({'id': package, 'hl': 'en_US', 'gl': 'US'})}"
+    request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                                                   "Accept-Language": "en-US"})
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            page = response.read().decode("utf-8", "replace")
+    except Exception as e:
+        print(f"  {package}: Google Play's store page did not load ({e})", flush=True)
+        return None
+    # The page's data lists the current version as [[["1.4.0"]]]. An app that
+    # varies by device shows text there instead, which is not a version.
+    found = re.search(r'\[\[\["(\d[^"]{0,60})"\]\]', page)
+    return found.group(1) if found else None
+
+
 def download(package, version, workdir):
     target = Path(workdir, f"{package}-{version}")
     target.mkdir(parents=True, exist_ok=True)
@@ -466,6 +493,9 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
         # for testing, so a rollout is still tested and can be bumped there;
         # the issue and the dev commit say it is a rollout.
         record["play"] = play.version(package)
+    if not candidates and pinned and (listed := play_listed_version(package)) and newer(listed, pinned):
+        check_play_only(record, package, pinned, listed, app, certs, cli_path, mpp, workdir, aapt2,
+                        apksigner, keep_dir, play)
     if candidates:
         # Some apps share a package with their Android TV app, whose version
         # numbers can sort above the phone app's (Tubi's TV build is 10.44.5000).
@@ -515,6 +545,30 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
         play.discard(package)
     print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
     return record
+
+
+def check_play_only(record, package, pinned, listed, app, certs, cli_path, mpp, workdir, aapt2, apksigner,
+                    keep_dir, play):
+    """Google Play lists a version above the pin that APKPure does not have.
+    The build Play serves is downloaded and checked like an APKPure download."""
+    served = play.version(package)
+    record["play"] = served
+    found = play.downloaded(package) if served and newer(served, pinned) else None
+    if found:
+        base, patch_input = found
+        outcome = inspect_apk(package, base, patch_input, app, certs, cli_path, mpp, workdir, aapt2, apksigner,
+                              keep_dir)
+        latest = outcome.get("version_name") or served
+        if newer(latest, pinned):
+            record.update(outcome, status="update", source="Google Play", latest=latest, rollout=False)
+    elif served is None or newer(served, pinned):
+        # The store page lists a newer version, but the build could not be
+        # downloaded, so the update is reported for review.
+        record.update(status="update", source="Google Play", latest=served or listed, download="failed",
+                      rollout=False)
+    # Otherwise Play serves the pinned version to this phone: the store page
+    # is ahead of a staged rollout, and the app is up to date.
+    play.discard(package)
 
 
 def check_version(package, version, app, certs, cli_path, mpp, workdir, aapt2, apksigner, keep_dir):
@@ -621,7 +675,8 @@ def review_reasons(r):
     reasons = []
     patches = r.get("patches") or {}
     if r.get("download") == "failed":
-        reasons.append("The download from APKPure failed. Get this version from Google Play or APKMirror and test it.")
+        source = r.get("source") or "APKPure"
+        reasons.append(f"The download from {source} failed. Get this version from Google Play or APKMirror and test it.")
     if r.get("cert") == "does not match":
         reasons.append("The download's signing certificate does not match the developer's. Do not trust this file; "
                        "get this version from Google Play or APKMirror.")

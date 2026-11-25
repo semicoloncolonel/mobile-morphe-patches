@@ -65,7 +65,7 @@ On SiriusXM, Mask live ad breaks mutes the live talk, news, and sports channels 
 | Patch | App | What it does |
 |-------|-----|--------------|
 | Hide sponsored content | Plex | Removes sponsored titles from the rows on Home and Discover, the large sponsored card at the top of each screen, and promoted "Watch Now on" cards. The items are removed from the feed, so no empty space is left behind. |
-| Hide sponsored listings | Amazon Shopping, Best Buy, CVS, Lowe's, Target, The Home Depot, Walmart | Removes sponsored products from search results, and on Amazon, CVS, and Lowe's, from product pages. On Walmart, it also turns off sponsored carousels, banners, and video. Best Buy's "Featured products" row and The Home Depot's home page still show sponsored products. |
+| Hide sponsored listings | Amazon Shopping, Best Buy, CVS, Lowe's, Target, The Home Depot, Walmart | Removes sponsored products from search results, and on Amazon, CVS, and Lowe's, from product pages. On Amazon, it also removes the cards and spaces those products leave empty. On Walmart, it also turns off sponsored carousels, banners, and video. Best Buy's "Featured products" row and The Home Depot's home page still show sponsored products. |
 | Hide sponsored products | Costco | Removes the sponsored products and ad placements from the home page, search results, and category pages. The app no longer asks Costco's server for them, so no empty space is left behind. |
 | Hide sponsored products | Walgreens | Turns off the sponsored product carousels, the ad banners, and the partner offers after checkout. |
 | Hide sponsored titles | JustWatch | Removes sponsored title cards and the sponsored trailers before videos. |

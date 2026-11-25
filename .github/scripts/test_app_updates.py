@@ -295,6 +295,36 @@ class CoveredVersionTest(unittest.TestCase):
         self.assertEqual(len(self.run_sync("9.94.0 build 2 75100", stable)), 1)
 
 
+class HashVersionTest(unittest.TestCase):
+    """Nikkei Asia names versions with build hashes, which cannot be put in order."""
+
+    PINNED = "8a14774d3a9cb8f25eaae58f4c4e4f3e"
+    APPS = {"com.nikkei.asia": {"versions": {PINNED}, "patches": ["Block analytics & tracking"]}}
+
+    def run_check(self, listed):
+        with mock.patch.object(app_updates, "apkpure_versions") as apkpure, \
+                mock.patch.object(app_updates, "play_listed_version", return_value=listed), \
+                mock.patch.object(app_updates, "check_version") as download:
+            results = app_updates.check(self.APPS, {}, {}, "cli", "mpp", "work", "aapt2", "apksigner", None,
+                                        Path("keep"), None)
+        apkpure.assert_not_called()
+        download.assert_not_called()
+        return results[0]
+
+    def test_untargeted_play_version_is_an_update_for_review(self):
+        record = self.run_check("e5d58f23e8a98a57519b231696ca744e")
+        self.assertEqual((record["status"], record["latest"]), ("update", "e5d58f23e8a98a57519b231696ca744e"))
+        self.assertIn("build hash", app_updates.review_reasons(record)[0])
+
+    def test_targeted_play_version_is_up_to_date(self):
+        self.assertEqual(self.run_check(self.PINNED)["status"], "up to date")
+
+    def test_only_the_same_hash_is_covered(self):
+        self.assertTrue(app_updates.covered(self.PINNED, self.PINNED))
+        self.assertFalse(app_updates.covered("0" * 32, self.PINNED))
+        self.assertFalse(app_updates.covered("f" * 32, self.PINNED))
+
+
 class IsTvBuildTest(unittest.TestCase):
     """A phone build that lists Android TV as optional is not a TV build."""
 

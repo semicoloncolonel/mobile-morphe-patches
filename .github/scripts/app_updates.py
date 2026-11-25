@@ -107,6 +107,20 @@ def newer(a, b):
     return compare(a, b) > 0
 
 
+# Nikkei Asia names each version with a 32-digit build hash, such as
+# "8a14774d3a9cb8f25eaae58f4c4e4f3e", so versions cannot be put in order. For
+# such an app, the version Google Play lists is an update when the patches do
+# not target it, and an issue is covered only by that exact version.
+HASH_VERSION = re.compile(r"^[0-9a-f]{32}$")
+
+
+def covered(version, released):
+    """Whether the released version covers an issue for this version."""
+    if HASH_VERSION.match(version) or HASH_VERSION.match(released):
+        return version == released
+    return not newer(version, released)
+
+
 version_order = functools.cmp_to_key(compare)
 
 
@@ -336,7 +350,7 @@ def play_listed_version(package):
         return None
     # The page's data lists the current version as [[["1.4.0"]]]. An app that
     # varies by device shows text there instead, which is not a version.
-    found = re.search(r'\[\[\["(\d[^"]{0,60})"\]\]', page)
+    found = re.search(r'\[\[\["(\d[^"]{0,60}|[0-9a-f]{32})"\]\]', page)
     return found.group(1) if found else None
 
 
@@ -480,6 +494,9 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
     pinned = max(app["versions"], key=version_order) if app["versions"] else None
     record = {"package": package, "name": name, "pinned": pinned, "key": package,
               "targets": sorted(app["versions"], key=version_order)}
+    if pinned and HASH_VERSION.match(pinned):
+        check_hash_versions(record, package, app)
+        return record
     public = apkpure_versions(package)
     candidates = sorted((v for v in public if not pinned or newer(v, pinned)), key=version_order, reverse=True)
     if not public:
@@ -545,6 +562,19 @@ def check_phone(package, name, app, certs, cli_path, mpp, workdir, aapt2, apksig
         play.discard(package)
     print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
     return record
+
+
+def check_hash_versions(record, package, app):
+    """An app whose versions are build hashes: the version Google Play lists is
+    an update when the patches do not target it. It is not downloaded, since
+    there is no order to tell a newer build from an older one."""
+    listed = play_listed_version(package)
+    record["play"] = listed
+    if listed and listed not in app["versions"]:
+        record.update(status="update", source="Google Play", latest=listed, hash_versions=True, rollout=False)
+    else:
+        record.update(status="up to date", latest=listed or record["pinned"])
+    print(f"{record['name']}: {record['status']} {record.get('latest', '')}", flush=True)
 
 
 def check_play_only(record, package, pinned, listed, app, certs, cli_path, mpp, workdir, aapt2, apksigner,
@@ -689,6 +719,10 @@ def review_reasons(r):
         reasons.append("Patching did not run. Check the log below.")
     for name in patches.get("failed", []):
         reasons.append(f"The patch \"{name}\" failed on this version and needs an update.")
+    if r.get("hash_versions"):
+        reasons.append("This app names each version with a build hash, so the update check cannot tell a newer "
+                       "build from an older one and does not download it. Get this version from Google Play, "
+                       "test it, and add it to the targets by hand.")
     if r.get("tv_build"):
         reasons.append("APKPure serves the Android TV build for this version. Check whether the phone build "
                        "also updated before moving the phone pin.")
@@ -775,7 +809,7 @@ def sync_issues(results, owner, stable=None):
         released = stable[key] if on_main else r["pinned"]
         for issue in mine:
             version = issue["title"][len(prefix):]
-            if released and not newer(version, released):
+            if released and covered(version, released):
                 why = (f"The latest main release targets {r['name']} `{released}`" if on_main else
                        f"The patches already target {r['name']} `{released}`, which no main release "
                        "includes yet")
@@ -798,12 +832,12 @@ def sync_issues(results, owner, stable=None):
         # The close step above shuts issues for versions the release already
         # covers. Opening one for such a version would be closed by the next
         # run and opened again by the run after (Netflix 9.92.0, issues 65-77).
-        if released and not newer(r["latest"], released):
+        if released and covered(r["latest"], released):
             print(f"{r['name']}: not opening an issue for {r['latest']}, already covered by {released}",
                   flush=True)
             continue
         title = prefix + r["latest"]
-        still_open = [i for i in mine if r["pinned"] is None or newer(i["title"][len(prefix):], r["pinned"])]
+        still_open = [i for i in mine if r["pinned"] is None or not covered(i["title"][len(prefix):], r["pinned"])]
         if still_open:
             number = still_open[0]["number"]
             gh("issue", "edit", str(number), "--title", title, "--body-file", "-", stdin=issue_body(r))

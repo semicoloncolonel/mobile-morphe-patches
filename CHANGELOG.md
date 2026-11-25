@@ -1,3 +1,10 @@
+# [1.2.0-dev.34](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.33...v1.2.0-dev.34) (2026-11-25)
+
+
+### Features
+
+* Add Al Jazeera and South China Morning Post ([d855162](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d855162ada0120e9a7317731a71fbfc4e18484d8)), closes [#171](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/171) [#174](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/174)
+
 # [1.2.0-dev.33](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.32...v1.2.0-dev.33) (2026-11-25)
 
 

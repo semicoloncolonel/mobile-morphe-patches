@@ -57,6 +57,7 @@ val respectRotationLockPatch = bytecodePatch(
     name = "Respect rotation lock",
     description = "Keeps the player on one side of landscape while auto-rotate is off. Without it, " +
         "Netflix turns the video upside down when you turn the phone, even with rotation locked.",
+    default = false,
 ) {
     category("Playback")
     compatibleWith(Constants.COMPATIBILITY)

@@ -1,3 +1,10 @@
+# [1.2.0-dev.35](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.34...v1.2.0-dev.35) (2026-11-25)
+
+
+### Bug Fixes
+
+* testing ESPN 8.30.1, NFL 61.0.22, Substack 3.15.1 ([5c8b2f5](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5c8b2f51cb246781b1b1dc32690e48223990cb5a))
+
 # [1.2.0-dev.34](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.33...v1.2.0-dev.34) (2026-11-25)
 
 

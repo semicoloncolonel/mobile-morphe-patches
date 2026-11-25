@@ -1,3 +1,12 @@
+# [1.2.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.31...v1.2.0-dev.32) (2026-11-25)
+
+
+### Bug Fixes
+
+* **ci:** Report an Android restart in the launch check instead of blaming the app ([c665e0c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c665e0c832baded494b3d3cec6329908408f2272))
+* **ci:** Run the launch check on an Android 16 emulator ([af3aac3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/af3aac3b2ca9538e0291e3fbd7b314dce64f4b84))
+* testing ABC News 8.101.0, Amazon Shopping 32.20.2.100, Costco 26.11.1, CVS 26.11.31, Fox News 5.52.0, Lowe's 26.10.8, Mint Mobile 2.3.43, Moviebase 7.7.2, MS NOW 14.7.1, National Forests & Grasslands 1.4.0, Recreation.gov 2.2.69, Slickdeals 6.37.0, Sundance Now 5.0.30.1, The Daily Wire 3.5.24, The Home Depot 8.2.8, The New York Times 12.1.0, Truth Social 1.28.4, Xfinity 6.16.0-2 ([eb57477](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/eb57477a78cf47d4aca56f4f613ade200937847c))
+
 # [1.2.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.31...v1.2.0-dev.32) (2026-11-24)
 
 

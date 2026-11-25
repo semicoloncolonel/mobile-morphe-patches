@@ -12,6 +12,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 <summary>What Skip ads removes in each app</summary>
 
 - ABC News: ads in on-demand videos and the feeds, and the Taboola banner in articles.
+- Al Jazeera: the ads in the feeds, articles, and live blogs, with no empty box left in their place, and the ads before videos.
 - AMC+: stitched-in breaks, including the interactive true[X] and Brightline ads.
 - AP News: ad and sponsored rows in the feed and articles, the sticky banner, "Sponsored by" rows, and ads before videos.
 - Apple TV: ad interstitials in on-demand videos, and promos delivered the same way.
@@ -39,6 +40,7 @@ Everything runs on the device, inside the patched app. The patches do not send d
 - Pluto TV: on-demand ads. Live breaks are covered by the Mask live ad breaks option.
 - Prime Video: every ad break, including the ads that Amazon builds into the video stream. Titles play in the older player, so features of the newer one, such as X-Ray, are not available.
 - Reuters: the ad slots in the feeds and in articles, including the "Advertisement" blocks, the Dianomi sponsored content in articles, and the ads in videos.
+- South China Morning Post: the ads and their "Advertisement" boxes in the feeds and in articles.
 - The Daily Wire: the banner ads and their "Advertisement" slots, including the one pinned to the top of articles, and the pre-roll before videos. Members-only content stays locked.
 - Truth Social: sponsored Truths, boosted posts (paid promotions marked "Boosted"), the other ads placed in the feeds, Google ads, the top banner ad, and the ad on a post's detail page.
 - USA TODAY: the ads in the section fronts, articles, galleries, and videos, Taboola recommendations, and the ad-free upsells. It turns on the app's own ad-free mode, so premium articles stay locked and Settings may show you as ad-free.
@@ -146,6 +148,8 @@ A promotion here is the app's own marketing: the buttons, banners, and pop-ups t
 | Hide update prompts | Tubi | The request to update the app, which Tubi shows from its own server settings or when Google Play has a newer version. A patched app cannot be updated through Google Play. |
 | Hide prompts and pop-ups | USA TODAY | **Rating prompt**: The Play Store rating request. It also stops Google Play's rate-this-app sheet. |
 | Hide subscription prompts | USA TODAY | The "Sale" bar pinned to the bottom of articles, the Subscribe links above Top Stories and in the article toolbar, and the subscription offers that pop up on launch, such as the $1 trial. Sign In stays. |
+| Hide subscription prompts | South China Morning Post | The free-trial page in the first-run walkthrough and its "Are you sure?" pop-up, the Subscribe button in the article toolbar, and the "Try for free" bar on SCMP Plus. The article paywall stays. |
+| Hide prompts and pop-ups | Al Jazeera | **Rating prompt**: Google Play's rate-this-app sheet. **Promotions**: The "Enrich your Al Jazeera experience" sign-in tip above the tab bar, and the cards between stories that ask you to follow a topic, turn on notifications, or sign up for a newsletter. |
 | Hide promotions | White House | The buttons you choose: "Text President Trump" and "Get in Touch". |
 | Hide social feeds | White House | The feeds you choose: Truth Social, X, Instagram, Facebook, LinkedIn, TikTok, YouTube, or the Wire. A hidden feed's tab shows that it could not load. Hiding YouTube also empties the Live tab. |
 | Hide membership upsell | YouTube TV | The "Add to membership" shelf on the home screen and in search results, which promotes paid add-on networks. The shelf is removed from the feed, so no empty space is left behind. |
@@ -195,6 +199,7 @@ A promotion here is the app's own marketing: the buttons, banners, and pop-ups t
 <summary>What else it stops in each app</summary>
 
 - ABC News: mParticle, comScore, Braze, and Datadog.
+- Al Jazeera: Amplitude, Chartbeat, Conviva, and Brightcove's video analytics.
 - AMC+: AppsFlyer, Braze, mParticle, Nielsen, New Relic, and NPAW/Youbora.
 - AP News: Adjust, Branch, Amplitude, Segment, comScore, Parse.ly, LiveRamp, Iterable, Permutive, Quantcast, and AP's BlueConic customer-data platform.
 - Apple TV: Apple's usage metrics, such as the pages you view and what you tap, play, and search for.
@@ -230,6 +235,7 @@ A promotion here is the app's own marketing: the buttons, banners, and pop-ups t
 - NewsNation: comScore, Nielsen, Segment, and Adjust.
 - NHK WORLD-JAPAN: Adobe Analytics and Firebase Analytics.
 - Nikkei Asia: Firebase Analytics, AppsFlyer, Nikkei's Atlas, and the Facebook SDK.
+- South China Morning Post: AppsFlyer.
 - NFL: Kochava, Adobe Analytics, Nielsen, Partnerize, and Amplitude. Analytics sent from the app's JavaScript are not covered.
 - NPR: AppsFlyer, Adjust, Branch, mParticle, Segment, comScore, Iterable, Permutive, Quantcast, and Amazon ad analytics.
 - NPS: Mapbox map usage reports.
@@ -333,6 +339,7 @@ These patches are off by default.
 | GmsCore support | AP News, Checkout 51, Flipp, JustWatch, Koupon, MLB, Moviebase, NewsBreak, Slickdeals, Substack, The Daily Wire, Yahoo Finance, Yahoo News, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, Flipp, JustWatch, Koupon, MLB, NewsBreak, Slickdeals, Substack, The Daily Wire, and Yahoo Finance it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. On Yahoo News it is off by default and moves only push notifications and Firebase, because Yahoo sign-in does not use Google. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
 | Skip cookie settings | NHK WORLD-JAPAN | Answers the cookie screen with Decline when it opens, so it does not appear and analytics cookies stay off. The app then keeps your language, caption language, and playback speed, which it otherwise forgets each time it closes, so the Functional Cookies switch stays on. It also fixes the error "your request was not approved", which in 9.0.2 stops Accept and Decline from working. |
+| Skip cookie settings | Al Jazeera | Answers the cookie banner with Reject all before it appears, then turns Functional cookies back on, so embedded posts, such as those from X, still load. You can change the choice later under Profile > Settings > Privacy Preferences. |
 
 ## Needed for the app to run
 

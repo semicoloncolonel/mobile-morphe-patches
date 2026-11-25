@@ -51,6 +51,7 @@ body:
       description: The app you patched.
       options:
         - "ABC News"
+        - "Al Jazeera"
         - "Amazon Shopping"
         - "AMC+"
         - "AP News"
@@ -114,6 +115,7 @@ body:
         - "Shudder"
         - "SiriusXM"
         - "Slickdeals"
+        - "South China Morning Post"
         - "Starz"
         - "Substack"
         - "Sundance Now"

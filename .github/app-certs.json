@@ -8,6 +8,9 @@
   "com.abc.abcnews": [
     "84ffa7412f76777e76a22f5b51874e012bd81607110c1b2bda3e6008c4bc75be"
   ],
+  "com.aljazeera.mobile": [
+    "a4df3413cdd0f70ef4b8d2191bf99c0b6d6900712d7924ceb92d6c4e77ff05d3"
+  ],
   "com.amazon.avod.thirdpartyclient": [
     "2f19adeb284eb36f7f07786152b9a1d14b21653203ad0b04ebbf9c73ab6d7625"
   ],
@@ -155,6 +158,9 @@
   ],
   "com.plexapp.android": [
     "822cd1246884be960e0f2667eb8afc5f7df08920363c2f16742933bfeb5717c6"
+  ],
+  "com.scmp.newspulse": [
+    "e473392feb1ad070937deac65b8d5d24e4eb1e26559c1b31ac5e998d05e0b3d2"
   ],
   "com.sirius": [
     "efdcfc8096973f22085bc1fcabd2cafd74536238fee873f2fde2a8a8369c8360"

@@ -8,9 +8,11 @@ import java.security.MessageDigest
 // for patches that change what a named JavaScript function returns.
 //
 // Hermes keeps each function's source name in the bundle, so a function is
-// found by name rather than by its position or bytes. Bytecode versions 96 and
-// 98 are read; any other version fails the patch rather than guessing at a
-// layout. After editing, the SHA-1 footer at the end of the file is
+// found by name rather than by its position or bytes. Bytecode versions 96,
+// 98, and 99 are read; any other version fails the patch rather than guessing
+// at a layout. Version 99 (Al Jazeera 12.2.0) keeps the version 98 layout and
+// the LoadConst and Ret opcodes that returnAtStart writes, so it is read as
+// version 98. After editing, the SHA-1 footer at the end of the file is
 // recomputed.
 //
 // Layout: a 128-byte file header; one header per function, 16 bytes in
@@ -41,7 +43,7 @@ internal class HermesBundle(private val bytes: ByteArray) {
             throw PatchException("Not a Hermes bytecode bundle")
         }
         version = u32(8)
-        if (version != 96 && version != 98) throw PatchException("Unsupported Hermes bytecode version $version")
+        if (version != 96 && version != 98 && version != 99) throw PatchException("Unsupported Hermes bytecode version $version")
         val headerSize = if (version == 96) 16 else 12
 
         val functionCount = u32(40)

@@ -409,3 +409,7 @@
 # WSJ — "Hide prompts and pop-ups", cookie consent option. onShown() is called
 # only from injected smali in the app's Sourcepoint client (onUIReady).
 -keep class semicoloncolonel.mobilestream.extension.wsj.CookieConsent { public static *; }
+
+# Al Jazeera — "Skip cookie settings". Called only from injected smali in
+# OneTrust's React Native module.
+-keep class semicoloncolonel.mobilestream.extension.aljazeera.OneTrustConsent { public static *; }

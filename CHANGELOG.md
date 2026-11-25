@@ -1,3 +1,10 @@
+# [1.2.0-dev.37](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.36...v1.2.0-dev.37) (2026-11-25)
+
+
+### Bug Fixes
+
+* testing DealSeek 1.66.17, Slickdeals 6.37.1 ([6fc2143](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6fc21431e1455ea1001851ab08f18a2c8b82936b))
+
 # [1.2.0-dev.36](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.35...v1.2.0-dev.36) (2026-11-25)
 
 

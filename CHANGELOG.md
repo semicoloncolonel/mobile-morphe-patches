@@ -1,3 +1,10 @@
+# [1.2.0-dev.33](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.32...v1.2.0-dev.33) (2026-11-25)
+
+
+### Bug Fixes
+
+* **Amazon Shopping:** Remove the empty cards left by hidden sponsored products ([7a1bacd](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7a1bacd7e8f898df95ac5d3df0140add012af1ee)), closes [#135](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/135)
+
 # [1.2.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.31...v1.2.0-dev.32) (2026-11-25)
 
 

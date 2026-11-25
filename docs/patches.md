@@ -90,6 +90,7 @@ A promotion here is the app's own marketing: the buttons, banners, and pop-ups t
 | Hide prompts and pop-ups | CNBC | **Rating prompt**: The Play Store rating request. It also stops Google Play's rate-this-app sheet. |
 | Hide prompts and pop-ups | Kanopy | **Rating prompt**: The "Enjoying Kanopy?" dialog and the Play Store rating request, which appear after three plays and again every 120 days. It also stops Google Play's rate-this-app sheet. |
 | Hide prompts and pop-ups | Movies Anywhere | **Rating prompt**: The Google Play rating request, which Movies Anywhere opens from an in-app message. **Marketing pop-ups**: In-app marketing messages. The prompt to re-link a retailer account still shows. |
+| Hide subscriber-only buttons | Nikkei Asia | Hides the Listen and Translate buttons in articles unless you subscribe. Without a subscription, they only open a Subscribe Now prompt. The article paywall stays. |
 | Hide survey | Kanopy | The "Take Our Survey" row on the More tab. |
 | Hide prompts and pop-ups | C-SPAN Now | **Rating prompt**: Google Play's rate-this-app sheet. **Promo banners**: C-SPAN's own program promos, such as the "America's Book Club" banner, above the video player and on the Watch tab. |
 | Hide editor articles | DealSeek | The "From our editors" card on deal pages, which links to DealSeek's own articles about the product. |
@@ -228,6 +229,7 @@ A promotion here is the app's own marketing: the buttons, banners, and pop-ups t
 - NewsBreak: AppsFlyer, Adjust, Branch, Amplitude, mParticle, Segment, Singular, Iterable, LiveRamp, and Amazon ad analytics. NewsBreak's own event log shares servers with its stories, so it is not blocked.
 - NewsNation: comScore, Nielsen, Segment, and Adjust.
 - NHK WORLD-JAPAN: Adobe Analytics and Firebase Analytics.
+- Nikkei Asia: Firebase Analytics, AppsFlyer, Nikkei's Atlas, and the Facebook SDK.
 - NFL: Kochava, Adobe Analytics, Nielsen, Partnerize, and Amplitude. Analytics sent from the app's JavaScript are not covered.
 - NPR: AppsFlyer, Adjust, Branch, mParticle, Segment, comScore, Iterable, Permutive, Quantcast, and Amazon ad analytics.
 - NPS: Mapbox map usage reports.

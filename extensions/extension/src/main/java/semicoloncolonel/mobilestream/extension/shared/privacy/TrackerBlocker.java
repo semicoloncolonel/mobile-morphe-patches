@@ -198,6 +198,7 @@ public final class TrackerBlocker {
             // Slickdeals (6.36.0)
             "getblueshift.com", // Blueshift marketing
             "cwogzftn.usw.stape.io", // Slickdeals' server-side Tag Manager
+            "astat.nikkei.com", // Nikkei's Atlas analytics
             "l7ox5un97g.execute-api.us-west-2.amazonaws.com", // Slickdeals' impression collector
             "prod.cm.publishers.advertising.a2z.com", // Amazon ad metrics
             // Kanopy (6.32.0)

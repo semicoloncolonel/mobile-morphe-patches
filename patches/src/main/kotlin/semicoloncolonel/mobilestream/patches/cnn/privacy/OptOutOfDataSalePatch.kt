@@ -4,7 +4,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.cnn.shared.Constants
 
 private const val PURPOSE_TYPE = "Lcom/cnn/mobile/privacy/models/PrivacyPurposeType;"
 private const val PURPOSE_CONSENT = "Lcom/cnn/mobile/privacy/models/PrivacyPurposeConsent;"

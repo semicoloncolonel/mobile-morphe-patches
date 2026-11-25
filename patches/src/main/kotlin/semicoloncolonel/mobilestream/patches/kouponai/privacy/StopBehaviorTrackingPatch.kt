@@ -2,7 +2,6 @@ package semicoloncolonel.mobilestream.patches.kouponai.privacy
 
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
 import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter
 import semicoloncolonel.mobilestream.patches.kouponai.shared.kouponWebFilterPatch

@@ -22,11 +22,8 @@ import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants as AbcNews
 import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.apnews.shared.Constants as ApNews
 import semicoloncolonel.mobilestream.patches.att.shared.Constants as Att
-import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
 import semicoloncolonel.mobilestream.patches.costco.shared.Constants as Costco
-import semicoloncolonel.mobilestream.patches.cspan.shared.Constants as Cspan
-import semicoloncolonel.mobilestream.patches.dailywire.shared.Constants as DailyWire
 import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
 import semicoloncolonel.mobilestream.patches.espn.shared.Constants as Espn
 import semicoloncolonel.mobilestream.patches.fandango.shared.Constants as Fandango
@@ -38,11 +35,9 @@ import semicoloncolonel.mobilestream.patches.hulu.shared.Constants as Hulu
 import semicoloncolonel.mobilestream.patches.justwatch.shared.Constants as JustWatch
 import semicoloncolonel.mobilestream.patches.mgm.shared.Constants as Mgm
 import semicoloncolonel.mobilestream.patches.mint.shared.Constants as Mint
-import semicoloncolonel.mobilestream.patches.mlb.shared.Constants as Mlb
 import semicoloncolonel.mobilestream.patches.moviebase.shared.Constants as Moviebase
 import semicoloncolonel.mobilestream.patches.msnow.shared.Constants as MsNow
 import semicoloncolonel.mobilestream.patches.nba.shared.Constants as Nba
-import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants as NbcNews
 import semicoloncolonel.mobilestream.patches.newsnation.shared.Constants as NewsNation
 import semicoloncolonel.mobilestream.patches.nfl.shared.Constants as Nfl
 import semicoloncolonel.mobilestream.patches.npr.shared.Constants as Npr
@@ -65,13 +60,10 @@ import semicoloncolonel.mobilestream.patches.truthsocial.shared.Constants as Tru
 import semicoloncolonel.mobilestream.patches.tubi.shared.Constants as Tubi
 import semicoloncolonel.mobilestream.patches.verizon.shared.Constants as Verizon
 import semicoloncolonel.mobilestream.patches.visible.shared.Constants as Visible
-import semicoloncolonel.mobilestream.patches.washingtonpost.shared.Constants as WashingtonPost
 import semicoloncolonel.mobilestream.patches.whitehouse.shared.Constants as WhiteHouse
-import semicoloncolonel.mobilestream.patches.wsj.shared.Constants as Wsj
 import semicoloncolonel.mobilestream.patches.xfinity.shared.Constants as Xfinity
 import semicoloncolonel.mobilestream.patches.xumo.shared.Constants as Xumo
 import semicoloncolonel.mobilestream.patches.yttv.shared.Constants as YtTv
-import semicoloncolonel.mobilestream.patches.reuters.shared.Constants as Reuters
 import semicoloncolonel.mobilestream.patches.bbcnews.shared.Constants as BbcNews
 
 // Apps open Google Play's in-app review sheet with

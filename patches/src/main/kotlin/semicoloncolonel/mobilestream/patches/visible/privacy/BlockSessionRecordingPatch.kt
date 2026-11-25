@@ -5,7 +5,6 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
-import semicoloncolonel.mobilestream.patches.visible.shared.Constants
 
 // Visible 3.0.5 starts Quantum Metric from three places (the app, its newer
 // code, and the home internet module). It records each session and the

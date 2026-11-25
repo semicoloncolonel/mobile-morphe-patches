@@ -8,7 +8,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
-import semicoloncolonel.mobilestream.patches.appletv.shared.Constants
 
 // Apple TV phone app 3.0.0. The app shows its own "Enjoying Apple TV?" dialog
 // with a "Leave a Review" button, not Google Play's review sheet. Whether it

@@ -3,7 +3,6 @@ package semicoloncolonel.mobilestream.patches.att.privacy
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.att.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 

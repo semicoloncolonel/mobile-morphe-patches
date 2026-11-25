@@ -2,7 +2,6 @@ package semicoloncolonel.mobilestream.patches.tmobileplay.privacy
 
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
 import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 import semicoloncolonel.mobilestream.patches.shared.privacy.analyticsKillSwitchesPatch

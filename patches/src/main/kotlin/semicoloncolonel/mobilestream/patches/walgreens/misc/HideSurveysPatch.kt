@@ -5,7 +5,6 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
-import semicoloncolonel.mobilestream.patches.walgreens.shared.Constants
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Hide surveys and rating prompt.

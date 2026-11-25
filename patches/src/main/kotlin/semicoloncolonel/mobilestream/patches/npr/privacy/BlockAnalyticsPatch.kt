@@ -6,7 +6,6 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.npr.shared.Constants
-import semicoloncolonel.mobilestream.patches.shared.privacy.analyticsKillSwitchesPatch
 import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
 
 // NPR 7.10.0. The SDKs send through URL.openConnection and OkHttp, which the

@@ -5,7 +5,6 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.mlb.shared.Constants
 
 // MLB 26.21.0.49 shows Qualtrics pop-ups: surveys, and a prompt whose
 // positive button opens Google Play's rating sheet. Qualtrics decides on its

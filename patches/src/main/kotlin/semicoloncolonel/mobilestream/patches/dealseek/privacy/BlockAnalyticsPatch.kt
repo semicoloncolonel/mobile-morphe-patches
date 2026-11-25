@@ -1,6 +1,5 @@
 package semicoloncolonel.mobilestream.patches.dealseek.privacy
 
-import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.patch.bytecodePatch

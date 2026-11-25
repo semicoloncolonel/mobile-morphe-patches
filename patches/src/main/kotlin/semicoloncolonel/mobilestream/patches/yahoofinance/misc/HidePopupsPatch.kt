@@ -4,7 +4,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.prependGate
-import semicoloncolonel.mobilestream.patches.yahoofinance.shared.Constants
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.FINANCE_FLAGS
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.offFlags
 

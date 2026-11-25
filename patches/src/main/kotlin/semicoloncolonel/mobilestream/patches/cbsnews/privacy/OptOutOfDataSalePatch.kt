@@ -7,7 +7,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import semicoloncolonel.mobilestream.patches.cbsnews.misc.disableSignatureCheckPatch
-import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // CBS News 5.20 keeps one consent value per partner in ConsentManager. They

@@ -5,7 +5,6 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.disableAirshipInAppMessages
-import semicoloncolonel.mobilestream.patches.wsj.shared.Constants
 
 // WSJ phone 15.12.0 shows marketing pop-ups from two SDKs:
 //

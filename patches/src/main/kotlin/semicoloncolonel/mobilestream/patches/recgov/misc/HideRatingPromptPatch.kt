@@ -4,7 +4,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.blockPlayReviewSheet
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.recgov.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 

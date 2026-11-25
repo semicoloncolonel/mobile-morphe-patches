@@ -5,7 +5,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
-import semicoloncolonel.mobilestream.patches.usatoday.shared.Constants
 
 // USA TODAY 8.15.0 asks for a Play Store rating after a number of uses, when
 // the config's appReviewPrompt is enabled. AppReviewConfig.isEnabled() now

@@ -4,7 +4,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.rawResourcePatch
 import app.morphe.patcher.patch.resourcePatch
-import semicoloncolonel.mobilestream.patches.kouponai.shared.Constants
 import semicoloncolonel.mobilestream.patches.kouponai.shared.requireNativeLibsPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.disableCodePushPatch
 import semicoloncolonel.mobilestream.patches.kouponai.shared.enableWebFilter

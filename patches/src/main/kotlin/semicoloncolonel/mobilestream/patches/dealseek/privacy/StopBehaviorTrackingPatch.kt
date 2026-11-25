@@ -2,7 +2,6 @@ package semicoloncolonel.mobilestream.patches.dealseek.privacy
 
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.dealseek.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.filterJsRequests
 
 // ─────────────────────────────────────────────────────────────────────────────

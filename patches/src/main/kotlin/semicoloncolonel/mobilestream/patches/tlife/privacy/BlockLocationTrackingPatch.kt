@@ -5,7 +5,6 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.forEachMatchingMethod
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
-import semicoloncolonel.mobilestream.patches.tlife.shared.Constants
 
 // T-Life 12.3.1 starts Radar after sign-in: a location update every 30
 // seconds at high accuracy, every update synced to Radar's servers, tagged

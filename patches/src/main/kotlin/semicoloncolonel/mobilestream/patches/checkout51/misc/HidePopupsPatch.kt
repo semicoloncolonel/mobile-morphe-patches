@@ -6,7 +6,6 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.returnEarly
-import semicoloncolonel.mobilestream.patches.checkout51.shared.Constants
 import semicoloncolonel.mobilestream.patches.checkout51.shared.GetListItemsFromOfferModelsFingerprint
 import semicoloncolonel.mobilestream.patches.checkout51.shared.SHOPPING_ADS_FILTER
 import semicoloncolonel.mobilestream.patches.checkout51.shared.fixStuckDialogPatch

@@ -6,7 +6,6 @@ import app.morphe.patcher.patch.resourcePatch
 import semicoloncolonel.mobilestream.patches.shared.misc.HERMES_BUNDLE
 import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 import semicoloncolonel.mobilestream.patches.shared.misc.disableExpoUpdatesPatch
-import semicoloncolonel.mobilestream.patches.yahoonews.shared.Constants
 import semicoloncolonel.mobilestream.patches.yahoonews.shared.videoOptOutPatch
 
 // ─────────────────────────────────────────────────────────────────────────────

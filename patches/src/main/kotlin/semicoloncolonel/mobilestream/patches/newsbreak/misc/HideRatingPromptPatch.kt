@@ -5,7 +5,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.newsbreak.shared.Constants
 
 // NewsBreak 26.44.1. The home screen shows a "How are we doing?" dialog that
 // leads to a Play Store rating, ten days after install and again every 60

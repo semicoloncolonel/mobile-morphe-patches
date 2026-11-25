@@ -11,7 +11,6 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
-import semicoloncolonel.mobilestream.patches.pluto.shared.Constants
 
 private const val LIVE_MASK = "Lsemicoloncolonel/mobilestream/extension/pluto/ads/PlutoLiveMask;"
 

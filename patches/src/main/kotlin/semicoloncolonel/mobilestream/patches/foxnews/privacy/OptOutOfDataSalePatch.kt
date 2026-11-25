@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import semicoloncolonel.mobilestream.patches.foxnews.shared.Constants
 
 private const val PRIVACY_STRING = "Lcom/foxnews/data/model/DnsPrivacyString;"
 

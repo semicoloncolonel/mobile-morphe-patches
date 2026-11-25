@@ -4,7 +4,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.blockPlayReviewSheet
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.cnbc.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // CNBC 8.8.2. InAppRatingManager opens Google Play's review sheet at launch

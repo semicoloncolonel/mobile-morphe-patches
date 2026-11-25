@@ -3,7 +3,6 @@ package semicoloncolonel.mobilestream.patches.nbcnews.privacy
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // NBC News 15.0.1 starts OneTrust but never shows its banner or saves a

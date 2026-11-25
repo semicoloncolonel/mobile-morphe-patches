@@ -10,7 +10,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants
 
 // ABC News 8.98.2. Ads in the live streams are stitched in on Disney's
 // servers, so they cannot be removed. The player UI keeps an AdState whose

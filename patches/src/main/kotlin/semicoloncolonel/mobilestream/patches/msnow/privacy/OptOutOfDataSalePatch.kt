@@ -8,7 +8,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import semicoloncolonel.mobilestream.patches.msnow.shared.Constants
 
 private const val ALLOW_ALL = "Banner - Allow All"
 private const val REJECT_ALL = "Banner - Reject All"

@@ -5,7 +5,6 @@ import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
-import semicoloncolonel.mobilestream.patches.kanopy.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // Kanopy 6.32.0. After three plays, and again every 120 days, the home shelf

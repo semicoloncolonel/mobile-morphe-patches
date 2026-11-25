@@ -7,7 +7,6 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import semicoloncolonel.mobilestream.patches.cspan.shared.Constants
 
 // C-SPAN Now 1.25.0. The promo banners above the video player and on the
 // Watch tab (C-SPAN's own program ads, such as "America's Book Club") come

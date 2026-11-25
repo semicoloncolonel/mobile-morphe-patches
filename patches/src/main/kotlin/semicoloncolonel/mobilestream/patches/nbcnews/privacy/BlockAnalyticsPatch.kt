@@ -6,7 +6,6 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants
-import semicoloncolonel.mobilestream.patches.shared.privacy.analyticsKillSwitchesPatch
 import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
 
 // NBC News 15.0.1 sends its analytics through URL.openConnection, which the

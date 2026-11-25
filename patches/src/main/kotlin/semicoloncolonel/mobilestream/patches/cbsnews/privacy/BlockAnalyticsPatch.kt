@@ -9,7 +9,6 @@ import app.morphe.patcher.patch.bytecodePatch
 import semicoloncolonel.mobilestream.patches.cbsnews.misc.disableSignatureCheckPatch
 import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
-import semicoloncolonel.mobilestream.patches.shared.privacy.analyticsKillSwitchesPatch
 import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
 
 // CBS News 5.20. TrackingManager.initialize registers the app's screen and

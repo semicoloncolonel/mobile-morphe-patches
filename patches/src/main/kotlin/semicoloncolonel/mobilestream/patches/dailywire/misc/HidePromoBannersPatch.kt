@@ -3,7 +3,6 @@ package semicoloncolonel.mobilestream.patches.dailywire.misc
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
-import semicoloncolonel.mobilestream.patches.dailywire.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // The Daily Wire 3.5.21 / 3.5.22.

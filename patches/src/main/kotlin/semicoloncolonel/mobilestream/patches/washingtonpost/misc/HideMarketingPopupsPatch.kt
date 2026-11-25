@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import semicoloncolonel.mobilestream.patches.shared.misc.disableAirshipInAppMessages
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
-import semicoloncolonel.mobilestream.patches.washingtonpost.shared.Constants
 
 // WaPo phone 7.18.1. The app's marketing pop-ups (subscription offers and
 // other campaigns) are Airship in-app messages; see AirshipInAppMessages.kt.

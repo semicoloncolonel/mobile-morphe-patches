@@ -10,7 +10,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import semicoloncolonel.mobilestream.patches.foxlocal.shared.Constants
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // FOX LOCAL 7.22.0 keeps its privacy choice in Ketch. Until you choose, the

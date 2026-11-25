@@ -17,6 +17,7 @@ object Constants {
         appIconColor = 0xCC0000,
         targets = listOf(
             devTarget("8.30.0", versionCode = 27339, description = "Phone build"),
+            devTarget("8.30.1", versionCode = 27731, description = "Phone build"),
             AppTarget("8.29.0", description = "Phone build"),
             AppTarget("8.27.0", versionCode = 26169, description = "Phone build"),
         )

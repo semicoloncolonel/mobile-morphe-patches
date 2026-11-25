@@ -3,6 +3,25 @@
 
 ### Bug Fixes
 
+* **ci:** Do not bump a version whose issue is labeled "not patchable" ([5bd73a2](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/5bd73a298f129e2e02b3001e919c5900c0429595))
+* **ci:** Report an Android restart in the launch check instead of blaming the app ([c665e0c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c665e0c832baded494b3d3cec6329908408f2272))
+* **ci:** Run the launch check on an Android 16 emulator ([af3aac3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/af3aac3b2ca9538e0291e3fbd7b314dce64f4b84))
+* **Moviebase:** Stop targeting 7.7.2, which closes when patched ([fe33f4f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fe33f4f8545cc53f011572527c7d72762b974ac9)), closes [#158](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/158)
+* **Netflix:** Turn Respect rotation lock off by default ([30dbfa8](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/30dbfa815042e4236261ef682ee2f39208e434cc)), closes [#142](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/142)
+* testing ABC News 8.101.0, Amazon Shopping 32.20.2.100, Costco 26.11.1, CVS 26.11.31, Fox News 5.52.0, Lowe's 26.10.8, Mint Mobile 2.3.43, Moviebase 7.7.2, MS NOW 14.7.1, National Forests & Grasslands 1.4.0, Recreation.gov 2.2.69, Slickdeals 6.37.0, Sundance Now 5.0.30.1, The Daily Wire 3.5.24, The Home Depot 8.2.8, The New York Times 12.1.0, Truth Social 1.28.4, Xfinity 6.16.0-2 ([eb57477](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/eb57477a78cf47d4aca56f4f613ade200937847c))
+* **updates:** Check apps whose versions are build hashes against Google Play ([2fcdc4b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/2fcdc4b3eac8db01bca3d13dd97f2403aa054f89))
+
+
+### Features
+
+* **NHK WORLD-JAPAN:** Add Skip cookie settings and Block analytics & tracking ([18bb4b1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/18bb4b15b4ae030e2428b06b71c90942a38a4543)), closes [#150](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/150)
+* **Nikkei Asia:** Add Hide subscriber-only buttons and Block analytics & tracking ([46bba84](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/46bba8443c49d869f92ccfd1a4305aa3922cba78)), closes [#149](https://github.com/semicoloncolonel/mobile-morphe-patches/issues/149)
+
+# [1.2.0-dev.32](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.31...v1.2.0-dev.32) (2026-11-25)
+
+
+### Bug Fixes
+
 * **ci:** Report an Android restart in the launch check instead of blaming the app ([c665e0c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c665e0c832baded494b3d3cec6329908408f2272))
 * **ci:** Run the launch check on an Android 16 emulator ([af3aac3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/af3aac3b2ca9538e0291e3fbd7b314dce64f4b84))
 * testing ABC News 8.101.0, Amazon Shopping 32.20.2.100, Costco 26.11.1, CVS 26.11.31, Fox News 5.52.0, Lowe's 26.10.8, Mint Mobile 2.3.43, Moviebase 7.7.2, MS NOW 14.7.1, National Forests & Grasslands 1.4.0, Recreation.gov 2.2.69, Slickdeals 6.37.0, Sundance Now 5.0.30.1, The Daily Wire 3.5.24, The Home Depot 8.2.8, The New York Times 12.1.0, Truth Social 1.28.4, Xfinity 6.16.0-2 ([eb57477](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/eb57477a78cf47d4aca56f4f613ade200937847c))

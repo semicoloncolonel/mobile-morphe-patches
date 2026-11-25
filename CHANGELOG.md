@@ -1,3 +1,10 @@
+# [1.2.0-dev.36](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.35...v1.2.0-dev.36) (2026-11-25)
+
+
+### Features
+
+* route every news app's traffic through a proxy ([e9f9f5b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e9f9f5b6e448e86d3cdd7e6c7f48d1b8db06fa52))
+
 # [1.2.0-dev.35](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.34...v1.2.0-dev.35) (2026-11-25)
 
 

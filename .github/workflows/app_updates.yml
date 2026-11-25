@@ -140,10 +140,12 @@ jobs:
       contents: read
       issues: write
     steps:
-      - name: Checkout dev
+      # A run started by hand from a branch other than main uses that branch's
+      # launch check, so a change to it can be tried before it reaches dev.
+      - name: Checkout the launch check
         uses: actions/checkout@v7
         with:
-          ref: dev
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref_name != 'main' && github.ref_name || 'dev' }}
 
       - name: Download report
         uses: actions/download-artifact@v8
@@ -169,12 +171,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         with:
-          # Android 17. Android 15 to 17 enforce rules that Android 14 does not,
-          # such as edge-to-edge layouts, foreground service types, and stricter
-          # receiver and background-start limits, so an older image passes apps
-          # that break on current phones. The 4 KB page image matches current
-          # phones; the ps16k images would flag 16 KB page devices only.
-          api-level: '37.0'
+          # Android 16. Android 15 and 16 enforce rules that Android 14 does
+          # not, such as edge-to-edge layouts, foreground service types, and
+          # stricter receiver and background-start limits, so an older image
+          # passes apps that break on current phones. The 4 KB page image
+          # matches current phones; the ps16k images would flag 16 KB page
+          # devices only.
+          #
+          # Not Android 17 (api-level 37.0): its surfaceflinger aborts on
+          # "Assertion failed: !rcEnc->featureInfo()->hasReadColorBufferDma"
+          # every 15 to 30 seconds with swiftshader_indirect, and the framework
+          # restarts with it, killing every app. swangle_indirect and guest
+          # fail the same way. Try 37 again with a newer system image.
+          api-level: '36'
           arch: x86_64
           # Android 17 did not finish booting in 10 minutes on the default 2
           # cores. GitHub's Linux runners have 4 cores and 16 GB.

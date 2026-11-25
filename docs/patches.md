@@ -227,6 +227,7 @@ A promotion here is the app's own marketing: the buttons, banners, and pop-ups t
 - NBC News: Adobe, mParticle, Nielsen, comScore, Conviva, Moat, and Iterate.
 - NewsBreak: AppsFlyer, Adjust, Branch, Amplitude, mParticle, Segment, Singular, Iterable, LiveRamp, and Amazon ad analytics. NewsBreak's own event log shares servers with its stories, so it is not blocked.
 - NewsNation: comScore, Nielsen, Segment, and Adjust.
+- NHK WORLD-JAPAN: Adobe Analytics and Firebase Analytics.
 - NFL: Kochava, Adobe Analytics, Nielsen, Partnerize, and Amplitude. Analytics sent from the app's JavaScript are not covered.
 - NPR: AppsFlyer, Adjust, Branch, mParticle, Segment, comScore, Iterable, Permutive, Quantcast, and Amazon ad analytics.
 - NPS: Mapbox map usage reports.
@@ -329,6 +330,7 @@ These patches are off by default.
 | Fix launch with DNS blockers | CNBC | Opens the app when a DNS blocker blocks OneTrust, the app's privacy consent service. Without it, the app stays on its splash screen. |
 | GmsCore support | AP News, Checkout 51, Flipp, JustWatch, Koupon, MLB, Moviebase, NewsBreak, Slickdeals, Substack, The Daily Wire, Yahoo Finance, Yahoo News, YouTube TV | Signs in with Google through MicroG RE instead of Google Play services. On AP News, Checkout 51, Flipp, JustWatch, Koupon, MLB, NewsBreak, Slickdeals, Substack, The Daily Wire, and Yahoo Finance it is off by default, because those apps also offer other sign-ins; with it on, push notifications come through MicroG RE too. On Yahoo News it is off by default and moves only push notifications and Firebase, because Yahoo sign-in does not use Google. |
 | Remove social sign-in | CNN, HBO Max (phone), MGM+, Starz, The New York Times, Tubi | Removes Google, Facebook, and Apple sign-in. Email, TV-provider, and subscriber sign-in keep working. An account created with Google or Facebook needs a password reset to sign in by email. |
+| Skip cookie settings | NHK WORLD-JAPAN | Answers the cookie screen with Decline when it opens, so it does not appear and analytics cookies stay off. The app then keeps your language, caption language, and playback speed, which it otherwise forgets each time it closes, so the Functional Cookies switch stays on. It also fixes the error "your request was not approved", which in 9.0.2 stops Accept and Decline from working. |
 
 ## Needed for the app to run
 

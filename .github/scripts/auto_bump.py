@@ -19,6 +19,10 @@ updates workflow, which runs only when the repository variable AUTO_BUMP is
     download is never shipped.
   - The app has one Compatibility. Apps with more than one, such as HBO Max,
     keep their "ready to bump" issue for a person to handle.
+  - The version's issue is not labeled "not patchable". A person adds that
+    label when the version cannot be patched, such as Moviebase 7.7.2, whose
+    Pairip protection stops a re-signed copy. The issue stays open, so the
+    update check does not open a new one.
 
 The new version is added as devTarget(new version, versionCode = ...), so dev
 builds mark it experimental. Every older version stays targeted, so people who
@@ -49,6 +53,7 @@ TITLE_PREFIX = "App update: "
 ISSUE_LABEL = "app update"
 READY_LABEL = "ready to bump"
 TESTING_LABEL = "testing on dev"
+HELD_LABEL = "not patchable"
 DEV_TARGET_IMPORT = "import semicoloncolonel.mobilestream.patches.shared.misc.devTarget"
 
 
@@ -171,13 +176,23 @@ def qualifies(record, launches):
     return None
 
 
-def bump(report, repo):
+def held_titles():
+    """Titles of the open update issues labeled not patchable."""
+    result = subprocess.run(["gh", "issue", "list", "--label", ISSUE_LABEL, "--label", HELD_LABEL, "--state", "open",
+                             "--limit", "500", "--json", "title"], capture_output=True, text=True)
+    return {i["title"] for i in json.loads(result.stdout or "[]")}
+
+
+def bump(report, repo, held=None):
     results = json.loads((report / "app-updates.json").read_text())
+    held = held_titles() if held is None else held
     launch_file = report / "launch.json"
     launches = json.loads(launch_file.read_text()) if launch_file.exists() else {}
     bumped = []
     for record in results:
         reason = qualifies(record, launches)
+        if reason is None and f"{TITLE_PREFIX}{record['name']} {record['latest']}" in held:
+            reason = "its issue is labeled not patchable"
         if reason is None:
             reason = bump_constants(repo, record["package"], record["pinned"], record["latest"],
                                     record.get("version_code"))

@@ -107,15 +107,48 @@ jobs:
           echo "AAPT2=$(ls -d "$ANDROID_HOME"/build-tools/*/aapt2 | sort -V | tail -1)" >> "$GITHUB_ENV"
           echo "APKSIGNER=$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)" >> "$GITHUB_ENV"
 
+      # Join the tailnet so the version check can egress through a residential
+      # exit node, WITHOUT routing the whole job: GitHub's own backend (log and
+      # artifact upload) must stay on the runner's normal route, or it cannot
+      # reach results-receiver.actions.githubusercontent.com and the run fails.
+      # --accept-dns=false keeps the runner resolving names with its own
+      # resolver; the exit node is switched on only around the version check in
+      # the step below, then switched off again. The node is ephemeral and
+      # tagged, so it removes itself from the tailnet when the job ends.
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          # Pre-signed ephemeral auth key (reusable, carries tag:ci), signed once
+          # on a trusted signing node so each CI node is auto-trusted under
+          # tailnet lock, with no per-run signing. statedir holds the lock state;
+          # version: latest installs the newest Tailscale client.
+          authkey: ${{ secrets.TS_AUTHKEY }}
+          statedir: /tmp/tailscale-state/
+          version: latest
+          args: --accept-dns=false
+
       - name: Check versions
         env:
           GH_TOKEN: ${{ github.token }}
           ONLY: ${{ inputs.only }}
+          # The exit node's Tailscale IP (100.x.y.z) or MagicDNS name.
+          EXIT_NODE: ${{ secrets.TAILSCALE_EXIT_NODE }}
           # A throwaway Google account, not in any beta program, for reading the
           # version Google Play serves to an ordinary phone.
           PLAY_EMAIL: ${{ secrets.PLAY_EMAIL }}
           PLAY_AAS_TOKEN: ${{ secrets.PLAY_AAS_TOKEN }}
         run: |
+          # Route only this step through the residential exit node, so the Aurora
+          # dispenser, APKPure, and APKMirror see a home IP, then turn it off on
+          # any exit (trap) so log and artifact upload take the normal route.
+          sudo tailscale set --exit-node="$EXIT_NODE" --exit-node-allow-lan-access
+          trap 'sudo tailscale set --exit-node=' EXIT
+          if ! sudo tailscale status --json \
+              | python3 -c 'import json,sys; s=json.load(sys.stdin).get("ExitNodeStatus"); sys.exit(0 if s and s.get("Online") else 1)'; then
+            echo "Exit node $EXIT_NODE is not online; aborting." >&2
+            exit 1
+          fi
+          echo "Egress IP: $(curl -fsS --max-time 20 https://api.ipify.org || echo unknown)"
           python .github/scripts/app_updates.py \
             --cli tools/*-all.jar --mpp tools/*.mpp --aapt2 "$AAPT2" --apksigner "$APKSIGNER" \
             --only "$ONLY" --out app-updates --issues --stable-mpp tools/stable/*.mpp

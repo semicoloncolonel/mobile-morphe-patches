@@ -62,7 +62,11 @@ jobs:
     name: Check app versions
     needs: schedule
     if: needs.schedule.outputs.run == 'true'
-    runs-on: ubuntu-24.04
+    # The mac-mini self-hosted runner: the check runs from a home residential IP,
+    # which APKPure, APKMirror, and the Aurora dispenser accept, unlike GitHub's
+    # datacenter ranges. Safe here because this workflow only triggers on
+    # schedule and workflow_dispatch, never pull_request, so no fork runs code.
+    runs-on: [self-hosted, macOS]
     timeout-minutes: 120
     permissions:
       contents: read
@@ -84,20 +88,16 @@ jobs:
           distribution: 'zulu'
           java-version: '26'
 
-      - name: Setup Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: '3.12'
-
+      # No setup-python: the self-hosted mac-mini uses its own Homebrew python3
+      # (the script is standard-library only). setup-python writes its tool cache
+      # to the GitHub-hosted /Users/runner path, which fails on a self-hosted Mac.
       - name: Install tools
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p "$HOME/bin" tools
-          # gh downloads through the API, which keeps working when direct release links do not.
-          gh release download 1.1.0 -R EFForg/apkeep -p apkeep-x86_64-unknown-linux-gnu -O "$HOME/bin/apkeep"
-          chmod +x "$HOME/bin/apkeep"
-          echo "$HOME/bin" >> "$GITHUB_PATH"
+          # apkeep, the Android build-tools (ANDROID_HOME) and a JDK are already
+          # installed on the self-hosted mac-mini runner; fetch only per-run tools.
+          mkdir -p tools
           gh release download -R MorpheApp/morphe-cli -p '*-all.jar' -D tools
           tag=$(gh release list -R "$GITHUB_REPOSITORY" --limit 1 --json tagName --jq '.[0].tagName')
           gh release download "$tag" -R "$GITHUB_REPOSITORY" -p '*.mpp' -D tools
@@ -107,59 +107,16 @@ jobs:
           echo "AAPT2=$(ls -d "$ANDROID_HOME"/build-tools/*/aapt2 | sort -V | tail -1)" >> "$GITHUB_ENV"
           echo "APKSIGNER=$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)" >> "$GITHUB_ENV"
 
-      # Join the tailnet so the version check can egress through a residential
-      # exit node, WITHOUT routing the whole job: GitHub's own backend (log and
-      # artifact upload) must stay on the runner's normal route, or it cannot
-      # reach results-receiver.actions.githubusercontent.com and the run fails.
-      # --accept-dns=false keeps the runner resolving names with its own
-      # resolver; the exit node is switched on only around the version check in
-      # the step below, then switched off again. The node is ephemeral and
-      # tagged, so it removes itself from the tailnet when the job ends.
-      - name: Connect to Tailscale
-        uses: tailscale/github-action@v4
-        with:
-          # Pre-signed ephemeral auth key (reusable, carries tag:ci), signed once
-          # on a trusted signing node so each CI node is auto-trusted under
-          # tailnet lock, with no per-run signing. statedir holds the lock state;
-          # version: latest installs the newest Tailscale client.
-          authkey: ${{ secrets.TS_AUTHKEY }}
-          statedir: /tmp/tailscale-state/
-          version: latest
-          args: --accept-dns=false
-
       - name: Check versions
         env:
           GH_TOKEN: ${{ github.token }}
           ONLY: ${{ inputs.only }}
-          # The exit node's Tailscale IP (100.x.y.z) or MagicDNS name.
-          EXIT_NODE: ${{ secrets.TAILSCALE_EXIT_NODE }}
           # A throwaway Google account, not in any beta program, for reading the
           # version Google Play serves to an ordinary phone.
           PLAY_EMAIL: ${{ secrets.PLAY_EMAIL }}
           PLAY_AAS_TOKEN: ${{ secrets.PLAY_AAS_TOKEN }}
         run: |
-          # Route only this step through the residential exit node, so the Aurora
-          # dispenser, APKPure, and APKMirror see a home IP, then turn it off on
-          # any exit (trap) so log and artifact upload take the normal route.
-          sudo tailscale set --exit-node="$EXIT_NODE" --exit-node-allow-lan-access
-          trap 'sudo tailscale set --exit-node=' EXIT
-          # Prove real egress through the exit node, not just that Tailscale lists
-          # it online: fetch our public IP with short, bounded retries. If the
-          # exit node is not actually carrying traffic (its route is unapproved,
-          # or the host is asleep), fail fast and loud instead of hanging for
-          # minutes on every network call and reporting a misleading green.
-          egress=""
-          for attempt in 1 2 3 4 5; do
-            egress=$(curl -fsS --max-time 15 https://api.ipify.org) && break
-            echo "Exit node egress attempt $attempt failed; retrying in 5s..." >&2
-            sleep 5
-          done
-          if [ -z "$egress" ]; then
-            echo "::error::Exit node $EXIT_NODE is not carrying traffic. Approve its exit-node route in the Tailscale admin console and make sure the host is awake." >&2
-            exit 1
-          fi
-          echo "Egress IP via exit node $EXIT_NODE: $egress"
-          python .github/scripts/app_updates.py \
+          python3 .github/scripts/app_updates.py \
             --cli tools/*-all.jar --mpp tools/*.mpp --aapt2 "$AAPT2" --apksigner "$APKSIGNER" \
             --only "$ONLY" --out app-updates --issues --stable-mpp tools/stable/*.mpp
 

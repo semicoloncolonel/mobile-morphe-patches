@@ -1,3 +1,10 @@
+# [1.2.0-dev.38](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.37...v1.2.0-dev.38) (2026-11-26)
+
+
+### Bug Fixes
+
+* testing DealSeek 1.67.0, Flipp 116.2.0 ([06f773f](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/06f773f05cb8de7d0c21f8d5c224e55dc18fb6c9))
+
 # [1.2.0-dev.37](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.36...v1.2.0-dev.37) (2026-11-25)
 
 

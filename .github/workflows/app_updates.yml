@@ -143,12 +143,22 @@ jobs:
           # any exit (trap) so log and artifact upload take the normal route.
           sudo tailscale set --exit-node="$EXIT_NODE" --exit-node-allow-lan-access
           trap 'sudo tailscale set --exit-node=' EXIT
-          if ! sudo tailscale status --json \
-              | python3 -c 'import json,sys; s=json.load(sys.stdin).get("ExitNodeStatus"); sys.exit(0 if s and s.get("Online") else 1)'; then
-            echo "Exit node $EXIT_NODE is not online; aborting." >&2
+          # Prove real egress through the exit node, not just that Tailscale lists
+          # it online: fetch our public IP with short, bounded retries. If the
+          # exit node is not actually carrying traffic (its route is unapproved,
+          # or the host is asleep), fail fast and loud instead of hanging for
+          # minutes on every network call and reporting a misleading green.
+          egress=""
+          for attempt in 1 2 3 4 5; do
+            egress=$(curl -fsS --max-time 15 https://api.ipify.org) && break
+            echo "Exit node egress attempt $attempt failed; retrying in 5s..." >&2
+            sleep 5
+          done
+          if [ -z "$egress" ]; then
+            echo "::error::Exit node $EXIT_NODE is not carrying traffic. Approve its exit-node route in the Tailscale admin console and make sure the host is awake." >&2
             exit 1
           fi
-          echo "Egress IP: $(curl -fsS --max-time 20 https://api.ipify.org || echo unknown)"
+          echo "Egress IP via exit node $EXIT_NODE: $egress"
           python .github/scripts/app_updates.py \
             --cli tools/*-all.jar --mpp tools/*.mpp --aapt2 "$AAPT2" --apksigner "$APKSIGNER" \
             --only "$ONLY" --out app-updates --issues --stable-mpp tools/stable/*.mpp

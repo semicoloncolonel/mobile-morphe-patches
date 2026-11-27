@@ -55,7 +55,7 @@ For an Android TV app, use the [TV patch source](docs/android-tv.md) instead.
 | [News](docs/apps.md#news) | 33 |
 | [Social](docs/apps.md#social) | 1 |
 | [Government](docs/apps.md#government) | 6 |
-| [Shopping](docs/apps.md#shopping) | 17 |
+| [Shopping](docs/apps.md#shopping) | 18 |
 | [Carriers](docs/apps.md#carriers) | 7 |
 | [Utilities](docs/apps.md#utilities) | 1 |
 

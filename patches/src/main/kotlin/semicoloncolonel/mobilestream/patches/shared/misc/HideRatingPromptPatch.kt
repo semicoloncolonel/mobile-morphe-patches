@@ -23,6 +23,7 @@ import semicoloncolonel.mobilestream.patches.amc.shared.Constants as Amc
 import semicoloncolonel.mobilestream.patches.apnews.shared.Constants as ApNews
 import semicoloncolonel.mobilestream.patches.att.shared.Constants as Att
 import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
+import semicoloncolonel.mobilestream.patches.consumerreports.shared.Constants as ConsumerReports
 import semicoloncolonel.mobilestream.patches.costco.shared.Constants as Costco
 import semicoloncolonel.mobilestream.patches.disney.shared.Constants as Disney
 import semicoloncolonel.mobilestream.patches.espn.shared.Constants as Espn
@@ -226,6 +227,7 @@ val hideRatingPromptPatch = bytecodePatch(
         // Shopping apps with their own Hide prompts and pop-ups, which has a rating
         // prompt option, are left out.
         *SHOPPING_APPS.filterNot { it in OWN_PROMPTS_PATCH }.toTypedArray(),
+        ConsumerReports.COMPATIBILITY,
         Costco.COMPATIBILITY,
         Mint.COMPATIBILITY,
         Verizon.COMPATIBILITY,

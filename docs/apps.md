@@ -117,6 +117,7 @@ Whatever the source, check that the version and version code match the table. Th
 | Amazon Shopping | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `32.20.2.100`<br>`32.20.0.100`<br>`32.19.0.100` | Google Play, or a full bundle. Not APKPure | 11/24/26 |
 | Best Buy | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.10`<br>`26.10.10` | Google Play, or a full bundle | 11/16/26 |
 | Checkout 51 | Block ads (experimental)<br>Block location tracking (experimental)<br>Hide prompts and pop-ups (experimental)<br>Show gas offers on OpenStreetMap (experimental)<br>Dark mode (experimental, off by default)<br>GmsCore support (off by default)<br>Strip affiliate links (experimental, off by default) | `9.22.10` | Any | 11/11/26 |
+| Consumer Reports | Block analytics & tracking (experimental, off by default) | `5.25.0-1326` | Google Play, or a full bundle | 11/27/26 |
 | Costco | Hide sponsored products (experimental)<br>Block analytics & tracking (experimental, off by default) | `26.11.1`<br>`26.10.3` | Google Play, or a full bundle | 11/24/26 |
 | CVS | Hide sponsored listings (experimental)<br>Disable AI (experimental, off by default) | `26.11.31`<br>`26.11.30` (experimental)<br>`26.10.50` | Google Play, or a full bundle | 11/24/26 |
 | DealNews | Disable Pairip license check<br>Block ads<br>Hide prompts and pop-ups<br>Strip affiliate links<br>Block analytics & tracking (off by default) | `10.7.2`<br>`10.7.1` | Google Play, or a full bundle | 11/11/26 |

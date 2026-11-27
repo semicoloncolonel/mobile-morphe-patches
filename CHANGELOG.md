@@ -1,3 +1,10 @@
+# [1.2.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.40...v1.2.0-dev.41) (2026-11-27)
+
+
+### Features
+
+* **netflix:** add patch to keep the player open while paused ([f5f7bc3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f5f7bc3b635f9f5c79e373d442f1f8738d1e9805))
+
 # [1.2.0-dev.40](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.39...v1.2.0-dev.40) (2026-11-27)
 
 

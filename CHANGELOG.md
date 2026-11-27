@@ -1,3 +1,15 @@
+# [1.2.0-dev.43](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.42...v1.2.0-dev.43) (2026-11-27)
+
+
+### Bug Fixes
+
+* **reuters:** support 8.1.0 for most patches ([374663e](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/374663e6138467e4a5f31c796174b0f2a0c7a053))
+
+
+### Features
+
+* **cnn:** support 26.24.0 ([89316c1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/89316c1e2cac20c654c99cb2bbeac1cd4ad4cb59))
+
 # [1.2.0-dev.42](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.41...v1.2.0-dev.42) (2026-11-27)
 
 

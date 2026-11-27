@@ -38,6 +38,14 @@ val hidePromptsAndPopupsPatch: BytecodePatch = bytecodePatch(
         title = "Text-alert prompt",
         description = "Removes the card that asks for your phone number to get deal alerts by text.",
     )
+    booleanOption(
+        key = "emailScreen",
+        default = false,
+        title = "Sign-up marketing screen (experimental)",
+        description = "Skips the email and text-alert opt-in screen shown right after you create an " +
+            "account. Experimental: it changes the app's startup routing, so check that the app still " +
+            "opens past sign-up before you rely on it.",
+    )
 
     execute {
         if (isOptionOn(hidePromptsAndPopupsPatch, "rating")) blockPlayReviewSheet()

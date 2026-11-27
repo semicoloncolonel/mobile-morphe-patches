@@ -35,6 +35,19 @@ import semicoloncolonel.mobilestream.patches.shared.misc.HermesBundle
 //                           it (SmsPhoneNumberScreen) is left in place but is no
 //                           longer reachable from the feed.
 //
+// The "emailScreen" option (experimental, off by default) skips the one-time
+// email and text-alert opt-in screen shown after sign-up. That screen
+// (EmailPreferenceScreen) is reached because getRootRoutingRedirect returns the
+// "/(auth)/email-preference?next=<destination>" redirect while its
+// shouldCollectEmailPreference flag is set. The flag is gated at one conditional
+// jump: "JmpFalse <skip>, shouldCollectEmailPreference" (bytes b2 14 0a at
+// offset 0xad of the function) jumps to the normal-routing path when the flag is
+// false. Changing the opcode to an unconditional jump (ae 14 0a) always takes
+// that path, so routing never detours through the opt-in screen and lands on the
+// destination it was headed to. The screen itself is untouched, so it is still
+// reachable from settings. Off by default because it edits startup routing and
+// needs on-device confirmation.
+//
 // Expo updates are turned off so that the patched bundle stays in use
 // (DisableExpoUpdatesPatch).
 // ─────────────────────────────────────────────────────────────────────────────
@@ -43,7 +56,8 @@ private val hidePopupsInBundlePatch = rawResourcePatch {
     execute {
         val popUps = isOptionOn(hidePromptsAndPopupsPatch, "popUps")
         val textAlerts = isOptionOn(hidePromptsAndPopupsPatch, "textAlerts")
-        if (!popUps && !textAlerts) return@execute
+        val emailScreen = isOptionOn(hidePromptsAndPopupsPatch, "emailScreen")
+        if (!popUps && !textAlerts && !emailScreen) return@execute
         val file = get(HERMES_BUNDLE)
         val bundle = HermesBundle(file.readBytes())
         if (popUps) {
@@ -55,6 +69,16 @@ private val hidePopupsInBundlePatch = rawResourcePatch {
         }
         if (textAlerts) {
             bundle.returnAtStart("SmsPlacementCard", HermesBundle.Value.NULL)
+        }
+        if (emailScreen) {
+            // JmpFalse <skip>, shouldCollectEmailPreference  ->  Jmp <skip>
+            bundle.replaceInstructions(
+                "getRootRoutingRedirect",
+                listOf("/(auth)/email-preference?next="),
+                98,
+                byteArrayOf(0xB2.toByte(), 0x14, 0x0A),
+                byteArrayOf(0xAE.toByte(), 0x14, 0x0A),
+            )
         }
         file.writeBytes(bundle.toByteArray())
     }

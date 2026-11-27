@@ -198,6 +198,35 @@ internal class HermesBundle(private val bytes: ByteArray) {
     }
 
     /**
+     * Like [replaceInstructions], but a byte of -1 in [pattern] matches any
+     * byte. Use it to skip the operands that move between app versions, such as
+     * string ids, property-cache slots, and closure function ids, while the
+     * opcodes and registers around them still pin the one instruction. In
+     * [replacement] a -1 leaves the matched byte in place and any other value
+     * is written. [pattern] and [replacement] must be the same length and hold
+     * bytecode of version [forVersion]; the patch fails on any other version or
+     * when the pattern is not found exactly once.
+     */
+    fun replaceMaskedInstructions(
+        name: String,
+        using: List<String>,
+        forVersion: Int,
+        pattern: IntArray,
+        replacement: IntArray,
+    ) {
+        if (version != forVersion) throw PatchException("Expected Hermes bytecode version $forVersion, found $version")
+        if (pattern.size != replacement.size) throw PatchException("Replacement must keep the instruction length")
+        val function = single(name, using)
+        fun matches(at: Int) = pattern.indices.all { pattern[it] < 0 || bytes[at + it] == pattern[it].toByte() }
+        val hits = (function.offset..function.offset + function.size - pattern.size).filter(::matches)
+        if (hits.size != 1) {
+            throw PatchException("Hermes function \"$name\": expected the instructions once, found ${hits.size}")
+        }
+        val at = hits.single()
+        replacement.forEachIndexed { i, v -> if (v >= 0) bytes[at + i] = v.toByte() }
+    }
+
+    /**
      * In the one function named [name] that loads every string in [using] (a
      * type dispatcher: a chain of LoadConstString r5, <type>; JStrictEqualLong
      * <branch>, r5, r33), redirects the branch for element type [type] to the

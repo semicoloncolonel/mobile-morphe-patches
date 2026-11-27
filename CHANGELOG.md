@@ -1,3 +1,11 @@
+# [1.2.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.45...v1.2.0-dev.46) (2026-11-27)
+
+
+### Features
+
+* **ebay:** Add eBay 6.244.0.1 patches ([4812521](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4812521900197c43c4c871b1cbbcdfc451d5fd87))
+* **ebay:** Hide live listings ([d374a46](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d374a469a44ad0b169d74d388ab0598d0d473bd1))
+
 # [1.2.0-dev.45](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.44...v1.2.0-dev.45) (2026-11-27)
 
 

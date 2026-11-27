@@ -1,3 +1,10 @@
+# [1.2.0-dev.44](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.43...v1.2.0-dev.44) (2026-11-27)
+
+
+### Features
+
+* add CGTN, CNA, Xinhua, Yonhap, and The Straits Times news apps ([870d283](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/870d283af0a3be6bc5c94dd4c657e353947a0c8c))
+
 # [1.2.0-dev.43](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.42...v1.2.0-dev.43) (2026-11-27)
 
 

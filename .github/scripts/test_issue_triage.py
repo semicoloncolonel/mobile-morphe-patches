@@ -150,7 +150,7 @@ class CommentTest(unittest.TestCase):
             "version code is `1793662190`. They support these versions and builds of Disney+:\n\n"))
         self.assertTrue(text.endswith(
             "Please patch one of these and check whether the problem still happens. If it does, edit this issue "
-            "so it lists the version and build you used, and the `untargeted version` label will be removed. "
+            "so it lists the version and build you used, and the `status: untargeted version` label will be removed. "
             "An issue with this label closes after 7 days without an update."))
 
     def test_dev_only_versions_are_marked(self):

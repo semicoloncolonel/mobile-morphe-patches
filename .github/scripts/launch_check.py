@@ -22,9 +22,9 @@ import time
 from pathlib import Path
 
 TITLE_PREFIX = "App update: "
-ISSUE_LABEL = "app update"
-REVIEW_LABEL = "needs review"
-READY_LABEL = "ready to bump"
+ISSUE_LABEL = "type: app update"
+REVIEW_LABEL = "status: needs review"
+READY_LABEL = "status: ready to bump"
 
 
 def adb(*args, timeout=120):

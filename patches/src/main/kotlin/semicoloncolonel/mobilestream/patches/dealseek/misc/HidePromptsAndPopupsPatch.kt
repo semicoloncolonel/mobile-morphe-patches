@@ -32,6 +32,12 @@ val hidePromptsAndPopupsPatch: BytecodePatch = bytecodePatch(
         title = "Pop-ups",
         description = "Removes the review requests, the daily spin-the-wheel pop-up, and the survey after opening a deal.",
     )
+    booleanOption(
+        key = "textAlerts",
+        default = true,
+        title = "Text-alert prompt",
+        description = "Removes the card that asks for your phone number to get deal alerts by text.",
+    )
 
     execute {
         if (isOptionOn(hidePromptsAndPopupsPatch, "rating")) blockPlayReviewSheet()

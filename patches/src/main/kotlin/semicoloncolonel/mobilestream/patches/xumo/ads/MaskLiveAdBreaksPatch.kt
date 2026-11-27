@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.xumo.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.enableAdBreakTranslation
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -71,6 +72,7 @@ internal val maskLiveAdBreaksPatch = bytecodePatch {
 
     execute {
         if (!isOptionOn(skipAdsPatch, "maskLiveAds")) return@execute
+        if (isOptionOn(skipAdsPatch, "translate")) enableAdBreakTranslation()
         // 1. Read each HLS playlist before ExoPlayer parses it.
         HlsPlaylistParseFingerprint.method.addInstructions(
             0,

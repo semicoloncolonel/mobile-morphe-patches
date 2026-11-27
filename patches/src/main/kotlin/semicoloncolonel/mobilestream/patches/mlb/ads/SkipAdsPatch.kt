@@ -1,6 +1,8 @@
 package semicoloncolonel.mobilestream.patches.mlb.ads
 
 import app.morphe.patcher.patch.booleanOption
+import semicoloncolonel.mobilestream.patches.shared.misc.TRANSLATE_OPTION_DESCRIPTION
+import semicoloncolonel.mobilestream.patches.shared.misc.TRANSLATE_OPTION_TITLE
 import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
@@ -46,6 +48,13 @@ val skipAdsPatch: BytecodePatch = bytecodePatch(
         default = false,
         title = "Mask live ad breaks",
         description = "Covers live gambling-ad breaks with a notice. Experimental.",
+    )
+
+    booleanOption(
+        key = "translate",
+        default = false,
+        title = TRANSLATE_OPTION_TITLE,
+        description = TRANSLATE_OPTION_DESCRIPTION,
     )
 
     execute {

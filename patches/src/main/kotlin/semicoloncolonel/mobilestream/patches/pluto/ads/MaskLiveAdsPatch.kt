@@ -6,6 +6,7 @@
 
 package semicoloncolonel.mobilestream.patches.pluto.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.enableAdBreakTranslation
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -46,6 +47,7 @@ internal val maskLiveAdsPatch = bytecodePatch {
 
     execute {
         if (!isOptionOn(skipAdsPatch, "maskLiveAds")) return@execute
+        if (isOptionOn(skipAdsPatch, "translate")) enableAdBreakTranslation()
         // 1) Every ad tag is a tick. Call the helper with the finished tag
         //    (p0) before each return in the constructor, after the fields
         //    are set, so the helper can read the ad's timing from it.

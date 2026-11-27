@@ -1,6 +1,6 @@
 # Mobile Morphe Patches
 
-[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![97 supported apps](https://img.shields.io/badge/apps-97-0ea5e9)](docs/apps.md) [![License: GPL-3.0](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/semicoloncolonel/mobile-morphe-patches?label=release&color=4f46e5)](https://github.com/semicoloncolonel/mobile-morphe-patches/releases/latest) [![98 supported apps](https://img.shields.io/badge/apps-98-0ea5e9)](docs/apps.md) [![License: GPL-3.0](https://img.shields.io/github/license/semicoloncolonel/mobile-morphe-patches?color=64748b)](LICENSE)
 
 Morphe patches that remove ads and block tracking in the phone versions of streaming, news, social, shopping, carrier, and government apps.
 
@@ -55,7 +55,7 @@ For an Android TV app, use the [TV patch source](docs/android-tv.md) instead.
 | [News](docs/apps.md#news) | 33 |
 | [Social](docs/apps.md#social) | 1 |
 | [Government](docs/apps.md#government) | 6 |
-| [Shopping](docs/apps.md#shopping) | 17 |
+| [Shopping](docs/apps.md#shopping) | 18 |
 | [Carriers](docs/apps.md#carriers) | 7 |
 | [Utilities](docs/apps.md#utilities) | 1 |
 

@@ -1,3 +1,10 @@
+# [1.2.0-dev.39](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.38...v1.2.0-dev.39) (2026-11-27)
+
+
+### Features
+
+* **dealseek:** strip the text-alert and promo prompts ([47f7d2b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/47f7d2b8ba97381c080d7ae7301d36b8afd8c7fe))
+
 # [1.2.0-dev.38](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.37...v1.2.0-dev.38) (2026-11-26)
 
 

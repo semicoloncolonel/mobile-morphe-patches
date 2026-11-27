@@ -1,7 +1,7 @@
 name: ✨ Improve a working patch
 description: Ask for a new feature or a change to how a working patch behaves, such as a new option. Not for something that does not work, such as an ad that still plays or a side effect of a patch.
 title: "enhancement: "
-labels: ["enhancement"]
+labels: ["type: enhancement"]
 body:
   - type: markdown
     attributes:
@@ -26,6 +26,7 @@ body:
     id: before
     attributes:
       label: Before you submit
+      description: "New to this tracker? [Issue labels](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/issue-labels.md) explains how issues are sorted, tracked, and closed."
       options:
         - label: "I read [What the patches do](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/patches.md) and the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/known-issues.md)."
           required: true

@@ -48,11 +48,11 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-ISSUE_LABEL = "app update"
-REVIEW_LABEL = "needs review"
-READY_LABEL = "ready to bump"
-TESTING_LABEL = "testing on dev"
-RELEASED_LABEL = "released"
+ISSUE_LABEL = "type: app update"
+REVIEW_LABEL = "status: needs review"
+READY_LABEL = "status: ready to bump"
+TESTING_LABEL = "status: testing on dev"
+RELEASED_LABEL = "resolution: released"
 TITLE_PREFIX = "App update: "
 
 
@@ -681,7 +681,7 @@ def render(results):
             continue
         build = " (Android TV build)" if r.get("tv_build") else ""
         build += " (staged rollout)" if r.get("rollout") else ""
-        flag = "needs review" if review_reasons(r) else "ready to bump"
+        flag = "status: needs review" if review_reasons(r) else "status: ready to bump"
         lines.append(f"| {r['name']} | `{r['pinned']}` | `{r['latest']}`{build} | {summary_cell(r)} | {flag} |")
     if len(lines) == 4:
         lines.append("| Every app is up to date. | | | | |")
@@ -790,7 +790,7 @@ def set_review(number, needs_review, owner):
 def sync_issues(results, owner, stable=None):
     """stable maps each package to the newest version the latest main release
     targets. An issue closes only when a main release targets its version, so
-    a version bumped on dev stays open, labeled "testing on dev", for people
+    a version bumped on dev stays open, labeled "status: testing on dev", for people
     to report how the pre-release works."""
     # Colors and descriptions come from .github/labels.json; this only fills in a missing label.
     for label in (ISSUE_LABEL, REVIEW_LABEL, READY_LABEL, TESTING_LABEL, RELEASED_LABEL):

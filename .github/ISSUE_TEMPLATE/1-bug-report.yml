@@ -1,7 +1,7 @@
 name: 🐞 Bug report
 description: Morphe Manager does not accept your app version or build, a patch fails to apply, the patched app crashes or will not play, or a patch does not do what its description says, misses something it should remove, or causes a new problem, such as out-of-sync subtitles.
 title: "bug: "
-labels: ["bug"]
+labels: ["type: bug"]
 body:
   - type: markdown
     attributes:
@@ -14,11 +14,12 @@ body:
 
         **Security problem?** Please do not report it here. Report it privately, as the [security policy](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/SECURITY.md) describes. The troubleshooting steps do not apply.
 
-        **Using a dev pre-release?** Please comment on the app's open issue labeled [testing on dev](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue+is%3Aopen+label%3A%22testing+on+dev%22) instead of opening a report here. Open a report only for a critical problem, such as a patched app that will not install or open.
+        **Using a dev pre-release?** Please comment on the app's open issue labeled [status: testing on dev](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue+is%3Aopen+label%3A%22status%3A+testing+on+dev%22) instead of opening a report here. Open a report only for a critical problem, such as a patched app that will not install or open.
   - type: checkboxes
     id: before
     attributes:
       label: Before you submit
+      description: "New to this tracker? [Issue labels](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/issue-labels.md) explains how issues are sorted, tracked, and closed."
       options:
         - label: "I read the [Known issues](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/known-issues.md)."
           required: true

@@ -1,3 +1,10 @@
+# [1.2.0-dev.45](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.44...v1.2.0-dev.45) (2026-11-27)
+
+
+### Bug Fixes
+
+* **reuters:** port Hide prompts "promotions" to 8.1.0 ([f46a92c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/f46a92cb26172e9d7e15d85c924ac8a6538d26ef))
+
 # [1.2.0-dev.44](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.43...v1.2.0-dev.44) (2026-11-27)
 
 

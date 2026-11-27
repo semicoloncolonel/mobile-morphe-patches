@@ -1,3 +1,10 @@
+# [1.2.0-dev.40](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.39...v1.2.0-dev.40) (2026-11-27)
+
+
+### Features
+
+* **dealseek:** add experimental option to skip the sign-up marketing screen ([32cf63a](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/32cf63a1cd50706d70d6c38e682c5a2577728e59))
+
 # [1.2.0-dev.39](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.38...v1.2.0-dev.39) (2026-11-27)
 
 

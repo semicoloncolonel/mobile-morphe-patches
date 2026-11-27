@@ -17,6 +17,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants
+import semicoloncolonel.mobilestream.patches.shared.misc.TRANSLATE_OPTION_DESCRIPTION
+import semicoloncolonel.mobilestream.patches.shared.misc.TRANSLATE_OPTION_TITLE
 import semicoloncolonel.mobilestream.patches.shared.misc.returnEarly
 
 // ABC News 8.98.2 is heavily obfuscated, so the hooks rely on names R8 kept:
@@ -98,6 +100,13 @@ val skipAdsPatch: BytecodePatch = bytecodePatch(
         default = true,
         title = "Mask live ad breaks",
         description = "Covers live ad breaks with a \"We'll be right back!\" screen and mutes them.",
+    )
+
+    booleanOption(
+        key = "translate",
+        default = false,
+        title = TRANSLATE_OPTION_TITLE,
+        description = TRANSLATE_OPTION_DESCRIPTION,
     )
 
     execute {

@@ -7,6 +7,8 @@
 package semicoloncolonel.mobilestream.patches.pluto.ads
 
 import app.morphe.patcher.patch.booleanOption
+import semicoloncolonel.mobilestream.patches.shared.misc.TRANSLATE_OPTION_DESCRIPTION
+import semicoloncolonel.mobilestream.patches.shared.misc.TRANSLATE_OPTION_TITLE
 import app.morphe.patcher.patch.BytecodePatch
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -38,6 +40,13 @@ val skipAdsPatch: BytecodePatch = bytecodePatch(
         default = true,
         title = "Mask live ad breaks",
         description = "Covers live ad breaks with a \"We'll be right back!\" screen and mutes them.",
+    )
+
+    booleanOption(
+        key = "translate",
+        default = false,
+        title = TRANSLATE_OPTION_TITLE,
+        description = TRANSLATE_OPTION_DESCRIPTION,
     )
 
     execute {

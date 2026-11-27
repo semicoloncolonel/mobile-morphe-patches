@@ -1,5 +1,6 @@
 package semicoloncolonel.mobilestream.patches.abcnews.ads
 
+import semicoloncolonel.mobilestream.patches.shared.misc.enableAdBreakTranslation
 import semicoloncolonel.mobilestream.patches.shared.misc.isOptionOn
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -55,6 +56,7 @@ internal val maskLiveAdBreaksPatch = bytecodePatch {
 
     execute {
         if (!isOptionOn(skipAdsPatch, "maskLiveAds")) return@execute
+        if (isOptionOn(skipAdsPatch, "translate")) enableAdBreakTranslation()
         val modifier = AdStatusModifierToStringFingerprint.classDef
         // toString reads isInAd first.
         val isInAd = AdStatusModifierToStringFingerprint.method.implementation!!.instructions

@@ -198,6 +198,43 @@ internal class HermesBundle(private val bytes: ByteArray) {
     }
 
     /**
+     * In the one function named [name] that loads every string in [using] (a
+     * type dispatcher: a chain of LoadConstString r5, <type>; JStrictEqualLong
+     * <branch>, r5, r33), redirects the branch for element type [type] to the
+     * function's null return, so that element renders nothing. The branch's
+     * 32-bit jump offset is the only change. Bytecode version 96 only.
+     *
+     * The target is the first "Ret r32" (5C 20) after the dispatch chain; r32
+     * holds null there. Finding the type by its string id and the target by
+     * structure keeps this working across app versions, where the ids and the
+     * handler offsets move but the chain and its null return keep their shape.
+     */
+    fun dropTypeBranch(name: String, using: List<String>, type: String) {
+        if (version != 96) throw PatchException("Expected Hermes bytecode version 96, found $version")
+        val function = single(name, using)
+        val start = function.offset
+        val last = function.offset + function.size
+        val id = stringId(type)
+        // LoadConstString r5, <type>: 73 05 <id lo> <id hi>, then
+        // JStrictEqualLong <off32>, r5, r33: BD <4 bytes> 05 21.
+        fun isBranch(at: Int) =
+            u8(at) == 0x73 && u8(at + 1) == 0x05 && u8(at + 4) == 0xBD &&
+                u8(at + 9) == 0x05 && u8(at + 10) == 0x21
+        val branches = (start..last - 11).filter(::isBranch)
+        val hits = branches.filter { u8(it + 2) == (id and 0xFF) && u8(it + 3) == ((id ushr 8) and 0xFF) }
+        if (hits.size != 1) {
+            throw PatchException("Hermes type branch \"$type\" in \"$name\": expected 1, found ${hits.size}")
+        }
+        val at = hits.single()
+        val chainEnd = (branches.max()) + 11
+        val nullReturn = (chainEnd..last - 2).firstOrNull { u8(it) == 0x5C && u8(it + 1) == 0x20 }
+            ?: throw PatchException("Hermes type branch \"$type\" in \"$name\": no null return found")
+        // The JStrictEqualLong offset is relative to the instruction (at + 4).
+        val offset = nullReturn - (at + 4)
+        for (i in 0 until 4) bytes[at + 5 + i] = ((offset ushr (8 * i)) and 0xFF).toByte()
+    }
+
+    /**
      * Makes the one function named [name] return [value] at once: its first
      * four bytes become "LoadConst<value> r0; Ret r0". The function must have
      * a frame of at least one register, and the rest of its body is left

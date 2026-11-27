@@ -1,3 +1,12 @@
+# [1.2.0-dev.49](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.48...v1.2.0-dev.49) (2026-11-27)
+
+
+### Features
+
+* **consumerreports:** add Consumer Reports 5.25.0-1326 ([c92e644](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/c92e644cfa642ecaeb756e21d5db0493af003af2))
+* **libby:** add Libby (9.6.0) baseline ([d03de3b](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d03de3b11cab6e07d5cc5a17d4e91adf26a27acb))
+* **privacy:** block FullStory session replay in the shared blocklist ([a9c99c7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/a9c99c71e17a2416fda9a0ae19ffda6637a7c9b5))
+
 # [1.2.0-dev.48](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.47...v1.2.0-dev.48) (2026-11-27)
 
 

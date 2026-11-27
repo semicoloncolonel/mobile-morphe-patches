@@ -39,6 +39,7 @@ import semicoloncolonel.mobilestream.patches.primevideo.shared.Constants as Prim
 import semicoloncolonel.mobilestream.patches.starz.shared.Constants as Starz
 import semicoloncolonel.mobilestream.patches.tubi.shared.Constants as Tubi
 import semicoloncolonel.mobilestream.patches.viki.shared.Constants as Viki
+import semicoloncolonel.mobilestream.patches.libby.shared.Constants as Libby
 import semicoloncolonel.mobilestream.patches.xumo.shared.Constants as Xumo
 import semicoloncolonel.mobilestream.patches.mlb.shared.Constants as Mlb
 import semicoloncolonel.mobilestream.patches.npr.shared.Constants as Npr
@@ -87,6 +88,7 @@ val disableAutoUpdatesPatch = resourcePatch(
     compatibleWith(
         Tubi.COMPATIBILITY,
         Viki.COMPATIBILITY,
+        Libby.COMPATIBILITY,
         Disney.COMPATIBILITY,
         Hulu.COMPATIBILITY,
         Pluto.COMPATIBILITY,

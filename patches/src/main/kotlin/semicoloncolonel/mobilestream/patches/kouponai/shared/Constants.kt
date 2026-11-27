@@ -13,6 +13,6 @@ object Constants {
             "install it from Google Play and patch it with \"Use installed app\".",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x2B2B2B,
-        targets = listOf(devTarget("3.1.8", versionCode = 191), AppTarget("3.1.6", versionCode = 189))
+        targets = listOf(devTarget("3.1.8", versionCode = 191), devTarget("3.1.9", versionCode = 193), AppTarget("3.1.6", versionCode = 189))
     )
 }

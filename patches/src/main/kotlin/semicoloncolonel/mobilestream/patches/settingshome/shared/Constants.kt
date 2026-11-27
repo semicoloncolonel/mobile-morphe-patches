@@ -12,6 +12,6 @@ object Constants {
         description = "The Settings Home launcher and quick-settings replacement.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x2D64BC,
-        targets = listOf(devTarget("1.6.6", versionCode = 100606), AppTarget("1.6.4", versionCode = 100604)),
+        targets = listOf(devTarget("1.6.6", versionCode = 100606), devTarget("1.6.7", versionCode = 100607), AppTarget("1.6.4", versionCode = 100604)),
     )
 }

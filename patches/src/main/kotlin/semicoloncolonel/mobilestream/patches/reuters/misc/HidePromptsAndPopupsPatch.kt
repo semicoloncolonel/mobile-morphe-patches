@@ -16,7 +16,7 @@ val hidePromptsAndPopupsPatch: BytecodePatch = bytecodePatch(
     description = "Hides the prompts and pop-ups you choose in the patch options.",
 ) {
     category("Interface")
-    compatibleWith(Constants.COMPATIBILITY)
+    compatibleWith(Constants.HIDE_PROMPTS_COMPATIBILITY)
     dependsOn(hidePromotionsPatch)
     extendWith("extensions/extension.mpe")
 

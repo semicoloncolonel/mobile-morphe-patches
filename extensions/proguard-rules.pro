@@ -413,3 +413,12 @@
 # Al Jazeera — "Skip cookie settings". Called only from injected smali in
 # OneTrust's React Native module.
 -keep class semicoloncolonel.mobilestream.extension.aljazeera.OneTrustConsent { public static *; }
+
+# The New York Times — "Library pass reminder". onGatewayShown() is called only
+# from injected smali in GatewayFragmentCard.onActivityCreated, and renewUrl()
+# is overwritten by the patch, so R8 must keep them as they are and not fold
+# the URL answer.
+-keep class semicoloncolonel.mobilestream.extension.nytimes.misc.LibraryPassReminder {
+    public static void onGatewayShown(java.lang.Object);
+    public static java.lang.String renewUrl();
+}

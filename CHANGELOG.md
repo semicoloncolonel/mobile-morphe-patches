@@ -1,3 +1,11 @@
+# [1.2.0-dev.48](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.47...v1.2.0-dev.48) (2026-11-27)
+
+
+### Bug Fixes
+
+* **ebay:** cover every eBay Live surface in Hide live listings ([e702668](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e702668433a849b6fd31f049de9aa8817f894657))
+* **ebay:** hide the Home-tab eBay Live shelf too ([d1c4919](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d1c4919856d8b0c8ac4d2437553de863f9b0a486))
+
 # [1.2.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.46...v1.2.0-dev.47) (2026-11-27)
 
 

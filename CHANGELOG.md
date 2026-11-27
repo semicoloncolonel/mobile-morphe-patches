@@ -1,3 +1,10 @@
+# [1.2.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.46...v1.2.0-dev.47) (2026-11-27)
+
+
+### Bug Fixes
+
+* testing Koupon 3.1.9, Moviebase 7.7.2, Settings Home 1.6.7 ([ba2abb1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ba2abb16a35ec98277bda328e948cebf03995ea6))
+
 # [1.2.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.45...v1.2.0-dev.46) (2026-11-27)
 
 

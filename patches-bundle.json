@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-27T21:57:32",
-  "description": "# [1.2.0-dev.46](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.45...v1.2.0-dev.46) (2026-11-27)\n\n\n### Features\n\n* **ebay:** Add eBay 6.244.0.1 patches ([4812521](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/4812521900197c43c4c871b1cbbcdfc451d5fd87))\n* **ebay:** Hide live listings ([d374a46](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/d374a469a44ad0b169d74d388ab0598d0d473bd1))",
-  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.46/patches-1.2.0-dev.46.mpp",
+  "created_at": "2026-11-27T22:10:05",
+  "description": "# [1.2.0-dev.47](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.46...v1.2.0-dev.47) (2026-11-27)\n\n\n### Bug Fixes\n\n* testing Koupon 3.1.9, Moviebase 7.7.2, Settings Home 1.6.7 ([ba2abb1](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ba2abb16a35ec98277bda328e948cebf03995ea6))",
+  "download_url": "https://github.com/semicoloncolonel/mobile-morphe-patches/releases/download/v1.2.0-dev.47/patches-1.2.0-dev.47.mpp",
   "signature_download_url": "",
-  "version": "1.2.0-dev.46",
+  "version": "1.2.0-dev.47",
   "public_key": "6sNE7CnUmEbvfVcaYklfOzJuN60m4+HH2LKlqlxhSN0="
 }

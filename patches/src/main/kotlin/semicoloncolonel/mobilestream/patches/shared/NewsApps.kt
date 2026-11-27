@@ -5,6 +5,8 @@ import semicoloncolonel.mobilestream.patches.aljazeera.shared.Constants as AlJaz
 import semicoloncolonel.mobilestream.patches.apnews.shared.Constants as ApNews
 import semicoloncolonel.mobilestream.patches.bbcnews.shared.Constants as BbcNews
 import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
+import semicoloncolonel.mobilestream.patches.cgtn.shared.Constants as Cgtn
+import semicoloncolonel.mobilestream.patches.cna.shared.Constants as Cna
 import semicoloncolonel.mobilestream.patches.cnbc.shared.Constants as Cnbc
 import semicoloncolonel.mobilestream.patches.cnn.shared.Constants as Cnn
 import semicoloncolonel.mobilestream.patches.cspan.shared.Constants as Cspan
@@ -28,6 +30,7 @@ import semicoloncolonel.mobilestream.patches.thescore.shared.Constants as TheSco
 import semicoloncolonel.mobilestream.patches.wsj.shared.Constants as Wsj
 import semicoloncolonel.mobilestream.patches.yahoofinance.shared.Constants as YahooFinance
 import semicoloncolonel.mobilestream.patches.yahoonews.shared.Constants as YahooNews
+import semicoloncolonel.mobilestream.patches.yonhap.shared.Constants as Yonhap
 
 // The news apps that every shared news patch applies to, matching the News
 // category in docs/apps.md. Spread into a compatibleWith() list:
@@ -39,6 +42,8 @@ internal val NEWS_APPS = arrayOf(
     ApNews.COMPATIBILITY,
     BbcNews.COMPATIBILITY,
     CbsNews.COMPATIBILITY,
+    Cgtn.COMPATIBILITY,
+    Cna.COMPATIBILITY,
     Cnbc.COMPATIBILITY,
     Cnn.COMPATIBILITY,
     Cspan.COMPATIBILITY,
@@ -62,4 +67,5 @@ internal val NEWS_APPS = arrayOf(
     UsaToday.COMPATIBILITY,
     YahooFinance.COMPATIBILITY,
     YahooNews.COMPATIBILITY,
+    Yonhap.COMPATIBILITY,
 )

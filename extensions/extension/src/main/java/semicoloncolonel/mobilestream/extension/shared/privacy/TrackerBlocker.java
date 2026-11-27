@@ -75,6 +75,10 @@ public final class TrackerBlocker {
             "litix.io", // Mux Data
             "nmrodam.com", // Nielsen SDK config
             "datadoghq.com", "datadoghq.eu", // Datadog session monitoring
+            // Session replay / digital-experience analytics. Consumer Reports
+            // 5.25.0 records sessions through FullStory; one host covers its
+            // ingest (rs.fullstory.com) and app.fullstory.com subdomains.
+            "fullstory.com",
             // AB Tasty Flagship hit tracking (Reuters). decision.flagship.io serves
             // the feature flags themselves and is left alone.
             "events.flagship.io",

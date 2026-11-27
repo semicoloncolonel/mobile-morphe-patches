@@ -13,16 +13,17 @@ import semicoloncolonel.mobilestream.patches.shared.privacy.blockTrackers
 // Consumer Reports 5.25.0 — Block analytics & tracking (OPT-IN, default OFF).
 //
 // Consumer Reports is a React Native app that ships Firebase Analytics, Google
-// Analytics, and Braze (marketing and in-app campaigns). The manifest kill
-// switch deactivates Firebase Analytics, and the shared host blocklist stops
-// Firebase (app-measurement.com), Google Analytics, and Braze (braze.com,
-// appboy.com) at every URL.openConnection() call and OkHttp client. The app's
-// JavaScript sends through React Native's NetworkingModule, where the same
-// blocklist is applied to each request URL.
+// Analytics, Braze (marketing and in-app campaigns), and FullStory session
+// replay. The manifest kill switch deactivates Firebase Analytics, and the
+// shared host blocklist stops Firebase (app-measurement.com), Google Analytics,
+// Braze (braze.com, appboy.com), and FullStory (fullstory.com) at every
+// URL.openConnection() call and OkHttp client. FullStory sends through
+// URLConnection, which that layer covers. The app's JavaScript sends through
+// React Native's NetworkingModule, where the same blocklist is applied to each
+// request URL.
 //
 // Not touched: the paid membership (Stripe, in-app purchases), sign-in,
-// Firebase Crashlytics crash reports, FullStory session replay (its host is
-// not on the shared list), push, reviews, and images.
+// Firebase Crashlytics crash reports, push, reviews, and images.
 // ─────────────────────────────────────────────────────────────────────────────
 
 private val requireNativeLibs = requireNativeLibsPatch("Consumer Reports", "libreactnative.so")

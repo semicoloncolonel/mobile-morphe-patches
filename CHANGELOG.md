@@ -1,3 +1,10 @@
+# [1.2.0-dev.42](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.41...v1.2.0-dev.42) (2026-11-27)
+
+
+### Features
+
+* **viki:** add Viki support with Skip ads, Block analytics, and shared privacy patches ([ca73724](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/ca737246539c6ca210616d0a125e0b45921ada76))
+
 # [1.2.0-dev.41](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.40...v1.2.0-dev.41) (2026-11-27)
 
 

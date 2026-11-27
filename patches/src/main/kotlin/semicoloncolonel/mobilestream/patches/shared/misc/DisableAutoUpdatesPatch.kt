@@ -13,6 +13,7 @@ import semicoloncolonel.mobilestream.patches.cbsnews.shared.Constants as CbsNews
 import semicoloncolonel.mobilestream.patches.nbcnews.shared.Constants as NbcNews
 import semicoloncolonel.mobilestream.patches.foxlocal.shared.Constants as FoxLocal
 import semicoloncolonel.mobilestream.patches.abcnews.shared.Constants as AbcNews
+import semicoloncolonel.mobilestream.patches.consumerreports.shared.Constants as ConsumerReports
 import semicoloncolonel.mobilestream.patches.moviebase.shared.Constants as Moviebase
 import semicoloncolonel.mobilestream.patches.reuters.shared.Constants as Reuters
 import semicoloncolonel.mobilestream.patches.bbcnews.shared.Constants as BbcNews
@@ -130,6 +131,7 @@ val disableAutoUpdatesPatch = resourcePatch(
         Xumo.COMPATIBILITY, Mlb.COMPATIBILITY, Npr.COMPATIBILITY, ApNews.COMPATIBILITY, NewsBreak.COMPATIBILITY, Shudder.COMPATIBILITY, SundanceNow.COMPATIBILITY, TheScore.COMPATIBILITY, Substack.COMPATIBILITY, Cspan.COMPATIBILITY, NewsNation.COMPATIBILITY, DailyWire.COMPATIBILITY, UsaToday.COMPATIBILITY,
         Reuters.COMPATIBILITY,
         BbcNews.COMPATIBILITY,
+        ConsumerReports.COMPATIBILITY,
     )
 
     execute {

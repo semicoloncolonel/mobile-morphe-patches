@@ -31,7 +31,7 @@ body:
           required: true
         - label: "I searched the [open and closed issues](https://github.com/semicoloncolonel/mobile-morphe-patches/issues?q=is%3Aissue) and did not find this enhancement."
           required: true
-        - label: "I understand that the patches do not unlock paid content, and that they hide a paywall only in the apps that [What the patches do](https://github.com/semicoloncolonel/mobile-morphe-patches/blob/main/docs/patches.md) lists."
+        - label: "Unless otherwise stated, I understand that none of the patches bypass paywalls or unlock paid content."
           required: true
         - label: "The patch works. This request asks it to do more, and it is not a report of something that does not work."
           required: true

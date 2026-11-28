@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.scmp.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -11,6 +11,6 @@ object Constants {
         description = "The SCMP news app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x001246,
-        targets = listOf(devTarget("7.2.9", versionCode = 2000394))
+        targets = listOf(AppTarget("7.2.9", versionCode = 2000394, isExperimental = true))
     )
 }

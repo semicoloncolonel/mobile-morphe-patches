@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.yonhap.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -11,6 +11,6 @@ object Constants {
         description = "The English edition of the Yonhap News app.",
         apkFileType = ApkFileType.APK,
         appIconColor = 0x005BAC,
-        targets = listOf(devTarget("1.1.01", versionCode = 14))
+        targets = listOf(AppTarget("1.1.01", versionCode = 14, isExperimental = true))
     )
 }

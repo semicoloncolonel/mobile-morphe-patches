@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.consumerreports.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -13,6 +13,6 @@ object Constants {
             "\"Use installed app\", or the full .apkm, not a single .apk.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x00AC4C,
-        targets = listOf(devTarget("5.25.0-1326", versionCode = 52501326)),
+        targets = listOf(AppTarget("5.25.0-1326", versionCode = 52501326, isExperimental = true)),
     )
 }

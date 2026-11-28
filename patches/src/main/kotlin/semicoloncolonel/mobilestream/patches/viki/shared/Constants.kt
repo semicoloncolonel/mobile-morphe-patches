@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.viki.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 // Rakuten Viki, the Asian drama streaming app. A native Android app with no
 // Pairip, packer, or VM protection, so it patches with the normal toolchain.
@@ -17,7 +17,7 @@ object Constants {
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x0C9BFF,
         targets = listOf(
-            devTarget("26.23.0", versionCode = 794796531, description = "Phone build"),
+            AppTarget("26.23.0", versionCode = 794796531, description = "Phone build", isExperimental = true),
         )
     )
 }

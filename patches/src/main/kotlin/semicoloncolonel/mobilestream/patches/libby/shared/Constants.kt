@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.libby.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -13,6 +13,6 @@ object Constants {
         appIconColor = 0xA61C49,
         // Experimental until an on-device launch is confirmed. Libby is a thin
         // WebView shell for libbyapp.com; the patchable surface is resources.
-        targets = listOf(devTarget("9.6.0", versionCode = 960000)),
+        targets = listOf(AppTarget("9.6.0", versionCode = 960000, isExperimental = true)),
     )
 }

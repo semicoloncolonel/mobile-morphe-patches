@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.cgtn.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     // CGTN (China Global Television Network) ships under the package
@@ -13,6 +13,6 @@ object Constants {
         description = "The CGTN news app.",
         apkFileType = ApkFileType.APK,
         appIconColor = 0xCE1126,
-        targets = listOf(devTarget("6.7.0", versionCode = 235))
+        targets = listOf(AppTarget("6.7.0", versionCode = 235, isExperimental = true))
     )
 }

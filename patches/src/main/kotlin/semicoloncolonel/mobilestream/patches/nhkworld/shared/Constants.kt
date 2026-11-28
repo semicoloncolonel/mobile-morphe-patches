@@ -1,8 +1,8 @@
 package semicoloncolonel.mobilestream.patches.nhkworld.shared
 
 import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     // The phone and Android TV builds share this package. The TV build has
@@ -13,6 +13,6 @@ object Constants {
         description = "The phone build.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x000000,
-        targets = listOf(devTarget("9.0.2", versionCode = 21259021))
+        targets = listOf(AppTarget("9.0.2", versionCode = 21259021, isExperimental = true))
     )
 }

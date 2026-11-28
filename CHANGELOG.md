@@ -1,3 +1,10 @@
+# [1.2.0-dev.52](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.51...v1.2.0-dev.52) (2026-11-28)
+
+
+### Bug Fixes
+
+* keep unconfirmed apps experimental in the stable bundle ([e4c7f46](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/e4c7f4614c1cf9458fd1f7d01086d4782a5ea60e))
+
 # [1.2.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.50...v1.2.0-dev.51) (2026-11-28)
 
 

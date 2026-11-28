@@ -473,6 +473,20 @@ Mask live ad breaks on Xumo Play and Skip pre-roll promo on MGM+ were on by defa
 
 These stay their own patches: Block location tracking on Checkout 51, Mask live ad breaks on SiriusXM and YouTube TV, Skip pre-roll promo on Starz, and Hide promotions on White House.
 
+## [1.1.2](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.1...v1.1.2) (2026-11-27)
+
+
+### Features
+
+* **ebay:** Add eBay 6.244.0.1 patches ([7ce66f7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7ce66f76f539fbb2b92bb10131f1f3d87118c02a))
+
+## [1.1.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.0...v1.1.1) (2026-11-18)
+
+### Bug fixes
+
+- **MLB**: Skip ads no longer breaks a playlist that starts with an ad. Removing that ad also removed the lines that begin the playlist, so the video could not play. An encryption or map change right before an ad break is now kept as well.
+
+
 # [1.1.0](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.0.21...v1.1.0) (2026-11-17)
 
 ### Android TV

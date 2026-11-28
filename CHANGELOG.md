@@ -1,3 +1,10 @@
+# [1.3.0-dev.1](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0...v1.3.0-dev.1) (2026-11-28)
+
+
+### Features
+
+* **release:** Begin the 1.3.0 dev line ([b1651c3](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/b1651c3f36b7b381da451d69000c979019fa046c))
+
 # [1.2.0](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.1.2...v1.2.0) (2026-11-28)
 
 

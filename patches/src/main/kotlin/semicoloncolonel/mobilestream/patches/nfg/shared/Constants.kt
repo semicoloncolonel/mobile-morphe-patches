@@ -3,7 +3,6 @@ package semicoloncolonel.mobilestream.patches.nfg.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -12,6 +11,6 @@ object Constants {
         description = "The U.S. Forest Service app.",
         apkFileType = ApkFileType.APKM,
         appIconColor = 0x2E5C3B,
-        targets = listOf(AppTarget("1.3.0"), devTarget("1.4.0", versionCode = 200))
+        targets = listOf(AppTarget("1.3.0"), AppTarget("1.4.0", versionCode = 200))
     )
 }

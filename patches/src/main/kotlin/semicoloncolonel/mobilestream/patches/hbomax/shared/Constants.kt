@@ -3,12 +3,11 @@ package semicoloncolonel.mobilestream.patches.hbomax.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 private const val PHONE_VERSION = "22.0.0.321"
 
 // On dev only until it is released on main.
-private val NEXT_PHONE_TARGET = devTarget("22.1.0.340", versionCode = 1800027770, minSdk = PHONE_MIN_SDK, description = "Phone build")
+private val NEXT_PHONE_TARGET = AppTarget("22.1.0.340", versionCode = 1800027770, minSdk = PHONE_MIN_SDK, description = "Phone build")
 
 // The phone build needs Android 12L. Morphe Manager leaves out versions the
 // device cannot install.

@@ -3,7 +3,6 @@ package semicoloncolonel.mobilestream.patches.cnn.shared
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
-import semicoloncolonel.mobilestream.patches.shared.misc.devTarget
 
 object Constants {
     val COMPATIBILITY = Compatibility(
@@ -17,7 +16,7 @@ object Constants {
         targets = listOf(
             AppTarget("26.21.0"),
             AppTarget("26.23.0"),
-            devTarget("26.24.0", versionCode = 20579381),
+            AppTarget("26.24.0", versionCode = 20579381),
         )
     )
 

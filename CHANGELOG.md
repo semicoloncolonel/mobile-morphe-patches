@@ -1,3 +1,16 @@
+# [1.2.0-dev.50](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.49...v1.2.0-dev.50) (2026-11-28)
+
+
+### Bug Fixes
+
+* **nytimes:** default Library pass reminder URL to blank ([0306eeb](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/0306eebdef239d8ee935218acbcf7a6c9d4b8c3d))
+
+
+### Features
+
+* **nytimes:** add Library pass reminder (opt-in, experimental) ([fc5501c](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/fc5501c049e1cb4d6a3ac3592a12df9e3056698b))
+* **nytimes:** trigger Library pass reminder on account status, not just the paywall ([cf6327d](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/cf6327df78c01334d47b3ceb26697c0a963ea712))
+
 # [1.2.0-dev.49](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.48...v1.2.0-dev.49) (2026-11-27)
 
 

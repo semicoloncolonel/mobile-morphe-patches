@@ -414,11 +414,14 @@
 # OneTrust's React Native module.
 -keep class semicoloncolonel.mobilestream.extension.aljazeera.OneTrustConsent { public static *; }
 
-# The New York Times — "Library pass reminder". onGatewayShown() is called only
-# from injected smali in GatewayFragmentCard.onActivityCreated, and renewUrl()
-# is overwritten by the patch, so R8 must keep them as they are and not fold
-# the URL answer.
+# The New York Times — "Library pass reminder". maybeRemind(), onGatewayShown()
+# and recordLevel() are called only from injected smali (BaseAppCompatActivity
+# .onStart, the gateway card, and NYT's SubscriptionLevel getter), and
+# renewUrl() is overwritten by the patch, so R8 must keep them as they are and
+# not fold the URL answer.
 -keep class semicoloncolonel.mobilestream.extension.nytimes.misc.LibraryPassReminder {
+    public static void maybeRemind(android.app.Activity);
     public static void onGatewayShown(java.lang.Object);
+    public static void recordLevel(java.lang.Object);
     public static java.lang.String renewUrl();
 }

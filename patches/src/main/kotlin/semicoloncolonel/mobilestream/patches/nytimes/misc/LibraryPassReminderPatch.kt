@@ -35,7 +35,10 @@ import semicoloncolonel.mobilestream.patches.nytimes.shared.Constants
 private const val REMINDER =
     "Lsemicoloncolonel/mobilestream/extension/nytimes/misc/LibraryPassReminder;"
 
-private const val DEFAULT_URL = "https://pacl.idm.oclc.org/login/NYT"
+// A sample link, offered in the option's list. The default is blank, so no
+// particular library is baked into the build: the reminder stays off until the
+// patron fills in their own library's NYT redeem link.
+private const val SAMPLE_URL = "https://pacl.idm.oclc.org/login/NYT"
 
 // The gateway card fragment keeps a stable class name across builds. Its
 // onActivityCreated runs when the gateway (paywall / meter / regiwall) is shown.
@@ -69,14 +72,15 @@ val libraryPassReminderPatch = bytecodePatch(
 
     val libraryUrl by stringOption(
         key = "libraryUrl",
-        default = DEFAULT_URL,
+        default = "",
         values = mapOf(
-            "Palo Alto (NYT)" to DEFAULT_URL,
             "Off (blank)" to "",
+            "Palo Alto example" to SAMPLE_URL,
         ),
         title = "Library auth URL",
-        description = "Your library's NYT redeem link, opened when you tap Renew. The default is the Palo Alto " +
-            "City Library link. Leave it blank to turn the reminder off.",
+        description = "Your library's NYT redeem link, opened when you tap Renew. Blank by default, which " +
+            "keeps the reminder off; type your library's link to turn it on. The Palo Alto City Library link is " +
+            "offered as an example of the format.",
         required = false,
     )
 

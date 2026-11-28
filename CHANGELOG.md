@@ -1,3 +1,15 @@
+# [1.2.0-dev.51](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.50...v1.2.0-dev.51) (2026-11-28)
+
+
+### Bug Fixes
+
+* **mlb:** Keep the playlist header when a preroll ad is removed ([6cc20c9](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/6cc20c98430f3601424fc3c42ba6fcd152a518f8))
+
+
+### Features
+
+* **ebay:** Add eBay 6.244.0.1 patches ([7ce66f7](https://github.com/semicoloncolonel/mobile-morphe-patches/commit/7ce66f76f539fbb2b92bb10131f1f3d87118c02a))
+
 # [1.2.0-dev.50](https://github.com/semicoloncolonel/mobile-morphe-patches/compare/v1.2.0-dev.49...v1.2.0-dev.50) (2026-11-28)
 
 
